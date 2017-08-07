@@ -1,2 +1,18 @@
 <?xml version="1.0" encoding="windows-1252" ?>
-<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2"></adfc-config>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__1">
+    <managed-bean-name>LoginBean</managed-bean-name>
+    <managed-bean-class>com.ciobera.wms.ui.beans.LoginBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__2">
+    <managed-bean-name>GlobalBean</managed-bean-name>
+    <managed-bean-class>com.ciobera.wms.framework.bean.GlobalBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__3">
+    <managed-bean-name>HomeBean</managed-bean-name>
+    <managed-bean-class>com.ciobera.wms.ui.beans.HomeBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

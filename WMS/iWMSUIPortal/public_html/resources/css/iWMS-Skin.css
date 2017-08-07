@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+af|navigationPane-buttons::separator-icon-style {
+}
+
+af|navigationPane-buttons::link {
+    -tr-inhibit: background-image;
+    background-color: #FBF9FC;
+    padding: 7px;
+    text-shadow: none;
+}
+
+af|navigationPane-buttons::link:hover {
+    -tr-inhibit: background-image;
+    background-color: #267DB3;
+    padding: 7px;
+    text-shadow: none;
+    color: White;
+}
