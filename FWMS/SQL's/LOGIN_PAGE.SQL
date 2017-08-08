@@ -1,0 +1,81 @@
+--CREATE TABLE FWMS_USERS
+CREATE TABLE FWMS_USERS ( 
+ WMS_USER_SNO                                                   NUMBER(10),
+ WMS_CREATE_DATE                                                DATE,
+ WMS_EMPLOYEE_NO                                                NUMBER(15),
+ WMS_NAME                                                       VARCHAR2(100),
+ WMS_USER_ID                                           	        VARCHAR2(20),
+ WMS_USER_PASSWORD                                              VARCHAR2(20),
+ WMS_GROUP                                                      NUMBER(4),
+ WMS_GROUP_PREVILIGE                                            NUMBER(4),
+ WMS_PREVILIGE_FLAG                                             NUMBER(4),
+ WMS_EXPIRY_DAYS                                                NUMBER(3),
+ WMS_LAST_LOGIN                                                 DATE,
+ WMS_LAST_PASSWORD_CHANGE                                       DATE,
+ WMS_BLOCK                                                      VARCHAR2(1),
+ WMS_STATUS                                                     VARCHAR2(25),
+ WMS_STATUS_CDATE                                               DATE,
+ WMS_REMARKS                                                    VARCHAR2(25),
+ WMS_ENTER_UID                                                  VARCHAR2(20),
+ WMS_ENTER_FPC                                                  VARCHAR2(30),
+ WMS_ENTER_DATE                                                 DATE,
+ WMS_LAST_UPDATE_UID                                            VARCHAR2(20),
+ WMS_LAST_FPC                                                   VARCHAR2(30),
+ WMS_LAST_UPDATE_DATE                                           DATE,
+ WMS_APPROVE_UID                                                VARCHAR2(20),
+ WMS_APPROVE_FPC                                                VARCHAR2(30),
+ WMS_APPROVE_DATE                                               DATE,
+ WMS_COMMENTS                                                   VARCHAR2(300),
+ WMS_EMAIL                                                      VARCHAR2(100),
+ WMS_COMP_ID                                                    NUMBER(3));
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+--CREATE TABLE FWMS_USERS_WPWD
+CREATE TABLE FWMS_USERS_WPWD ( 
+  WMS_USER_ID  VARCHAR2 (20), 
+  WMS_DATE     DATE, 
+  WMS_PC       VARCHAR2 (30));
+
+-- THIS Procedure will take care wrong user attempt 
+--This procedure will insert new record in wrong password attempt table and if count>5 it will block the user
+CREATE OR REPLACE PROCEDURE           FWMS_Wpwd_Proc_01 (PWMS_UID CHAR,PWMS_PC CHAR)IS
+IVP_COUNT NUMBER;
+BEGIN
+INSERT INTO FWMS_USERS_WPWD VALUES (PWMS_UID,SYSDATE,PWMS_PC);
+COMMIT;
+SELECT COUNT(*) INTO IVP_COUNT FROM FWMS_USERS_WPWD WHERE WMS_User_Id=PWMS_UID;
+IF IVP_COUNT>=5 THEN
+UPDATE FWMS_USERS SET WMS_BLOCK='Y' WHERE WMS_USER_ID=PWMS_UID;
+COMMIT;
+END IF;
+EXCEPTION
+ WHEN NO_DATA_FOUND THEN
+ NULL;
+END;
+/
+
+-- This procedure will clear wrong attempts data when user logged correct 
+CREATE OR REPLACE PROCEDURE  FWMS_Wpwd_Proc_02 (PWMS_UID CHAR,PWMS_PC CHAR)IS
+BEGIN
+DELETE FROM FWMS_USERS_WPWD WHERE WMS_USER_ID=PWMS_UID;
+COMMIT;
+UPDATE FWMS_USERS SET WMS_LAST_LOGIN=SYSDATE WHERE WMS_USER_ID=PWMS_UID;
+COMMIT;
+EXCEPTION
+ WHEN NO_DATA_FOUND THEN
+ NULL;
+END;
+/
+
+CREATE OR REPLACE PROCEDURE  FWMS_ULOG_Proc_01 (PWMS_UID CHAR,PWMS_PC CHAR,PWMS_SCREEN CHAR,PWMS_TYPE CHAR,PWMS_LOG CHAR)IS
+BEGIN
+INSERT INTO FWMS_USER_LOG (WMS_LOG_DATE,WMS_USER_ID,WMS_PC,WMS_SCREEN,WMS_TRANSACTION_TYPE,WMS_LOG)
+VALUES (SYSDATE,PWMS_UID,PWMS_PC,PWMS_SCREEN,PWMS_TYPE,PWMS_LOG);
+COMMIT;
+EXCEPTION
+ WHEN NO_DATA_FOUND THEN
+ NULL;
+END;
+/
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
