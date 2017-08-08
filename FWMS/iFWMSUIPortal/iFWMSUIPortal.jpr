@@ -205,7 +205,7 @@
          <hash n="Default">
             <value n="custom" v="false"/>
             <value n="name" v="Default"/>
-            <url n="targetURL" path="public_html/com/ciobera/fwms/ui/pages/login.jspx"/>
+            <url n="targetURL" path="public_html/com/ciobera/fwms/ui/pages/global/login.jspx"/>
          </hash>
       </hash>
    </hash>

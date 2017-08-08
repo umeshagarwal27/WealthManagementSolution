@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.ciobera.fwms.ui" ClientType="Generic">
+  <pageMap>
+    <page path="/com/ciobera/fwms/ui/pages/global/home.jspx" usageId="com_ciobera_fwms_ui_homePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_ciobera_fwms_ui_homePageDef" path="com.ciobera.fwms.ui.pages.global.homePageDef"/>
+  </pageDefinitionUsages>
+</Application>

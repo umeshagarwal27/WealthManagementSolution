@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="UIBundle" value="#{adfBundle['com.ciobera.fwms.bundle.ui.UIBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="#{UIBundle.ERROR}" id="d1">
+            <af:form id="f1">
+                <af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1">
+                    <f:facet name="header"/>
+                    <f:facet name="status"/>
+                    <f:facet name="appNav"/>
+                    <f:facet name="globalLinks"/>
+                    <f:facet name="footer"/>
+                    <f:facet name="center">
+                        <af:panelGridLayout id="pgl1">
+                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch">
+                                    <af:panelGroupLayout id="pgl2" layout="horizontal" halign="center">
+                                        <af:outputText id="ot1" value="Error Message"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                            </af:gridRow>
+                        </af:panelGridLayout>
+                    </f:facet>
+                    <f:facet name="start"/>
+                    <f:facet name="end"/>
+                </af:pageTemplate>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>
