@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/weblogic/security/extension" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://xmlns.oracle.com/weblogic/security"/>
+  <xs:complexType name="ifwms-authenticationType">
+    <xs:complexContent>
+      <xs:extension base="sec:authenticatorType" xmlns:sec="http://xmlns.oracle.com/weblogic/security">
+        <xs:sequence>
+          <xs:element name="db-auth-url" type="xs:string" minOccurs="0" nillable="true" default="jdbc:oracle:thin:@localhost:1521:orcl"/>
+          <xs:element name="db-auth-username" type="xs:string" minOccurs="0" nillable="true" default="hr"/>
+          <xs:element name="db-auth-password" type="xs:string" minOccurs="0" nillable="true" default="hr"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ifwms-authentication" type="ext:ifwms-authenticationType" xmlns:ext="http://xmlns.oracle.com/weblogic/security/extension"/>
+</xs:schema>

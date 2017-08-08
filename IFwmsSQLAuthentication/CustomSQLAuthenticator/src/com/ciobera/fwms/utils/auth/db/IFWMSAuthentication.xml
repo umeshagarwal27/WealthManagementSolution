@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<!DOCTYPE MBeanType SYSTEM "commo.dtd">
+<MBeanType Name="IFWMSAuthentication" DisplayName="IFWMSAuthentication" Package="com.ciobera.fwms.utils.auth"
+           Extends="weblogic.management.security.authentication.Authenticator" PersistPolicy="OnUpdate">
+    <MBeanAttribute Name="ProviderClassName" Type="java.lang.String" Writeable="false"
+                    Default="&quot;com.ciobera.fwms.utils.auth.db.IFWMSAuthenticationProviderImpl&quot;"/>
+    <!-- DB -->
+    <MBeanAttribute Name="DbAuthUrl" Type="java.lang.String" Default="&quot;jdbc:oracle:thin:@localhost:1521:orcl&quot;"/>
+    <MBeanAttribute Name="DbAuthUsername" Type="java.lang.String" Default="&quot;hr&quot;"/>
+    <MBeanAttribute Name="DbAuthPassword" Type="java.lang.String" Default="&quot;hr&quot;"/>
+    <MBeanAttribute Name="Description" Type="java.lang.String" Writeable="false" Default="&quot;Authentication Provider&quot;"/>
+    <MBeanAttribute Name="Version" Type="java.lang.String" Writeable="false" Default="&quot;1.0&quot;"/>
+</MBeanType>
