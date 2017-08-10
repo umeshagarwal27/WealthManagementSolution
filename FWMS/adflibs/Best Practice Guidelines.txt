@@ -1,0 +1,186 @@
+1. SVN URL:https://github.com/umeshagarwal27/WealthManagementSolution.git/trunk/WMS
+2. Application Name: WealthManagementSolution
+3. Application default packaging structure: com.ciobera.wms
+4. Project Structure: 
+	adflibs
+		All ADF Libraries will go here.
+	iFWMSBundle
+		All common bundles will reside here
+		package structure: com.ciobera.fwms.bundle
+	iFWMSComonModel
+		All common ADF components will go here.
+		package structure: com.ciobera.fwms.common.model
+	iFWMSCommonUtil
+		All Framework related classes reside here
+		package structure: com.ciobera.fwms.common.util
+	iFWMSRootModel
+		All AM will be put under this ROOT AM.
+		package structure: com.ciobera.fwms.root.model
+	iWMSTradeModel
+		All Trade related ADF components will go here.
+		package structure: com.ciobera.wms.trade.model
+	iWMSTradeUI
+		All Trade related UI components will go here.
+		package structure: com.ciobera.wms.trade.ui
+	iWMSUIPortal
+		The main portal which will be launched.
+		package structure: com.ciobera.wms.ui
+5. JDev Version to be used: 12.2.1.2
+6. 
+Naming Conventions:
+
+Main UI Bean package structure: com.redacumen.iap.view.<<modulename>>
+Main UI taskflow location: web-inf/com/redacumen/iap/taskflows
+Main UI menu: web-inf/com/redacumen/iap/menus
+Pages: com/redacumen/iap/ui/pages
+PageTemplates: com/redacumen/iap/ui/pageTemplates
+Fragments: com/redacumen/iap/ui/fragments
+
+
+RootModel package: 
+com.redacumen.iap.root.model.
+  am
+  views
+  viewLinks
+  entity
+  associations
+
+
+For individial module projects 
+UI: com.redacumen.iap.<<module>>.view
+model: com.redacumen.iap.<<module>>.model
+
+
+UI Layout Design
+
+Use Panelgrid Layout as outer container and grouplayout-vertical as needed. No Stretchlayout.
+
+
+Coding Guidelines
+
+Individual Module taskflows would contain its respective beans which has all the functionalities provided by that fragment for better modularity and maintanence.
+Always refer views from rootAM.ModuleAM
+Use lowest possible scope for the bean. Bean should be serializable.
+
+
+
+
+-Djbo.debugoutput=console -Dweblogic.kernel.debug=true -Dweblogic.log.StdoutSeverity=Debug -Dweblogic.log.LogSeverity=Debug -Dweblogic.StdoutDebugEnabled=true -Dweblogic.log.LoggerSeverity=Debug -Dweblogic.debug.DebugSecurityAtn=true
+
+
+
+
+
+
+
+    /**
+     * This method is called from the bean method LoginBean.doLogin.
+     * This procedure will insert new record for every wrong password attempt in FWMS_USERS_WPWD table and if count>5 it will block the user.
+     * @param userId
+     * @param pc
+     * @return
+     */
+    public Map logWrongAttempt(String userId, String pc) {
+        Map<String, String> resultMap = new HashMap<String, String>();
+        DBTransactionImpl dbTransaction = (DBTransactionImpl) getDBTransaction();
+        CallableStatement custCtxStmt = null;
+        String procedure = "begin " + " FWMS_WPWD_PROC_01('" + userId + "', '" + pc + "'); " + "end;";
+        if (userId != null && pc != null) {
+            custCtxStmt = dbTransaction.createCallableStatement(procedure, 0);
+            try {
+                custCtxStmt.execute();
+                resultMap.put("RESP_CODE", "SUCCESS");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                if (custCtxStmt != null) {
+                    try {
+                        custCtxStmt.close();
+                    } catch (SQLException sqle) {
+                        sqle.printStackTrace();
+                    }
+                }
+            }
+        }
+        return resultMap;
+    }
+
+    /**
+     * This method is called from the bean method LoginBean.doLogin.
+     * This procedure will clear wrong attempts data where user logged correctly into the system.
+     * @param userId
+     * @param pc
+     * @return
+     */
+    public Map clearWrongAttempt(String userId, String pc) {
+        Map<String, String> resultMap = new HashMap<String, String>();
+        DBTransactionImpl dbTransaction = (DBTransactionImpl) getDBTransaction();
+        CallableStatement custCtxStmt = null;
+        String procedure = "begin " + " FWMS_WPWD_PROC_02('" + userId + "', '" + pc + "'); " + "end;";
+        if (userId != null && pc != null) {
+            custCtxStmt = dbTransaction.createCallableStatement(procedure, 0);
+            try {
+                custCtxStmt.execute();
+                resultMap.put("RESP_CODE", "SUCCESS");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                if (custCtxStmt != null) {
+                    try {
+                        custCtxStmt.close();
+                    } catch (SQLException sqle) {
+                        sqle.printStackTrace();
+                    }
+                }
+            }
+        }
+        return resultMap;
+    }
+
+    /**
+     * This method is called from the bean method LoginBean.doLogin.
+     * This procedure will log user activity in Log Table like logging into the system etc.
+     * @param userId
+     * @param pc
+     * @return
+     */
+    public Map logUserActivity(String userId, String pc, String screen, String type, String logMessage) {
+        Map<String, String> resultMap = new HashMap<String, String>();
+        DBTransactionImpl dbTransaction = (DBTransactionImpl) getDBTransaction();
+        CallableStatement custCtxStmt = null;
+        String procedure =
+            "begin " + " FWMS_ULOG_PROC_01('" + userId + "', '" + pc + "', '" + screen + "', '" + type + "', '" +
+            logMessage + "'); " + "end;";
+        if (userId != null && pc != null) {
+            custCtxStmt = dbTransaction.createCallableStatement(procedure, 0);
+            try {
+                custCtxStmt.execute();
+                resultMap.put("RESP_CODE", "SUCCESS");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                if (custCtxStmt != null) {
+                    try {
+                        custCtxStmt.close();
+                    } catch (SQLException sqle) {
+                        sqle.printStackTrace();
+                    }
+                }
+            }
+        }
+        return resultMap;
+    }
+	
+	
+	SELECT FWMS_SEQ_LOGIN.NEXTVAL FROM DUAL  FWMSSeqLoginVO
+	
+	
+	SELECT WMS_USER_ID, WMS_DATE, WMS_PC FROM FWMS_USERS_WPWD  FWMSUsersPwdVO
+	
+	FWMSUsersVO
+	
+	SELECT   
+WMS_USER_SNO, WMS_CREATE_DATE, WMS_EMPLOYEE_NO, WMS_NAME, WMS_USER_ID, WMS_USER_PASSWORD, WMS_GROUP, WMS_GROUP_PREVILIGE, WMS_PREVILIGE_FLAG,   
+ WMS_EXPIRY_DAYS, WMS_LAST_LOGIN, WMS_LAST_PASSWORD_CHANGE, WMS_BLOCK, WMS_STATUS, WMS_STATUS_CDATE, WMS_REMARKS,   
+ WMS_ENTER_UID, WMS_ENTER_FPC, WMS_ENTER_DATE, WMS_LAST_UPDATE_UID, WMS_LAST_FPC, WMS_LAST_UPDATE_DATE, WMS_APPROVE_UID,   
+ WMS_APPROVE_FPC, WMS_APPROVE_DATE, WMS_COMMENTS, WMS_EMAIL, WMS_COMP_ID FROM FWMS_USERS

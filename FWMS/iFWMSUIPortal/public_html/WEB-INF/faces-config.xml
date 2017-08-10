@@ -2,5 +2,10 @@
 <faces-config version="2.1" xmlns="http://java.sun.com/xml/ns/javaee">
   <application>
     <default-render-kit-id>oracle.adf.rich</default-render-kit-id>
+      <resource-bundle>
+            <description>UI Portal Bundle Properties</description>
+            <base-name>com.ciobera.fwms.bundle.ui.UIBundle</base-name>
+            <var>UIBundle</var>
+        </resource-bundle>
   </application>
 </faces-config>

@@ -35,7 +35,7 @@ public class TaskFlowUtil {
 
         ApplicationModule am = null;
 
-        am = iWMSUtil.getErpRootAM();
+        am = iFWMSUtil.getErpRootAM();
         if (am != null && am.getTransaction().isDirty()) {
             am.getTransaction().rollback();
         }

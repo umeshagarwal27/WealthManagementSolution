@@ -16,6 +16,7 @@ import java.io.IOException;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 
 import javax.security.auth.Subject;
 import javax.security.auth.callback.CallbackHandler;
@@ -29,7 +30,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import oracle.adf.share.logging.ADFLogger;
 
-import weblogic.security.URLCallbackHandler;
+import weblogic.security.SimpleCallbackHandler;
 import weblogic.security.services.Authentication;
 
 import weblogic.servlet.security.ServletAuthentication;
@@ -97,16 +98,16 @@ public class LoginBean {
         password = this._password.getBytes();
         FacesContext ctx = FacesContext.getCurrentInstance();
         HttpServletRequest request = (HttpServletRequest) ctx.getExternalContext().getRequest();
-        CallbackHandler handler = new URLCallbackHandler(user, password);
+        CallbackHandler handler = new SimpleCallbackHandler(user, password);
         try {
             // Get the authenticator Subject which has all the user login information
             Subject mySubject = Authentication.login(handler);
             ServletAuthentication.runAs(mySubject, request);
-            ServletAuthentication.generateNewSessionID(request);
-            String loginUrl = "/adfAuthentication?success_url=/faces/com/redacumen/iap/ui/pages/global/homePage.jspx";
-            HttpServletResponse response = (HttpServletResponse) ctx.getExternalContext().getResponse();
-            //On successful authentication navigate to Home page
-            sendForward(request, response, loginUrl);
+//            ServletAuthentication.generateNewSessionID(request);
+//            String loginUrl = "/adfAuthentication?success_url=/faces/com/ciobera/fwms/ui/pages/global/homePage.jspx";
+//            HttpServletResponse response = (HttpServletResponse) ctx.getExternalContext().getResponse();
+//            //On successful authentication navigate to Home page
+//            sendForward(request, response, loginUrl);
         } catch (FailedLoginException fle) {
             addMessage("Incorrect UserName or Password");
             setPassword(null);
@@ -155,5 +156,15 @@ public class LoginBean {
     private void addMessage(String message) {
         FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null);
         FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+
+    public String onExit() {
+        // Add event code here...
+        return null;
+    }
+
+    public String onForgotPasswordClick() {
+        // Add event code here...
+        return null;
     }
 }

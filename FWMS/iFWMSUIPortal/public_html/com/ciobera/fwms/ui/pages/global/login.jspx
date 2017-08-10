@@ -1,41 +1,51 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
-    <c:set var="UIBundle" value="#{adfBundle['com.ciobera.fwms.bundle.ui.UIBundle']}"/>
+    <c:set var="ifwmsuiportalBundle" value="#{adfBundle['com.ciobera.fwms.bundle.ui.UIBundle']}"/>
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
-        <af:document title="#{UIBundle.LOGIN}" id="d1">
-            <af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1">
+        <af:document title="#{UIBundle.LOGIN}" id="d1"
+                     inlineStyle='background-image:url("../../../../../../images/loading.gif");'>
+        <af:form id="f1" defaultCommand="b1">
+            <!--<af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1">
                 <f:facet name="header"/>
                 <f:facet name="status"/>
                 <f:facet name="appNav"/>
                 <f:facet name="globalLinks"/>
                 <f:facet name="footer"/>
-                <f:facet name="center">
+                <f:facet name="center"-->
                     <af:panelGridLayout id="pgl1">
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch">
                                 <af:panelBox text="#{UIBundle.LOGIN_DETAILS}" id="pb1" showDisclosure="false">
                                     <af:panelGroupLayout id="pgl2" layout="horizontal" halign="center">
                                         <af:panelFormLayout id="pfl1">
-                                            <af:inputText label="#{UIBundle.USER_NAME}" id="it1"
+                                            <af:inputText label="#{UIBundle.USER_ID}" id="it1"
                                                           value="#{LoginBean.userName}" autoSubmit="true"/>
                                             <af:spacer width="10" height="10" id="s2"/>
                                             <af:inputText label="#{UIBundle.PASSWORD}" id="it2" secret="true"
                                                           value="#{LoginBean.password}" autoSubmit="true"/>
                                             <af:spacer width="10" height="10" id="s1"/>
-                                            <af:button text="#{UIBundle.LOGIN}" id="b1" partialSubmit="true"
-                                                       styleClass="AFAppNavbarButton" action="#{LoginBean.doLogin}"/>
-                                        </af:panelFormLayout>
+                                        <af:link text="#{UIBundle.FORGOT_PASSWORD_}" id="l1" partialSubmit="true"
+                                                 action="#{LoginBean.onForgotPasswordClick}"/>
+                                        <af:spacer width="10" height="10" id="s4"/>
+                                        <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                            <af:button text="#{UIBundle.LOGIN}" id="b1" action="#{LoginBean.doLogin}"/>
+                                            <af:button text="#{UIBundle.EXIT}" id="b2"
+                                                       action="#{LoginBean.onExit}"/>
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" height="10" id="s3"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:panelFormLayout>
                                     </af:panelGroupLayout>
                                 </af:panelBox>
                             </af:gridCell>
                         </af:gridRow>
                     </af:panelGridLayout>
-                </f:facet>
-                <f:facet name="start"/>
-                <f:facet name="end"/>
-            </af:pageTemplate>
+                <!--/f:facet>
+            </af:pageTemplate-->
+            </af:form>
         </af:document>
     </f:view>
 </jsp:root>

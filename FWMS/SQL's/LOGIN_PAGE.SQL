@@ -35,6 +35,19 @@ CREATE TABLE FWMS_USERS_WPWD (
   WMS_USER_ID  VARCHAR2 (20), 
   WMS_DATE     DATE, 
   WMS_PC       VARCHAR2 (30));
+  
+--CREATE TABLE FWMS_USER_LOG
+CREATE TABLE FWMS_USER_LOG (
+WMS_LOG_DATE DATE,
+WMS_USER_ID VARCHAR2(20),
+WMS_PC VARCHAR2(30),
+WMS_SCREEN VARCHAR2(100),
+WMS_TRANSACTION_TYPE VARCHAR2(30),
+WMS_LOG VARCHAR2(2000)
+);
+
+--CREATE SEQUENCE FWMS_SEQ_LOGIN
+CREATE SEQUENCE FWMS_SEQ_LOGIN INCREMENT BY 1 START WITH 1 MAXVALUE 9999999999 MINVALUE 1 CYCLE NOCACHE NOORDER;
 
 -- THIS Procedure will take care wrong user attempt 
 --This procedure will insert new record in wrong password attempt table and if count>5 it will block the user
@@ -67,6 +80,7 @@ EXCEPTION
 END;
 /
 
+--This procedure is used to log user activity in FMWS_USER_LOG table LIKE LOGGING INTO system etc.
 CREATE OR REPLACE PROCEDURE  FWMS_ULOG_Proc_01 (PWMS_UID CHAR,PWMS_PC CHAR,PWMS_SCREEN CHAR,PWMS_TYPE CHAR,PWMS_LOG CHAR)IS
 BEGIN
 INSERT INTO FWMS_USER_LOG (WMS_LOG_DATE,WMS_USER_ID,WMS_PC,WMS_SCREEN,WMS_TRANSACTION_TYPE,WMS_LOG)
@@ -78,4 +92,5 @@ EXCEPTION
 END;
 /
 -------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
