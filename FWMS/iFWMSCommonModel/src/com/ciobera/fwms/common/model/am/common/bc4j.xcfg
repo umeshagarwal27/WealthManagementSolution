@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="com.ciobera.fwms.common.model.am.CommonAM">
+    <AppModuleConfig name="CommonAMLocal" jbo.project="com.ciobera.fwms.common.model.iFWMSCommonModel"
+                     ApplicationName="com.ciobera.fwms.common.model.am.CommonAM" DeployPlatform="LOCAL">
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="jdbc/hrDS"/>
+      <Security AppModuleJndiName="com.ciobera.fwms.common.model.am.CommonAM"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="CommonAMShared" jbo.project="com.ciobera.fwms.common.model.iFWMSCommonModel"
+                     ApplicationName="com.ciobera.fwms.common.model.am.CommonAM" DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="jdbc/hrDS"/>
+      <Security AppModuleJndiName="com.ciobera.fwms.common.model.am.CommonAM"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>

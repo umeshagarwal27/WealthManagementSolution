@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CommonAM"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="com.ciobera.fwms.common.model.am.CommonAMImpl"
+  ComponentInterface="com.ciobera.fwms.common.model.am.common.CommonAM">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="FWMSUsers"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSUsersVO"/>
+  <ViewUsage
+    Name="FWMSUsersPwd"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSUsersPwdVO"/>
+  <ViewUsage
+    Name="FWMSSeqLogin"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSSeqLoginVO"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="clearWrongAttempt"
+      MethodName="clearWrongAttempt">
+      <Return
+        Name="_return_type_"
+        Type="java.util.Map"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="pc"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="logUserActivity"
+      MethodName="logUserActivity">
+      <Return
+        Name="_return_type_"
+        Type="java.util.Map"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="pc"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="screen"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="type"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="logMessage"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="logWrongAttempt"
+      MethodName="logWrongAttempt">
+      <Return
+        Name="_return_type_"
+        Type="java.util.Map"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="pc"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
+</AppModule>
