@@ -210,7 +210,7 @@
       <hash n="runConfigurationDefinitions">
          <hash n="Default">
             <value n="custom" v="false"/>
-            <value n="javaOptions" v="-Djbo.debugoutput=console -Dweblogic.kernel.debug=true -Dweblogic.log.StdoutSeverity=Debug -Dweblogic.log.LogSeverity=Debug -Dweblogic.StdoutDebugEnabled=true -Dweblogic.log.LoggerSeverity=Debug -Dweblogic.debug.DebugSecurityAtn=true"/>
+            <value n="javaOptions" v=""/>
             <value n="name" v="Default"/>
             <url n="targetURL" path="public_html/com/ciobera/fwms/ui/pages/global/login.jspx"/>
          </hash>
