@@ -71,5 +71,18 @@
         Name="pc"
         Type="java.lang.String"/>
     </Method>
+    <Method
+      Name="findUserByLoginCredentials"
+      MethodName="findUserByLoginCredentials">
+      <Return
+        Name="_return_type_"
+        Type="java.util.Map"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="password"
+        Type="java.lang.String"/>
+    </Method>
   </ClientInterface>
 </AppModule>

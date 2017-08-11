@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
+import oracle.jbo.ViewCriteria;
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.DBTransactionImpl;
 // ---------------------------------------------------------------------
@@ -24,6 +25,42 @@ public class CommonAMImpl extends ApplicationModuleImpl implements CommonAM {
      * This is the default constructor (do not remove).
      */
     public CommonAMImpl() {
+    }
+
+    public Map findUserByLoginCredentials(String userId, String password) {
+        Map<String, String> resultMap = new HashMap<String, String>();
+        if (userId == null || password == null || "".equals(userId) || "".equals(password)) {
+            resultMap.put("RESP_CODE", "FAILURE");
+            resultMap.put("RESP_MESSAGE", "UserId or Password is null.");
+            return resultMap;
+        }
+        FWMSUsersVOImpl usersVO = this.getFWMSUsers();
+        if (usersVO != null) {
+            ViewCriteria findByLoginCredentialsVC = usersVO.getViewCriteria("findByLoginCredentials");
+            if (findByLoginCredentialsVC != null) {
+                usersVO.applyViewCriteria(null);
+                usersVO.setNamedWhereClauseParam("pUserId", null);
+                usersVO.setNamedWhereClauseParam("pUserPassword", null);
+
+                usersVO.setNamedWhereClauseParam("pUserId", userId);
+                usersVO.setNamedWhereClauseParam("pUserPassword", password);
+                usersVO.applyViewCriteria(findByLoginCredentialsVC);
+                usersVO.executeQuery();
+                if (usersVO.getEstimatedRowCount() > 0) {
+                    resultMap.put("RESP_CODE", "SUCCESS");
+                } else {
+                    resultMap.put("RESP_CODE", "FAILURE");
+                    resultMap.put("RESP_MESSAGE", "Invalid Credentials");
+                }
+            } else {
+                resultMap.put("RESP_CODE", "FAILURE");
+                resultMap.put("RESP_MESSAGE", "An error has occurred. Please contact your system administrator.");
+            }
+        } else {
+            resultMap.put("RESP_CODE", "FAILURE");
+            resultMap.put("RESP_MESSAGE", "An error has occurred. Please contact your system administrator.");
+        }
+        return resultMap;
     }
 
     /**

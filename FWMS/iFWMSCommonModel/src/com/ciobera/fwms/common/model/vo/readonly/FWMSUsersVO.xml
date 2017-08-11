@@ -22,6 +22,28 @@
         ResId="com.ciobera.fwms.common.model.vo.readonly.FWMSUsersVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="pUserId"
+    Kind="viewcriteria"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="pUserPassword"
+    Kind="viewcriteria"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <SQLQuery><![CDATA[SELECT    
 WMS_USER_SNO, WMS_CREATE_DATE, WMS_EMPLOYEE_NO, WMS_NAME, WMS_USER_ID, WMS_USER_PASSWORD, WMS_GROUP, WMS_GROUP_PREVILIGE, WMS_PREVILIGE_FLAG,    
  WMS_EXPIRY_DAYS, WMS_LAST_LOGIN, WMS_LAST_PASSWORD_CHANGE, WMS_BLOCK, WMS_STATUS, WMS_STATUS_CDATE, WMS_REMARKS,    
@@ -115,7 +137,7 @@ WMS_USER_SNO, WMS_CREATE_DATE, WMS_EMPLOYEE_NO, WMS_NAME, WMS_USER_ID, WMS_USER_
     ColumnType="NUMBER"
     AliasName="WMS_GROUP"
     Expression="WMS_GROUP"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="WmsGroupPrevilige"
     IsUpdateable="false"
@@ -127,7 +149,7 @@ WMS_USER_SNO, WMS_CREATE_DATE, WMS_EMPLOYEE_NO, WMS_NAME, WMS_USER_ID, WMS_USER_
     ColumnType="NUMBER"
     AliasName="WMS_GROUP_PREVILIGE"
     Expression="WMS_GROUP_PREVILIGE"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="WmsPreviligeFlag"
     IsUpdateable="false"
@@ -139,7 +161,7 @@ WMS_USER_SNO, WMS_CREATE_DATE, WMS_EMPLOYEE_NO, WMS_NAME, WMS_USER_ID, WMS_USER_
     ColumnType="NUMBER"
     AliasName="WMS_PREVILIGE_FLAG"
     Expression="WMS_PREVILIGE_FLAG"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="WmsExpiryDays"
     IsUpdateable="false"
@@ -151,7 +173,7 @@ WMS_USER_SNO, WMS_CREATE_DATE, WMS_EMPLOYEE_NO, WMS_NAME, WMS_USER_ID, WMS_USER_
     ColumnType="NUMBER"
     AliasName="WMS_EXPIRY_DAYS"
     Expression="WMS_EXPIRY_DAYS"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="WmsLastLogin"
     IsUpdateable="false"
@@ -388,7 +410,51 @@ WMS_USER_SNO, WMS_CREATE_DATE, WMS_EMPLOYEE_NO, WMS_NAME, WMS_USER_ID, WMS_USER_
     ColumnType="NUMBER"
     AliasName="WMS_COMP_ID"
     Expression="WMS_COMP_ID"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
+  <ViewCriteria
+    Name="findByLoginCredentials"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSUsersVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="FWMSUsersVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="WmsUserId"
+        ViewAttribute="WmsUserId"
+        Operator="="
+        Conjunction="AND"
+        Value=":pUserId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="WmsUserPassword"
+        ViewAttribute="WmsUserPassword"
+        Operator="="
+        Conjunction="AND"
+        Value=":pUserPassword"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="WmsUserSno"/>
   </AttrArray>

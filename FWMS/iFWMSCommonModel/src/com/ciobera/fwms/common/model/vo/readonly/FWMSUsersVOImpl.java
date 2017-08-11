@@ -13,5 +13,37 @@ public class FWMSUsersVOImpl extends ViewObjectImpl {
      */
     public FWMSUsersVOImpl() {
     }
+
+    /**
+     * Returns the variable value for pUserId.
+     * @return variable value for pUserId
+     */
+    public String getpUserId() {
+        return (String) ensureVariableManager().getVariableValue("pUserId");
+    }
+
+    /**
+     * Sets <code>value</code> for variable pUserId.
+     * @param value value to bind as pUserId
+     */
+    public void setpUserId(String value) {
+        ensureVariableManager().setVariableValue("pUserId", value);
+    }
+
+    /**
+     * Returns the variable value for pUserPassword.
+     * @return variable value for pUserPassword
+     */
+    public String getpUserPassword() {
+        return (String) ensureVariableManager().getVariableValue("pUserPassword");
+    }
+
+    /**
+     * Sets <code>value</code> for variable pUserPassword.
+     * @param value value to bind as pUserPassword
+     */
+    public void setpUserPassword(String value) {
+        ensureVariableManager().setVariableValue("pUserPassword", value);
+    }
 }
 
