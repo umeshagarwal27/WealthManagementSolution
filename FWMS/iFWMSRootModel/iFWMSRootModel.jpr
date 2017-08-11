@@ -68,10 +68,13 @@
       <string v="oracle.adfdtinternal.model.ide.settings.ADFMSettings/adfmContentSet"/>
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
    </list>
-   <value n="defaultPackage" v="com.ciobera.fwms.common.model"/>
-   <value n="jbo.JpxName" v="com.ciobera.fwms.common.model.iFWMSCommonModel"/>
+   <value n="defaultPackage" v="com.ciobera.fwms.root.model"/>
+   <value n="jbo.JpxName" v="com.ciobera.fwms.root.model.iFWMSRootModel"/>
    <value n="jbo.NoAttrEnumClasses" v="true"/>
    <value n="JboProject" v="true"/>
+   <hash n="oracle.adfdtinternal.model.ide.settings.ADFMSettings">
+      <value n="hasDataControls" v="true"/>
+   </hash>
    <hash n="oracle.ide.model.DependencyConfiguration">
       <list n="dependencyList">
          <hash>
@@ -119,7 +122,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="FWMS_iFWMSCommonModel">
+         <hash n="FWMS_iFWMSRootModel">
             <value n="adflib-connectionDetails" v="true"/>
             <hash n="archiveOptions">
                <value n="hasManifest" v="true"/>
@@ -153,19 +156,19 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="../adflibs/AdflibFWMSCommonModel.jar"/>
+            <url n="jarURL" path="../adflibs/AdflibFWMSRootModel.jar"/>
             <hash n="LibraryDependencies"/>
             <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="FWMS_iFWMSCommonModel"/>
+            <value n="profileName" v="FWMS_iFWMSRootModel"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="FWMS_iFWMSCommonModel"/>
+         <string v="FWMS_iFWMSRootModel"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="FWMS-iFWMSCommonModel-webapp"/>
-      <value n="j2eeWebContextRoot" v="FWMS-iFWMSCommonModel-context-root"/>
+      <value n="j2eeWebAppName" v="FWMS-iFWMSRootModel-webapp"/>
+      <value n="j2eeWebContextRoot" v="FWMS-iFWMSRootModel-context-root"/>
    </hash>
    <hash n="oracle.jdeveloper.model.PathsConfiguration">
       <hash n="javaContentSet">
@@ -208,7 +211,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="AdflibFWMSBundle.jar"/>
+            <value n="id" v="ADF Library"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -224,12 +227,12 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
+                  <url path="../adflibs/AdflibFWMSCommonModel.jar" jar-entry=""/>
                   <url path="../adflibs/AdflibFWMSBundle.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
-               <value n="description" v="AdflibFWMSBundle.jar"/>
-               <value n="id" v="AdflibFWMSBundle.jar"/>
-               <value n="locked" v="true"/>
+               <value n="description" v="ADF Library"/>
+               <value n="id" v="ADF Library"/>
             </hash>
          </list>
       </hash>
@@ -263,7 +266,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="AdflibFWMSBundle.jar"/>
+            <value n="id" v="ADF Library"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>

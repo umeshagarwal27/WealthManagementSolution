@@ -7,21 +7,15 @@
 	iFWMSBundle
 		All common bundles will reside here
 		package structure: com.ciobera.fwms.bundle
+	iFWMSCommonUtil
+		All Framework related classes reside here
+		package structure: com.ciobera.fwms.common.util	
 	iFWMSCommonModel
 		All common ADF components will go here.
 		package structure: com.ciobera.fwms.common.model
-	iFWMSCommonUtil
-		All Framework related classes reside here
-		package structure: com.ciobera.fwms.common.util
 	iFWMSRootModel
 		All AM will be put under this ROOT AM.
 		package structure: com.ciobera.fwms.root.model
-	iWMSTradeModel
-		All Trade related ADF components will go here.
-		package structure: com.ciobera.wms.trade.model
-	iWMSTradeUI
-		All Trade related UI components will go here.
-		package structure: com.ciobera.wms.trade.ui
 	iWMSUIPortal
 		The main portal which will be launched.
 		package structure: com.ciobera.wms.ui

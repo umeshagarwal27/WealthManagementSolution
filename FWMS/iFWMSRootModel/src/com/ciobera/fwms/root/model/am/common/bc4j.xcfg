@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="com.ciobera.fwms.root.model.am.FWMSRootAM">
+    <AppModuleConfig name="FWMSRootAMLocal" jbo.project="com.ciobera.fwms.root.model.iFWMSRootModel"
+                     ApplicationName="com.ciobera.fwms.root.model.am.FWMSRootAM" DeployPlatform="LOCAL">
+      <Security AppModuleJndiName="com.ciobera.fwms.root.model.am.FWMSRootAM"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="FWMSRootAMShared" jbo.project="com.ciobera.fwms.root.model.iFWMSRootModel"
+                     ApplicationName="com.ciobera.fwms.root.model.am.FWMSRootAM" DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Security AppModuleJndiName="com.ciobera.fwms.root.model.am.FWMSRootAM"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>
