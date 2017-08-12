@@ -14,26 +14,28 @@
                     <f:facet name="center">
                         <af:panelGroupLayout id="pgl3" layout="horizontal" valign="middle"
                                              inlineStyle="padding-top:400px;padding-left:600px;">
-                            <af:panelBox text="#{UIBundle.LOGIN_DETAILS}" id="pb1" showDisclosure="false">
-                                <af:panelGroupLayout id="pgl2" layout="horizontal" halign="center">
+                            <af:panelBox text="#{null}" id="pb1" showDisclosure="false" background="light">
+                                <af:panelGroupLayout id="pgl2" layout="vertical" halign="center">
+                                    <af:outputFormatted value="outputFormatted4" id="of8"/>
                                     <af:panelFormLayout id="pfl1">
                                         <af:inputText label="#{UIBundle.USER_ID}" id="it1" value="#{LoginBean.userName}"
                                                       autoSubmit="true"/>
                                         <af:spacer width="10" height="10" id="s2"/>
                                         <af:inputText label="#{UIBundle.PASSWORD}" id="it2" secret="true"
                                                       value="#{LoginBean.password}" autoSubmit="true"/>
-                                        <af:spacer width="10" height="10" id="s1"/>
                                         <af:link text="#{UIBundle.FORGOT_PASSWORD_}" id="l1" partialSubmit="true"
                                                  action="#{LoginBean.onForgotPasswordClick}"/>
-                                        <af:spacer width="10" height="5" id="s4"/>
-                                        <af:panelGroupLayout id="pgl8" layout="horizontal">
-                                            <af:button text="#{UIBundle.LOGIN}" id="b1" action="#{LoginBean.doLogin}"/>
-                                            <af:button text="#{UIBundle.EXIT}" id="b2" action="#{LoginBean.onExit}"/>
-                                            <f:facet name="separator">
-                                                <af:spacer width="10" height="10" id="s3"/>
-                                            </f:facet>
-                                        </af:panelGroupLayout>
                                     </af:panelFormLayout>
+                                    <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                        <af:button text="#{UIBundle.LOGIN}" id="b1" action="#{LoginBean.doLogin}"/>
+                                        <af:button text="#{UIBundle.EXIT}" id="b2" action="#{LoginBean.onExit}"/>
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="10" id="s3"/>
+                                        </f:facet>
+                                    </af:panelGroupLayout>
+                                    <f:facet name="separator">
+                                        <af:spacer width="10" height="10" id="s1"/>
+                                    </f:facet>
                                 </af:panelGroupLayout>
                                 <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
                                           binding="#{LoginBean.forgotPasswordPopupBinding}"

@@ -51,7 +51,9 @@ public class LoginBean {
     private String fpUserId;
     private String fpOTP;
     private String pc;
-    private String failureAttempts;
+    private long failureAttempts = 0;
+    private boolean loginFailed = Boolean.FALSE;
+    private String wlsHome;
     public static final ADFLogger LOGGER = ADFLogger.createADFLogger(LoginBean.class);
 
     /**
@@ -94,7 +96,7 @@ public class LoginBean {
         if ((user == null || user.trim().length() == 0) || (this._password == null || this._password
                                                                                           .trim()
                                                                                           .length() == 0)) {
-            addMessage("Please enter User Name and Password to Login.");
+            addMessage("Please enter User ID and Password to Login.");
             return null;
         }
         OperationBinding executeMethodOP = ADFUtil.findOperationBinding("findUserByLoginCredentials");
@@ -531,6 +533,34 @@ public class LoginBean {
 
     public String getPc() {
         return pc;
+    }
+
+    public void setWlsHome(String wlsHome) {
+        this.wlsHome = wlsHome;
+    }
+
+    public String getWlsHome() {
+        if(wlsHome == null){
+            wlsHome= System.getProperty("wls.home");
+            setWlsHome(wlsHome);
+        }
+        return wlsHome;
+    }
+
+    public void setFailureAttempts(long failureAttempts) {
+        this.failureAttempts = failureAttempts;
+    }
+
+    public long getFailureAttempts() {
+        return failureAttempts;
+    }
+
+    public void setLoginFailed(boolean loginFailed) {
+        this.loginFailed = loginFailed;
+    }
+
+    public boolean isLoginFailed() {
+        return loginFailed;
     }
 
     public static void main(String args[]) {

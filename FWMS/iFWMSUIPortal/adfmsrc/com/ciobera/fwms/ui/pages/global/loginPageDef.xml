@@ -6,7 +6,7 @@
     <variableIterator id="variables"/>
   </executables>
   <bindings>
-    <!--methodAction id="clearWrongAttempt" RequiresUpdateModel="true" Action="invokeMethod" MethodName="clearWrongAttempt"
+    <methodAction id="clearWrongAttempt" RequiresUpdateModel="true" Action="invokeMethod" MethodName="clearWrongAttempt"
                   IsViewObjectMethod="false" DataControl="FWMSRootAMDataControl"
                   InstanceName="bindings.clearWrongAttempt.dataControl.dataProvider.CommonAM"
                   ReturnName="data.FWMSRootAMDataControl.methodResults.clearWrongAttempt_clearWrongAttempt_dataControl_dataProvider_CommonAM_clearWrongAttempt_result">
@@ -44,6 +44,6 @@
       <NamedData NDName="userId" NDType="java.lang.String"/>
       <NamedData NDName="password" NDType="java.lang.String"/>
       <NamedData NDName="newPassword" NDType="java.lang.String"/>
-    </methodAction-->
+    </methodAction>
   </bindings>
 </pageDefinition>
