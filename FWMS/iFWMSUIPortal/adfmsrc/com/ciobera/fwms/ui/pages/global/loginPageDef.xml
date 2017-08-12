@@ -1,17 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="loginPageDef"
                 Package="com.ciobera.fwms.ui.pages.global">
-  <parameters/>
-  <executables>
-    <variableIterator id="variables"/>
-  </executables>
-  <bindings>
-    <methodAction id="findUserByLoginCredentials" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="findUserByLoginCredentials" IsViewObjectMethod="false" DataControl="CommonAMDataControl"
-                  InstanceName="bindings.findUserByLoginCredentials.dataControl.dataProvider"
-                  ReturnName="data.CommonAMDataControl.methodResults.findUserByLoginCredentials_findUserByLoginCredentials_dataControl_dataProvider_findUserByLoginCredentials_result">
-      <NamedData NDName="userId" NDValue="#{LoginBean.peUserId}" NDType="java.lang.String"/>
-      <NamedData NDName="password" NDValue="#{LoginBean.pePassword}" NDType="java.lang.String"/>
-    </methodAction>
-  </bindings>
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+    </executables>
+    <bindings>
+        <methodAction id="findUserByLoginCredentials" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="findUserByLoginCredentials" IsViewObjectMethod="false"
+                      DataControl="CommonAMDataControl"
+                      InstanceName="bindings.findUserByLoginCredentials.dataControl.dataProvider"
+                      ReturnName="data.CommonAMDataControl.methodResults.findUserByLoginCredentials_findUserByLoginCredentials_dataControl_dataProvider_findUserByLoginCredentials_result">
+            <NamedData NDName="userId" NDValue="#{LoginBean.peUserId}" NDType="java.lang.String"/>
+            <NamedData NDName="password" NDValue="#{LoginBean.pePassword}" NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="blockUser" RequiresUpdateModel="true" Action="invokeMethod" MethodName="blockUser"
+                      IsViewObjectMethod="false" DataControl="CommonAMDataControl"
+                      InstanceName="bindings.blockUser.dataControl.dataProvider"
+                      ReturnName="data.CommonAMDataControl.methodResults.blockUser_blockUser_dataControl_dataProvider_blockUser_result">
+            <NamedData NDName="userId" NDValue="#{LoginBean.userName}" NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="clearWrongAttempt" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="clearWrongAttempt" IsViewObjectMethod="false" DataControl="CommonAMDataControl"
+                      InstanceName="bindings.clearWrongAttempt.dataControl.dataProvider"
+                      ReturnName="data.CommonAMDataControl.methodResults.clearWrongAttempt_clearWrongAttempt_dataControl_dataProvider_clearWrongAttempt_result">
+            <NamedData NDName="userId" NDValue="#{LoginBean.userName}" NDType="java.lang.String"/>
+            <NamedData NDName="pc" NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="getUserWrongPasswordCount" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="getUserWrongPasswordCount" IsViewObjectMethod="false"
+                      DataControl="CommonAMDataControl"
+                      InstanceName="bindings.getUserWrongPasswordCount.dataControl.dataProvider"
+                      ReturnName="data.CommonAMDataControl.methodResults.getUserWrongPasswordCount_getUserWrongPasswordCount_dataControl_dataProvider_getUserWrongPasswordCount_result">
+            <NamedData NDName="userId" NDValue="#{LoginBean.userName}" NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="logUserActivity" RequiresUpdateModel="true" Action="invokeMethod" MethodName="logUserActivity"
+                      IsViewObjectMethod="false" DataControl="CommonAMDataControl"
+                      InstanceName="bindings.logUserActivity.dataControl.dataProvider"
+                      ReturnName="data.CommonAMDataControl.methodResults.logUserActivity_logUserActivity_dataControl_dataProvider_logUserActivity_result">
+            <NamedData NDName="userId" NDValue="#{LoginBean.userName}" NDType="java.lang.String"/>
+            <NamedData NDName="pc" NDType="java.lang.String"/>
+            <NamedData NDName="screen" NDType="java.lang.String"/>
+            <NamedData NDName="type" NDType="java.lang.String"/>
+            <NamedData NDName="logMessage" NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="logWrongAttempt" RequiresUpdateModel="true" Action="invokeMethod" MethodName="logWrongAttempt"
+                      IsViewObjectMethod="false" DataControl="CommonAMDataControl"
+                      InstanceName="bindings.logWrongAttempt.dataControl.dataProvider"
+                      ReturnName="data.CommonAMDataControl.methodResults.logWrongAttempt_logWrongAttempt_dataControl_dataProvider_logWrongAttempt_result">
+            <NamedData NDName="userId" NDValue="#{LoginBean.userName}" NDType="java.lang.String"/>
+            <NamedData NDName="pc" NDValue="#{LoginBean.pc}" NDType="java.lang.String"/>
+        </methodAction>
+        <methodAction id="updateLoginCredentials" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="updateLoginCredentials" IsViewObjectMethod="false" DataControl="CommonAMDataControl"
+                      InstanceName="bindings.updateLoginCredentials.dataControl.dataProvider"
+                      ReturnName="data.CommonAMDataControl.methodResults.updateLoginCredentials_updateLoginCredentials_dataControl_dataProvider_updateLoginCredentials_result">
+            <NamedData NDName="userId" NDValue="#{LoginBean.peUserId}" NDType="java.lang.String"/>
+            <NamedData NDName="password" NDValue="#{LoginBean.pePassword}" NDType="java.lang.String"/>
+            <NamedData NDName="newPassword" NDValue="#{LoginBean.peNewPassword}" NDType="java.lang.String"/>
+        </methodAction>
+    </bindings>
 </pageDefinition>

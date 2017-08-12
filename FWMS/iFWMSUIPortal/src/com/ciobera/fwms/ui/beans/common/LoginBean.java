@@ -51,7 +51,7 @@ public class LoginBean {
     private String customMessage;
     private String fpUserId;
     private String fpOTP;
-    private String pc;
+    private String pc = "PC";
     private long failureAttempts = 0;
     private String attemptFailureMessage;
     private String wlsHome;
@@ -104,11 +104,12 @@ public class LoginBean {
      */
     public String doLogin() {
         LoggingUtil.logDebugMessages(LOGGER, "Start of LoginBean.doLogin()" + _userName);
-        String user = _userName;
-        if ((user == null || user.trim().length() == 0) || (this._password == null || this._password
-                                                                                          .trim()
-                                                                                          .length() == 0)) {
-            addMessage("Please enter User ID and Password to Login.");
+        if ((_userName == null || _userName.trim().length() == 0)) {
+            displayErrorPopup(ADFUtil.getUIBundleMsg("USERID_NULL"));
+            return null;
+        }
+        if ((_password == null || _password.trim().length() == 0)) {
+            displayErrorPopup(ADFUtil.getUIBundleMsg("PASSWORD_NULL"));
             return null;
         }
         peUserId = _userName;
@@ -117,8 +118,12 @@ public class LoginBean {
         Map resultMap = executeMethod("findUserByLoginCredentials");
         if (resultMap != null && !resultMap.isEmpty()) {
             String respCode = (String) resultMap.get("RESP_CODE");
+            if("INVALID_USER".equalsIgnoreCase(respCode)){
+                displayErrorPopup(ADFUtil.getUIBundleMsg("INVALID_USER_ID"));
+                return null;
+            }
             //If Invalid Credentials
-            if ("INVALID".equalsIgnoreCase(respCode)) {
+            else if ("INVALID".equalsIgnoreCase(respCode)) {
                 Map logWrongAttemptOP = executeMethod("logWrongAttempt");
                 if (logWrongAttemptOP != null && !logWrongAttemptOP.isEmpty()) {
                     String logWrongAttemptRespCode = (String) resultMap.get("RESP_CODE");

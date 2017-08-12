@@ -40,23 +40,25 @@ public class CommonAMImpl extends ApplicationModuleImpl implements CommonAM {
         Map resultMap = new HashMap();
         FWMSUsersVOImpl usersVO = this.getFWMSUsers();
         if (usersVO != null) {
-            ViewCriteria findByLoginCredentialsVC = usersVO.getViewCriteria("findByLoginCredentials");
-            if (findByLoginCredentialsVC != null) {
+            ViewCriteria findByUserIdVC = usersVO.getViewCriteria("findByUserId");
+            if (findByUserIdVC != null) {
                 usersVO.applyViewCriteria(null);
                 usersVO.setNamedWhereClauseParam("pUserId", null);
-                usersVO.setNamedWhereClauseParam("pUserPassword", null);
-
                 usersVO.setNamedWhereClauseParam("pUserId", userId);
-                usersVO.setNamedWhereClauseParam("pUserPassword", password);
-                usersVO.applyViewCriteria(findByLoginCredentialsVC);
+                usersVO.applyViewCriteria(findByUserIdVC);
                 usersVO.executeQuery();
                 Row currentRow = usersVO.first();
                 if (currentRow != null) {
-                    resultMap.put("RESP_CODE", "SUCCESS");
-                    resultMap.put("EXPIRY_DAYS", Integer.toString((Integer)currentRow.getAttribute("WmsExpiryDays")));
-                    resultMap.put("USER_BLOCKED", (String)currentRow.getAttribute("WmsBlock"));
+                    if (password.equals(currentRow.getAttribute("WmsUserPassword"))) {
+                        resultMap.put("RESP_CODE", "SUCCESS");
+                        resultMap.put("EXPIRY_DAYS",
+                                      Integer.toString((Integer) currentRow.getAttribute("WmsExpiryDays")));
+                        resultMap.put("USER_BLOCKED", (String) currentRow.getAttribute("WmsBlock"));
+                    } else {
+                        resultMap.put("RESP_CODE", "INVALID");
+                    }
                 } else {
-                    resultMap.put("RESP_CODE", "INVALID");
+                    resultMap.put("RESP_CODE", "INVALID_USER");
                 }
             } else {
                 resultMap.put("RESP_CODE", "FAILURE");
@@ -68,7 +70,7 @@ public class CommonAMImpl extends ApplicationModuleImpl implements CommonAM {
         }
         return resultMap;
     }
-    
+
     /**
      * This method is called from the bean LoginBean.onChangePassword.
      * This method updates login credentials in the DB.
@@ -109,7 +111,7 @@ public class CommonAMImpl extends ApplicationModuleImpl implements CommonAM {
         }
         return resultMap;
     }
-    
+
     /**
      * This method is called from the bean LoginBean.onChangePassword.
      * This method blocks User
@@ -164,7 +166,7 @@ public class CommonAMImpl extends ApplicationModuleImpl implements CommonAM {
                 userPwdVO.setNamedWhereClauseParam("pUserId", userId);
                 userPwdVO.applyViewCriteria(findUserPwdCountVC);
                 userPwdVO.executeQuery();
-                resultMap.put("COUNT", (Long)userPwdVO.getEstimatedRowCount());
+                resultMap.put("COUNT", (Long) userPwdVO.getEstimatedRowCount());
             }
         }
         return resultMap;
