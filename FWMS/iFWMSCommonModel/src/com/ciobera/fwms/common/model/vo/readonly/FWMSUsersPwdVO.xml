@@ -22,6 +22,17 @@
         ResId="com.ciobera.fwms.common.model.vo.readonly.FWMSUsersPwdVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="pUserId"
+    Kind="viewcriteria"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <SQLQuery><![CDATA[SELECT WMS_USER_ID, WMS_DATE, WMS_PC FROM FWMS_USERS_WPWD]]></SQLQuery>
   <ViewAttribute
     Name="WmsUserId"
@@ -63,6 +74,42 @@
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewCriteria
+    Name="findUserPwdCount"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSUsersPwdVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="FWMSUsersPwdVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="WmsUserId"
+        ViewAttribute="WmsUserId"
+        Operator="="
+        Conjunction="AND"
+        Value=":pUserId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="WmsUserId"/>
     <Item Value="WmsDate"/>

@@ -27,6 +27,16 @@
   <ClientInterface
     Name="__clientInterface">
     <Method
+      Name="blockUser"
+      MethodName="blockUser">
+      <Return
+        Name="_return_type_"
+        Type="java.util.Map"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
       Name="clearWrongAttempt"
       MethodName="clearWrongAttempt">
       <Return
@@ -37,6 +47,29 @@
         Type="java.lang.String"/>
       <Parameter
         Name="pc"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="findUserByLoginCredentials"
+      MethodName="findUserByLoginCredentials">
+      <Return
+        Name="_return_type_"
+        Type="java.util.Map"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="password"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getUserWrongPasswordCount"
+      MethodName="getUserWrongPasswordCount">
+      <Return
+        Name="_return_type_"
+        Type="java.util.Map"/>
+      <Parameter
+        Name="userId"
         Type="java.lang.String"/>
     </Method>
     <Method
@@ -72,19 +105,6 @@
         Type="java.lang.String"/>
       <Parameter
         Name="pc"
-        Type="java.lang.String"/>
-    </Method>
-    <Method
-      Name="findUserByLoginCredentials"
-      MethodName="findUserByLoginCredentials">
-      <Return
-        Name="_return_type_"
-        Type="java.util.Map"/>
-      <Parameter
-        Name="userId"
-        Type="java.lang.String"/>
-      <Parameter
-        Name="password"
         Type="java.lang.String"/>
     </Method>
     <Method

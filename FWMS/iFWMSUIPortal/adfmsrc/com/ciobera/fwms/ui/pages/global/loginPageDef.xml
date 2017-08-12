@@ -6,44 +6,12 @@
     <variableIterator id="variables"/>
   </executables>
   <bindings>
-    <methodAction id="clearWrongAttempt" RequiresUpdateModel="true" Action="invokeMethod" MethodName="clearWrongAttempt"
-                  IsViewObjectMethod="false" DataControl="FWMSRootAMDataControl"
-                  InstanceName="bindings.clearWrongAttempt.dataControl.dataProvider.CommonAM"
-                  ReturnName="data.FWMSRootAMDataControl.methodResults.clearWrongAttempt_clearWrongAttempt_dataControl_dataProvider_CommonAM_clearWrongAttempt_result">
-      <NamedData NDName="userId" NDValue="#{LoginBean.userName}" NDType="java.lang.String"/>
-      <NamedData NDName="pc" NDType="java.lang.String"/>
-    </methodAction>
-    <methodAction id="logUserActivity" RequiresUpdateModel="true" Action="invokeMethod" MethodName="logUserActivity"
-                  IsViewObjectMethod="false" DataControl="FWMSRootAMDataControl"
-                  InstanceName="bindings.logUserActivity.dataControl.dataProvider.CommonAM"
-                  ReturnName="data.FWMSRootAMDataControl.methodResults.logUserActivity_logUserActivity_dataControl_dataProvider_CommonAM_logUserActivity_result">
-      <NamedData NDName="userId" NDValue="#{LoginBean.userName}" NDType="java.lang.String"/>
-      <NamedData NDName="pc" NDType="java.lang.String"/>
-      <NamedData NDName="screen" NDType="java.lang.String"/>
-      <NamedData NDName="type" NDType="java.lang.String"/>
-      <NamedData NDName="logMessage" NDType="java.lang.String"/>
-    </methodAction>
-    <methodAction id="logWrongAttempt" RequiresUpdateModel="true" Action="invokeMethod" MethodName="logWrongAttempt"
-                  IsViewObjectMethod="false" DataControl="FWMSRootAMDataControl"
-                  InstanceName="bindings.logWrongAttempt.dataControl.dataProvider.CommonAM"
-                  ReturnName="data.FWMSRootAMDataControl.methodResults.logWrongAttempt_logWrongAttempt_dataControl_dataProvider_CommonAM_logWrongAttempt_result">
-      <NamedData NDName="userId" NDValue="#{LoginBean.userName}" NDType="java.lang.String"/>
-      <NamedData NDName="pc" NDValue="#{LoginBean.pc}" NDType="java.lang.String"/>
-    </methodAction>
     <methodAction id="findUserByLoginCredentials" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="findUserByLoginCredentials" IsViewObjectMethod="false" DataControl="FWMSRootAMDataControl"
-                  InstanceName="bindings.findUserByLoginCredentials.dataControl.dataProvider.CommonAM"
-                  ReturnName="data.FWMSRootAMDataControl.methodResults.findUserByLoginCredentials_findUserByLoginCredentials_dataControl_dataProvider_CommonAM_findUserByLoginCredentials_result">
-      <NamedData NDName="userId" NDType="java.lang.String"/>
-      <NamedData NDName="password" NDType="java.lang.String"/>
-    </methodAction>
-    <methodAction id="updateLoginCredentials" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="updateLoginCredentials" IsViewObjectMethod="false" DataControl="FWMSRootAMDataControl"
-                  InstanceName="bindings.updateLoginCredentials.dataControl.dataProvider.CommonAM"
-                  ReturnName="data.FWMSRootAMDataControl.methodResults.updateLoginCredentials_updateLoginCredentials_dataControl_dataProvider_CommonAM_updateLoginCredentials_result">
-      <NamedData NDName="userId" NDType="java.lang.String"/>
-      <NamedData NDName="password" NDType="java.lang.String"/>
-      <NamedData NDName="newPassword" NDType="java.lang.String"/>
+                  MethodName="findUserByLoginCredentials" IsViewObjectMethod="false" DataControl="CommonAMDataControl"
+                  InstanceName="bindings.findUserByLoginCredentials.dataControl.dataProvider"
+                  ReturnName="data.CommonAMDataControl.methodResults.findUserByLoginCredentials_findUserByLoginCredentials_dataControl_dataProvider_findUserByLoginCredentials_result">
+      <NamedData NDName="userId" NDValue="#{LoginBean.peUserId}" NDType="java.lang.String"/>
+      <NamedData NDName="password" NDValue="#{LoginBean.pePassword}" NDType="java.lang.String"/>
     </methodAction>
   </bindings>
 </pageDefinition>

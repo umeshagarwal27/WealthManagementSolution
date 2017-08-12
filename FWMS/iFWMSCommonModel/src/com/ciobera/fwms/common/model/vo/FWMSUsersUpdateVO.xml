@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="com.ciobera.fwms.common.model.vo.FWMSUsersUpdateVOImpl"
+  RowClass="com.ciobera.fwms.common.model.vo.FWMSUsersUpdateVORowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Variable
     Name="pUserId"
     Kind="viewcriteria"
@@ -246,6 +252,42 @@
         Operator="="
         Conjunction="AND"
         Value=":pUserPassword"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="findByUserId"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.FWMSUsersUpdateVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="FWMSUsersUpdateVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="WmsUserId"
+        ViewAttribute="WmsUserId"
+        Operator="="
+        Conjunction="AND"
+        Value=":pUserId"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

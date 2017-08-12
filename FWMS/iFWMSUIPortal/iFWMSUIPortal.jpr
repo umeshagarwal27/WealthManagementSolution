@@ -83,7 +83,7 @@
          <hash>
             <hash n="dependable">
                <url n="sourceOwnerURL" path="../FWMS.jws"/>
-               <url n="sourceURL" path="../iFWMSRootModel/iFWMSRootModel.jpr"/>
+               <url n="sourceURL" path="../iFWMSBundle/iFWMSBundle.jpr"/>
             </hash>
             <value n="recognizerId" v="oracle.jdeveloper.library"/>
          </hash>
@@ -97,7 +97,7 @@
          <hash>
             <hash n="dependable">
                <url n="sourceOwnerURL" path="../FWMS.jws"/>
-               <url n="sourceURL" path="../iFWMSBundle/iFWMSBundle.jpr"/>
+               <url n="sourceURL" path="../iFWMSRootModel/iFWMSRootModel.jpr"/>
             </hash>
             <value n="recognizerId" v="oracle.jdeveloper.library"/>
          </hash>
@@ -305,10 +305,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="iFWMSLibrary"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="ADF Faces Databinding Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -370,13 +366,6 @@
             <hash>
                <list n="classPath">
                   <url path="../adflibs/AdflibFWMSBundle.jar" jar-entry=""/>
-                  <url path="../adflibs/AdflibFWMSCommonUtil.jar" jar-entry=""/>
-               </list>
-               <value n="description" v="iFWMSLibrary"/>
-               <value n="id" v="iFWMSLibrary"/>
-            </hash>
-            <hash>
-               <list n="classPath">
                   <url path="../adflibs/AdflibFWMSCommonUtil.jar" jar-entry=""/>
                   <url path="../adflibs/AdflibFWMSCommonModel.jar" jar-entry=""/>
                   <url path="../adflibs/AdflibFWMSRootModel.jar" jar-entry=""/>
@@ -462,10 +451,6 @@
          </hash>
          <hash>
             <value n="id" v="Oracle JEWT"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="iFWMSLibrary"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>

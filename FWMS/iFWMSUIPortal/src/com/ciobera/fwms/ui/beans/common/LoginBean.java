@@ -15,6 +15,7 @@ import com.ciobera.fwms.common.util.utils.common.ADFUtil;
 
 import java.io.IOException;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.faces.application.FacesMessage;
@@ -52,7 +53,7 @@ public class LoginBean {
     private String fpOTP;
     private String pc;
     private long failureAttempts = 0;
-    private boolean loginFailed = Boolean.FALSE;
+    private String attemptFailureMessage;
     private String wlsHome;
     public static final ADFLogger LOGGER = ADFLogger.createADFLogger(LoginBean.class);
 
@@ -67,7 +68,8 @@ public class LoginBean {
      * Helper method to execute Method.
      * @param methodName
      */
-    private OperationBinding executeMethod(String methodName) {
+    private Map executeMethod(String methodName) {
+        Map resultMap = new HashMap();
         try {
             OperationBinding executeMethodOP = ADFUtil.findOperationBinding(methodName);
             if (executeMethodOP != null) {
@@ -76,14 +78,24 @@ public class LoginBean {
                     LoggingUtil.logErrorMessages(LOGGER,
                                                  "An unexpected error occured inside LoginBean.executeMethod() : " +
                                                  methodName + " . Please contact your system administrator.");
+                } else {
+                    resultMap = (Map) executeMethodOP.getResult();
                 }
+
             }
-            return executeMethodOP;
         } catch (Exception e) {
             LoggingUtil.logDebugMessages(LOGGER,
                                          "Exception inside LoginBean.executeMethod() : " + methodName + e.toString());
         }
-        return null;
+        return resultMap;
+    }
+
+    private void displayErrorPopup(String errorMessage) {
+        if (getErrorMessagePopupBinding() != null) {
+            setCustomErrorMessage(errorMessage);
+            RichPopup.PopupHints hints = new RichPopup.PopupHints();
+            getErrorMessagePopupBinding().show(hints);
+        }
     }
 
     /**
@@ -99,38 +111,77 @@ public class LoginBean {
             addMessage("Please enter User ID and Password to Login.");
             return null;
         }
-        OperationBinding executeMethodOP = ADFUtil.findOperationBinding("findUserByLoginCredentials");
-        if (executeMethodOP != null) {
-            Map paramsMap = executeMethodOP.getParamsMap();
-            paramsMap.put("userId", _userName);
-            paramsMap.put("password", _password);
-            executeMethodOP.execute();
-            if (executeMethodOP.getErrors().size() != 0) {
-                LoggingUtil.logErrorMessages(LOGGER,
-                                             "An unexpected error occured inside LoginBean.executeMethod(). Please contact your system administrator.");
-                return null;
-            } else {
-                Map resultMap = (Map) executeMethodOP.getResult();
-                if (resultMap != null) {
-                    String respCode = (String) resultMap.get("RESP_CODE");
-                    if ("INVALID".equalsIgnoreCase(respCode)) {
-                        if (getErrorMessagePopupBinding() != null) {
-                            setCustomErrorMessage(ADFUtil.getUIBundleMsg("INVALID_CREDENTIALS"));
-                            RichPopup.PopupHints hints = new RichPopup.PopupHints();
-                            getErrorMessagePopupBinding().show(hints);
+        peUserId = _userName;
+        pePassword = _password;
+        //Check if user credentials exists in the system.
+        Map resultMap = executeMethod("findUserByLoginCredentials");
+        if (resultMap != null && !resultMap.isEmpty()) {
+            String respCode = (String) resultMap.get("RESP_CODE");
+            //If Invalid Credentials
+            if ("INVALID".equalsIgnoreCase(respCode)) {
+                Map logWrongAttemptOP = executeMethod("logWrongAttempt");
+                if (logWrongAttemptOP != null && !logWrongAttemptOP.isEmpty()) {
+                    String logWrongAttemptRespCode = (String) resultMap.get("RESP_CODE");
+                    if ("SUCCESS".equalsIgnoreCase(logWrongAttemptRespCode)) {
+                        //Get Wrong Credentials Count
+                        Map passWordCountOP = executeMethod("getUserWrongPasswordCount");
+                        if (passWordCountOP != null && !passWordCountOP.isEmpty()) {
+                            failureAttempts = (Long) passWordCountOP.get("COUNT");
+                            if (failureAttempts > 5) {
+                                //If Failed Attempts Count is more than 5, block the user.
+                                Map blockUserMap = executeMethod("blockUser");
+                                if (blockUserMap != null && !blockUserMap.isEmpty()) {
+                                    String blockUserMapRespCode = (String) blockUserMap.get("RESP_CODE");
+                                    if ("SUCCESS".equalsIgnoreCase(blockUserMapRespCode)) {
+                                        displayErrorPopup(ADFUtil.getUIBundleMsg("EXCEED_LOGIN_ATTEMPTS"));
+                                        return null;
+                                    }
+                                } else {
+                                    LoggingUtil.logErrorMessages(LOGGER,
+                                                                 "An unexpected error occured inside LoginBean.executeMethod(). Please contact your system administrator.");
+                                    return null;
+                                }
+                            } else {
+                                attemptFailureMessage = "<b>Attempt " + "'" + failureAttempts + "'" + " of '5'</b>";
+                                //Display Invalid Credentials
+                                displayErrorPopup(ADFUtil.getUIBundleMsg("INVALID_CREDENTIALS"));
+                            }
+                        } else {
+                            LoggingUtil.logErrorMessages(LOGGER,
+                                                         "An unexpected error occured inside LoginBean.executeMethod(). Please contact your system administrator.");
+                            return null;
                         }
-                        executeMethod("logWrongAttempt");
-                        
-                        return null;
-                    } else if ("SUCCESS".equalsIgnoreCase(respCode)) {
-
-                    } else {
-
                     }
+                } else {
+                    LoggingUtil.logErrorMessages(LOGGER,
+                                                 "An unexpected error occured inside LoginBean.executeMethod(). Please contact your system administrator.");
+                    return null;
                 }
+            } else if ("SUCCESS".equalsIgnoreCase(respCode)) {
+                failureAttempts = 0;
+                executeMethod("clearWrongAttempt");
+                if ("Y".equalsIgnoreCase((String) resultMap.get("USER_BLOCKED"))) {
+                    displayErrorPopup(ADFUtil.getUIBundleMsg("USER_ACCOUNT_BLOCKED"));
+                    return null;
+                }
+                long expiryDays = Long.parseLong((String)resultMap.get("EXPIRY_DAYS"));
+                if (expiryDays == 0) {
+                    if (getPasswordExpiredPopupBinding() != null) {
+                        RichPopup.PopupHints hints = new RichPopup.PopupHints();
+                        getPasswordExpiredPopupBinding().show(hints);
+                    }
+                    return null;
+                }
+                //TODO: Navigate to Home Page
+            } else {
+                String errorMessage = (String) resultMap.get("RESP_MESSAGE");
+                displayErrorPopup(errorMessage);
             }
+        } else {
+            LoggingUtil.logErrorMessages(LOGGER,
+                                         "An unexpected error occured inside LoginBean.executeMethod(). Please contact your system administrator.");
+            return null;
         }
-
         LoggingUtil.logDebugMessages(LOGGER, "End of LoginBean.doLogin()");
         return null;
     }
@@ -186,6 +237,8 @@ public class LoginBean {
      * @return
      */
     public String onForgotPasswordClick() {
+        peUserId = "";
+        pePassword = "";
         if (getForgotPasswordPopupBinding() != null) {
             RichPopup.PopupHints hints = new RichPopup.PopupHints();
             getForgotPasswordPopupBinding().show(hints);
@@ -540,8 +593,8 @@ public class LoginBean {
     }
 
     public String getWlsHome() {
-        if(wlsHome == null){
-            wlsHome= System.getProperty("wls.home");
+        if (wlsHome == null) {
+            wlsHome = System.getProperty("wls.home");
             setWlsHome(wlsHome);
         }
         return wlsHome;
@@ -555,12 +608,12 @@ public class LoginBean {
         return failureAttempts;
     }
 
-    public void setLoginFailed(boolean loginFailed) {
-        this.loginFailed = loginFailed;
+    public void setAttemptFailureMessage(String attemptFailureMessage) {
+        this.attemptFailureMessage = attemptFailureMessage;
     }
 
-    public boolean isLoginFailed() {
-        return loginFailed;
+    public String getAttemptFailureMessage() {
+        return attemptFailureMessage;
     }
 
     public static void main(String args[]) {

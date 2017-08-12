@@ -1,12 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
-          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
-    <c:set var="ifwmsuiportalBundle" value="#{adfBundle['com.ciobera.fwms.bundle.ui.UIBundle']}"/>
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
         <af:document title="#{UIBundle.LOGIN}" id="d1">
-            <af:form id="f1" defaultCommand="b1"
-                    >
+            <af:form id="f1" defaultCommand="b1">
                 <af:panelStretchLayout id="psl2"
                                        inlineStyle='background-image:url("../../../../../../images/login.png");height: 1000px !important;'
                                        topHeight="50px">
@@ -16,7 +14,9 @@
                                              inlineStyle="padding-top:400px;padding-left:600px;">
                             <af:panelBox text="#{null}" id="pb1" showDisclosure="false" background="light">
                                 <af:panelGroupLayout id="pgl2" layout="vertical" halign="center">
-                                    <af:outputFormatted value="outputFormatted4" id="of8"/>
+                                    <af:outputFormatted value="#{LoginBean.attemptFailureMessage}" id="of8"
+                                                        inlineStyle="color:Red;"
+                                                        rendered="#{LoginBean.failureAttempts > 0}"/>
                                     <af:panelFormLayout id="pfl1">
                                         <af:inputText label="#{UIBundle.USER_ID}" id="it1" value="#{LoginBean.userName}"
                                                       autoSubmit="true"/>
