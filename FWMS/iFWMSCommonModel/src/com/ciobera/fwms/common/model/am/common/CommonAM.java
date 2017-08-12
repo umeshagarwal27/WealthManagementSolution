@@ -15,5 +15,7 @@ public interface CommonAM extends ApplicationModule {
     Map logWrongAttempt(String userId, String pc);
 
     Map findUserByLoginCredentials(String userId, String password);
+
+    Map updateLoginCredentials(String userId, String password, String newPassword);
 }
 

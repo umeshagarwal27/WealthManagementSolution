@@ -3,8 +3,17 @@
              SeparateXMLFiles="false" Package="com.ciobera.fwms.ui" ClientType="Generic">
   <pageMap>
     <page path="/com/ciobera/fwms/ui/pages/global/home.jspx" usageId="com_ciobera_fwms_ui_homePageDef"/>
+    <page path="/com/ciobera/fwms/ui/pages/global/login.jspx" usageId="com_ciobera_fwms_ui_loginPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_ciobera_fwms_ui_homePageDef" path="com.ciobera.fwms.ui.pages.global.homePageDef"/>
+    <page id="com_ciobera_fwms_ui_loginPageDef" path="com.ciobera.fwms.ui.pages.global.loginPageDef"/>
   </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="FWMSRootAMDataControl" Package="com.ciobera.fwms.root.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="FWMSRootAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
 </Application>

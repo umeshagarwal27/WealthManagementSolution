@@ -1,6 +1,6 @@
-1. SVN URL:https://github.com/umeshagarwal27/WealthManagementSolution.git/trunk/WMS
-2. Application Name: WealthManagementSolution
-3. Application default packaging structure: com.ciobera.wms
+1. SVN URL:https://github.com/umeshagarwal27/WealthManagementSolution.git/trunk/FWMS
+2. Application Name: FWMS
+3. Application default packaging structure: com.ciobera.fwms
 4. Project Structure: 
 	adflibs
 		All ADF Libraries will go here.

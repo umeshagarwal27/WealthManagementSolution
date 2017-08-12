@@ -70,11 +70,11 @@ import org.apache.myfaces.trinidad.util.Service;
 public class ADFUtil {
     public static final ADFLogger LOGGER =
         ADFLogger.createADFLogger(ADFUtil.class);
-    private static String BUNDLE_NAME = "com.redacumen.iap.bundle.ui.UIBundle";
+    private static String BUNDLE_NAME = "com.ciobera.fwms.bundle.ui.UIBundle";
     private static String APP_BUNDLE_NAME =
-        "com.redacumen.iap.bundle.configurations.Configurations";
+        "com.ciobera.fwms.bundle.configurations.Configurations";
     private static String MODEL_BUNDLE_NAME =
-        "com.redacumen.iap.bundle.model.ModelBundle";
+        "com.ciobera.fwms.bundle.model.ModelBundle";
 
 
     public static int AUTO_SAVE_INTERVAL = 300000;

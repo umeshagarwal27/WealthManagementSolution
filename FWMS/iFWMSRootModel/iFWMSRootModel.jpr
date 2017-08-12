@@ -227,8 +227,8 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../adflibs/AdflibFWMSCommonModel.jar" jar-entry=""/>
                   <url path="../adflibs/AdflibFWMSBundle.jar" jar-entry=""/>
+                  <url path="../adflibs/AdflibFWMSCommonModel.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>

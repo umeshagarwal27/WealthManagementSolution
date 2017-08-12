@@ -23,8 +23,24 @@
     </DesignTime>
   </Containee>
   <Containee
+    Name="eo"
+    PackageName="com.ciobera.fwms.common.model.eo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
     Name="readonly"
     PackageName="com.ciobera.fwms.common.model.vo.readonly"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="vo"
+    PackageName="com.ciobera.fwms.common.model.vo"
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_VO" Value="true"/>

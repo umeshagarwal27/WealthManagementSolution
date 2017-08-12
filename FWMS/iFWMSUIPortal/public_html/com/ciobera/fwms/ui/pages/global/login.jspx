@@ -4,47 +4,139 @@
     <c:set var="ifwmsuiportalBundle" value="#{adfBundle['com.ciobera.fwms.bundle.ui.UIBundle']}"/>
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
-        <af:document title="#{UIBundle.LOGIN}" id="d1"
-                     inlineStyle='background-image:url("../../../../../../images/loading.gif");'>
-        <af:form id="f1" defaultCommand="b1">
-            <!--<af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1">
-                <f:facet name="header"/>
-                <f:facet name="status"/>
-                <f:facet name="appNav"/>
-                <f:facet name="globalLinks"/>
-                <f:facet name="footer"/>
-                <f:facet name="center"-->
-                    <af:panelGridLayout id="pgl1">
-                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
-                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="stretch">
-                                <af:panelBox text="#{UIBundle.LOGIN_DETAILS}" id="pb1" showDisclosure="false">
-                                    <af:panelGroupLayout id="pgl2" layout="horizontal" halign="center">
-                                        <af:panelFormLayout id="pfl1">
-                                            <af:inputText label="#{UIBundle.USER_ID}" id="it1"
-                                                          value="#{LoginBean.userName}" autoSubmit="true"/>
-                                            <af:spacer width="10" height="10" id="s2"/>
-                                            <af:inputText label="#{UIBundle.PASSWORD}" id="it2" secret="true"
-                                                          value="#{LoginBean.password}" autoSubmit="true"/>
-                                            <af:spacer width="10" height="10" id="s1"/>
+        <af:document title="#{UIBundle.LOGIN}" id="d1">
+            <af:form id="f1" defaultCommand="b1"
+                    >
+                <af:panelStretchLayout id="psl2"
+                                       inlineStyle='background-image:url("../../../../../../images/login.png");height: 1000px !important;'
+                                       topHeight="50px">
+                    <f:facet name="end"/>
+                    <f:facet name="center">
+                        <af:panelGroupLayout id="pgl3" layout="horizontal" valign="middle"
+                                             inlineStyle="padding-top:400px;padding-left:600px;">
+                            <af:panelBox text="#{UIBundle.LOGIN_DETAILS}" id="pb1" showDisclosure="false">
+                                <af:panelGroupLayout id="pgl2" layout="horizontal" halign="center">
+                                    <af:panelFormLayout id="pfl1">
+                                        <af:inputText label="#{UIBundle.USER_ID}" id="it1" value="#{LoginBean.userName}"
+                                                      autoSubmit="true"/>
+                                        <af:spacer width="10" height="10" id="s2"/>
+                                        <af:inputText label="#{UIBundle.PASSWORD}" id="it2" secret="true"
+                                                      value="#{LoginBean.password}" autoSubmit="true"/>
+                                        <af:spacer width="10" height="10" id="s1"/>
                                         <af:link text="#{UIBundle.FORGOT_PASSWORD_}" id="l1" partialSubmit="true"
                                                  action="#{LoginBean.onForgotPasswordClick}"/>
-                                        <af:spacer width="10" height="10" id="s4"/>
-                                        <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                        <af:spacer width="10" height="5" id="s4"/>
+                                        <af:panelGroupLayout id="pgl8" layout="horizontal">
                                             <af:button text="#{UIBundle.LOGIN}" id="b1" action="#{LoginBean.doLogin}"/>
-                                            <af:button text="#{UIBundle.EXIT}" id="b2"
-                                                       action="#{LoginBean.onExit}"/>
+                                            <af:button text="#{UIBundle.EXIT}" id="b2" action="#{LoginBean.onExit}"/>
                                             <f:facet name="separator">
                                                 <af:spacer width="10" height="10" id="s3"/>
                                             </f:facet>
                                         </af:panelGroupLayout>
                                     </af:panelFormLayout>
-                                    </af:panelGroupLayout>
-                                </af:panelBox>
-                            </af:gridCell>
-                        </af:gridRow>
-                    </af:panelGridLayout>
-                <!--/f:facet>
-            </af:pageTemplate-->
+                                </af:panelGroupLayout>
+                                <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                                          binding="#{LoginBean.forgotPasswordPopupBinding}"
+                                          contentDelivery="lazyUncached">
+                                    <af:dialog id="d2" title="#{UIBundle.FORGOT_PASSWORD}" type="none"
+                                               closeIconVisible="false">
+                                        <af:panelFormLayout id="pfl2">
+                                            <af:inputText label="#{UIBundle.USER_ID}" id="it3"/>
+                                            <af:spacer width="5" height="5" id="s6"/>
+                                            <af:inputText label="#{UIBundle.OTP}" id="it4"/>
+                                            <af:spacer width="5" height="5" id="s7"/>
+                                            <af:button text="#{UIBundle.GET_OTP}" id="b3"
+                                                       actionListener="#{LoginBean.onGetOTP}"/>
+                                            <af:spacer width="5" height="5" id="s8"/>
+                                            <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                                <af:button text="#{UIBundle.RESET_YOUR_PASSWORD}" id="b4"
+                                                           actionListener="#{LoginBean.onResetPassword}"/>
+                                                <af:button text="#{UIBundle.BACK}" id="b5"
+                                                           actionListener="#{LoginBean.onCloseForgotPasswordPopup}"/>
+                                                <f:facet name="separator">
+                                                    <af:spacer width="10" height="10" id="s5"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                        </af:panelFormLayout>
+                                    </af:dialog>
+                                </af:popup>
+                                <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                                          contentDelivery="lazyUncached"
+                                          binding="#{LoginBean.passwordExpiredPopupBinding}">
+                                    <af:dialog id="d3" title="#{UIBundle.PASSWORD_EXPIRED}" type="none"
+                                               closeIconVisible="false">
+                                        <af:panelGroupLayout id="pgl5" layout="vertical">
+                                            <af:panelFormLayout id="pfl3">
+                                                <af:inputText label="#{UIBundle.USER_ID}" id="it5"
+                                                              value="#{LoginBean.peUserId}" autoSubmit="true"/>
+                                                <af:spacer width="5" height="5" id="s9"/>
+                                                <af:inputText label="#{UIBundle.OLD_PASSWORD}" id="it6"
+                                                              autoSubmit="true" value="#{LoginBean.pePassword}"
+                                                              secret="true"/>
+                                                <af:spacer width="5" height="5" id="s10"/>
+                                                <af:inputText label="#{UIBundle.NEW_PASSWORD}" id="it7"
+                                                              value="#{LoginBean.peNewPassword}" autoSubmit="true"
+                                                              secret="true">
+                                                    <af:validateRegExp pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&amp;*]).{8,}"
+                                                                       messageDetailNoMatch="#{UIBundle.PASSWORD_VALIDATION_FAILURE}"/>
+                                                </af:inputText>
+                                                <af:spacer width="5" height="5" id="s11"/>
+                                                <af:inputText label="#{UIBundle.CONFIRM_NEW_PASSWORD}" id="it8"
+                                                              autoSubmit="true"
+                                                              value="#{LoginBean.peConfirmNewPassword}" secret="true">
+                                                    <af:validateRegExp pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&amp;*]).{8,}"
+                                                                       messageDetailNoMatch="#{UIBundle.PASSWORD_VALIDATION_FAILURE}"/>
+                                                </af:inputText>
+                                                <af:spacer width="5" height="5" id="s13"/>
+                                                <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                                    <af:button text="#{UIBundle.CHANGE_PASSWORD}" id="b6"
+                                                               actionListener="#{LoginBean.onChangePassword}"/>
+                                                    <af:button text="#{UIBundle.BACK}" id="b7"
+                                                               actionListener="#{LoginBean.onCloseChangePasswordPopup}"/>
+                                                    <f:facet name="separator">
+                                                        <af:spacer width="10" height="10" id="s14"/>
+                                                    </f:facet>
+                                                </af:panelGroupLayout>
+                                            </af:panelFormLayout>
+                                            <f:facet name="separator">
+                                                <af:spacer width="5" height="5" id="s12"/>
+                                            </f:facet>
+                                            <af:panelGroupLayout id="pgl7" layout="vertical"
+                                                                 inlineStyle="padding-left:50px;">
+                                                <af:outputFormatted value="#{UIBundle.PASSWORD_CONSTRAINT_1}" id="of1"/>
+                                                <af:outputFormatted value="#{UIBundle.PASSWORD_CONSTRAINT_2}" id="of2"/>
+                                                <af:outputFormatted value="#{UIBundle.PASSWORD_CONSTRAINT_3}" id="of3"/>
+                                                <af:outputFormatted value="#{UIBundle.PASSWORD_CONSTRAINT_1}" id="of4"/>
+                                                <af:outputFormatted value="#{UIBundle.PASSWORD_CONSTRAINT_1}" id="of5"/>
+                                            </af:panelGroupLayout>
+                                        </af:panelGroupLayout>
+                                    </af:dialog>
+                                </af:popup>
+                                <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
+                                          contentDelivery="lazyUncached"
+                                          binding="#{LoginBean.confirmMessagePopupBinding}">
+                                    <af:dialog id="d4" title="#{UIBundle.CONFIRMATION}" type="none"
+                                               closeIconVisible="false" titleIconSource="/images/confirmation.png"
+                                               dialogListener="#{LoginBean.confirmMessageDialogListener}">
+                                        <f:facet name="buttonBar">
+                                            <af:button text="#{UIBundle.OK}" id="b8"/>
+                                        </f:facet>
+                                        <af:outputFormatted value="#{LoginBean.customMessage}" id="of6"/>
+                                    </af:dialog>
+                                </af:popup>
+                                <af:popup childCreation="deferred" autoCancel="disabled" id="p4"
+                                          contentDelivery="lazyUncached"
+                                          binding="#{LoginBean.errorMessagePopupBinding}">
+                                    <af:dialog id="d5" title="#{UIBundle.ERROR_MESSAGE}" type="ok"
+                                               closeIconVisible="false" titleIconSource="/images/error.png"
+                                               dialogListener="#{LoginBean.errorMessageDialogListener}">
+                                        <af:outputFormatted value="#{LoginBean.customErrorMessage}" id="of7"/>
+                                    </af:dialog>
+                                </af:popup>
+                            </af:panelBox>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelStretchLayout>
             </af:form>
         </af:document>
     </f:view>

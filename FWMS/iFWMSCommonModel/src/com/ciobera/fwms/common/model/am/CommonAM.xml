@@ -21,6 +21,9 @@
   <ViewUsage
     Name="FWMSSeqLogin"
     ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSSeqLoginVO"/>
+  <ViewUsage
+    Name="FWMSUsersUpdate"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.FWMSUsersUpdateVO"/>
   <ClientInterface
     Name="__clientInterface">
     <Method
@@ -82,6 +85,22 @@
         Type="java.lang.String"/>
       <Parameter
         Name="password"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="updateLoginCredentials"
+      MethodName="updateLoginCredentials">
+      <Return
+        Name="_return_type_"
+        Type="java.util.Map"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="password"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="newPassword"
         Type="java.lang.String"/>
     </Method>
   </ClientInterface>
