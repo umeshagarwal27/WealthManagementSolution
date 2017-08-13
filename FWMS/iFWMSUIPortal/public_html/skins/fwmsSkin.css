@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+af|navigationPane-buttons::separator-icon-style {
+}
+
+af|navigationPane-buttons::link {
+    -tr-inhibit: background-image;
+    background-color: #FBF9FC;
+    padding: 7px;
+    text-shadow: none;
+}
+
+af|navigationPane-buttons::link:hover {
+    -tr-inhibit: background-image;
+    background-color: #267DB3;
+    padding: 7px;
+    text-shadow: none;
+    color: White;
+}
+/*Panel Tab Styles */
+.AFDefaultFontFamily:alias {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.AFRequiredIconStyle {
+    color: Red;
+}
+/*Panel Box Styles */
+af|panelBox::header-text {
+    color: Black;
+    font-size: 13px;
+    background-color: transparent;
+    border-radius: 200px 20px 20px 200px;
+}
+
+af|panelBox::header-element {
+    font-size: 14px;
+    color: Black;
+}
+
+.AFPanelAccordionHeaderDisclosedBackground:alias {
+    background-image: url("accordionBgColorDisclosed/pahem.png");
+}
+
+af|panelAccordion::header:disclosed af|panelAccordion::header-start {
+    background-image: url("accordionBgColorDisclosed/pahes.png");
+}
+
+.AFPanelAccordionHeaderBackground:alias {
+    background-image: url("accordionBgColorUndisclosed/pahcm.png");
+}
+
+af|panelAccordion::header af|panelAccordion::header-start {
+    background-image: url("accordionBgColorUndisclosed/pahcs.png");
+}
+
+af|panelAccordion::header:disclosed af|panelAccordion::header-title {
+    color: #F7F7F7;
+    font-weight: bold;
+    font-size: medium;
+}
+
+af|panelAccordion::header-subsequent:disclosed af|panelAccordion::header-title {
+    color: #F7F7F7;
+    font-weight: bold;
+    font-size: medium;
+}
+
+af|panelAccordion::header af|panelAccordion::header-title {
+    color: #F7F7F7;
+    font-size: medium;
+}
+
+af|panelAccordion::header-subsequent af|panelAccordion::header-title {
+    color: #F7F7F7;
+    font-size: medium;
+}
+/*Command Link Styles */
+af|link:hover af|link:focus {
+    font-weight: bold;
+    color: #02589F;
+}
+
+af|link:active af|link:enabled {
+    font-weight: bold;
+    color: White;
+}
+
+af|link.navTab:hover,
+ af|link.navTab:active,
+ af|link.navTab:active:hover,
+ af|link.navTab:focus:hover,
+ af|link.navTab:focus:hover:active {
+    display: inline-block;
+    padding: 15px 20px;
+    background: #565656;
+    cursor: pointer;
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}

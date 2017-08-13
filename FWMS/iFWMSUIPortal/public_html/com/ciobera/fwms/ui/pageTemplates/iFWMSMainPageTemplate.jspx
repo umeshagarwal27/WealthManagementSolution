@@ -20,29 +20,30 @@
         <af:panelSplitter id="pt_ps2" orientation="vertical" splitterPosition="120" dimensionsFrom="parent">
             <f:facet name="first">
                 <af:panelGroupLayout id="pt_pgl6" layout="vertical"
-                                     inlineStyle='background-image:url("../../../../../images/header.png"); background-repeat:no-repeat; background-size:100.0%;'>
+                                     inlineStyle='background-image:url("../images/header.png"); background-repeat:no-repeat; background-size:100.0%;'>
                     <af:panelGroupLayout id="pt_pgl7" layout="vertical" valign="top" halign="right">
                         <af:panelGroupLayout id="pt_pgl10" halign="right" layout="horizontal">
                             <af:panelGroupLayout id="pt_pgl12" layout="vertical">
                                 <af:panelGroupLayout id="pt_pgl8" halign="center" layout="horizontal">
-                                    <af:outputText value="#{UIBundle.WELCOME}"
-                                                   inlineStyle="color:White;" id="pt_ot1" noWrap="true"/>
+                                    <af:outputText value="#{UIBundle.WELCOME}" inlineStyle="color:White; font-size: 15px;" id="pt_ot1"
+                                                   noWrap="true"/>
                                     <af:spacer width="10" height="10" id="pt_s1"/>
                                     <af:outputText value="Umesh" id="pt_ot4"
-                                                   inlineStyle="color:White; font-weight:bold;" noWrap="true"/>
+                                                   inlineStyle="color:White; font-weight:bold; font-size: 15px;" noWrap="true"/>
                                 </af:panelGroupLayout>
                                 <af:panelGroupLayout id="pt_pgl16" layout="horizontal" halign="center">
-                                    <af:outputText value="Last Login" id="pt_ot11"
-                                                   inlineStyle="color:White;" noWrap="true"/>
+                                    <af:outputText value="Last Login" id="pt_ot11" inlineStyle="color:White; font-size: 15px;"
+                                                   noWrap="true"/>
                                     <af:spacer width="10" height="10" id="pt_s3"/>
                                     <af:outputText value="13-Aug-2017" id="pt_ot5"
-                                                   inlineStyle="color:White; font-weight:bold;" noWrap="true"/>
+                                                   inlineStyle="color:White; font-weight:bold; font-size: 15px;" noWrap="true"/>
                                 </af:panelGroupLayout>
                             </af:panelGroupLayout>
                         </af:panelGroupLayout>
-                        <af:panelGroupLayout id="pt_pgl9" halign="right" layout="horizontal" valign="middle">
+                        <af:panelGroupLayout id="pt_pgl9" layout="horizontal" halign="right">
                             <af:spacer width="10" height="25" id="pt_s9"/>
-                            <af:link text="#{UIBundle.LOGOUT}" id="pt_cl5" inlineStyle="color:White; font-weight:bold;"
+                            <af:link text="#{UIBundle.LOGOUT}" id="pt_cl5"
+                                     inlineStyle="font-weight:bold; font-size:15px; color:White;"
                                      immediate="true"/>
                             <af:spacer width="15" height="10" id="pt_s2"/>
                         </af:panelGroupLayout>
@@ -57,11 +58,11 @@
                                 <af:panelAccordion dimensionsFrom="auto" id="pt_pa1">
                                     <af:showDetailItem id="pane1" inflexibleHeight="0"
                                                        text="#{UIBundle.SYSTEM_PARAMETERS}">
-                                        <af:panelGroupLayout id="pt_pgl1" layout="scroll" halign="center"
+                                        <af:panelGroupLayout id="pt_pgl1" layout="scroll"
                                                              inlineStyle="background-color:White;">
                                             <af:iterator id="pt_i1" value="#{system_menu}" var="system">
                                                 <af:link id="pt_cl1"
-                                                         inlineStyle="font-size:15px;border-bottom: 1px solid rgba(0, 0, 0, 0.05);color: #333331;display: block;padding: 10px 0;text-decoration: none;"
+                                                         inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 0; text-decoration:none solid currentColor;"
                                                          text="#{system.label}" rendered="#{system.rendered}"
                                                          action="#{system.doAction}" immediate="true"
                                                          partialSubmit="true"/>
@@ -70,11 +71,11 @@
                                     </af:showDetailItem>
                                     <af:showDetailItem id="pane2" inflexibleHeight="0"
                                                        text="#{UIBundle.TRADING_MANAGEMENT}">
-                                        <af:panelGroupLayout id="pt_pgl2" layout="scroll" halign="center"
-                                                             inlineStyle="background-color:White;">
+                                        <af:panelGroupLayout id="pt_pgl2" layout="scroll"
+                                                             inlineStyle="background-color:White; color:Blue;">
                                             <af:iterator id="pt_i2" value="#{trading_menu}" var="trading">
                                                 <af:link id="pt_l1"
-                                                         inlineStyle="font-size:15px;border-bottom: 1px solid rgba(0, 0, 0, 0.05);color: #333331;display: block;padding: 10px 0;text-decoration: none;"
+                                                         inlineStyle="font-size:15px;border-bottom: 1px solid rgba(0, 0, 0, 0.05);color: Blue;display: block;padding: 10px 0;text-decoration: none;"
                                                          text="#{trading.label}" rendered="#{trading.rendered}"
                                                          action="#{trading.doAction}" immediate="true"
                                                          partialSubmit="true"/>
@@ -83,11 +84,11 @@
                                     </af:showDetailItem>
                                     <af:showDetailItem id="pane3" inflexibleHeight="0"
                                                        text="#{UIBundle.ACCOUNTING_MODULE}">
-                                        <af:panelGroupLayout id="pt_pgl3" layout="scroll" halign="center"
+                                        <af:panelGroupLayout id="pt_pgl3" layout="scroll"
                                                              inlineStyle="background-color:White;">
                                             <af:iterator id="pt_i3" value="#{accounting_menu}" var="accounting">
                                                 <af:link id="pt_l2"
-                                                         inlineStyle="font-size:15px;border-bottom: 1px solid rgba(0, 0, 0, 0.05);color: #333331;display: block;padding: 10px 0;text-decoration: none;"
+                                                         inlineStyle="font-size:15px;border-bottom: 1px solid rgba(0, 0, 0, 0.05);color: Blue;display: block;padding: 10px 0;text-decoration: none;"
                                                          text="#{accounting.label}" rendered="#{accounting.rendered}"
                                                          action="#{accounting.doAction}" immediate="true"
                                                          partialSubmit="true"/>

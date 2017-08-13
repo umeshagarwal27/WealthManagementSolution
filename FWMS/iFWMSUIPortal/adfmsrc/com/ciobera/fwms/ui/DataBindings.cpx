@@ -15,6 +15,7 @@
     <page path="/com/ciobera/fwms/ui/pages/trading/OrderManagement.jspx"
           usageId="com_ciobera_fwms_ui_OrderManagementPageDef"/>
     <page path="/com/ciobera/fwms/ui/pages/trading/Tradebook.jspx" usageId="com_ciobera_fwms_ui_TradebookPageDef"/>
+    <page path="/com/ciobera/fwms/ui/pages/testPage.jspx" usageId="com_ciobera_fwms_ui_testPagePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_ciobera_fwms_ui_homePageDef" path="com.ciobera.fwms.ui.pages.global.homePageDef"/>
@@ -29,6 +30,7 @@
     <page id="com_ciobera_fwms_ui_OrderManagementPageDef"
           path="com.ciobera.fwms.ui.pages.trading.OrderManagementPageDef"/>
     <page id="com_ciobera_fwms_ui_TradebookPageDef" path="com.ciobera.fwms.ui.pages.trading.TradebookPageDef"/>
+    <page id="com_ciobera_fwms_ui_testPagePageDef" path="com.ciobera.fwms.ui.pages.testPagePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="FWMSRootAMDataControl" Package="com.ciobera.fwms.root.model.am"

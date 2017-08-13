@@ -14,6 +14,7 @@ import com.ciobera.fwms.common.util.logger.LoggingUtil;
 import com.ciobera.fwms.common.util.utils.common.ADFUtil;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,7 +37,7 @@ import oracle.binding.OperationBinding;
 import org.apache.myfaces.trinidad.util.ComponentReference;
 
 
-public class LoginBean {
+public class LoginBean implements Serializable {
     private String _userName;
     private String _password;
     private ComponentReference forgotPasswordPopupBinding;
