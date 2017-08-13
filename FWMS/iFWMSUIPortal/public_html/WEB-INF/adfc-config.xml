@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <metadata-resource id="__2">/WEB-INF/com/ciobera/fwms/taskflows/adfc-system-parameter-taskflow-definition.xml</metadata-resource>
+  <metadata-resource id="__3">/WEB-INF/com/ciobera/fwms/taskflows/adfc-trading-management-taskflow-definition.xml</metadata-resource>
+  <metadata-resource id="__4">/WEB-INF/com/ciobera/fwms/taskflows/adfc-accounting-module-taskflow-definition.xml</metadata-resource>
+  <metadata-resource id="__5">/WEB-INF/com/ciobera/fwms/taskflows/adfc-payroll-taskflow-definition.xml</metadata-resource>
+  <metadata-resource id="__6">/WEB-INF/com/ciobera/fwms/taskflows/adfc-fixed-assets-taskflow-management.xml</metadata-resource>
+  <metadata-resource id="__7">/WEB-INF/com/ciobera/fwms/taskflows/adfc-compliance-reports-taskflow-definition.xml</metadata-resource>
+  <metadata-resource id="__8">/WEB-INF/com/ciobera/fwms/taskflows/adfc-mis-reports-taskflow-definition.xml</metadata-resource>
   <managed-bean id="__1">
     <managed-bean-name>LoginBean</managed-bean-name>
     <managed-bean-class>com.ciobera.fwms.ui.beans.common.LoginBean</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__9">
+    <managed-bean-name>GlobalBean</managed-bean-name>
+    <managed-bean-class>com.ciobera.fwms.common.util.bean.GlobalBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
   </managed-bean>
 </adfc-config>

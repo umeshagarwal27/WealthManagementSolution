@@ -4,10 +4,31 @@
   <pageMap>
     <page path="/com/ciobera/fwms/ui/pages/global/home.jspx" usageId="com_ciobera_fwms_ui_homePageDef"/>
     <page path="/com/ciobera/fwms/ui/pages/global/login.jspx" usageId="com_ciobera_fwms_ui_loginPageDef"/>
+    <page path="/com/ciobera/fwms/ui/pages/accounting/AccountingModule.jspx"
+          usageId="com_ciobera_fwms_ui_AccountingModulePageDef"/>
+    <page path="/com/ciobera/fwms/ui/pages/system/Stock.jspx" usageId="com_ciobera_fwms_ui_StockPageDef"/>
+    <page path="/com/ciobera/fwms/ui/pages/system/StockSetup.jspx" usageId="com_ciobera_fwms_ui_StockSetupPageDef"/>
+    <page path="/com/ciobera/fwms/ui/pages/system/UserLog.jspx" usageId="com_ciobera_fwms_ui_UserLogPageDef"/>
+    <page path="/com/ciobera/fwms/ui/pages/system/UserManagement.jspx"
+          usageId="com_ciobera_fwms_ui_UserManagementPageDef"/>
+    <page path="/com/ciobera/fwms/ui/pages/trading/Dashboard.jspx" usageId="com_ciobera_fwms_ui_DashboardPageDef"/>
+    <page path="/com/ciobera/fwms/ui/pages/trading/OrderManagement.jspx"
+          usageId="com_ciobera_fwms_ui_OrderManagementPageDef"/>
+    <page path="/com/ciobera/fwms/ui/pages/trading/Tradebook.jspx" usageId="com_ciobera_fwms_ui_TradebookPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_ciobera_fwms_ui_homePageDef" path="com.ciobera.fwms.ui.pages.global.homePageDef"/>
     <page id="com_ciobera_fwms_ui_loginPageDef" path="com.ciobera.fwms.ui.pages.global.loginPageDef"/>
+    <page id="com_ciobera_fwms_ui_AccountingModulePageDef"
+          path="com.ciobera.fwms.ui.pages.accounting.AccountingModulePageDef"/>
+    <page id="com_ciobera_fwms_ui_StockPageDef" path="com.ciobera.fwms.ui.pages.system.StockPageDef"/>
+    <page id="com_ciobera_fwms_ui_StockSetupPageDef" path="com.ciobera.fwms.ui.pages.system.StockSetupPageDef"/>
+    <page id="com_ciobera_fwms_ui_UserLogPageDef" path="com.ciobera.fwms.ui.pages.system.UserLogPageDef"/>
+    <page id="com_ciobera_fwms_ui_UserManagementPageDef" path="com.ciobera.fwms.ui.pages.system.UserManagementPageDef"/>
+    <page id="com_ciobera_fwms_ui_DashboardPageDef" path="com.ciobera.fwms.ui.pages.trading.DashboardPageDef"/>
+    <page id="com_ciobera_fwms_ui_OrderManagementPageDef"
+          path="com.ciobera.fwms.ui.pages.trading.OrderManagementPageDef"/>
+    <page id="com_ciobera_fwms_ui_TradebookPageDef" path="com.ciobera.fwms.ui.pages.trading.TradebookPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="FWMSRootAMDataControl" Package="com.ciobera.fwms.root.model.am"

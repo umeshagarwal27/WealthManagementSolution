@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<menu xmlns="http://myfaces.apache.org/trinidad/menu">
+    <itemNode id="itemNode_OrderManagement" label="#{UIBundle['ORDER_MANAGEMENT']}" action="adfMenu_OrderManagement"
+              focusViewId="/OrderManagement" disabled="false" rendered="true"/>
+    <itemNode id="itemNode_Dashboard" label="#{UIBundle['DASHBOARD']}" action="adfMenu_Dashboard"
+              focusViewId="/Dashboard" disabled="false" rendered="true"/>
+    <itemNode id="itemNode_Tradebook" label="#{UIBundle['TRADE_BOOK']}" action="adfMenu_Tradebook"
+              focusViewId="/Tradebook" disabled="false" rendered="true"/>
+</menu>

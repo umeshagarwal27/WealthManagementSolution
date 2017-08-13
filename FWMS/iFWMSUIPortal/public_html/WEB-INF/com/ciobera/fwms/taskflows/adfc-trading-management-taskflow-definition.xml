@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="Dashboard">
+    <page>/com/ciobera/fwms/ui/pages/trading/Dashboard.jspx</page>
+  </view>
+  <view id="OrderManagement">
+    <page>/com/ciobera/fwms/ui/pages/trading/OrderManagement.jspx</page>
+  </view>
+  <view id="Tradebook">
+    <page>/com/ciobera/fwms/ui/pages/trading/Tradebook.jspx</page>
+  </view>
+  <control-flow-rule id="__1">
+    <from-activity-id>*</from-activity-id>
+    <control-flow-case id="__2">
+      <from-outcome>adfMenu_Dashboard</from-outcome>
+      <to-activity-id>Dashboard</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__3">
+      <from-outcome>adfMenu_OrderManagement</from-outcome>
+      <to-activity-id>OrderManagement</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__4">
+      <from-outcome>adfMenu_Tradebook</from-outcome>
+      <to-activity-id>Tradebook</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__5">
+    <description>Menu Model Managed Bean</description>
+    <managed-bean-name>trading_menu</managed-bean-name>
+    <managed-bean-class>oracle.adf.view.rich.model.MDSMenuModel</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    <managed-property id="__6">
+      <property-name>createHiddenNodes</property-name>
+      <value>false</value>
+    </managed-property>
+    <managed-property id="__7">
+      <property-name>source</property-name>
+      <property-class>java.lang.String</property-class>
+      <value>/WEB-INF/com/ciobera/fwms/menu/trading_menu.xml</value>
+    </managed-property>
+  </managed-bean>
+</adfc-config>

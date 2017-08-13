@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="Stock">
+    <page>/com/ciobera/fwms/ui/pages/system/Stock.jspx</page>
+  </view>
+  <view id="StockSetup">
+    <page>/com/ciobera/fwms/ui/pages/system/StockSetup.jspx</page>
+  </view>
+  <view id="UserLog">
+    <page>/com/ciobera/fwms/ui/pages/system/UserLog.jspx</page>
+  </view>
+  <view id="UserManagement">
+    <page>/com/ciobera/fwms/ui/pages/system/UserManagement.jspx</page>
+  </view>
+  <control-flow-rule id="__1">
+    <from-activity-id>*</from-activity-id>
+    <control-flow-case id="__2">
+      <from-outcome>adfMenu_Stock</from-outcome>
+      <to-activity-id>Stock</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__3">
+      <from-outcome>adfMenu_StockSetup</from-outcome>
+      <to-activity-id>StockSetup</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__4">
+      <from-outcome>adfMenu_UserLog</from-outcome>
+      <to-activity-id>UserLog</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__5">
+      <from-outcome>adfMenu_UserManagement</from-outcome>
+      <to-activity-id>UserManagement</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__6">
+    <description>Menu Model Managed Bean</description>
+    <managed-bean-name>system_menu</managed-bean-name>
+    <managed-bean-class>oracle.adf.view.rich.model.MDSMenuModel</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    <managed-property id="__7">
+      <property-name>createHiddenNodes</property-name>
+      <value>false</value>
+    </managed-property>
+    <managed-property id="__8">
+      <property-name>source</property-name>
+      <property-class>java.lang.String</property-class>
+      <value>/WEB-INF/com/ciobera/fwms/menu/system_menu.xml</value>
+    </managed-property>
+  </managed-bean>
+</adfc-config>

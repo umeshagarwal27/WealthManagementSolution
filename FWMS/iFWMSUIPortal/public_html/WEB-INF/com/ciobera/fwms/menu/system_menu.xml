@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<menu xmlns="http://myfaces.apache.org/trinidad/menu">
+    <itemNode id="itemNode_UserManagement" label="#{UIBundle['USER_MANAGEMENT']}" action="adfMenu_UserManagement"
+              focusViewId="/UserManagement" disabled="false" rendered="true">
+        <itemNode id="itemNode_UserLog" label="#{UIBundle['USER_LOG']}" action="adfMenu_UserLog" focusViewId="/UserLog"
+                  disabled="false" rendered="true"/>
+    </itemNode>
+    <itemNode id="itemNode_StockSetup" label="#{UIBundle['STOCK_SETUP']}" action="adfMenu_StockSetup"
+              focusViewId="/StockSetup" disabled="false" rendered="true">
+        <itemNode id="itemNode_Stock" label="#{UIBundle['STOCK']}" action="adfMenu_Stock" focusViewId="/Stock"
+                  disabled="false" rendered="true"/>
+    </itemNode>
+</menu>

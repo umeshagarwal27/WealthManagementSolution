@@ -3,11 +3,11 @@
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
-        <af:document title="#{UIBundle.HOME}" id="d1">
+        <af:document title="#{UIBundle.ORDER_MANAGEMENT}" id="d1">
             <af:form id="f1">
                 <af:pageTemplate viewId="/com/ciobera/fwms/ui/pageTemplates/iFWMSMainPageTemplate.jspx" id="pt1">
                     <f:facet name="mainContentFacet"/>
-                    <f:attribute name="title" value="#{UIBundle.HOME}"/>
+                    <f:attribute name="title" value="#{UIBundle.ORDER_MANAGEMENT}"/>
                 </af:pageTemplate>
             </af:form>
         </af:document>
