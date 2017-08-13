@@ -6,13 +6,13 @@
         <af:document title="#{UIBundle.LOGIN}" id="d1">
             <af:form id="f1" defaultCommand="b1">
                 <af:panelStretchLayout id="psl2"
-                                       inlineStyle='background-image:url("../../../../../../images/login.png");height: 1000px !important;'
-                                       topHeight="50px">
+                                       inlineStyle='background-image:url("../../../../../../images/login.png");background-repeat:no-repeat; background-size:100.0%;height:850px !important;'
+                                       >
                     <f:facet name="end"/>
                     <f:facet name="center">
-                        <af:panelGroupLayout id="pgl3" layout="horizontal" valign="middle"
-                                             inlineStyle="padding-top:400px;padding-left:600px;">
-                            <af:panelBox text="#{null}" id="pb1" showDisclosure="false" background="light">
+                        <af:panelGroupLayout id="pgl3" valign="middle" inlineStyle="padding-top:500px;padding-left:800px;"
+                                             layout="horizontal">
+                            <af:panelBox text="#{null}" id="pb1" showDisclosure="false" background="light" >
                                 <af:panelGroupLayout id="pgl2" layout="vertical" halign="center">
                                     <af:outputFormatted value="#{LoginBean.attemptFailureMessage}" id="of8"
                                                         inlineStyle="color:Red;"

@@ -2,7 +2,7 @@
 <Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
              SeparateXMLFiles="false" Package="com.ciobera.fwms.ui" ClientType="Generic">
   <pageMap>
-    <page path="/com/ciobera/fwms/ui/pages/global/home.jspx" usageId="com_ciobera_fwms_ui_homePageDef"/>
+    <page path="/home.jspx" usageId="com_ciobera_fwms_ui_homePageDef"/>
     <page path="/com/ciobera/fwms/ui/pages/global/login.jspx" usageId="com_ciobera_fwms_ui_loginPageDef"/>
     <page path="/com/ciobera/fwms/ui/pages/accounting/AccountingModule.jspx"
           usageId="com_ciobera_fwms_ui_AccountingModulePageDef"/>

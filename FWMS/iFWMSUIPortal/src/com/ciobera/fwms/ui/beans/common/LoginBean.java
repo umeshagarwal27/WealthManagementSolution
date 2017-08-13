@@ -38,6 +38,8 @@ import org.apache.myfaces.trinidad.util.ComponentReference;
 
 
 public class LoginBean implements Serializable {
+    @SuppressWarnings("compatibility:3117155192402452002")
+    private static final long serialVersionUID = 1L;
     private String _userName;
     private String _password;
     private ComponentReference forgotPasswordPopupBinding;
@@ -119,7 +121,7 @@ public class LoginBean implements Serializable {
         Map resultMap = executeMethod("findUserByLoginCredentials");
         if (resultMap != null && !resultMap.isEmpty()) {
             String respCode = (String) resultMap.get("RESP_CODE");
-            if("INVALID_USER".equalsIgnoreCase(respCode)){
+            if ("INVALID_USER".equalsIgnoreCase(respCode)) {
                 displayErrorPopup(ADFUtil.getUIBundleMsg("INVALID_USER_ID"));
                 return null;
             }
@@ -127,7 +129,7 @@ public class LoginBean implements Serializable {
             else if ("INVALID".equalsIgnoreCase(respCode)) {
                 Map logWrongAttemptOP = executeMethod("logWrongAttempt");
                 if (logWrongAttemptOP != null && !logWrongAttemptOP.isEmpty()) {
-                    String logWrongAttemptRespCode = (String) resultMap.get("RESP_CODE");
+                    String logWrongAttemptRespCode = (String) logWrongAttemptOP.get("RESP_CODE");
                     if ("SUCCESS".equalsIgnoreCase(logWrongAttemptRespCode)) {
                         //Get Wrong Credentials Count
                         Map passWordCountOP = executeMethod("getUserWrongPasswordCount");
@@ -170,7 +172,7 @@ public class LoginBean implements Serializable {
                     displayErrorPopup(ADFUtil.getUIBundleMsg("USER_ACCOUNT_BLOCKED"));
                     return null;
                 }
-                long expiryDays = Long.parseLong((String)resultMap.get("EXPIRY_DAYS"));
+                long expiryDays = Long.parseLong((String) resultMap.get("EXPIRY_DAYS"));
                 if (expiryDays == 0) {
                     if (getPasswordExpiredPopupBinding() != null) {
                         RichPopup.PopupHints hints = new RichPopup.PopupHints();
@@ -179,6 +181,12 @@ public class LoginBean implements Serializable {
                     return null;
                 }
                 //TODO: Navigate to Home Page
+                FacesContext ctx = FacesContext.getCurrentInstance();
+                HttpServletRequest request = (HttpServletRequest) ctx.getExternalContext().getRequest();
+                String loginUrl = "/faces/home.jspx";
+                HttpServletResponse response = (HttpServletResponse) ctx.getExternalContext().getResponse();
+                //On successful authentication navigate to Home page
+                sendForward(request, response, loginUrl);
             } else {
                 String errorMessage = (String) resultMap.get("RESP_MESSAGE");
                 displayErrorPopup(errorMessage);
