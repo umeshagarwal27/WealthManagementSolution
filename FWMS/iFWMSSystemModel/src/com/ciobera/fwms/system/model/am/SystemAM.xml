@@ -13,4 +13,10 @@
   <ViewUsage
     Name="FWMSBondCoupen"
     ViewObjectName="com.ciobera.fwms.system.model.vo.FWMSBondCoupenVO"/>
+  <ViewLinkUsage
+    Name="FWMSProductVOToFWMSBondCoupen"
+    ViewLinkObjectName="com.ciobera.fwms.system.model.vo.viewlink.FWMSProductVOToFWMSBondCoupenVO"
+    SrcViewUsageName="com.ciobera.fwms.system.model.am.SystemAM.FWMSProduct"
+    DstViewUsageName="com.ciobera.fwms.system.model.am.SystemAM.FWMSBondCoupen"
+    Reversed="false"/>
 </AppModule>

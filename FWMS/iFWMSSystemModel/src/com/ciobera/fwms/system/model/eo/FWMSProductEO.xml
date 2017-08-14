@@ -547,6 +547,13 @@
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </Attribute>
+  <AccessorAttribute
+    Name="FWMSBondCoupenEO"
+    Association="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSBondCoupenEO"
+    AssociationEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSBondCoupenEO.FWMSBondCoupenEO"
+    AssociationOtherEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSBondCoupenEO.FWMSProductEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="FwmsproducteoPrimaryKey"
     PrimaryKey="true">

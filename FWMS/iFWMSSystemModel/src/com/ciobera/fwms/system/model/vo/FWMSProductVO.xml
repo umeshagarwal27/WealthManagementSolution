@@ -39,6 +39,116 @@
     Name="FWMSStockExchange"
     ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSStockExchangeVO"
     RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_WmsAssetTrans"
+    ListVOName="FWMSAsset"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WmsAssetTrans"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="WmsAsset"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="WmsAssetDesc"/>
+      <Item Value="WmsAssetId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="WmsAssetDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_WmsCountryTrans"
+    ListVOName="FWMSCountry"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WmsCountryTrans"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="WmsCountry"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="WmsCountryDesc"/>
+      <Item Value="WmsCountryId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="WmsCountryDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_WmsCurrencyTrans"
+    ListVOName="FWMSCurrency"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WmsCurrencyTrans"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="WmsCurrency"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="WmsCurrencyDesc"/>
+      <Item Value="WmsCurrencyId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="WmsCurrencyDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_WmsSectorTrans"
+    ListVOName="FWMSSector"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WmsSectorTrans"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="WmsSector"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="WmsSectorDesc"/>
+      <Item Value="WmsSectorId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="WmsSectorDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_WmsStockExchangeTrans"
+    ListVOName="FWMSStockExchange"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WmsStockExchangeTrans"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="WmsStockExchange"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="WmsStockExchangeDesc"/>
+      <Item Value="WmsStockExchangeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="WmsStockExchangeDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="FWMSProductEO"
     Entity="com.ciobera.fwms.system.model.eo.FWMSProductEO"/>
@@ -47,7 +157,8 @@
     PrecisionRule="true"
     EntityAttrName="WmsProductType"
     EntityUsage="FWMSProductEO"
-    AliasName="WMS_PRODUCT_TYPE"/>
+    AliasName="WMS_PRODUCT_TYPE"
+    DefaultValue="STOCK"/>
   <ViewAttribute
     Name="WmsProductId"
     PrecisionRule="true"
@@ -59,7 +170,14 @@
     PrecisionRule="true"
     EntityAttrName="WmsProductName"
     EntityUsage="FWMSProductEO"
-    AliasName="WMS_PRODUCT_NAME"/>
+    AliasName="WMS_PRODUCT_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="WmsTicker"
     PrecisionRule="true"
@@ -263,7 +381,14 @@
     PrecisionRule="true"
     EntityAttrName="WmsComments"
     EntityUsage="FWMSProductEO"
-    AliasName="WMS_COMMENTS"/>
+    AliasName="WMS_COMMENTS">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="WmsStatus"
     PrecisionRule="true"
@@ -342,4 +467,104 @@
     EntityAttrName="WmsSedol"
     EntityUsage="FWMSProductEO"
     AliasName="WMS_SEDOL"/>
+  <ViewAttribute
+    Name="WmsAssetTrans"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_WmsAssetTrans">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WmsCountryTrans"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_WmsCountryTrans">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WmsCurrencyTrans"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_WmsCurrencyTrans">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WmsSectorTrans"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_WmsSectorTrans">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WmsStockExchangeTrans"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_WmsStockExchangeTrans">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
 </ViewObject>

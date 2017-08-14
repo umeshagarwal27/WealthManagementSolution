@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
 // ---------------------------------------------------------------------
@@ -68,7 +69,8 @@ public class FWMSProductEOImpl extends EntityImpl {
         WmsApproveDate,
         WmsMutualFundsValue,
         WmsMutualIbType,
-        WmsSedol;
+        WmsSedol,
+        FWMSBondCoupenEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -91,6 +93,8 @@ public class FWMSProductEOImpl extends EntityImpl {
             return vals;
         }
     }
+
+
     public static final int WMSPRODUCTTYPE = AttributesEnum.WmsProductType.index();
     public static final int WMSPRODUCTID = AttributesEnum.WmsProductId.index();
     public static final int WMSPRODUCTNAME = AttributesEnum.WmsProductName.index();
@@ -141,12 +145,21 @@ public class FWMSProductEOImpl extends EntityImpl {
     public static final int WMSMUTUALFUNDSVALUE = AttributesEnum.WmsMutualFundsValue.index();
     public static final int WMSMUTUALIBTYPE = AttributesEnum.WmsMutualIbType.index();
     public static final int WMSSEDOL = AttributesEnum.WmsSedol.index();
+    public static final int FWMSBONDCOUPENEO = AttributesEnum.FWMSBondCoupenEO.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public FWMSProductEOImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.ciobera.fwms.system.model.eo.FWMSProductEO");
+    }
+
 
     /**
      * Gets the attribute value for WmsProductType, using the alias name WmsProductType.
@@ -949,19 +962,20 @@ public class FWMSProductEOImpl extends EntityImpl {
     }
 
     /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getFWMSBondCoupenEO() {
+        return (RowIterator) getAttributeInternal(FWMSBONDCOUPENEO);
+    }
+
+
+    /**
      * @param wmsProductId key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(Long wmsProductId) {
         return new Key(new Object[] { wmsProductId });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.ciobera.fwms.system.model.eo.FWMSProductEO");
     }
 
     /**
