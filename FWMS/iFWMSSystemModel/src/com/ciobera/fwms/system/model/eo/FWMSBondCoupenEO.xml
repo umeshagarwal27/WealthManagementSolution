@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FWMSBondCoupenEO"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="FWMS_BOND_COUPEN"
+  AliasName="FWMSBondCoupenEO"
+  BindingStyle="OracleName"
+  RowClass="com.ciobera.fwms.system.model.eo.FWMSBondCoupenEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="WmsSno"
+    Precision="10"
+    Scale="0"
+    ColumnName="WMS_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="FWMS_BOND_COUPEN"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="WmsBond"
+    Precision="10"
+    Scale="0"
+    ColumnName="WMS_BOND"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="FWMS_BOND_COUPEN"/>
+  <Attribute
+    Name="WmsDate"
+    ColumnName="WMS_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="FWMS_BOND_COUPEN"/>
+  <Attribute
+    Name="WmsCoupen"
+    Precision="15"
+    Scale="8"
+    ColumnName="WMS_COUPEN"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="FWMS_BOND_COUPEN"/>
+  <Key
+    Name="FwmsbondcoupeneoPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="FWMSBONDCOUPENEO_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.ciobera.fwms.system.model.eo.FWMSBondCoupenEO.WmsSno"/>
+    </AttrArray>
+  </Key>
+</Entity>

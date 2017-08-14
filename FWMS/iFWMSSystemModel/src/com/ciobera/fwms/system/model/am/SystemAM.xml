@@ -8,6 +8,9 @@
   InheritPersonalization="merge"
   ClearCacheOnRollback="true">
   <ViewUsage
-    Name="FWMSProductVO1"
+    Name="FWMSProduct"
     ViewObjectName="com.ciobera.fwms.system.model.vo.FWMSProductVO"/>
+  <ViewUsage
+    Name="FWMSBondCoupen"
+    ViewObjectName="com.ciobera.fwms.system.model.vo.FWMSBondCoupenVO"/>
 </AppModule>

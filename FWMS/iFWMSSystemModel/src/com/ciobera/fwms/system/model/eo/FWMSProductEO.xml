@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="FWMS_PRODUCT"
   AliasName="FWMSProductEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="com.ciobera.fwms.system.model.eo.FWMSProductEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="WmsProductType"
     Precision="50"
@@ -17,8 +22,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
@@ -40,8 +44,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
@@ -53,8 +56,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -66,8 +68,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -79,8 +80,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
@@ -92,8 +92,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
@@ -105,8 +104,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
@@ -118,8 +116,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
@@ -131,8 +128,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
@@ -145,8 +141,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsCurrency"
     Precision="4"
@@ -155,8 +150,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsStockExchange"
     Precision="4"
@@ -165,8 +159,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsSector"
     Precision="4"
@@ -175,8 +168,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsAsset"
     Precision="4"
@@ -185,8 +177,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsBondIssueNo"
     Precision="20"
@@ -194,8 +185,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -206,16 +196,14 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsBondMaturityDt"
     ColumnName="WMS_BOND_MATURITY_DT"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsBondUnitPrice"
     Precision="15"
@@ -224,8 +212,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsBondCouponRate"
     Precision="25"
@@ -234,8 +221,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsBondCouponFrequency"
     Precision="15"
@@ -243,8 +229,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -256,8 +241,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -270,8 +254,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsBondCoupon1stIntdate"
     Precision="5"
@@ -279,8 +262,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
@@ -292,8 +274,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
@@ -305,8 +286,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
@@ -318,8 +298,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
@@ -331,8 +310,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="12"/>
     </DesignTime>
@@ -343,8 +321,7 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsPutCallLotsize"
     Precision="10"
@@ -353,8 +330,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsPutCallSprice"
     Precision="25"
@@ -363,8 +339,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsPutCallStatus"
     Precision="25"
@@ -373,8 +348,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsMutualFundsIssue"
     Precision="75"
@@ -382,8 +356,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="75"/>
     </DesignTime>
@@ -395,8 +368,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -408,8 +380,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="25"/>
     </DesignTime>
@@ -421,8 +392,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -434,8 +404,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="300"/>
     </DesignTime>
@@ -447,8 +416,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -460,8 +428,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -473,8 +440,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -485,8 +451,7 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsLastUpdateUid"
     Precision="20"
@@ -494,8 +459,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -507,8 +471,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -519,8 +482,7 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsApproveUid"
     Precision="20"
@@ -528,8 +490,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -541,8 +502,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
@@ -553,8 +513,7 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsMutualFundsValue"
     Precision="35"
@@ -563,8 +522,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    TableName="FWMS_PRODUCT"/>
   <Attribute
     Name="WmsMutualIbType"
     Precision="50"
@@ -572,8 +530,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
@@ -585,8 +542,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    TableName="FWMS_PRODUCT">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -598,56 +554,7 @@
       <Attr Name="_DBObjectName" Value="FWMSPRODUCTEO_PRIMARY_KEY"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsProductType"/>
       <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsProductId"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsProductName"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsTicker"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsRetuerCode"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsBloombergCode"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsIsinCode"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsOtherCode"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsOtherDesc"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsPriceUpdate"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsCountry"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsCurrency"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsStockExchange"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsSector"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsAsset"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsBondIssueNo"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsBondIssueDate"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsBondMaturityDt"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsBondUnitPrice"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsBondCouponRate"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsBondCouponFrequency"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsBondDivisorDaysMonth"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsBondDivisorDaysYear"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsBondCoupon1stIntdate"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsBondCoupon2ndIntdate"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsBondCoupon3rdIntdate"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsBondCoupon4thIntdate"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsPutCallFlag"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsPutCallExpiryDate"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsPutCallLotsize"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsPutCallSprice"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsPutCallStatus"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsMutualFundsIssue"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsMutualInhouse3rdFlag"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsMutualFundsClosdedOpen"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsMutualFundsNavFlag"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsComments"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsStatus"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsEnterUid"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsEnterFpc"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsEnterDate"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsLastUpdateUid"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsLastFpc"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsLastUpdateDate"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsApproveUid"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsApproveFpc"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsApproveDate"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsMutualFundsValue"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsMutualIbType"/>
-      <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsSedol"/>
     </AttrArray>
   </Key>
 </Entity>

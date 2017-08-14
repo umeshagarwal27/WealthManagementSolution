@@ -13,127 +13,32 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  ComponentClass="com.ciobera.fwms.system.model.vo.FWMSProductVOImpl"
-  RowClass="com.ciobera.fwms.system.model.vo.FWMSProductVORowImpl">
+  RowClass="com.ciobera.fwms.system.model.vo.FWMSProductVORowImpl"
+  ComponentClass="com.ciobera.fwms.system.model.vo.FWMSProductVOImpl">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewAccessor
-    Name="CountryVO1"
-    ViewObjectName="com.ciobera.fwms.system.model.vo.readonly.CountryVO"
+    Name="FWMSAsset"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSAssetVO"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="CurrencyVO1"
-    ViewObjectName="com.ciobera.fwms.system.model.vo.readonly.CurrencyVO"
+    Name="FWMSCountry"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSCountryVO"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="StockExchangeVO1"
-    ViewObjectName="com.ciobera.fwms.system.model.vo.readonly.StockExchangeVO"
+    Name="FWMSCurrency"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSCurrencyVO"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="SectorVO1"
-    ViewObjectName="com.ciobera.fwms.system.model.vo.readonly.SectorVO"
+    Name="FWMSSector"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSSectorVO"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="AssetVO1"
-    ViewObjectName="com.ciobera.fwms.system.model.vo.readonly.AssetVO"
+    Name="FWMSStockExchange"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSStockExchangeVO"
     RowLevelBinds="true"/>
-  <ListBinding
-    Name="LOV_WmsCountry"
-    ListVOName="CountryVO1"
-    NullValueFlag="none"
-    MRUCount="0"
-    ComboRowCountHint="10">
-    <AttrArray Name="AttrNames">
-      <Item Value="WmsCountry"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="CountryDesc"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="WmsCountryId"/>
-      <Item Value="WmsCountryDesc"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_WmsCurrency"
-    ListVOName="CurrencyVO1"
-    NullValueFlag="none"
-    MRUCount="0"
-    ComboRowCountHint="10">
-    <AttrArray Name="AttrNames">
-      <Item Value="WmsCurrency"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="CurrencyDesc"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="WmsCurrencyId"/>
-      <Item Value="WmsCurrencyDesc"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_WmsStockExchange"
-    ListVOName="StockExchangeVO1"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="WmsStockExchange"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="StockExchangeDesc"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="WmsStockExchangeId"/>
-      <Item Value="WmsStockExchangeDesc"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_WmsSector"
-    ListVOName="SectorVO1"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="WmsSector"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="SectorDesc"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="WmsSectorId"/>
-      <Item Value="WmsSectorDesc"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_WmsAsset"
-    ListVOName="AssetVO1"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="WmsAsset"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="AssetDesc"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="WmsAssetId"/>
-      <Item Value="WmsAssetDesc"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
   <EntityUsage
     Name="FWMSProductEO"
     Entity="com.ciobera.fwms.system.model.eo.FWMSProductEO"/>
@@ -202,71 +107,31 @@
     PrecisionRule="true"
     EntityAttrName="WmsCountry"
     EntityUsage="FWMSProductEO"
-    AliasName="WMS_COUNTRY"
-    LOVName="LOV_WmsCountry">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="WMS_COUNTRY"/>
   <ViewAttribute
     Name="WmsCurrency"
     PrecisionRule="true"
     EntityAttrName="WmsCurrency"
     EntityUsage="FWMSProductEO"
-    AliasName="WMS_CURRENCY"
-    LOVName="LOV_WmsCurrency">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="WMS_CURRENCY"/>
   <ViewAttribute
     Name="WmsStockExchange"
     PrecisionRule="true"
     EntityAttrName="WmsStockExchange"
     EntityUsage="FWMSProductEO"
-    AliasName="WMS_STOCK_EXCHANGE"
-    LOVName="LOV_WmsStockExchange">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="WMS_STOCK_EXCHANGE"/>
   <ViewAttribute
     Name="WmsSector"
     PrecisionRule="true"
     EntityAttrName="WmsSector"
     EntityUsage="FWMSProductEO"
-    AliasName="WMS_SECTOR"
-    LOVName="LOV_WmsSector">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="WMS_SECTOR"/>
   <ViewAttribute
     Name="WmsAsset"
     PrecisionRule="true"
     EntityAttrName="WmsAsset"
     EntityUsage="FWMSProductEO"
-    AliasName="WMS_ASSET"
-    LOVName="LOV_WmsAsset">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="WMS_ASSET"/>
   <ViewAttribute
     Name="WmsBondIssueNo"
     PrecisionRule="true"
@@ -477,59 +342,4 @@
     EntityAttrName="WmsSedol"
     EntityUsage="FWMSProductEO"
     AliasName="WMS_SEDOL"/>
-  <ViewAttribute
-    Name="CountryDesc"
-    IsUpdateable="false"
-    IsSelected="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="255"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"/>
-  <ViewAttribute
-    Name="CurrencyDesc"
-    IsUpdateable="false"
-    IsSelected="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="255"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"/>
-  <ViewAttribute
-    Name="StockExchangeDesc"
-    IsUpdateable="false"
-    IsSelected="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="255"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"/>
-  <ViewAttribute
-    Name="SectorDesc"
-    IsUpdateable="false"
-    IsSelected="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="255"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"/>
-  <ViewAttribute
-    Name="AssetDesc"
-    IsUpdateable="false"
-    IsSelected="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="255"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"/>
 </ViewObject>

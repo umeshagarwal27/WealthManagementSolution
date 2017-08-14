@@ -31,14 +31,6 @@
     </DesignTime>
   </Containee>
   <Containee
-    Name="readonly"
-    PackageName="com.ciobera.fwms.system.model.vo.readonly"
-    ObjectType="JboPackage">
-    <DesignTime>
-      <Attr Name="_VO" Value="true"/>
-    </DesignTime>
-  </Containee>
-  <Containee
     Name="vo"
     PackageName="com.ciobera.fwms.system.model.vo"
     ObjectType="JboPackage">
@@ -46,4 +38,12 @@
       <Attr Name="_VO" Value="true"/>
     </DesignTime>
   </Containee>
+  <AppContainee
+    Name="iFWMSCommonModel"
+    FullName="com.ciobera.fwms.common.model.iFWMSCommonModel"
+    ObjectType="JboProject">
+    <DesignTime>
+      <Attr Name="_SourceName" Value="AdflibFWMSCommonModel.jar"/>
+    </DesignTime>
+  </AppContainee>
 </JboProject>
