@@ -12,13 +12,38 @@
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
     <Attr Name="_jprName" Value="../../../../../../iFWMSSystemModel.jpr"/>
     <Attr Name="_NamedConnection" Value="hr"/>
+    <Attr Name="_appModuleNames0" Value="com.ciobera.fwms.system.model.am.SystemAM"/>
   </DesignTime>
-  <AppContainee
-    Name="iFWMSCommonModel"
-    FullName="com.ciobera.fwms.common.model.iFWMSCommonModel"
-    ObjectType="JboProject">
+  <Containee
+    Name="am"
+    PackageName="com.ciobera.fwms.system.model.am"
+    ObjectType="JboPackage">
     <DesignTime>
-      <Attr Name="_SourceName" Value="AdflibFWMSCommonModel.jar"/>
+      <Attr Name="_AM" Value="true"/>
     </DesignTime>
-  </AppContainee>
+  </Containee>
+  <Containee
+    Name="eo"
+    PackageName="com.ciobera.fwms.system.model.eo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="readonly"
+    PackageName="com.ciobera.fwms.system.model.vo.readonly"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="vo"
+    PackageName="com.ciobera.fwms.system.model.vo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
 </JboProject>

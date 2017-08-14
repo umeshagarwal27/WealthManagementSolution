@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CurrencyVO"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="com.ciobera.fwms.system.model.vo.readonly.CurrencyVORowImpl"
+  ComponentClass="com.ciobera.fwms.system.model.vo.readonly.CurrencyVOImpl"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ciobera.fwms.system.model.vo.readonly.CurrencyVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT  
+    FWMS_CURRENCY.WMS_CURRENCY_ID WMS_CURRENCY_ID,  
+    FWMS_CURRENCY.WMS_CURRENCY_DESC WMS_CURRENCY_DESC,  
+    FWMS_CURRENCY.WMS_SHORT_DESC WMS_SHORT_DESC  
+FROM  
+    FWMS_CURRENCY]]></SQLQuery>
+  <ViewAttribute
+    Name="WmsCurrencyId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="WMS_CURRENCY_ID"
+    Expression="WMS_CURRENCY_ID"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="WmsCurrencyDesc"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="75"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="WMS_CURRENCY_DESC"
+    Expression="WMS_CURRENCY_DESC"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="75"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WmsShortDesc"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="WMS_SHORT_DESC"
+    Expression="WMS_SHORT_DESC"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="WmsCurrencyId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
