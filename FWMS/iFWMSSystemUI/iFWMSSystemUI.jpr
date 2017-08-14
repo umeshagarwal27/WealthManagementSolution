@@ -69,6 +69,9 @@
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
    </list>
    <value n="defaultPackage" v="com.ciobera.fwms.system.ui"/>
+   <hash n="oracle.adfdtinternal.model.ide.settings.ADFMSettings">
+      <value n="hasDataControls" v="true"/>
+   </hash>
    <hash n="oracle.adfdtinternal.view.rich.setting.ADFViewSettings">
       <value n="ENABLE_ADF_WEBAPP_LIB_SUPPORT" v="true"/>
    </hash>
@@ -77,14 +80,21 @@
          <hash>
             <hash n="dependable">
                <url n="sourceOwnerURL" path="../FWMS.jws"/>
-               <url n="sourceURL" path="../iFWMSSystemModel/iFWMSSystemModel.jpr"/>
+               <url n="sourceURL" path="../iFWMSBundle/iFWMSBundle.jpr"/>
             </hash>
             <value n="recognizerId" v="oracle.jdeveloper.library"/>
          </hash>
          <hash>
             <hash n="dependable">
                <url n="sourceOwnerURL" path="../FWMS.jws"/>
-               <url n="sourceURL" path="../iFWMSBundle/iFWMSBundle.jpr"/>
+               <url n="sourceURL" path="../iFWMSCommonModel/iFWMSCommonModel.jpr"/>
+            </hash>
+            <value n="recognizerId" v="oracle.jdeveloper.library"/>
+         </hash>
+         <hash>
+            <hash n="dependable">
+               <url n="sourceOwnerURL" path="../FWMS.jws"/>
+               <url n="sourceURL" path="../iFWMSSystemModel/iFWMSSystemModel.jpr"/>
             </hash>
             <value n="recognizerId" v="oracle.jdeveloper.library"/>
          </hash>
@@ -107,50 +117,29 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="FWMS_iFWMSSystemUI_webapp">
-            <hash n="appletArchives"/>
-            <hash n="appletFiles">
-               <value n="autoInclude" v="true"/>
-               <list n="selectionFilters">
-                  <string v="oracle.jdevimpl.deploy.common.JavaSelectionFilter"/>
-               </list>
-            </hash>
+         <hash n="AdflibFWMSSystemUI">
+            <value n="adflib-connectionDetails" v="true"/>
             <hash n="archiveOptions">
-               <value n="hasManifest" v="false"/>
+               <value n="hasManifest" v="true"/>
             </hash>
-            <value n="enterpriseAppName" v="FWMS_iFWMSSystemUI_webapp"/>
             <hash n="fileGroups">
                <list n="groups">
-                  <hash>
-                     <list n="contributors">
-                        <hash>
-                           <value n="type" v="5"/>
-                        </hash>
-                     </list>
-                     <value n="displayName" v="Web Files"/>
-                     <hash n="filters">
-                        <list n="rules">
-                           <hash>
-                              <value n="pattern" v="**"/>
-                              <value n="type" v="0"/>
-                           </hash>
-                        </list>
-                     </hash>
-                     <value n="internalName" v="web-files"/>
-                     <value n="type" v="1"/>
-                  </hash>
                   <hash>
                      <list n="contributors">
                         <hash>
                            <value n="type" v="2"/>
                         </hash>
                         <hash>
-                           <value n="type" v="7"/>
+                           <value n="type" v="5"/>
                         </hash>
                      </list>
-                     <value n="displayName" v="WEB-INF/classes"/>
+                     <value n="displayName" v="Project Output"/>
                      <hash n="filters">
                         <list n="rules">
+                           <hash>
+                              <value n="pattern" v="WEB-INF/classes/**"/>
+                              <value n="type" v="1"/>
+                           </hash>
                            <hash>
                               <value n="pattern" v="**"/>
                               <value n="type" v="0"/>
@@ -158,32 +147,42 @@
                         </list>
                      </hash>
                      <value n="internalName" v="project-output"/>
-                     <value n="targetWithinJar" v="WEB-INF/classes"/>
                      <value n="type" v="1"/>
-                  </hash>
-                  <hash>
-                     <value n="displayName" v="WEB-INF/lib"/>
-                     <hash n="filters">
-                        <list n="rules">
-                           <hash>
-                              <value n="pattern" v="**"/>
-                              <value n="type" v="0"/>
-                           </hash>
-                        </list>
-                     </hash>
-                     <value n="internalName" v="libraries"/>
-                     <value n="targetWithinJar" v="WEB-INF/lib"/>
-                     <value n="type" v="3"/>
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/FWMS_iFWMSSystemUI_webapp.war"/>
-            <value n="profileClass" v="oracle.jdeveloper.deploy.war.WarProfile"/>
-            <value n="profileName" v="FWMS_iFWMSSystemUI_webapp"/>
+            <url n="jarURL" path="../adflibs/AdflibFWMSSystemUI.jar"/>
+            <hash n="LibraryDependencies">
+               <list n="dependencyList">
+                  <hash>
+                     <hash n="dependable">
+                        <url n="sourceOwnerURL" path="../FWMS.jws"/>
+                        <url n="sourceURL" path="../iFWMSBundle/iFWMSBundle.jpr"/>
+                     </hash>
+                     <value n="recognizerId" v="oracle.jdeveloper.library"/>
+                  </hash>
+                  <hash>
+                     <hash n="dependable">
+                        <url n="sourceOwnerURL" path="../FWMS.jws"/>
+                        <url n="sourceURL" path="../iFWMSCommonModel/iFWMSCommonModel.jpr"/>
+                     </hash>
+                     <value n="recognizerId" v="oracle.jdeveloper.library"/>
+                  </hash>
+                  <hash>
+                     <hash n="dependable">
+                        <url n="sourceOwnerURL" path="../FWMS.jws"/>
+                        <url n="sourceURL" path="../iFWMSSystemModel/iFWMSSystemModel.jpr"/>
+                     </hash>
+                     <value n="recognizerId" v="oracle.jdeveloper.library"/>
+                  </hash>
+               </list>
+            </hash>
+            <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
+            <value n="profileName" v="AdflibFWMSSystemUI"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="FWMS_iFWMSSystemUI_webapp"/>
+         <string v="AdflibFWMSSystemUI"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
@@ -288,7 +287,29 @@
             <value n="id" v="ADF DVT Faces Databinding MDS Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Model Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
+      <hash n="internalDefinitions">
+         <list n="libraryDefinitions">
+            <hash>
+               <list n="classPath">
+                  <url path="../adflibs/AdflibFWMSCommonModel.jar" jar-entry=""/>
+                  <url path="../adflibs/AdflibFWMSCommonUtil.jar" jar-entry=""/>
+                  <url path="../adflibs/AdflibFWMSSystemModel.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="ADF Library"/>
+               <value n="id" v="ADF Library"/>
+            </hash>
+         </list>
+      </hash>
       <list n="libraryReferences">
          <hash>
             <value n="id" v="JSP Runtime"/>
@@ -360,6 +381,14 @@
          </hash>
          <hash>
             <value n="id" v="ADF DVT Faces Databinding MDS Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Model Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

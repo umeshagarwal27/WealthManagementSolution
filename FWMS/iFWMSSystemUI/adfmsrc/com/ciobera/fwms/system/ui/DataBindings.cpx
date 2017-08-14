@@ -10,11 +10,23 @@
     <page path="/com/ciobera/fwms/system/ui/fragments/stockInformationPF.jsff"
           usageId="com_ciobera_fwms_system_ui_stockInformationPFPageDef"/>
     <page path="/testPage.jspx" usageId="com_ciobera_fwms_system_ui_testPagePageDef"/>
+    <page path="/com/ciobera/fwms/system/ui/fragments/stockSetupPF.jsff"
+          usageId="com_ciobera_fwms_system_ui_stockSetupPFPageDef"/>
+    <page path="/com/ciobera/fwms/system/ui/fragments/userLogPF.jsff"
+          usageId="com_ciobera_fwms_system_ui_userLogPFPageDef"/>
+    <page path="/com/ciobera/fwms/system/ui/fragments/userManagementPF.jsff"
+          usageId="com_ciobera_fwms_system_ui_userManagementPFPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_ciobera_fwms_system_ui_stockInformationPFPageDef"
           path="com.ciobera.fwms.system.ui.fragments.stockInformationPFPageDef"/>
     <page id="com_ciobera_fwms_system_ui_testPagePageDef" path="com.ciobera.fwms.system.ui.pageDefs.testPagePageDef"/>
+    <page id="com_ciobera_fwms_system_ui_stockSetupPFPageDef"
+          path="com.ciobera.fwms.system.ui.fragments.stockSetupPFPageDef"/>
+    <page id="com_ciobera_fwms_system_ui_userLogPFPageDef"
+          path="com.ciobera.fwms.system.ui.fragments.userLogPFPageDef"/>
+    <page id="com_ciobera_fwms_system_ui_userManagementPFPageDef"
+          path="com.ciobera.fwms.system.ui.fragments.userManagementPFPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SystemAMDataControl" Package="com.ciobera.fwms.system.model.am"
