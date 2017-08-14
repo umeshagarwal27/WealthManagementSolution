@@ -22,6 +22,17 @@
         ResId="com.ciobera.fwms.common.model.vo.readonly.FWMSSectorVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="pSector"
+    Kind="viewcriteria"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <SQLQuery><![CDATA[SELECT   
     FWMS_SECTOR.WMS_SECTOR_ID WMS_SECTOR_ID,   
     FWMS_SECTOR.WMS_SECTOR_DESC WMS_SECTOR_DESC   
@@ -36,7 +47,7 @@ FROM
     ColumnType="INTEGER"
     AliasName="WMS_SECTOR_ID"
     Expression="WMS_SECTOR_ID"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="WmsSectorDesc"
     IsUpdateable="false"
@@ -51,7 +62,61 @@ FROM
     <DesignTime>
       <Attr Name="_DisplaySize" Value="75"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="SECTOR"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="findBySector"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSSectorVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="FWMSSectorVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="FWMSSectorVOCriteria_FWMSSectorVOCriteria_row_0_WmsSectorDesc"
+        ViewAttribute="WmsSectorDesc"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":pSector"
+        IsBindVarValue="true"
+        Required="Optional">
+        <Properties>
+          <CustomProperties>
+            <Property
+              Name="renderedMode"
+              Value="Basic"/>
+          </CustomProperties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="60"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="WmsSectorId"/>
   </AttrArray>

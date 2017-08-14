@@ -22,6 +22,17 @@
         ResId="com.ciobera.fwms.common.model.vo.readonly.FWMSCurrencyVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="pCurrency"
+    Kind="viewcriteria"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <SQLQuery><![CDATA[SELECT 
     FWMS_CURRENCY.WMS_CURRENCY_ID WMS_CURRENCY_ID,   
     FWMS_CURRENCY.WMS_CURRENCY_DESC WMS_CURRENCY_DESC,   
@@ -37,7 +48,7 @@ FROM
     ColumnType="INTEGER"
     AliasName="WMS_CURRENCY_ID"
     Expression="WMS_CURRENCY_ID"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="WmsCurrencyDesc"
     IsUpdateable="false"
@@ -52,6 +63,12 @@ FROM
     <DesignTime>
       <Attr Name="_DisplaySize" Value="75"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['com.ciobera.fwms.bundle.model.ModelBundle']['CURRENCY']}"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="WmsShortDesc"
@@ -68,11 +85,55 @@ FROM
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewCriteria
+    Name="findByCurrency"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSCurrencyVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="FWMSCurrencyVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="FWMSCurrencyVOCriteria_FWMSCurrencyVOCriteria_row_0_WmsCurrencyDesc"
+        ViewAttribute="WmsCurrencyDesc"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":pCurrency"
+        IsBindVarValue="true"
+        Required="Optional">
+        <Properties>
+          <CustomProperties>
+            <Property
+              Name="renderedMode"
+              Value="Basic"/>
+          </CustomProperties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="60"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="WmsCurrencyId"/>
   </AttrArray>
-  <ResourceBundle>
-    <PropertiesBundle
-      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
-  </ResourceBundle>
 </ViewObject>

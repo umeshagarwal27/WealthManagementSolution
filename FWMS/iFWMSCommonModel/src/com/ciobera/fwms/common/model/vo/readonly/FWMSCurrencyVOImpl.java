@@ -13,5 +13,21 @@ public class FWMSCurrencyVOImpl extends ViewObjectImpl {
      */
     public FWMSCurrencyVOImpl() {
     }
+
+    /**
+     * Returns the variable value for pCurrency.
+     * @return variable value for pCurrency
+     */
+    public String getpCurrency() {
+        return (String) ensureVariableManager().getVariableValue("pCurrency");
+    }
+
+    /**
+     * Sets <code>value</code> for variable pCurrency.
+     * @param value value to bind as pCurrency
+     */
+    public void setpCurrency(String value) {
+        ensureVariableManager().setVariableValue("pCurrency", value);
+    }
 }
 

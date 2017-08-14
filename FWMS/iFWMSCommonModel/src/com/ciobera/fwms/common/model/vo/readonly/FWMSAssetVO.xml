@@ -22,6 +22,17 @@
         ResId="com.ciobera.fwms.common.model.vo.readonly.FWMSAssetVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="pAsset"
+    Kind="viewcriteria"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <SQLQuery><![CDATA[SELECT   
     FWMS_ASSET.WMS_ASSET_ID WMS_ASSET_ID,   
     FWMS_ASSET.WMS_ASSET_DESC WMS_ASSET_DESC   
@@ -36,7 +47,7 @@ FROM
     ColumnType="INTEGER"
     AliasName="WMS_ASSET_ID"
     Expression="WMS_ASSET_ID"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="WmsAssetDesc"
     IsUpdateable="false"
@@ -51,7 +62,61 @@ FROM
     <DesignTime>
       <Attr Name="_DisplaySize" Value="75"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['com.ciobera.fwms.bundle.model.ModelBundle']['ASSET']}"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="findByAsset"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSAssetVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="FWMSAssetVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="FWMSAssetVOCriteria_FWMSAssetVOCriteria_row_0_WmsAssetDesc"
+        ViewAttribute="WmsAssetDesc"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":pAsset"
+        IsBindVarValue="true"
+        Required="Optional">
+        <Properties>
+          <CustomProperties>
+            <Property
+              Name="renderedMode"
+              Value="Basic"/>
+          </CustomProperties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="60"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="WmsAssetId"/>
   </AttrArray>

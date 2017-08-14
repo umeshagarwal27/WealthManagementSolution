@@ -13,5 +13,21 @@ public class FWMSSectorVOImpl extends ViewObjectImpl {
      */
     public FWMSSectorVOImpl() {
     }
+
+    /**
+     * Returns the variable value for pSector.
+     * @return variable value for pSector
+     */
+    public String getpSector() {
+        return (String) ensureVariableManager().getVariableValue("pSector");
+    }
+
+    /**
+     * Sets <code>value</code> for variable pSector.
+     * @param value value to bind as pSector
+     */
+    public void setpSector(String value) {
+        ensureVariableManager().setVariableValue("pSector", value);
+    }
 }
 

@@ -13,5 +13,21 @@ public class FWMSStockExchangeVOImpl extends ViewObjectImpl {
      */
     public FWMSStockExchangeVOImpl() {
     }
+
+    /**
+     * Returns the variable value for pStockExchange.
+     * @return variable value for pStockExchange
+     */
+    public String getpStockExchange() {
+        return (String) ensureVariableManager().getVariableValue("pStockExchange");
+    }
+
+    /**
+     * Sets <code>value</code> for variable pStockExchange.
+     * @param value value to bind as pStockExchange
+     */
+    public void setpStockExchange(String value) {
+        ensureVariableManager().setVariableValue("pStockExchange", value);
+    }
 }
 

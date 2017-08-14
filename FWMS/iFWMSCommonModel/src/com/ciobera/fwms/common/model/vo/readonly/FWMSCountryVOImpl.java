@@ -13,5 +13,21 @@ public class FWMSCountryVOImpl extends ViewObjectImpl {
      */
     public FWMSCountryVOImpl() {
     }
+
+    /**
+     * Returns the variable value for pCountry.
+     * @return variable value for pCountry
+     */
+    public String getpCountry() {
+        return (String) ensureVariableManager().getVariableValue("pCountry");
+    }
+
+    /**
+     * Sets <code>value</code> for variable pCountry.
+     * @param value value to bind as pCountry
+     */
+    public void setpCountry(String value) {
+        ensureVariableManager().setVariableValue("pCountry", value);
+    }
 }
 

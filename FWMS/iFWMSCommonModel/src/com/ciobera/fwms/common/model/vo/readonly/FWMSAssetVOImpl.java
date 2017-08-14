@@ -13,5 +13,21 @@ public class FWMSAssetVOImpl extends ViewObjectImpl {
      */
     public FWMSAssetVOImpl() {
     }
+
+    /**
+     * Returns the variable value for pAsset.
+     * @return variable value for pAsset
+     */
+    public String getpAsset() {
+        return (String) ensureVariableManager().getVariableValue("pAsset");
+    }
+
+    /**
+     * Sets <code>value</code> for variable pAsset.
+     * @param value value to bind as pAsset
+     */
+    public void setpAsset(String value) {
+        ensureVariableManager().setVariableValue("pAsset", value);
+    }
 }
 
