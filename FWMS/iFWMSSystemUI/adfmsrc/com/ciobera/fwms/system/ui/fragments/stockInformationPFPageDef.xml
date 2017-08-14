@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="stockInformationPFPageDef"
+                Package="com.ciobera.fwms.system.ui.fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="FWMSProduct" RangeSize="25" DataControl="SystemAMDataControl" id="FWMSProductIterator"/>
+    <searchRegion Binds="FWMSProductIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="FWMSProductQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="FWMSProductIterator" id="FWMSProduct">
+      <nodeDefinition DefName="com.ciobera.fwms.system.model.vo.FWMSProductVO" Name="FWMSProduct0">
+        <AttrNames>
+          <Item Value="WmsProductType"/>
+          <Item Value="WmsProductId"/>
+          <Item Value="WmsProductName"/>
+          <Item Value="WmsTicker"/>
+          <Item Value="WmsRetuerCode"/>
+          <Item Value="WmsBloombergCode"/>
+          <Item Value="WmsIsinCode"/>
+          <Item Value="WmsOtherCode"/>
+          <Item Value="WmsOtherDesc"/>
+          <Item Value="WmsPriceUpdate"/>
+          <Item Value="WmsCountry"/>
+          <Item Value="WmsCurrency"/>
+          <Item Value="WmsStockExchange"/>
+          <Item Value="WmsSector"/>
+          <Item Value="WmsAsset"/>
+          <Item Value="WmsBondIssueNo"/>
+          <Item Value="WmsBondIssueDate"/>
+          <Item Value="WmsBondMaturityDt"/>
+          <Item Value="WmsBondUnitPrice"/>
+          <Item Value="WmsBondCouponRate"/>
+          <Item Value="WmsBondCouponFrequency"/>
+          <Item Value="WmsBondDivisorDaysMonth"/>
+          <Item Value="WmsBondDivisorDaysYear"/>
+          <Item Value="WmsBondCoupon1stIntdate"/>
+          <Item Value="WmsBondCoupon2ndIntdate"/>
+          <Item Value="WmsBondCoupon3rdIntdate"/>
+          <Item Value="WmsBondCoupon4thIntdate"/>
+          <Item Value="WmsPutCallFlag"/>
+          <Item Value="WmsPutCallExpiryDate"/>
+          <Item Value="WmsPutCallLotsize"/>
+          <Item Value="WmsPutCallSprice"/>
+          <Item Value="WmsPutCallStatus"/>
+          <Item Value="WmsMutualFundsIssue"/>
+          <Item Value="WmsMutualInhouse3rdFlag"/>
+          <Item Value="WmsMutualFundsClosdedOpen"/>
+          <Item Value="WmsMutualFundsNavFlag"/>
+          <Item Value="WmsComments"/>
+          <Item Value="WmsStatus"/>
+          <Item Value="WmsEnterUid"/>
+          <Item Value="WmsEnterFpc"/>
+          <Item Value="WmsEnterDate"/>
+          <Item Value="WmsLastUpdateUid"/>
+          <Item Value="WmsLastFpc"/>
+          <Item Value="WmsLastUpdateDate"/>
+          <Item Value="WmsApproveUid"/>
+          <Item Value="WmsApproveFpc"/>
+          <Item Value="WmsApproveDate"/>
+          <Item Value="WmsMutualFundsValue"/>
+          <Item Value="WmsMutualIbType"/>
+          <Item Value="WmsSedol"/>
+          <Item Value="WmsAssetTrans"/>
+          <Item Value="WmsCountryTrans"/>
+          <Item Value="WmsCurrencyTrans"/>
+          <Item Value="WmsSectorTrans"/>
+          <Item Value="WmsStockExchangeTrans"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsAssetTrans" id="WmsAssetTrans"/>
+    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsCountryTrans" id="WmsCountryTrans"/>
+    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsCurrencyTrans"
+                  id="WmsCurrencyTrans"/>
+    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsSectorTrans" id="WmsSectorTrans"/>
+    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsStockExchangeTrans"
+                  id="WmsStockExchangeTrans"/>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsProductType">
+      <AttrNames>
+        <Item Value="WmsProductType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsProductId">
+      <AttrNames>
+        <Item Value="WmsProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsProductName">
+      <AttrNames>
+        <Item Value="WmsProductName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsTicker">
+      <AttrNames>
+        <Item Value="WmsTicker"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsRetuerCode">
+      <AttrNames>
+        <Item Value="WmsRetuerCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsBloombergCode">
+      <AttrNames>
+        <Item Value="WmsBloombergCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsIsinCode">
+      <AttrNames>
+        <Item Value="WmsIsinCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsOtherCode">
+      <AttrNames>
+        <Item Value="WmsOtherCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsOtherDesc">
+      <AttrNames>
+        <Item Value="WmsOtherDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsPriceUpdate">
+      <AttrNames>
+        <Item Value="WmsPriceUpdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsCountry">
+      <AttrNames>
+        <Item Value="WmsCountry"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsCurrency">
+      <AttrNames>
+        <Item Value="WmsCurrency"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsStockExchange">
+      <AttrNames>
+        <Item Value="WmsStockExchange"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsSector">
+      <AttrNames>
+        <Item Value="WmsSector"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsAsset">
+      <AttrNames>
+        <Item Value="WmsAsset"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsBondIssueNo">
+      <AttrNames>
+        <Item Value="WmsBondIssueNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsBondIssueDate">
+      <AttrNames>
+        <Item Value="WmsBondIssueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsBondMaturityDt">
+      <AttrNames>
+        <Item Value="WmsBondMaturityDt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsBondUnitPrice">
+      <AttrNames>
+        <Item Value="WmsBondUnitPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsBondCouponRate">
+      <AttrNames>
+        <Item Value="WmsBondCouponRate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsBondCouponFrequency">
+      <AttrNames>
+        <Item Value="WmsBondCouponFrequency"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsBondDivisorDaysMonth">
+      <AttrNames>
+        <Item Value="WmsBondDivisorDaysMonth"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsBondDivisorDaysYear">
+      <AttrNames>
+        <Item Value="WmsBondDivisorDaysYear"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsBondCoupon1stIntdate">
+      <AttrNames>
+        <Item Value="WmsBondCoupon1stIntdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsBondCoupon2ndIntdate">
+      <AttrNames>
+        <Item Value="WmsBondCoupon2ndIntdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsBondCoupon3rdIntdate">
+      <AttrNames>
+        <Item Value="WmsBondCoupon3rdIntdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsBondCoupon4thIntdate">
+      <AttrNames>
+        <Item Value="WmsBondCoupon4thIntdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsPutCallFlag">
+      <AttrNames>
+        <Item Value="WmsPutCallFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsPutCallExpiryDate">
+      <AttrNames>
+        <Item Value="WmsPutCallExpiryDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsPutCallLotsize">
+      <AttrNames>
+        <Item Value="WmsPutCallLotsize"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsPutCallSprice">
+      <AttrNames>
+        <Item Value="WmsPutCallSprice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsPutCallStatus">
+      <AttrNames>
+        <Item Value="WmsPutCallStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsMutualFundsIssue">
+      <AttrNames>
+        <Item Value="WmsMutualFundsIssue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsMutualInhouse3rdFlag">
+      <AttrNames>
+        <Item Value="WmsMutualInhouse3rdFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsMutualFundsClosdedOpen">
+      <AttrNames>
+        <Item Value="WmsMutualFundsClosdedOpen"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsMutualFundsNavFlag">
+      <AttrNames>
+        <Item Value="WmsMutualFundsNavFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsComments">
+      <AttrNames>
+        <Item Value="WmsComments"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsStatus">
+      <AttrNames>
+        <Item Value="WmsStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsEnterUid">
+      <AttrNames>
+        <Item Value="WmsEnterUid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsEnterFpc">
+      <AttrNames>
+        <Item Value="WmsEnterFpc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsEnterDate">
+      <AttrNames>
+        <Item Value="WmsEnterDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsLastUpdateUid">
+      <AttrNames>
+        <Item Value="WmsLastUpdateUid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsLastFpc">
+      <AttrNames>
+        <Item Value="WmsLastFpc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsLastUpdateDate">
+      <AttrNames>
+        <Item Value="WmsLastUpdateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsApproveUid">
+      <AttrNames>
+        <Item Value="WmsApproveUid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsApproveFpc">
+      <AttrNames>
+        <Item Value="WmsApproveFpc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsApproveDate">
+      <AttrNames>
+        <Item Value="WmsApproveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsMutualFundsValue">
+      <AttrNames>
+        <Item Value="WmsMutualFundsValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsMutualIbType">
+      <AttrNames>
+        <Item Value="WmsMutualIbType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsSedol">
+      <AttrNames>
+        <Item Value="WmsSedol"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="FWMSProductIterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="FWMSProductIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="FWMSProductIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="FWMSProductIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+  </bindings>
+</pageDefinition>

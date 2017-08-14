@@ -7,14 +7,14 @@
     <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
   </definitionFactories>
   <pageMap>
-    <page path="/ui/stock/jsff/stockInfoEdit.jsff" usageId="com_ciobera_fwms_system_ui_stockInfoEditPageDef"/>
-    <page path="/ui/stock/jsff/stockInfoView.jsff" usageId="com_ciobera_fwms_system_ui_stockInfoViewPageDef"/>
-    <page path="/ui/stock/page/testPage.jsf" usageId="com_ciobera_fwms_system_ui_testPagePageDef"/>
+    <page path="/com/ciobera/fwms/system/ui/fragments/stockInformationPF.jsff"
+          usageId="com_ciobera_fwms_system_ui_stockInformationPFPageDef"/>
+    <page path="/testPage.jspx" usageId="com_ciobera_fwms_system_ui_testPagePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
-    <page id="com_ciobera_fwms_system_ui_stockInfoEditPageDef" path="ui.stock.jsff.stockInfoEditPageDef"/>
-    <page id="com_ciobera_fwms_system_ui_stockInfoViewPageDef" path="ui.stock.jsff.stockInfoViewPageDef"/>
-    <page id="com_ciobera_fwms_system_ui_testPagePageDef" path="ui.stock.page.testPagePageDef"/>
+    <page id="com_ciobera_fwms_system_ui_stockInformationPFPageDef"
+          path="com.ciobera.fwms.system.ui.fragments.stockInformationPFPageDef"/>
+    <page id="com_ciobera_fwms_system_ui_testPagePageDef" path="com.ciobera.fwms.system.ui.pageDefs.testPagePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="SystemAMDataControl" Package="com.ciobera.fwms.system.model.am"
