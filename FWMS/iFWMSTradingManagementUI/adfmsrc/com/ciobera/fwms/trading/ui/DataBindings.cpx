@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.ciobera.fwms.trading.ui" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/com/ciobera/fwms/trading/ui/fragments/dashboardPF.jsff"
+          usageId="com_ciobera_fwms_trading_ui_dashboardPFPageDef"/>
+    <page path="/com/ciobera/fwms/trading/ui/fragments/orderManagementPF.jsff"
+          usageId="com_ciobera_fwms_trading_ui_orderManagementPFPageDef"/>
+    <page path="/com/ciobera/fwms/trading/ui/fragments/tradeBookPF.jsff"
+          usageId="com_ciobera_fwms_trading_ui_tradeBookPFPageDef"/>
+    <page path="/testPage.jspx" usageId="com_ciobera_fwms_trading_ui_testPagePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_ciobera_fwms_trading_ui_dashboardPFPageDef"
+          path="com.ciobera.fwms.trading.ui.fragments.dashboardPFPageDef"/>
+    <page id="com_ciobera_fwms_trading_ui_orderManagementPFPageDef"
+          path="com.ciobera.fwms.trading.ui.fragments.orderManagementPFPageDef"/>
+    <page id="com_ciobera_fwms_trading_ui_tradeBookPFPageDef"
+          path="com.ciobera.fwms.trading.ui.fragments.tradeBookPFPageDef"/>
+    <page id="com_ciobera_fwms_trading_ui_testPagePageDef" path="com.ciobera.fwms.trading.ui.pageDefs.testPagePageDef"/>
+  </pageDefinitionUsages>
+</Application>
