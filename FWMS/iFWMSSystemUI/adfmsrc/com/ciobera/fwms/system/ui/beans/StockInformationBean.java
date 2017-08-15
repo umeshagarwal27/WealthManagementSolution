@@ -11,13 +11,16 @@ package com.ciobera.fwms.system.ui.beans;
 import com.ciobera.fwms.common.util.logger.LoggingUtil;
 import com.ciobera.fwms.common.util.utils.common.ADFUtil;
 
-import javax.faces.event.ActionEvent;
-
-
 import java.io.Serializable;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.faces.event.ActionEvent;
 
 import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.RichPopup;
@@ -29,12 +32,13 @@ import org.apache.myfaces.trinidad.util.ComponentReference;
 
 
 public class StockInformationBean implements Serializable {
-    @SuppressWarnings("compatibility:3908736855586390788")
+    @SuppressWarnings("compatibility:2440747257736181913")
     private static final long serialVersionUID = 2L;
     private String mode;
     private String errorMessage;
     private String confirmationMessage;
-    private String userId;
+    private String userId = "Umesh";
+    private String fileName;
     private ComponentReference confirmationPopupBinding;
     private ComponentReference addUpdateStockPopupBinding;
     private ComponentReference errorMessagePopupBinding;
@@ -46,6 +50,22 @@ public class StockInformationBean implements Serializable {
      */
     public StockInformationBean() {
         super();
+    }
+
+    /**
+     * Helper method which returns current Date in YYYY-MM-dd format.
+     * @return
+     */
+    public String getMindate() {
+        try {
+            Calendar cal = Calendar.getInstance();
+            java.util.Date date = cal.getTime();
+            DateFormat formatter = new SimpleDateFormat("YYYY-MM-dd");
+            return formatter.format(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
@@ -334,5 +354,16 @@ public class StockInformationBean implements Serializable {
         return userId;
     }
 
-    
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFileName() {
+        if (getMindate() != null) {
+            fileName = "Export_Stocks_" + userId + "_" + getMindate() + ".xls";
+        } else {
+            fileName = "Export_Stocks_" + userId + ".xls";
+        }
+        return fileName;
+    }
 }
