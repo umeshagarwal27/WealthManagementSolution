@@ -24,216 +24,6 @@
       <af:outputText value="#{row.WmsProductName}" shortDesc="#{bindings.FWMSProduct.hints.WmsProductName.tooltip}"
                      id="ot3"/>
     </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsTicker.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsTicker.label}" id="c4">
-      <af:outputText value="#{row.WmsTicker}" shortDesc="#{bindings.FWMSProduct.hints.WmsTicker.tooltip}" id="ot4"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsRetuerCode.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsRetuerCode.label}" id="c5">
-      <af:outputText value="#{row.WmsRetuerCode}" shortDesc="#{bindings.FWMSProduct.hints.WmsRetuerCode.tooltip}"
-                     id="ot5"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBloombergCode.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsBloombergCode.label}" id="c6">
-      <af:outputText value="#{row.WmsBloombergCode}" shortDesc="#{bindings.FWMSProduct.hints.WmsBloombergCode.tooltip}"
-                     id="ot6"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsIsinCode.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsIsinCode.label}" id="c7">
-      <af:outputText value="#{row.WmsIsinCode}" shortDesc="#{bindings.FWMSProduct.hints.WmsIsinCode.tooltip}" id="ot7"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsOtherCode.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsOtherCode.label}" id="c8">
-      <af:outputText value="#{row.WmsOtherCode}" shortDesc="#{bindings.FWMSProduct.hints.WmsOtherCode.tooltip}"
-                     id="ot8"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsOtherDesc.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsOtherDesc.label}" id="c9">
-      <af:outputText value="#{row.WmsOtherDesc}" shortDesc="#{bindings.FWMSProduct.hints.WmsOtherDesc.tooltip}"
-                     id="ot9"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsPriceUpdate.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsPriceUpdate.label}" id="c10">
-      <af:outputText value="#{row.WmsPriceUpdate}" shortDesc="#{bindings.FWMSProduct.hints.WmsPriceUpdate.tooltip}"
-                     id="ot10"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsCountry.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsCountry.label}" id="c11">
-      <af:outputText value="#{row.WmsCountry}" shortDesc="#{bindings.FWMSProduct.hints.WmsCountry.tooltip}" id="ot11">
-        <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsCountry.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsCurrency.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsCurrency.label}" id="c12">
-      <af:outputText value="#{row.WmsCurrency}" shortDesc="#{bindings.FWMSProduct.hints.WmsCurrency.tooltip}" id="ot12">
-        <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsCurrency.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsStockExchange.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsStockExchange.label}" id="c13">
-      <af:outputText value="#{row.WmsStockExchange}" shortDesc="#{bindings.FWMSProduct.hints.WmsStockExchange.tooltip}"
-                     id="ot13">
-        <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsStockExchange.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsSector.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsSector.label}" id="c14">
-      <af:outputText value="#{row.WmsSector}" shortDesc="#{bindings.FWMSProduct.hints.WmsSector.tooltip}" id="ot14">
-        <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsSector.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsAsset.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsAsset.label}" id="c15">
-      <af:outputText value="#{row.WmsAsset}" shortDesc="#{bindings.FWMSProduct.hints.WmsAsset.tooltip}" id="ot15">
-        <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsAsset.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondIssueNo.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsBondIssueNo.label}" id="c16">
-      <af:outputText value="#{row.WmsBondIssueNo}" shortDesc="#{bindings.FWMSProduct.hints.WmsBondIssueNo.tooltip}"
-                     id="ot16"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondIssueDate.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsBondIssueDate.label}" id="c17">
-      <f:facet name="filter">
-        <af:inputDate value="#{bindings.FWMSProductQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.WmsBondIssueDate.value}"
-                      id="id1">
-          <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsBondIssueDate.format}"/>
-        </af:inputDate>
-      </f:facet>
-      <af:outputText value="#{row.WmsBondIssueDate}" shortDesc="#{bindings.FWMSProduct.hints.WmsBondIssueDate.tooltip}"
-                     id="ot17">
-        <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsBondIssueDate.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondMaturityDt.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsBondMaturityDt.label}" id="c18">
-      <f:facet name="filter">
-        <af:inputDate value="#{bindings.FWMSProductQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.WmsBondMaturityDt.value}"
-                      id="id2">
-          <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsBondMaturityDt.format}"/>
-        </af:inputDate>
-      </f:facet>
-      <af:outputText value="#{row.WmsBondMaturityDt}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsBondMaturityDt.tooltip}" id="ot18">
-        <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsBondMaturityDt.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondUnitPrice.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsBondUnitPrice.label}" id="c19">
-      <af:outputText value="#{row.WmsBondUnitPrice}" shortDesc="#{bindings.FWMSProduct.hints.WmsBondUnitPrice.tooltip}"
-                     id="ot19">
-        <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsBondUnitPrice.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondCouponRate.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsBondCouponRate.label}" id="c20">
-      <af:outputText value="#{row.WmsBondCouponRate}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsBondCouponRate.tooltip}" id="ot20">
-        <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsBondCouponRate.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondCouponFrequency.name}" filterable="true"
-               sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsBondCouponFrequency.label}" id="c21">
-      <af:outputText value="#{row.WmsBondCouponFrequency}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsBondCouponFrequency.tooltip}" id="ot21"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysMonth.name}" filterable="true"
-               sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysMonth.label}" id="c22">
-      <af:outputText value="#{row.WmsBondDivisorDaysMonth}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysMonth.tooltip}" id="ot22"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysYear.name}" filterable="true"
-               sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysYear.label}" id="c23">
-      <af:outputText value="#{row.WmsBondDivisorDaysYear}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysYear.tooltip}" id="ot23">
-        <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysYear.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondCoupon1stIntdate.name}" filterable="true"
-               sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsBondCoupon1stIntdate.label}" id="c24">
-      <af:outputText value="#{row.WmsBondCoupon1stIntdate}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsBondCoupon1stIntdate.tooltip}" id="ot24"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondCoupon2ndIntdate.name}" filterable="true"
-               sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsBondCoupon2ndIntdate.label}" id="c25">
-      <af:outputText value="#{row.WmsBondCoupon2ndIntdate}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsBondCoupon2ndIntdate.tooltip}" id="ot25"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondCoupon3rdIntdate.name}" filterable="true"
-               sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsBondCoupon3rdIntdate.label}" id="c26">
-      <af:outputText value="#{row.WmsBondCoupon3rdIntdate}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsBondCoupon3rdIntdate.tooltip}" id="ot26"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondCoupon4thIntdate.name}" filterable="true"
-               sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsBondCoupon4thIntdate.label}" id="c27">
-      <af:outputText value="#{row.WmsBondCoupon4thIntdate}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsBondCoupon4thIntdate.tooltip}" id="ot27"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsPutCallFlag.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsPutCallFlag.label}" id="c28">
-      <af:outputText value="#{row.WmsPutCallFlag}" shortDesc="#{bindings.FWMSProduct.hints.WmsPutCallFlag.tooltip}"
-                     id="ot28"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsPutCallExpiryDate.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsPutCallExpiryDate.label}" id="c29">
-      <f:facet name="filter">
-        <af:inputDate value="#{bindings.FWMSProductQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.WmsPutCallExpiryDate.value}"
-                      id="id3">
-          <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsPutCallExpiryDate.format}"/>
-        </af:inputDate>
-      </f:facet>
-      <af:outputText value="#{row.WmsPutCallExpiryDate}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsPutCallExpiryDate.tooltip}" id="ot29">
-        <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsPutCallExpiryDate.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsPutCallLotsize.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsPutCallLotsize.label}" id="c30">
-      <af:outputText value="#{row.WmsPutCallLotsize}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsPutCallLotsize.tooltip}" id="ot30">
-        <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsPutCallLotsize.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsPutCallSprice.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsPutCallSprice.label}" id="c31">
-      <af:outputText value="#{row.WmsPutCallSprice}" shortDesc="#{bindings.FWMSProduct.hints.WmsPutCallSprice.tooltip}"
-                     id="ot31">
-        <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsPutCallSprice.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsPutCallStatus.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsPutCallStatus.label}" id="c32">
-      <af:outputText value="#{row.WmsPutCallStatus}" shortDesc="#{bindings.FWMSProduct.hints.WmsPutCallStatus.tooltip}"
-                     id="ot32">
-        <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsPutCallStatus.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsMutualFundsIssue.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsMutualFundsIssue.label}" id="c33">
-      <af:outputText value="#{row.WmsMutualFundsIssue}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsMutualFundsIssue.tooltip}" id="ot33"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsMutualInhouse3rdFlag.name}" filterable="true"
-               sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsMutualInhouse3rdFlag.label}" id="c34">
-      <af:outputText value="#{row.WmsMutualInhouse3rdFlag}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsMutualInhouse3rdFlag.tooltip}" id="ot34"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsMutualFundsClosdedOpen.name}" filterable="true"
-               sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsMutualFundsClosdedOpen.label}" id="c35">
-      <af:outputText value="#{row.WmsMutualFundsClosdedOpen}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsMutualFundsClosdedOpen.tooltip}" id="ot35"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsMutualFundsNavFlag.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsMutualFundsNavFlag.label}" id="c36">
-      <af:outputText value="#{row.WmsMutualFundsNavFlag}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsMutualFundsNavFlag.tooltip}" id="ot36"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsComments.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsComments.label}" id="c37">
-      <af:outputText value="#{row.WmsComments}" shortDesc="#{bindings.FWMSProduct.hints.WmsComments.tooltip}"
-                     id="ot37"/>
-    </af:column>
     <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsStatus.name}" filterable="true" sortable="true"
                headerText="#{bindings.FWMSProduct.hints.WmsStatus.label}" id="c38">
       <af:outputText value="#{row.WmsStatus}" shortDesc="#{bindings.FWMSProduct.hints.WmsStatus.tooltip}" id="ot38"/>
@@ -242,11 +32,6 @@
                headerText="#{bindings.FWMSProduct.hints.WmsEnterUid.label}" id="c39">
       <af:outputText value="#{row.WmsEnterUid}" shortDesc="#{bindings.FWMSProduct.hints.WmsEnterUid.tooltip}"
                      id="ot39"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsEnterFpc.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsEnterFpc.label}" id="c40">
-      <af:outputText value="#{row.WmsEnterFpc}" shortDesc="#{bindings.FWMSProduct.hints.WmsEnterFpc.tooltip}"
-                     id="ot40"/>
     </af:column>
     <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsEnterDate.name}" filterable="true" sortable="true"
                headerText="#{bindings.FWMSProduct.hints.WmsEnterDate.label}" id="c41">
@@ -261,526 +46,815 @@
         <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsEnterDate.format}"/>
       </af:outputText>
     </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsLastUpdateUid.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsLastUpdateUid.label}" id="c42">
-      <af:outputText value="#{row.WmsLastUpdateUid}" shortDesc="#{bindings.FWMSProduct.hints.WmsLastUpdateUid.tooltip}"
-                     id="ot42"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsLastFpc.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsLastFpc.label}" id="c43">
-      <af:outputText value="#{row.WmsLastFpc}" shortDesc="#{bindings.FWMSProduct.hints.WmsLastFpc.tooltip}" id="ot43"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsLastUpdateDate.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsLastUpdateDate.label}" id="c44">
-      <f:facet name="filter">
-        <af:inputDate value="#{bindings.FWMSProductQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.WmsLastUpdateDate.value}"
-                      id="id5">
-          <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsLastUpdateDate.format}"/>
-        </af:inputDate>
-      </f:facet>
-      <af:outputText value="#{row.WmsLastUpdateDate}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsLastUpdateDate.tooltip}" id="ot44">
-        <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsLastUpdateDate.format}"/>
-      </af:outputText>
-    </af:column>
     <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsApproveUid.name}" filterable="true" sortable="true"
                headerText="#{bindings.FWMSProduct.hints.WmsApproveUid.label}" id="c45">
       <af:outputText value="#{row.WmsApproveUid}" shortDesc="#{bindings.FWMSProduct.hints.WmsApproveUid.tooltip}"
                      id="ot45"/>
     </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsApproveFpc.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsApproveFpc.label}" id="c46">
-      <af:outputText value="#{row.WmsApproveFpc}" shortDesc="#{bindings.FWMSProduct.hints.WmsApproveFpc.tooltip}"
-                     id="ot46"/>
+    <af:column id="c57">
+      <af:button text="Edit" id="b6">
+        <af:showPopupBehavior popupId="::p1"/>
+      </af:button>
     </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsApproveDate.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsApproveDate.label}" id="c47">
-      <f:facet name="filter">
-        <af:inputDate value="#{bindings.FWMSProductQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.WmsApproveDate.value}"
-                      id="id6">
+    <af:column id="c56" rendered="false">
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsTicker.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsTicker.label}" id="c4">
+        <af:outputText value="#{row.WmsTicker}" shortDesc="#{bindings.FWMSProduct.hints.WmsTicker.tooltip}" id="ot4"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsRetuerCode.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsRetuerCode.label}" id="c5">
+        <af:outputText value="#{row.WmsRetuerCode}" shortDesc="#{bindings.FWMSProduct.hints.WmsRetuerCode.tooltip}"
+                       id="ot5"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBloombergCode.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsBloombergCode.label}" id="c6">
+        <af:outputText value="#{row.WmsBloombergCode}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsBloombergCode.tooltip}" id="ot6"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsIsinCode.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsIsinCode.label}" id="c7">
+        <af:outputText value="#{row.WmsIsinCode}" shortDesc="#{bindings.FWMSProduct.hints.WmsIsinCode.tooltip}"
+                       id="ot7"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsOtherCode.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsOtherCode.label}" id="c8">
+        <af:outputText value="#{row.WmsOtherCode}" shortDesc="#{bindings.FWMSProduct.hints.WmsOtherCode.tooltip}"
+                       id="ot8"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsOtherDesc.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsOtherDesc.label}" id="c9">
+        <af:outputText value="#{row.WmsOtherDesc}" shortDesc="#{bindings.FWMSProduct.hints.WmsOtherDesc.tooltip}"
+                       id="ot9"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsPriceUpdate.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsPriceUpdate.label}" id="c10">
+        <af:outputText value="#{row.WmsPriceUpdate}" shortDesc="#{bindings.FWMSProduct.hints.WmsPriceUpdate.tooltip}"
+                       id="ot10"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsCountry.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsCountry.label}" id="c11">
+        <af:outputText value="#{row.WmsCountry}" shortDesc="#{bindings.FWMSProduct.hints.WmsCountry.tooltip}" id="ot11">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsCountry.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsCurrency.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsCurrency.label}" id="c12">
+        <af:outputText value="#{row.WmsCurrency}" shortDesc="#{bindings.FWMSProduct.hints.WmsCurrency.tooltip}"
+                       id="ot12">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsCurrency.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsStockExchange.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsStockExchange.label}" id="c13">
+        <af:outputText value="#{row.WmsStockExchange}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsStockExchange.tooltip}" id="ot13">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsStockExchange.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsSector.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsSector.label}" id="c14">
+        <af:outputText value="#{row.WmsSector}" shortDesc="#{bindings.FWMSProduct.hints.WmsSector.tooltip}" id="ot14">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsSector.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsAsset.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsAsset.label}" id="c15">
+        <af:outputText value="#{row.WmsAsset}" shortDesc="#{bindings.FWMSProduct.hints.WmsAsset.tooltip}" id="ot15">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsAsset.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondIssueNo.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsBondIssueNo.label}" id="c16">
+        <af:outputText value="#{row.WmsBondIssueNo}" shortDesc="#{bindings.FWMSProduct.hints.WmsBondIssueNo.tooltip}"
+                       id="ot16"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondIssueDate.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsBondIssueDate.label}" id="c17">
+        <f:facet name="filter">
+          <af:inputDate value="#{bindings.FWMSProductQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.WmsBondIssueDate.value}"
+                        id="id1">
+            <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsBondIssueDate.format}"/>
+          </af:inputDate>
+        </f:facet>
+        <af:outputText value="#{row.WmsBondIssueDate}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsBondIssueDate.tooltip}" id="ot17">
+          <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsBondIssueDate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondMaturityDt.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsBondMaturityDt.label}" id="c18">
+        <f:facet name="filter">
+          <af:inputDate value="#{bindings.FWMSProductQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.WmsBondMaturityDt.value}"
+                        id="id2">
+            <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsBondMaturityDt.format}"/>
+          </af:inputDate>
+        </f:facet>
+        <af:outputText value="#{row.WmsBondMaturityDt}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsBondMaturityDt.tooltip}" id="ot18">
+          <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsBondMaturityDt.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondUnitPrice.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsBondUnitPrice.label}" id="c19">
+        <af:outputText value="#{row.WmsBondUnitPrice}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsBondUnitPrice.tooltip}" id="ot19">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsBondUnitPrice.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondCouponRate.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsBondCouponRate.label}" id="c20">
+        <af:outputText value="#{row.WmsBondCouponRate}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsBondCouponRate.tooltip}" id="ot20">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsBondCouponRate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondCouponFrequency.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsBondCouponFrequency.label}" id="c21">
+        <af:outputText value="#{row.WmsBondCouponFrequency}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsBondCouponFrequency.tooltip}" id="ot21"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysMonth.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysMonth.label}" id="c22">
+        <af:outputText value="#{row.WmsBondDivisorDaysMonth}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysMonth.tooltip}" id="ot22"/>
+      </af:column>
+      <af:outputText value="#{row.WmsBondDivisorDaysMonth}"
+                     shortDesc="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysMonth.tooltip}" id="ot56"/>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysYear.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysYear.label}" id="c23">
+        <af:outputText value="#{row.WmsBondDivisorDaysYear}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysYear.tooltip}" id="ot23">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsBondDivisorDaysYear.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondCoupon1stIntdate.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsBondCoupon1stIntdate.label}" id="c24">
+        <af:outputText value="#{row.WmsBondCoupon1stIntdate}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsBondCoupon1stIntdate.tooltip}" id="ot24"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondCoupon2ndIntdate.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsBondCoupon2ndIntdate.label}" id="c25">
+        <af:outputText value="#{row.WmsBondCoupon2ndIntdate}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsBondCoupon2ndIntdate.tooltip}" id="ot25"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondCoupon3rdIntdate.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsBondCoupon3rdIntdate.label}" id="c26">
+        <af:outputText value="#{row.WmsBondCoupon3rdIntdate}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsBondCoupon3rdIntdate.tooltip}" id="ot26"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsBondCoupon4thIntdate.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsBondCoupon4thIntdate.label}" id="c27">
+        <af:outputText value="#{row.WmsBondCoupon4thIntdate}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsBondCoupon4thIntdate.tooltip}" id="ot27"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsPutCallFlag.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsPutCallFlag.label}" id="c28">
+        <af:outputText value="#{row.WmsPutCallFlag}" shortDesc="#{bindings.FWMSProduct.hints.WmsPutCallFlag.tooltip}"
+                       id="ot28"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsPutCallExpiryDate.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsPutCallExpiryDate.label}" id="c29">
+        <f:facet name="filter">
+          <af:inputDate value="#{bindings.FWMSProductQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.WmsPutCallExpiryDate.value}"
+                        id="id3">
+            <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsPutCallExpiryDate.format}"/>
+          </af:inputDate>
+        </f:facet>
+        <af:outputText value="#{row.WmsPutCallExpiryDate}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsPutCallExpiryDate.tooltip}" id="ot29">
+          <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsPutCallExpiryDate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsPutCallLotsize.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsPutCallLotsize.label}" id="c30">
+        <af:outputText value="#{row.WmsPutCallLotsize}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsPutCallLotsize.tooltip}" id="ot30">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsPutCallLotsize.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsPutCallSprice.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsPutCallSprice.label}" id="c31">
+        <af:outputText value="#{row.WmsPutCallSprice}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsPutCallSprice.tooltip}" id="ot31">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsPutCallSprice.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsPutCallStatus.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsPutCallStatus.label}" id="c32">
+        <af:outputText value="#{row.WmsPutCallStatus}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsPutCallStatus.tooltip}" id="ot32">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsPutCallStatus.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsMutualFundsIssue.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsMutualFundsIssue.label}" id="c33">
+        <af:outputText value="#{row.WmsMutualFundsIssue}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsMutualFundsIssue.tooltip}" id="ot33"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsMutualInhouse3rdFlag.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsMutualInhouse3rdFlag.label}" id="c34">
+        <af:outputText value="#{row.WmsMutualInhouse3rdFlag}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsMutualInhouse3rdFlag.tooltip}" id="ot34"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsMutualFundsClosdedOpen.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsMutualFundsClosdedOpen.label}" id="c35">
+        <af:outputText value="#{row.WmsMutualFundsClosdedOpen}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsMutualFundsClosdedOpen.tooltip}" id="ot35"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsMutualFundsNavFlag.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsMutualFundsNavFlag.label}" id="c36">
+        <af:outputText value="#{row.WmsMutualFundsNavFlag}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsMutualFundsNavFlag.tooltip}" id="ot36"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsComments.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsComments.label}" id="c37">
+        <af:outputText value="#{row.WmsComments}" shortDesc="#{bindings.FWMSProduct.hints.WmsComments.tooltip}"
+                       id="ot37"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsEnterFpc.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsEnterFpc.label}" id="c40">
+        <af:outputText value="#{row.WmsEnterFpc}" shortDesc="#{bindings.FWMSProduct.hints.WmsEnterFpc.tooltip}"
+                       id="ot40"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsLastUpdateUid.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsLastUpdateUid.label}" id="c42">
+        <af:outputText value="#{row.WmsLastUpdateUid}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsLastUpdateUid.tooltip}" id="ot42"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsLastFpc.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsLastFpc.label}" id="c43">
+        <af:outputText value="#{row.WmsLastFpc}" shortDesc="#{bindings.FWMSProduct.hints.WmsLastFpc.tooltip}"
+                       id="ot43"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsLastUpdateDate.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsLastUpdateDate.label}" id="c44">
+        <f:facet name="filter">
+          <af:inputDate value="#{bindings.FWMSProductQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.WmsLastUpdateDate.value}"
+                        id="id5">
+            <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsLastUpdateDate.format}"/>
+          </af:inputDate>
+        </f:facet>
+        <af:outputText value="#{row.WmsLastUpdateDate}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsLastUpdateDate.tooltip}" id="ot44">
+          <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsLastUpdateDate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsApproveFpc.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsApproveFpc.label}" id="c46">
+        <af:outputText value="#{row.WmsApproveFpc}" shortDesc="#{bindings.FWMSProduct.hints.WmsApproveFpc.tooltip}"
+                       id="ot46"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsApproveDate.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsApproveDate.label}" id="c47">
+        <f:facet name="filter">
+          <af:inputDate value="#{bindings.FWMSProductQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.WmsApproveDate.value}"
+                        id="id6">
+            <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsApproveDate.format}"/>
+          </af:inputDate>
+        </f:facet>
+        <af:outputText value="#{row.WmsApproveDate}" shortDesc="#{bindings.FWMSProduct.hints.WmsApproveDate.tooltip}"
+                       id="ot47">
           <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsApproveDate.format}"/>
-        </af:inputDate>
-      </f:facet>
-      <af:outputText value="#{row.WmsApproveDate}" shortDesc="#{bindings.FWMSProduct.hints.WmsApproveDate.tooltip}"
-                     id="ot47">
-        <af:convertDateTime pattern="#{bindings.FWMSProduct.hints.WmsApproveDate.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsMutualFundsValue.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsMutualFundsValue.label}" id="c48">
-      <af:outputText value="#{row.WmsMutualFundsValue}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsMutualFundsValue.tooltip}" id="ot48">
-        <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsMutualFundsValue.format}"/>
-      </af:outputText>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsMutualIbType.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsMutualIbType.label}" id="c49">
-      <af:outputText value="#{row.WmsMutualIbType}" shortDesc="#{bindings.FWMSProduct.hints.WmsMutualIbType.tooltip}"
-                     id="ot49"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsSedol.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsSedol.label}" id="c50">
-      <af:outputText value="#{row.WmsSedol}" shortDesc="#{bindings.FWMSProduct.hints.WmsSedol.tooltip}" id="ot50"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsAssetTrans.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsAssetTrans.label}" id="c51">
-      <af:outputText value="#{row.WmsAssetTrans}" shortDesc="#{bindings.FWMSProduct.hints.WmsAssetTrans.tooltip}"
-                     id="ot51"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsCountryTrans.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsCountryTrans.label}" id="c52">
-      <af:outputText value="#{row.WmsCountryTrans}" shortDesc="#{bindings.FWMSProduct.hints.WmsCountryTrans.tooltip}"
-                     id="ot52"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsCurrencyTrans.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsCurrencyTrans.label}" id="c53">
-      <af:outputText value="#{row.WmsCurrencyTrans}" shortDesc="#{bindings.FWMSProduct.hints.WmsCurrencyTrans.tooltip}"
-                     id="ot53"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsSectorTrans.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsSectorTrans.label}" id="c54">
-      <af:outputText value="#{row.WmsSectorTrans}" shortDesc="#{bindings.FWMSProduct.hints.WmsSectorTrans.tooltip}"
-                     id="ot54"/>
-    </af:column>
-    <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsStockExchangeTrans.name}" filterable="true" sortable="true"
-               headerText="#{bindings.FWMSProduct.hints.WmsStockExchangeTrans.label}" id="c55">
-      <af:outputText value="#{row.WmsStockExchangeTrans}"
-                     shortDesc="#{bindings.FWMSProduct.hints.WmsStockExchangeTrans.tooltip}" id="ot55"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsMutualFundsValue.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsMutualFundsValue.label}" id="c48">
+        <af:outputText value="#{row.WmsMutualFundsValue}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsMutualFundsValue.tooltip}" id="ot48">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSProduct.hints.WmsMutualFundsValue.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsMutualIbType.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsMutualIbType.label}" id="c49">
+        <af:outputText value="#{row.WmsMutualIbType}" shortDesc="#{bindings.FWMSProduct.hints.WmsMutualIbType.tooltip}"
+                       id="ot49"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsSedol.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsSedol.label}" id="c50">
+        <af:outputText value="#{row.WmsSedol}" shortDesc="#{bindings.FWMSProduct.hints.WmsSedol.tooltip}" id="ot50"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsAssetTrans.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsAssetTrans.label}" id="c51">
+        <af:outputText value="#{row.WmsAssetTrans}" shortDesc="#{bindings.FWMSProduct.hints.WmsAssetTrans.tooltip}"
+                       id="ot51"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsCountryTrans.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsCountryTrans.label}" id="c52">
+        <af:outputText value="#{row.WmsCountryTrans}" shortDesc="#{bindings.FWMSProduct.hints.WmsCountryTrans.tooltip}"
+                       id="ot52"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsCurrencyTrans.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsCurrencyTrans.label}" id="c53">
+        <af:outputText value="#{row.WmsCurrencyTrans}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsCurrencyTrans.tooltip}" id="ot53"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsSectorTrans.name}" filterable="true" sortable="true"
+                 headerText="#{bindings.FWMSProduct.hints.WmsSectorTrans.label}" id="c54">
+        <af:outputText value="#{row.WmsSectorTrans}" shortDesc="#{bindings.FWMSProduct.hints.WmsSectorTrans.tooltip}"
+                       id="ot54"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsStockExchangeTrans.name}" filterable="true"
+                 sortable="true" headerText="#{bindings.FWMSProduct.hints.WmsStockExchangeTrans.label}" id="c55">
+        <af:outputText value="#{row.WmsStockExchangeTrans}"
+                       shortDesc="#{bindings.FWMSProduct.hints.WmsStockExchangeTrans.tooltip}" id="ot55"/>
+      </af:column>
     </af:column>
   </af:table>
-  <af:panelFormLayout id="pfl1">
-    <af:inputText value="#{bindings.WmsProductType.inputValue}" label="#{bindings.WmsProductType.hints.label}"
-                  required="#{bindings.WmsProductType.hints.mandatory}"
-                  columns="#{bindings.WmsProductType.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsProductType.hints.precision}"
-                  shortDesc="#{bindings.WmsProductType.hints.tooltip}" id="it1">
-      <f:validator binding="#{bindings.WmsProductType.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsProductId.inputValue}" label="#{bindings.WmsProductId.hints.label}"
-                  required="#{bindings.WmsProductId.hints.mandatory}"
-                  columns="#{bindings.WmsProductId.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsProductId.hints.precision}"
-                  shortDesc="#{bindings.WmsProductId.hints.tooltip}" id="it2">
-      <f:validator binding="#{bindings.WmsProductId.validator}"/>
-      <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsProductId.format}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsProductName.inputValue}" label="#{bindings.WmsProductName.hints.label}"
-                  required="#{bindings.WmsProductName.hints.mandatory}"
-                  columns="#{bindings.WmsProductName.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsProductName.hints.precision}"
-                  shortDesc="#{bindings.WmsProductName.hints.tooltip}" id="it3">
-      <f:validator binding="#{bindings.WmsProductName.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsTicker.inputValue}" label="#{bindings.WmsTicker.hints.label}"
-                  required="#{bindings.WmsTicker.hints.mandatory}" columns="#{bindings.WmsTicker.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsTicker.hints.precision}" shortDesc="#{bindings.WmsTicker.hints.tooltip}"
-                  id="it4">
-      <f:validator binding="#{bindings.WmsTicker.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsRetuerCode.inputValue}" label="#{bindings.WmsRetuerCode.hints.label}"
-                  required="#{bindings.WmsRetuerCode.hints.mandatory}"
-                  columns="#{bindings.WmsRetuerCode.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsRetuerCode.hints.precision}"
-                  shortDesc="#{bindings.WmsRetuerCode.hints.tooltip}" id="it5">
-      <f:validator binding="#{bindings.WmsRetuerCode.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsBloombergCode.inputValue}" label="#{bindings.WmsBloombergCode.hints.label}"
-                  required="#{bindings.WmsBloombergCode.hints.mandatory}"
-                  columns="#{bindings.WmsBloombergCode.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsBloombergCode.hints.precision}"
-                  shortDesc="#{bindings.WmsBloombergCode.hints.tooltip}" id="it6">
-      <f:validator binding="#{bindings.WmsBloombergCode.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsIsinCode.inputValue}" label="#{bindings.WmsIsinCode.hints.label}"
-                  required="#{bindings.WmsIsinCode.hints.mandatory}"
-                  columns="#{bindings.WmsIsinCode.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsIsinCode.hints.precision}"
-                  shortDesc="#{bindings.WmsIsinCode.hints.tooltip}" id="it7">
-      <f:validator binding="#{bindings.WmsIsinCode.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsOtherCode.inputValue}" label="#{bindings.WmsOtherCode.hints.label}"
-                  required="#{bindings.WmsOtherCode.hints.mandatory}"
-                  columns="#{bindings.WmsOtherCode.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsOtherCode.hints.precision}"
-                  shortDesc="#{bindings.WmsOtherCode.hints.tooltip}" id="it8">
-      <f:validator binding="#{bindings.WmsOtherCode.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsOtherDesc.inputValue}" label="#{bindings.WmsOtherDesc.hints.label}"
-                  required="#{bindings.WmsOtherDesc.hints.mandatory}"
-                  columns="#{bindings.WmsOtherDesc.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsOtherDesc.hints.precision}"
-                  shortDesc="#{bindings.WmsOtherDesc.hints.tooltip}" id="it9">
-      <f:validator binding="#{bindings.WmsOtherDesc.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsPriceUpdate.inputValue}" label="#{bindings.WmsPriceUpdate.hints.label}"
-                  required="#{bindings.WmsPriceUpdate.hints.mandatory}"
-                  columns="#{bindings.WmsPriceUpdate.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsPriceUpdate.hints.precision}"
-                  shortDesc="#{bindings.WmsPriceUpdate.hints.tooltip}" id="it10">
-      <f:validator binding="#{bindings.WmsPriceUpdate.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsCountry.inputValue}" label="#{bindings.WmsCountry.hints.label}"
-                  required="#{bindings.WmsCountry.hints.mandatory}" columns="#{bindings.WmsCountry.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsCountry.hints.precision}"
-                  shortDesc="#{bindings.WmsCountry.hints.tooltip}" partialTriggers="wmsCountryTransId" id="it11">
-      <f:validator binding="#{bindings.WmsCountry.validator}"/>
-      <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsCountry.format}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsCurrency.inputValue}" label="#{bindings.WmsCurrency.hints.label}"
-                  required="#{bindings.WmsCurrency.hints.mandatory}"
-                  columns="#{bindings.WmsCurrency.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsCurrency.hints.precision}"
-                  shortDesc="#{bindings.WmsCurrency.hints.tooltip}" partialTriggers="wmsCurrencyTransId" id="it12">
-      <f:validator binding="#{bindings.WmsCurrency.validator}"/>
-      <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsCurrency.format}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsStockExchange.inputValue}" label="#{bindings.WmsStockExchange.hints.label}"
-                  required="#{bindings.WmsStockExchange.hints.mandatory}"
-                  columns="#{bindings.WmsStockExchange.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsStockExchange.hints.precision}"
-                  shortDesc="#{bindings.WmsStockExchange.hints.tooltip}" partialTriggers="wmsStockExchangeTransId"
-                  id="it13">
-      <f:validator binding="#{bindings.WmsStockExchange.validator}"/>
-      <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsStockExchange.format}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsSector.inputValue}" label="#{bindings.WmsSector.hints.label}"
-                  required="#{bindings.WmsSector.hints.mandatory}" columns="#{bindings.WmsSector.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsSector.hints.precision}" shortDesc="#{bindings.WmsSector.hints.tooltip}"
-                  partialTriggers="wmsSectorTransId" id="it14">
-      <f:validator binding="#{bindings.WmsSector.validator}"/>
-      <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsSector.format}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsAsset.inputValue}" label="#{bindings.WmsAsset.hints.label}"
-                  required="#{bindings.WmsAsset.hints.mandatory}" columns="#{bindings.WmsAsset.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsAsset.hints.precision}" shortDesc="#{bindings.WmsAsset.hints.tooltip}"
-                  partialTriggers="wmsAssetTransId" id="it15">
-      <f:validator binding="#{bindings.WmsAsset.validator}"/>
-      <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsAsset.format}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsBondIssueNo.inputValue}" label="#{bindings.WmsBondIssueNo.hints.label}"
-                  required="#{bindings.WmsBondIssueNo.hints.mandatory}"
-                  columns="#{bindings.WmsBondIssueNo.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsBondIssueNo.hints.precision}"
-                  shortDesc="#{bindings.WmsBondIssueNo.hints.tooltip}" id="it16">
-      <f:validator binding="#{bindings.WmsBondIssueNo.validator}"/>
-    </af:inputText>
-    <af:inputDate value="#{bindings.WmsBondIssueDate.inputValue}" label="#{bindings.WmsBondIssueDate.hints.label}"
-                  required="#{bindings.WmsBondIssueDate.hints.mandatory}"
-                  columns="#{bindings.WmsBondIssueDate.hints.displayWidth}"
-                  shortDesc="#{bindings.WmsBondIssueDate.hints.tooltip}" id="id7">
-      <f:validator binding="#{bindings.WmsBondIssueDate.validator}"/>
-      <af:convertDateTime pattern="#{bindings.WmsBondIssueDate.format}"/>
-    </af:inputDate>
-    <af:inputDate value="#{bindings.WmsBondMaturityDt.inputValue}" label="#{bindings.WmsBondMaturityDt.hints.label}"
-                  required="#{bindings.WmsBondMaturityDt.hints.mandatory}"
-                  columns="#{bindings.WmsBondMaturityDt.hints.displayWidth}"
-                  shortDesc="#{bindings.WmsBondMaturityDt.hints.tooltip}" id="id8">
-      <f:validator binding="#{bindings.WmsBondMaturityDt.validator}"/>
-      <af:convertDateTime pattern="#{bindings.WmsBondMaturityDt.format}"/>
-    </af:inputDate>
-    <af:inputText value="#{bindings.WmsBondUnitPrice.inputValue}" label="#{bindings.WmsBondUnitPrice.hints.label}"
-                  required="#{bindings.WmsBondUnitPrice.hints.mandatory}"
-                  columns="#{bindings.WmsBondUnitPrice.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsBondUnitPrice.hints.precision}"
-                  shortDesc="#{bindings.WmsBondUnitPrice.hints.tooltip}" id="it17">
-      <f:validator binding="#{bindings.WmsBondUnitPrice.validator}"/>
-      <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsBondUnitPrice.format}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsBondCouponRate.inputValue}" label="#{bindings.WmsBondCouponRate.hints.label}"
-                  required="#{bindings.WmsBondCouponRate.hints.mandatory}"
-                  columns="#{bindings.WmsBondCouponRate.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsBondCouponRate.hints.precision}"
-                  shortDesc="#{bindings.WmsBondCouponRate.hints.tooltip}" id="it18">
-      <f:validator binding="#{bindings.WmsBondCouponRate.validator}"/>
-      <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsBondCouponRate.format}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsBondCouponFrequency.inputValue}"
-                  label="#{bindings.WmsBondCouponFrequency.hints.label}"
-                  required="#{bindings.WmsBondCouponFrequency.hints.mandatory}"
-                  columns="#{bindings.WmsBondCouponFrequency.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsBondCouponFrequency.hints.precision}"
-                  shortDesc="#{bindings.WmsBondCouponFrequency.hints.tooltip}" id="it19">
-      <f:validator binding="#{bindings.WmsBondCouponFrequency.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsBondDivisorDaysMonth.inputValue}"
-                  label="#{bindings.WmsBondDivisorDaysMonth.hints.label}"
-                  required="#{bindings.WmsBondDivisorDaysMonth.hints.mandatory}"
-                  columns="#{bindings.WmsBondDivisorDaysMonth.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsBondDivisorDaysMonth.hints.precision}"
-                  shortDesc="#{bindings.WmsBondDivisorDaysMonth.hints.tooltip}" id="it20">
-      <f:validator binding="#{bindings.WmsBondDivisorDaysMonth.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsBondDivisorDaysYear.inputValue}"
-                  label="#{bindings.WmsBondDivisorDaysYear.hints.label}"
-                  required="#{bindings.WmsBondDivisorDaysYear.hints.mandatory}"
-                  columns="#{bindings.WmsBondDivisorDaysYear.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsBondDivisorDaysYear.hints.precision}"
-                  shortDesc="#{bindings.WmsBondDivisorDaysYear.hints.tooltip}" id="it21">
-      <f:validator binding="#{bindings.WmsBondDivisorDaysYear.validator}"/>
-      <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsBondDivisorDaysYear.format}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsBondCoupon1stIntdate.inputValue}"
-                  label="#{bindings.WmsBondCoupon1stIntdate.hints.label}"
-                  required="#{bindings.WmsBondCoupon1stIntdate.hints.mandatory}"
-                  columns="#{bindings.WmsBondCoupon1stIntdate.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsBondCoupon1stIntdate.hints.precision}"
-                  shortDesc="#{bindings.WmsBondCoupon1stIntdate.hints.tooltip}" id="it22">
-      <f:validator binding="#{bindings.WmsBondCoupon1stIntdate.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsBondCoupon2ndIntdate.inputValue}"
-                  label="#{bindings.WmsBondCoupon2ndIntdate.hints.label}"
-                  required="#{bindings.WmsBondCoupon2ndIntdate.hints.mandatory}"
-                  columns="#{bindings.WmsBondCoupon2ndIntdate.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsBondCoupon2ndIntdate.hints.precision}"
-                  shortDesc="#{bindings.WmsBondCoupon2ndIntdate.hints.tooltip}" id="it23">
-      <f:validator binding="#{bindings.WmsBondCoupon2ndIntdate.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsBondCoupon3rdIntdate.inputValue}"
-                  label="#{bindings.WmsBondCoupon3rdIntdate.hints.label}"
-                  required="#{bindings.WmsBondCoupon3rdIntdate.hints.mandatory}"
-                  columns="#{bindings.WmsBondCoupon3rdIntdate.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsBondCoupon3rdIntdate.hints.precision}"
-                  shortDesc="#{bindings.WmsBondCoupon3rdIntdate.hints.tooltip}" id="it24">
-      <f:validator binding="#{bindings.WmsBondCoupon3rdIntdate.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsBondCoupon4thIntdate.inputValue}"
-                  label="#{bindings.WmsBondCoupon4thIntdate.hints.label}"
-                  required="#{bindings.WmsBondCoupon4thIntdate.hints.mandatory}"
-                  columns="#{bindings.WmsBondCoupon4thIntdate.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsBondCoupon4thIntdate.hints.precision}"
-                  shortDesc="#{bindings.WmsBondCoupon4thIntdate.hints.tooltip}" id="it25">
-      <f:validator binding="#{bindings.WmsBondCoupon4thIntdate.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsPutCallFlag.inputValue}" label="#{bindings.WmsPutCallFlag.hints.label}"
-                  required="#{bindings.WmsPutCallFlag.hints.mandatory}"
-                  columns="#{bindings.WmsPutCallFlag.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsPutCallFlag.hints.precision}"
-                  shortDesc="#{bindings.WmsPutCallFlag.hints.tooltip}" id="it26">
-      <f:validator binding="#{bindings.WmsPutCallFlag.validator}"/>
-    </af:inputText>
-    <af:inputDate value="#{bindings.WmsPutCallExpiryDate.inputValue}"
-                  label="#{bindings.WmsPutCallExpiryDate.hints.label}"
-                  required="#{bindings.WmsPutCallExpiryDate.hints.mandatory}"
-                  columns="#{bindings.WmsPutCallExpiryDate.hints.displayWidth}"
-                  shortDesc="#{bindings.WmsPutCallExpiryDate.hints.tooltip}" id="id9">
-      <f:validator binding="#{bindings.WmsPutCallExpiryDate.validator}"/>
-      <af:convertDateTime pattern="#{bindings.WmsPutCallExpiryDate.format}"/>
-    </af:inputDate>
-    <af:inputText value="#{bindings.WmsPutCallLotsize.inputValue}" label="#{bindings.WmsPutCallLotsize.hints.label}"
-                  required="#{bindings.WmsPutCallLotsize.hints.mandatory}"
-                  columns="#{bindings.WmsPutCallLotsize.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsPutCallLotsize.hints.precision}"
-                  shortDesc="#{bindings.WmsPutCallLotsize.hints.tooltip}" id="it27">
-      <f:validator binding="#{bindings.WmsPutCallLotsize.validator}"/>
-      <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsPutCallLotsize.format}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsPutCallSprice.inputValue}" label="#{bindings.WmsPutCallSprice.hints.label}"
-                  required="#{bindings.WmsPutCallSprice.hints.mandatory}"
-                  columns="#{bindings.WmsPutCallSprice.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsPutCallSprice.hints.precision}"
-                  shortDesc="#{bindings.WmsPutCallSprice.hints.tooltip}" id="it28">
-      <f:validator binding="#{bindings.WmsPutCallSprice.validator}"/>
-      <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsPutCallSprice.format}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsPutCallStatus.inputValue}" label="#{bindings.WmsPutCallStatus.hints.label}"
-                  required="#{bindings.WmsPutCallStatus.hints.mandatory}"
-                  columns="#{bindings.WmsPutCallStatus.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsPutCallStatus.hints.precision}"
-                  shortDesc="#{bindings.WmsPutCallStatus.hints.tooltip}" id="it29">
-      <f:validator binding="#{bindings.WmsPutCallStatus.validator}"/>
-      <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsPutCallStatus.format}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsMutualFundsIssue.inputValue}" label="#{bindings.WmsMutualFundsIssue.hints.label}"
-                  required="#{bindings.WmsMutualFundsIssue.hints.mandatory}"
-                  columns="#{bindings.WmsMutualFundsIssue.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsMutualFundsIssue.hints.precision}"
-                  shortDesc="#{bindings.WmsMutualFundsIssue.hints.tooltip}" id="it30">
-      <f:validator binding="#{bindings.WmsMutualFundsIssue.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsMutualInhouse3rdFlag.inputValue}"
-                  label="#{bindings.WmsMutualInhouse3rdFlag.hints.label}"
-                  required="#{bindings.WmsMutualInhouse3rdFlag.hints.mandatory}"
-                  columns="#{bindings.WmsMutualInhouse3rdFlag.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsMutualInhouse3rdFlag.hints.precision}"
-                  shortDesc="#{bindings.WmsMutualInhouse3rdFlag.hints.tooltip}" id="it31">
-      <f:validator binding="#{bindings.WmsMutualInhouse3rdFlag.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsMutualFundsClosdedOpen.inputValue}"
-                  label="#{bindings.WmsMutualFundsClosdedOpen.hints.label}"
-                  required="#{bindings.WmsMutualFundsClosdedOpen.hints.mandatory}"
-                  columns="#{bindings.WmsMutualFundsClosdedOpen.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsMutualFundsClosdedOpen.hints.precision}"
-                  shortDesc="#{bindings.WmsMutualFundsClosdedOpen.hints.tooltip}" id="it32">
-      <f:validator binding="#{bindings.WmsMutualFundsClosdedOpen.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsMutualFundsNavFlag.inputValue}"
-                  label="#{bindings.WmsMutualFundsNavFlag.hints.label}"
-                  required="#{bindings.WmsMutualFundsNavFlag.hints.mandatory}"
-                  columns="#{bindings.WmsMutualFundsNavFlag.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsMutualFundsNavFlag.hints.precision}"
-                  shortDesc="#{bindings.WmsMutualFundsNavFlag.hints.tooltip}" id="it33">
-      <f:validator binding="#{bindings.WmsMutualFundsNavFlag.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsComments.inputValue}" label="#{bindings.WmsComments.hints.label}"
-                  required="#{bindings.WmsComments.hints.mandatory}"
-                  columns="#{bindings.WmsComments.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsComments.hints.precision}"
-                  shortDesc="#{bindings.WmsComments.hints.tooltip}" id="it34">
-      <f:validator binding="#{bindings.WmsComments.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsStatus.inputValue}" label="#{bindings.WmsStatus.hints.label}"
-                  required="#{bindings.WmsStatus.hints.mandatory}" columns="#{bindings.WmsStatus.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsStatus.hints.precision}" shortDesc="#{bindings.WmsStatus.hints.tooltip}"
-                  id="it35">
-      <f:validator binding="#{bindings.WmsStatus.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsEnterUid.inputValue}" label="#{bindings.WmsEnterUid.hints.label}"
-                  required="#{bindings.WmsEnterUid.hints.mandatory}"
-                  columns="#{bindings.WmsEnterUid.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsEnterUid.hints.precision}"
-                  shortDesc="#{bindings.WmsEnterUid.hints.tooltip}" id="it36">
-      <f:validator binding="#{bindings.WmsEnterUid.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsEnterFpc.inputValue}" label="#{bindings.WmsEnterFpc.hints.label}"
-                  required="#{bindings.WmsEnterFpc.hints.mandatory}"
-                  columns="#{bindings.WmsEnterFpc.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsEnterFpc.hints.precision}"
-                  shortDesc="#{bindings.WmsEnterFpc.hints.tooltip}" id="it37">
-      <f:validator binding="#{bindings.WmsEnterFpc.validator}"/>
-    </af:inputText>
-    <af:inputDate value="#{bindings.WmsEnterDate.inputValue}" label="#{bindings.WmsEnterDate.hints.label}"
-                  required="#{bindings.WmsEnterDate.hints.mandatory}"
-                  columns="#{bindings.WmsEnterDate.hints.displayWidth}"
-                  shortDesc="#{bindings.WmsEnterDate.hints.tooltip}" id="id10">
-      <f:validator binding="#{bindings.WmsEnterDate.validator}"/>
-      <af:convertDateTime pattern="#{bindings.WmsEnterDate.format}"/>
-    </af:inputDate>
-    <af:inputText value="#{bindings.WmsLastUpdateUid.inputValue}" label="#{bindings.WmsLastUpdateUid.hints.label}"
-                  required="#{bindings.WmsLastUpdateUid.hints.mandatory}"
-                  columns="#{bindings.WmsLastUpdateUid.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsLastUpdateUid.hints.precision}"
-                  shortDesc="#{bindings.WmsLastUpdateUid.hints.tooltip}" id="it38">
-      <f:validator binding="#{bindings.WmsLastUpdateUid.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsLastFpc.inputValue}" label="#{bindings.WmsLastFpc.hints.label}"
-                  required="#{bindings.WmsLastFpc.hints.mandatory}" columns="#{bindings.WmsLastFpc.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsLastFpc.hints.precision}"
-                  shortDesc="#{bindings.WmsLastFpc.hints.tooltip}" id="it39">
-      <f:validator binding="#{bindings.WmsLastFpc.validator}"/>
-    </af:inputText>
-    <af:inputDate value="#{bindings.WmsLastUpdateDate.inputValue}" label="#{bindings.WmsLastUpdateDate.hints.label}"
-                  required="#{bindings.WmsLastUpdateDate.hints.mandatory}"
-                  columns="#{bindings.WmsLastUpdateDate.hints.displayWidth}"
-                  shortDesc="#{bindings.WmsLastUpdateDate.hints.tooltip}" id="id11">
-      <f:validator binding="#{bindings.WmsLastUpdateDate.validator}"/>
-      <af:convertDateTime pattern="#{bindings.WmsLastUpdateDate.format}"/>
-    </af:inputDate>
-    <af:inputText value="#{bindings.WmsApproveUid.inputValue}" label="#{bindings.WmsApproveUid.hints.label}"
-                  required="#{bindings.WmsApproveUid.hints.mandatory}"
-                  columns="#{bindings.WmsApproveUid.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsApproveUid.hints.precision}"
-                  shortDesc="#{bindings.WmsApproveUid.hints.tooltip}" id="it40">
-      <f:validator binding="#{bindings.WmsApproveUid.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsApproveFpc.inputValue}" label="#{bindings.WmsApproveFpc.hints.label}"
-                  required="#{bindings.WmsApproveFpc.hints.mandatory}"
-                  columns="#{bindings.WmsApproveFpc.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsApproveFpc.hints.precision}"
-                  shortDesc="#{bindings.WmsApproveFpc.hints.tooltip}" id="it41">
-      <f:validator binding="#{bindings.WmsApproveFpc.validator}"/>
-    </af:inputText>
-    <af:inputDate value="#{bindings.WmsApproveDate.inputValue}" label="#{bindings.WmsApproveDate.hints.label}"
-                  required="#{bindings.WmsApproveDate.hints.mandatory}"
-                  columns="#{bindings.WmsApproveDate.hints.displayWidth}"
-                  shortDesc="#{bindings.WmsApproveDate.hints.tooltip}" id="id12">
-      <f:validator binding="#{bindings.WmsApproveDate.validator}"/>
-      <af:convertDateTime pattern="#{bindings.WmsApproveDate.format}"/>
-    </af:inputDate>
-    <af:inputText value="#{bindings.WmsMutualFundsValue.inputValue}" label="#{bindings.WmsMutualFundsValue.hints.label}"
-                  required="#{bindings.WmsMutualFundsValue.hints.mandatory}"
-                  columns="#{bindings.WmsMutualFundsValue.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsMutualFundsValue.hints.precision}"
-                  shortDesc="#{bindings.WmsMutualFundsValue.hints.tooltip}" id="it42">
-      <f:validator binding="#{bindings.WmsMutualFundsValue.validator}"/>
-      <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsMutualFundsValue.format}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsMutualIbType.inputValue}" label="#{bindings.WmsMutualIbType.hints.label}"
-                  required="#{bindings.WmsMutualIbType.hints.mandatory}"
-                  columns="#{bindings.WmsMutualIbType.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsMutualIbType.hints.precision}"
-                  shortDesc="#{bindings.WmsMutualIbType.hints.tooltip}" id="it43">
-      <f:validator binding="#{bindings.WmsMutualIbType.validator}"/>
-    </af:inputText>
-    <af:inputText value="#{bindings.WmsSedol.inputValue}" label="#{bindings.WmsSedol.hints.label}"
-                  required="#{bindings.WmsSedol.hints.mandatory}" columns="#{bindings.WmsSedol.hints.displayWidth}"
-                  maximumLength="#{bindings.WmsSedol.hints.precision}" shortDesc="#{bindings.WmsSedol.hints.tooltip}"
-                  id="it44">
-      <f:validator binding="#{bindings.WmsSedol.validator}"/>
-    </af:inputText>
-    <af:inputComboboxListOfValues id="wmsAssetTransId"
-                                  popupTitle="Search and Select: #{bindings.WmsAssetTrans.hints.label}"
-                                  value="#{bindings.WmsAssetTrans.inputValue}"
-                                  label="#{bindings.WmsAssetTrans.hints.label}"
-                                  model="#{bindings.WmsAssetTrans.listOfValuesModel}"
-                                  required="#{bindings.WmsAssetTrans.hints.mandatory}"
-                                  columns="#{bindings.WmsAssetTrans.hints.displayWidth}"
-                                  shortDesc="#{bindings.WmsAssetTrans.hints.tooltip}">
-      <f:validator binding="#{bindings.WmsAssetTrans.validator}"/>
-    </af:inputComboboxListOfValues>
-    <af:inputComboboxListOfValues id="wmsCountryTransId"
-                                  popupTitle="Search and Select: #{bindings.WmsCountryTrans.hints.label}"
-                                  value="#{bindings.WmsCountryTrans.inputValue}"
-                                  label="#{bindings.WmsCountryTrans.hints.label}"
-                                  model="#{bindings.WmsCountryTrans.listOfValuesModel}"
-                                  required="#{bindings.WmsCountryTrans.hints.mandatory}"
-                                  columns="#{bindings.WmsCountryTrans.hints.displayWidth}"
-                                  shortDesc="#{bindings.WmsCountryTrans.hints.tooltip}">
-      <f:validator binding="#{bindings.WmsCountryTrans.validator}"/>
-    </af:inputComboboxListOfValues>
-    <af:inputComboboxListOfValues id="wmsCurrencyTransId"
-                                  popupTitle="Search and Select: #{bindings.WmsCurrencyTrans.hints.label}"
-                                  value="#{bindings.WmsCurrencyTrans.inputValue}"
-                                  label="#{bindings.WmsCurrencyTrans.hints.label}"
-                                  model="#{bindings.WmsCurrencyTrans.listOfValuesModel}"
-                                  required="#{bindings.WmsCurrencyTrans.hints.mandatory}"
-                                  columns="#{bindings.WmsCurrencyTrans.hints.displayWidth}"
-                                  shortDesc="#{bindings.WmsCurrencyTrans.hints.tooltip}">
-      <f:validator binding="#{bindings.WmsCurrencyTrans.validator}"/>
-    </af:inputComboboxListOfValues>
-    <af:inputComboboxListOfValues id="wmsSectorTransId"
-                                  popupTitle="Search and Select: #{bindings.WmsSectorTrans.hints.label}"
-                                  value="#{bindings.WmsSectorTrans.inputValue}"
-                                  label="#{bindings.WmsSectorTrans.hints.label}"
-                                  model="#{bindings.WmsSectorTrans.listOfValuesModel}"
-                                  required="#{bindings.WmsSectorTrans.hints.mandatory}"
-                                  columns="#{bindings.WmsSectorTrans.hints.displayWidth}"
-                                  shortDesc="#{bindings.WmsSectorTrans.hints.tooltip}">
-      <f:validator binding="#{bindings.WmsSectorTrans.validator}"/>
-    </af:inputComboboxListOfValues>
-    <af:inputComboboxListOfValues id="wmsStockExchangeTransId"
-                                  popupTitle="Search and Select: #{bindings.WmsStockExchangeTrans.hints.label}"
-                                  value="#{bindings.WmsStockExchangeTrans.inputValue}"
-                                  label="#{bindings.WmsStockExchangeTrans.hints.label}"
-                                  model="#{bindings.WmsStockExchangeTrans.listOfValuesModel}"
-                                  required="#{bindings.WmsStockExchangeTrans.hints.mandatory}"
-                                  columns="#{bindings.WmsStockExchangeTrans.hints.displayWidth}"
-                                  shortDesc="#{bindings.WmsStockExchangeTrans.hints.tooltip}">
-      <f:validator binding="#{bindings.WmsStockExchangeTrans.validator}"/>
-    </af:inputComboboxListOfValues>
-    <f:facet name="footer">
-      <af:panelGroupLayout layout="vertical" id="pgl1">
-        <af:panelGroupLayout layout="horizontal" id="pgl2">
-          <af:button actionListener="#{bindings.First.execute}" text="First" disabled="#{!bindings.First.enabled}"
-                     partialSubmit="true" id="b1"/>
-          <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                     disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
-          <af:button actionListener="#{bindings.Next.execute}" text="Next" disabled="#{!bindings.Next.enabled}"
-                     partialSubmit="true" id="b3"/>
-          <af:button actionListener="#{bindings.Last.execute}" text="Last" disabled="#{!bindings.Last.enabled}"
-                     partialSubmit="true" id="b4"/>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+    <af:panelGroupLayout id="pgl3" layout="horizontal" valign="top">
+      <af:panelBox text="StockInfo" id="pb1" showDisclosure="false" showHeader="never">
+        <f:facet name="toolbar"/>
+        <af:panelFormLayout id="pfl2">
+          <f:facet name="footer"/>
+          <af:inputText value="#{bindings.WmsProductName.inputValue}" label="#{bindings.WmsProductName.hints.label}"
+                        required="#{bindings.WmsProductName.hints.mandatory}"
+                        columns="#{bindings.WmsProductName.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsProductName.hints.precision}"
+                        shortDesc="#{bindings.WmsProductName.hints.tooltip}" id="it3">
+            <f:validator binding="#{bindings.WmsProductName.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+        <af:panelFormLayout id="pfl3" rows="3" maxColumns="2">
+          <f:facet name="footer"/>
+          <af:inputText value="#{bindings.WmsTicker.inputValue}" label="#{bindings.WmsTicker.hints.label}"
+                        required="#{bindings.WmsTicker.hints.mandatory}"
+                        columns="#{bindings.WmsTicker.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsTicker.hints.precision}"
+                        shortDesc="#{bindings.WmsTicker.hints.tooltip}" id="it4">
+            <f:validator binding="#{bindings.WmsTicker.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.WmsRetuerCode.inputValue}" label="#{bindings.WmsRetuerCode.hints.label}"
+                        required="#{bindings.WmsRetuerCode.hints.mandatory}"
+                        columns="#{bindings.WmsRetuerCode.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsRetuerCode.hints.precision}"
+                        shortDesc="#{bindings.WmsRetuerCode.hints.tooltip}" id="it5">
+            <f:validator binding="#{bindings.WmsRetuerCode.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.WmsOtherCode.inputValue}" label="#{bindings.WmsOtherCode.hints.label}"
+                        required="#{bindings.WmsOtherCode.hints.mandatory}"
+                        columns="#{bindings.WmsOtherCode.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsOtherCode.hints.precision}"
+                        shortDesc="#{bindings.WmsOtherCode.hints.tooltip}" id="it8">
+            <f:validator binding="#{bindings.WmsOtherCode.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.WmsIsinCode.inputValue}" label="#{bindings.WmsIsinCode.hints.label}"
+                        required="#{bindings.WmsIsinCode.hints.mandatory}"
+                        columns="#{bindings.WmsIsinCode.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsIsinCode.hints.precision}"
+                        shortDesc="#{bindings.WmsIsinCode.hints.tooltip}" id="it7">
+            <f:validator binding="#{bindings.WmsIsinCode.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.WmsBloombergCode.inputValue}" label="#{bindings.WmsBloombergCode.hints.label}"
+                        required="#{bindings.WmsBloombergCode.hints.mandatory}"
+                        columns="#{bindings.WmsBloombergCode.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsBloombergCode.hints.precision}"
+                        shortDesc="#{bindings.WmsBloombergCode.hints.tooltip}" id="it6">
+            <f:validator binding="#{bindings.WmsBloombergCode.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.WmsSedol.inputValue}" label="#{bindings.WmsSedol.hints.label}"
+                        required="#{bindings.WmsSedol.hints.mandatory}"
+                        columns="#{bindings.WmsSedol.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsSedol.hints.precision}"
+                        shortDesc="#{bindings.WmsSedol.hints.tooltip}" id="it44">
+            <f:validator binding="#{bindings.WmsSedol.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+        <af:panelFormLayout id="pfl4" rows="5" maxColumns="2">
+          <f:facet name="footer"/>
+          <af:inputText value="#{bindings.WmsCountry.inputValue}" label="#{bindings.WmsCountry.hints.label}"
+                        required="#{bindings.WmsCountry.hints.mandatory}"
+                        columns="#{bindings.WmsCountry.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsCountry.hints.precision}"
+                        shortDesc="#{bindings.WmsCountry.hints.tooltip}" partialTriggers="wmsCountryTransId" id="it11">
+            <f:validator binding="#{bindings.WmsCountry.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsCountry.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.WmsCurrency.inputValue}" label="#{bindings.WmsCurrency.hints.label}"
+                        required="#{bindings.WmsCurrency.hints.mandatory}"
+                        columns="#{bindings.WmsCurrency.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsCurrency.hints.precision}"
+                        shortDesc="#{bindings.WmsCurrency.hints.tooltip}" partialTriggers="wmsCurrencyTransId"
+                        id="it12">
+            <f:validator binding="#{bindings.WmsCurrency.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsCurrency.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.WmsStockExchange.inputValue}" label="#{bindings.WmsStockExchange.hints.label}"
+                        required="#{bindings.WmsStockExchange.hints.mandatory}"
+                        columns="#{bindings.WmsStockExchange.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsStockExchange.hints.precision}"
+                        shortDesc="#{bindings.WmsStockExchange.hints.tooltip}" partialTriggers="wmsStockExchangeTransId"
+                        id="it13">
+            <f:validator binding="#{bindings.WmsStockExchange.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsStockExchange.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.WmsSector.inputValue}" label="#{bindings.WmsSector.hints.label}"
+                        required="#{bindings.WmsSector.hints.mandatory}"
+                        columns="#{bindings.WmsSector.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsSector.hints.precision}"
+                        shortDesc="#{bindings.WmsSector.hints.tooltip}" partialTriggers="wmsSectorTransId" id="it14">
+            <f:validator binding="#{bindings.WmsSector.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsSector.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.WmsAsset.inputValue}" label="#{bindings.WmsAsset.hints.label}"
+                        required="#{bindings.WmsAsset.hints.mandatory}"
+                        columns="#{bindings.WmsAsset.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsAsset.hints.precision}"
+                        shortDesc="#{bindings.WmsAsset.hints.tooltip}" partialTriggers="wmsAssetTransId" id="it15">
+            <f:validator binding="#{bindings.WmsAsset.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsAsset.format}"/>
+          </af:inputText>
+          <af:inputComboboxListOfValues id="wmsCountryTransId"
+                                        popupTitle="Search and Select: #{bindings.WmsCountryTrans.hints.label}"
+                                        value="#{bindings.WmsCountryTrans.inputValue}"
+                                        model="#{bindings.WmsCountryTrans.listOfValuesModel}"
+                                        required="#{bindings.WmsCountryTrans.hints.mandatory}"
+                                        columns="#{bindings.WmsCountryTrans.hints.displayWidth}"
+                                        shortDesc="#{bindings.WmsCountryTrans.hints.tooltip}">
+            <f:validator binding="#{bindings.WmsCountryTrans.validator}"/>
+          </af:inputComboboxListOfValues>
+          <af:inputComboboxListOfValues id="wmsCurrencyTransId"
+                                        popupTitle="Search and Select: #{bindings.WmsCurrencyTrans.hints.label}"
+                                        value="#{bindings.WmsCurrencyTrans.inputValue}"
+                                        model="#{bindings.WmsCurrencyTrans.listOfValuesModel}"
+                                        required="#{bindings.WmsCurrencyTrans.hints.mandatory}"
+                                        columns="#{bindings.WmsCurrencyTrans.hints.displayWidth}"
+                                        shortDesc="#{bindings.WmsCurrencyTrans.hints.tooltip}">
+            <f:validator binding="#{bindings.WmsCurrencyTrans.validator}"/>
+          </af:inputComboboxListOfValues>
+          <af:inputComboboxListOfValues id="wmsStockExchangeTransId"
+                                        popupTitle="Search and Select: #{bindings.WmsStockExchangeTrans.hints.label}"
+                                        value="#{bindings.WmsStockExchangeTrans.inputValue}"
+                                        model="#{bindings.WmsStockExchangeTrans.listOfValuesModel}"
+                                        required="#{bindings.WmsStockExchangeTrans.hints.mandatory}"
+                                        columns="#{bindings.WmsStockExchangeTrans.hints.displayWidth}"
+                                        shortDesc="#{bindings.WmsStockExchangeTrans.hints.tooltip}">
+            <f:validator binding="#{bindings.WmsStockExchangeTrans.validator}"/>
+          </af:inputComboboxListOfValues>
+          <af:inputComboboxListOfValues id="wmsSectorTransId"
+                                        popupTitle="Search and Select: #{bindings.WmsSectorTrans.hints.label}"
+                                        value="#{bindings.WmsSectorTrans.inputValue}"
+                                        model="#{bindings.WmsSectorTrans.listOfValuesModel}"
+                                        required="#{bindings.WmsSectorTrans.hints.mandatory}"
+                                        columns="#{bindings.WmsSectorTrans.hints.displayWidth}"
+                                        shortDesc="#{bindings.WmsSectorTrans.hints.tooltip}">
+            <f:validator binding="#{bindings.WmsSectorTrans.validator}"/>
+          </af:inputComboboxListOfValues>
+          <af:inputComboboxListOfValues id="wmsAssetTransId"
+                                        popupTitle="Search and Select: #{bindings.WmsAssetTrans.hints.label}"
+                                        value="#{bindings.WmsAssetTrans.inputValue}"
+                                        model="#{bindings.WmsAssetTrans.listOfValuesModel}"
+                                        required="#{bindings.WmsAssetTrans.hints.mandatory}"
+                                        columns="#{bindings.WmsAssetTrans.hints.displayWidth}"
+                                        shortDesc="#{bindings.WmsAssetTrans.hints.tooltip}">
+            <f:validator binding="#{bindings.WmsAssetTrans.validator}"/>
+          </af:inputComboboxListOfValues>
+        </af:panelFormLayout>
+        <af:panelFormLayout id="pfl10">
+          <f:facet name="footer"/>
+          <af:inputText value="#{bindings.WmsComments.inputValue}" label="#{bindings.WmsComments.hints.label}"
+                        required="#{bindings.WmsComments.hints.mandatory}"
+                        columns="#{bindings.WmsComments.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsComments.hints.precision}"
+                        shortDesc="#{bindings.WmsComments.hints.tooltip}" id="it34">
+            <f:validator binding="#{bindings.WmsComments.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.WmsStatus.inputValue}" label="#{bindings.WmsStatus.hints.label}"
+                        required="#{bindings.WmsStatus.hints.mandatory}"
+                        columns="#{bindings.WmsStatus.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsStatus.hints.precision}"
+                        shortDesc="#{bindings.WmsStatus.hints.tooltip}" id="it35">
+            <f:validator binding="#{bindings.WmsStatus.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+        <af:panelBox text="Futures" id="pb5" titleHalign="left" showDisclosure="false">
+          <f:facet name="toolbar"/>
+          <af:panelFormLayout id="pfl8">
+            <f:facet name="footer"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl9" rows="1" maxColumns="3">
+            <f:facet name="footer"/>
+            <af:inputDate value="#{bindings.WmsPutCallExpiryDate.inputValue}"
+                          label="#{bindings.WmsPutCallExpiryDate.hints.label}"
+                          required="#{bindings.WmsPutCallExpiryDate.hints.mandatory}"
+                          columns="#{bindings.WmsPutCallExpiryDate.hints.displayWidth}"
+                          shortDesc="#{bindings.WmsPutCallExpiryDate.hints.tooltip}" id="id9">
+              <f:validator binding="#{bindings.WmsPutCallExpiryDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.WmsPutCallExpiryDate.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.WmsPutCallLotsize.inputValue}"
+                          label="#{bindings.WmsPutCallLotsize.hints.label}"
+                          required="#{bindings.WmsPutCallLotsize.hints.mandatory}"
+                          columns="#{bindings.WmsPutCallLotsize.hints.displayWidth}"
+                          maximumLength="#{bindings.WmsPutCallLotsize.hints.precision}"
+                          shortDesc="#{bindings.WmsPutCallLotsize.hints.tooltip}" id="it27">
+              <f:validator binding="#{bindings.WmsPutCallLotsize.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsPutCallLotsize.format}"/>
+            </af:inputText>
+          </af:panelFormLayout>
+        </af:panelBox>
+        <af:panelFormLayout id="pfl7" rows="2" maxColumns="3">
+          <f:facet name="footer"/>
+          <af:inputText value="#{bindings.WmsEnterUid.inputValue}" label="#{bindings.WmsEnterUid.hints.label}"
+                        required="#{bindings.WmsEnterUid.hints.mandatory}"
+                        columns="#{bindings.WmsEnterUid.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsEnterUid.hints.precision}"
+                        shortDesc="#{bindings.WmsEnterUid.hints.tooltip}" id="it36">
+            <f:validator binding="#{bindings.WmsEnterUid.validator}"/>
+          </af:inputText>
+          <af:inputDate value="#{bindings.WmsEnterDate.inputValue}" label="#{bindings.WmsEnterDate.hints.label}"
+                        required="#{bindings.WmsEnterDate.hints.mandatory}"
+                        columns="#{bindings.WmsEnterDate.hints.displayWidth}"
+                        shortDesc="#{bindings.WmsEnterDate.hints.tooltip}" id="id10">
+            <f:validator binding="#{bindings.WmsEnterDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.WmsEnterDate.format}"/>
+          </af:inputDate>
+          <af:inputText value="#{bindings.WmsLastUpdateUid.inputValue}" label="#{bindings.WmsLastUpdateUid.hints.label}"
+                        required="#{bindings.WmsLastUpdateUid.hints.mandatory}"
+                        columns="#{bindings.WmsLastUpdateUid.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsLastUpdateUid.hints.precision}"
+                        shortDesc="#{bindings.WmsLastUpdateUid.hints.tooltip}" id="it38">
+            <f:validator binding="#{bindings.WmsLastUpdateUid.validator}"/>
+          </af:inputText>
+          <af:inputDate value="#{bindings.WmsLastUpdateDate.inputValue}"
+                        label="#{bindings.WmsLastUpdateDate.hints.label}"
+                        required="#{bindings.WmsLastUpdateDate.hints.mandatory}"
+                        columns="#{bindings.WmsLastUpdateDate.hints.displayWidth}"
+                        shortDesc="#{bindings.WmsLastUpdateDate.hints.tooltip}" id="id11">
+            <f:validator binding="#{bindings.WmsLastUpdateDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.WmsLastUpdateDate.format}"/>
+          </af:inputDate>
+          <af:inputText value="#{bindings.WmsApproveUid.inputValue}" label="#{bindings.WmsApproveUid.hints.label}"
+                        required="#{bindings.WmsApproveUid.hints.mandatory}"
+                        columns="#{bindings.WmsApproveUid.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsApproveUid.hints.precision}"
+                        shortDesc="#{bindings.WmsApproveUid.hints.tooltip}" id="it40">
+            <f:validator binding="#{bindings.WmsApproveUid.validator}"/>
+          </af:inputText>
+          <af:inputDate value="#{bindings.WmsApproveDate.inputValue}" label="#{bindings.WmsApproveDate.hints.label}"
+                        required="#{bindings.WmsApproveDate.hints.mandatory}"
+                        columns="#{bindings.WmsApproveDate.hints.displayWidth}"
+                        shortDesc="#{bindings.WmsApproveDate.hints.tooltip}" id="id12">
+            <f:validator binding="#{bindings.WmsApproveDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.WmsApproveDate.format}"/>
+          </af:inputDate>
+        </af:panelFormLayout>
+        <af:panelFormLayout id="pfl11" rows="1">
+          <f:facet name="footer"/>
+          <af:button text="Delete" id="b7"/>
+          <af:button text="Save" id="b8"/>
+          <af:button text="Exit" id="b9"/>
+          <af:button text="Approve" id="b10"/>
+        </af:panelFormLayout>
+      </af:panelBox>
+      <af:panelBox text="Bond Details" id="pb2" showDisclosure="false" titleHalign="center">
+        <f:facet name="toolbar"/>
+        <af:panelFormLayout id="pfl5">
+          <f:facet name="footer"/>
+          <af:inputText value="#{bindings.WmsBondIssueNo.inputValue}" label="#{bindings.WmsBondIssueNo.hints.label}"
+                        required="#{bindings.WmsBondIssueNo.hints.mandatory}"
+                        columns="#{bindings.WmsBondIssueNo.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsBondIssueNo.hints.precision}"
+                        shortDesc="#{bindings.WmsBondIssueNo.hints.tooltip}" id="it16">
+            <f:validator binding="#{bindings.WmsBondIssueNo.validator}"/>
+          </af:inputText>
+          <af:inputDate value="#{bindings.WmsBondIssueDate.inputValue}" label="#{bindings.WmsBondIssueDate.hints.label}"
+                        required="#{bindings.WmsBondIssueDate.hints.mandatory}"
+                        columns="#{bindings.WmsBondIssueDate.hints.displayWidth}"
+                        shortDesc="#{bindings.WmsBondIssueDate.hints.tooltip}" id="id7">
+            <f:validator binding="#{bindings.WmsBondIssueDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.WmsBondIssueDate.format}"/>
+          </af:inputDate>
+          <af:inputDate value="#{bindings.WmsBondMaturityDt.inputValue}"
+                        label="#{bindings.WmsBondMaturityDt.hints.label}"
+                        required="#{bindings.WmsBondMaturityDt.hints.mandatory}"
+                        columns="#{bindings.WmsBondMaturityDt.hints.displayWidth}"
+                        shortDesc="#{bindings.WmsBondMaturityDt.hints.tooltip}" id="id8">
+            <f:validator binding="#{bindings.WmsBondMaturityDt.validator}"/>
+            <af:convertDateTime pattern="#{bindings.WmsBondMaturityDt.format}"/>
+          </af:inputDate>
+          <af:inputText value="#{bindings.WmsBondUnitPrice.inputValue}" label="#{bindings.WmsBondUnitPrice.hints.label}"
+                        required="#{bindings.WmsBondUnitPrice.hints.mandatory}"
+                        columns="#{bindings.WmsBondUnitPrice.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsBondUnitPrice.hints.precision}"
+                        shortDesc="#{bindings.WmsBondUnitPrice.hints.tooltip}" id="it17">
+            <f:validator binding="#{bindings.WmsBondUnitPrice.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsBondUnitPrice.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.WmsBondCouponRate.inputValue}"
+                        label="#{bindings.WmsBondCouponRate.hints.label}"
+                        required="#{bindings.WmsBondCouponRate.hints.mandatory}"
+                        columns="#{bindings.WmsBondCouponRate.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsBondCouponRate.hints.precision}"
+                        shortDesc="#{bindings.WmsBondCouponRate.hints.tooltip}" id="it18">
+            <f:validator binding="#{bindings.WmsBondCouponRate.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsBondCouponRate.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.WmsBondCouponFrequency.inputValue}"
+                        label="#{bindings.WmsBondCouponFrequency.hints.label}"
+                        required="#{bindings.WmsBondCouponFrequency.hints.mandatory}"
+                        columns="#{bindings.WmsBondCouponFrequency.hints.displayWidth}"
+                        maximumLength="#{bindings.WmsBondCouponFrequency.hints.precision}"
+                        shortDesc="#{bindings.WmsBondCouponFrequency.hints.tooltip}" id="it19">
+            <f:validator binding="#{bindings.WmsBondCouponFrequency.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+        <af:panelBox text="Payment Date(DD-MM)" id="pb3" showDisclosure="false">
+          <f:facet name="toolbar"/>
+          <af:panelFormLayout id="pfl6" rows="2" maxColumns="2">
+            <f:facet name="footer"/>
+            <af:inputText value="#{bindings.WmsBondCoupon1stIntdate.inputValue}"
+                          label="#{bindings.WmsBondCoupon1stIntdate.hints.label}"
+                          required="#{bindings.WmsBondCoupon1stIntdate.hints.mandatory}"
+                          columns="#{bindings.WmsBondCoupon1stIntdate.hints.displayWidth}"
+                          maximumLength="#{bindings.WmsBondCoupon1stIntdate.hints.precision}"
+                          shortDesc="#{bindings.WmsBondCoupon1stIntdate.hints.tooltip}" id="it22">
+              <f:validator binding="#{bindings.WmsBondCoupon1stIntdate.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.WmsBondCoupon2ndIntdate.inputValue}"
+                          label="#{bindings.WmsBondCoupon2ndIntdate.hints.label}"
+                          required="#{bindings.WmsBondCoupon2ndIntdate.hints.mandatory}"
+                          columns="#{bindings.WmsBondCoupon2ndIntdate.hints.displayWidth}"
+                          maximumLength="#{bindings.WmsBondCoupon2ndIntdate.hints.precision}"
+                          shortDesc="#{bindings.WmsBondCoupon2ndIntdate.hints.tooltip}" id="it23">
+              <f:validator binding="#{bindings.WmsBondCoupon2ndIntdate.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.WmsBondCoupon3rdIntdate.inputValue}"
+                          label="#{bindings.WmsBondCoupon3rdIntdate.hints.label}"
+                          required="#{bindings.WmsBondCoupon3rdIntdate.hints.mandatory}"
+                          columns="#{bindings.WmsBondCoupon3rdIntdate.hints.displayWidth}"
+                          maximumLength="#{bindings.WmsBondCoupon3rdIntdate.hints.precision}"
+                          shortDesc="#{bindings.WmsBondCoupon3rdIntdate.hints.tooltip}" id="it24">
+              <f:validator binding="#{bindings.WmsBondCoupon3rdIntdate.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.WmsBondCoupon4thIntdate.inputValue}"
+                          label="#{bindings.WmsBondCoupon4thIntdate.hints.label}"
+                          required="#{bindings.WmsBondCoupon4thIntdate.hints.mandatory}"
+                          columns="#{bindings.WmsBondCoupon4thIntdate.hints.displayWidth}"
+                          maximumLength="#{bindings.WmsBondCoupon4thIntdate.hints.precision}"
+                          shortDesc="#{bindings.WmsBondCoupon4thIntdate.hints.tooltip}" id="it25">
+              <f:validator binding="#{bindings.WmsBondCoupon4thIntdate.validator}"/>
+            </af:inputText>
+          </af:panelFormLayout>
+        </af:panelBox>
+        <af:panelBox text="PanelBox1" id="pb4" showHeader="never" showDisclosure="false">
+          <f:facet name="toolbar"/>
+        </af:panelBox>
+      </af:panelBox>
+    </af:panelGroupLayout>
+    <af:panelFormLayout id="pfl1" rendered="false">
+      <af:inputText value="#{bindings.WmsProductType.inputValue}" label="#{bindings.WmsProductType.hints.label}"
+                    required="#{bindings.WmsProductType.hints.mandatory}"
+                    columns="#{bindings.WmsProductType.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsProductType.hints.precision}"
+                    shortDesc="#{bindings.WmsProductType.hints.tooltip}" id="it1">
+        <f:validator binding="#{bindings.WmsProductType.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsProductId.inputValue}" label="#{bindings.WmsProductId.hints.label}"
+                    required="#{bindings.WmsProductId.hints.mandatory}"
+                    columns="#{bindings.WmsProductId.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsProductId.hints.precision}"
+                    shortDesc="#{bindings.WmsProductId.hints.tooltip}" id="it2">
+        <f:validator binding="#{bindings.WmsProductId.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsProductId.format}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsOtherDesc.inputValue}" label="#{bindings.WmsOtherDesc.hints.label}"
+                    required="#{bindings.WmsOtherDesc.hints.mandatory}"
+                    columns="#{bindings.WmsOtherDesc.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsOtherDesc.hints.precision}"
+                    shortDesc="#{bindings.WmsOtherDesc.hints.tooltip}" id="it9">
+        <f:validator binding="#{bindings.WmsOtherDesc.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsPriceUpdate.inputValue}" label="#{bindings.WmsPriceUpdate.hints.label}"
+                    required="#{bindings.WmsPriceUpdate.hints.mandatory}"
+                    columns="#{bindings.WmsPriceUpdate.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsPriceUpdate.hints.precision}"
+                    shortDesc="#{bindings.WmsPriceUpdate.hints.tooltip}" id="it10">
+        <f:validator binding="#{bindings.WmsPriceUpdate.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsBondDivisorDaysMonth.inputValue}"
+                    label="#{bindings.WmsBondDivisorDaysMonth.hints.label}"
+                    required="#{bindings.WmsBondDivisorDaysMonth.hints.mandatory}"
+                    columns="#{bindings.WmsBondDivisorDaysMonth.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsBondDivisorDaysMonth.hints.precision}"
+                    shortDesc="#{bindings.WmsBondDivisorDaysMonth.hints.tooltip}" id="it20">
+        <f:validator binding="#{bindings.WmsBondDivisorDaysMonth.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsBondDivisorDaysYear.inputValue}"
+                    label="#{bindings.WmsBondDivisorDaysYear.hints.label}"
+                    required="#{bindings.WmsBondDivisorDaysYear.hints.mandatory}"
+                    columns="#{bindings.WmsBondDivisorDaysYear.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsBondDivisorDaysYear.hints.precision}"
+                    shortDesc="#{bindings.WmsBondDivisorDaysYear.hints.tooltip}" id="it21">
+        <f:validator binding="#{bindings.WmsBondDivisorDaysYear.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsBondDivisorDaysYear.format}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsMutualFundsIssue.inputValue}"
+                    label="#{bindings.WmsMutualFundsIssue.hints.label}"
+                    required="#{bindings.WmsMutualFundsIssue.hints.mandatory}"
+                    columns="#{bindings.WmsMutualFundsIssue.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsMutualFundsIssue.hints.precision}"
+                    shortDesc="#{bindings.WmsMutualFundsIssue.hints.tooltip}" id="it30">
+        <f:validator binding="#{bindings.WmsMutualFundsIssue.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsMutualInhouse3rdFlag.inputValue}"
+                    label="#{bindings.WmsMutualInhouse3rdFlag.hints.label}"
+                    required="#{bindings.WmsMutualInhouse3rdFlag.hints.mandatory}"
+                    columns="#{bindings.WmsMutualInhouse3rdFlag.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsMutualInhouse3rdFlag.hints.precision}"
+                    shortDesc="#{bindings.WmsMutualInhouse3rdFlag.hints.tooltip}" id="it31">
+        <f:validator binding="#{bindings.WmsMutualInhouse3rdFlag.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsMutualFundsClosdedOpen.inputValue}"
+                    label="#{bindings.WmsMutualFundsClosdedOpen.hints.label}"
+                    required="#{bindings.WmsMutualFundsClosdedOpen.hints.mandatory}"
+                    columns="#{bindings.WmsMutualFundsClosdedOpen.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsMutualFundsClosdedOpen.hints.precision}"
+                    shortDesc="#{bindings.WmsMutualFundsClosdedOpen.hints.tooltip}" id="it32">
+        <f:validator binding="#{bindings.WmsMutualFundsClosdedOpen.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsMutualFundsNavFlag.inputValue}"
+                    label="#{bindings.WmsMutualFundsNavFlag.hints.label}"
+                    required="#{bindings.WmsMutualFundsNavFlag.hints.mandatory}"
+                    columns="#{bindings.WmsMutualFundsNavFlag.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsMutualFundsNavFlag.hints.precision}"
+                    shortDesc="#{bindings.WmsMutualFundsNavFlag.hints.tooltip}" id="it33">
+        <f:validator binding="#{bindings.WmsMutualFundsNavFlag.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsMutualFundsValue.inputValue}"
+                    label="#{bindings.WmsMutualFundsValue.hints.label}"
+                    required="#{bindings.WmsMutualFundsValue.hints.mandatory}"
+                    columns="#{bindings.WmsMutualFundsValue.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsMutualFundsValue.hints.precision}"
+                    shortDesc="#{bindings.WmsMutualFundsValue.hints.tooltip}" id="it42">
+        <f:validator binding="#{bindings.WmsMutualFundsValue.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsMutualFundsValue.format}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsMutualIbType.inputValue}" label="#{bindings.WmsMutualIbType.hints.label}"
+                    required="#{bindings.WmsMutualIbType.hints.mandatory}"
+                    columns="#{bindings.WmsMutualIbType.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsMutualIbType.hints.precision}"
+                    shortDesc="#{bindings.WmsMutualIbType.hints.tooltip}" id="it43">
+        <f:validator binding="#{bindings.WmsMutualIbType.validator}"/>
+      </af:inputText>
+      <f:facet name="footer">
+        <af:panelGroupLayout layout="vertical" id="pgl1">
+          <af:panelGroupLayout layout="horizontal" id="pgl2">
+            <af:button actionListener="#{bindings.First.execute}" text="First" disabled="#{!bindings.First.enabled}"
+                       partialSubmit="true" id="b1"/>
+            <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+            <af:button actionListener="#{bindings.Next.execute}" text="Next" disabled="#{!bindings.Next.enabled}"
+                       partialSubmit="true" id="b3"/>
+            <af:button actionListener="#{bindings.Last.execute}" text="Last" disabled="#{!bindings.Last.enabled}"
+                       partialSubmit="true" id="b4"/>
+          </af:panelGroupLayout>
+          <af:button text="Submit" id="b5"/>
         </af:panelGroupLayout>
-        <af:button text="Submit" id="b5"/>
-      </af:panelGroupLayout>
-    </f:facet>
-  </af:panelFormLayout>
+      </f:facet>
+      <af:inputText value="#{bindings.WmsEnterFpc.inputValue}" label="#{bindings.WmsEnterFpc.hints.label}"
+                    required="#{bindings.WmsEnterFpc.hints.mandatory}"
+                    columns="#{bindings.WmsEnterFpc.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsEnterFpc.hints.precision}"
+                    shortDesc="#{bindings.WmsEnterFpc.hints.tooltip}" id="it37">
+        <f:validator binding="#{bindings.WmsEnterFpc.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsLastFpc.inputValue}" label="#{bindings.WmsLastFpc.hints.label}"
+                    required="#{bindings.WmsLastFpc.hints.mandatory}"
+                    columns="#{bindings.WmsLastFpc.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsLastFpc.hints.precision}"
+                    shortDesc="#{bindings.WmsLastFpc.hints.tooltip}" id="it39">
+        <f:validator binding="#{bindings.WmsLastFpc.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsApproveFpc.inputValue}" label="#{bindings.WmsApproveFpc.hints.label}"
+                    required="#{bindings.WmsApproveFpc.hints.mandatory}"
+                    columns="#{bindings.WmsApproveFpc.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsApproveFpc.hints.precision}"
+                    shortDesc="#{bindings.WmsApproveFpc.hints.tooltip}" id="it41">
+        <f:validator binding="#{bindings.WmsApproveFpc.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsPutCallStatus.inputValue}" label="#{bindings.WmsPutCallStatus.hints.label}"
+                    required="#{bindings.WmsPutCallStatus.hints.mandatory}"
+                    columns="#{bindings.WmsPutCallStatus.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsPutCallStatus.hints.precision}"
+                    shortDesc="#{bindings.WmsPutCallStatus.hints.tooltip}" id="it29">
+        <f:validator binding="#{bindings.WmsPutCallStatus.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsPutCallStatus.format}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsPutCallFlag.inputValue}" label="#{bindings.WmsPutCallFlag.hints.label}"
+                    required="#{bindings.WmsPutCallFlag.hints.mandatory}"
+                    columns="#{bindings.WmsPutCallFlag.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsPutCallFlag.hints.precision}"
+                    shortDesc="#{bindings.WmsPutCallFlag.hints.tooltip}" id="it26">
+        <f:validator binding="#{bindings.WmsPutCallFlag.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.WmsPutCallSprice.inputValue}" label="#{bindings.WmsPutCallSprice.hints.label}"
+                    required="#{bindings.WmsPutCallSprice.hints.mandatory}"
+                    columns="#{bindings.WmsPutCallSprice.hints.displayWidth}"
+                    maximumLength="#{bindings.WmsPutCallSprice.hints.precision}"
+                    shortDesc="#{bindings.WmsPutCallSprice.hints.tooltip}" id="it28">
+        <f:validator binding="#{bindings.WmsPutCallSprice.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsPutCallSprice.format}"/>
+      </af:inputText>
+    </af:panelFormLayout>
+  </af:popup>
 </jsp:root>
