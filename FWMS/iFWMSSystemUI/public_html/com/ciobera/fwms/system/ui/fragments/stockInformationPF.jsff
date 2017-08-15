@@ -640,7 +640,7 @@
         </af:popup>
         <af:popup childCreation="deferred" autoCancel="disabled" id="p3" contentDelivery="lazyUncached"
                   binding="#{pageFlowScope.StockInformationBean.confirmMessagePopupBinding}">
-            <af:dialog id="d4" title="#{UIBundle.CONFIRMATION}" type="none" closeIconVisible="false"
+            <af:dialog id="d4" title="#{UIBundle.CONFIRMATION}" type="ok" closeIconVisible="false"
                        titleIconSource="/images/confirmation.png"
                        dialogListener="#{pageFlowScope.StockInformationBean.confirmMessageDialogListener}">
                 <af:outputFormatted value="#{pageFlowScope.StockInformationBean.confirmationMessage}" id="of6"/>
@@ -648,7 +648,7 @@
         </af:popup>
         <af:popup childCreation="deferred" autoCancel="disabled" id="p5" contentDelivery="lazyUncached"
                   binding="#{pageFlowScope.StockInformationBean.confirmationPopupBinding}">
-            <af:dialog id="d6" title="#{UIBundle.CONFIRMATION}" type="none" closeIconVisible="false"
+            <af:dialog id="d6" title="#{UIBundle.CONFIRMATION}" type="yesNo" closeIconVisible="false"
                        titleIconSource="/images/confirmation.png"
                        dialogListener="#{pageFlowScope.StockInformationBean.deleteConfirmationDialogListener}">
                 <af:outputFormatted value="#{pageFlowScope.StockInformationBean.confirmationMessage}" id="of8"/>
