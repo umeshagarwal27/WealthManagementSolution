@@ -55,12 +55,12 @@
                     <f:facet name="first">
                         <af:panelSplitter id="pt_ps1">
                             <f:facet name="first">
-                                <af:panelAccordion dimensionsFrom="auto" id="pt_pa1">
+                                <!--af:panelAccordion dimensionsFrom="auto" id="pt_pa1">
                                     <af:showDetailItem id="pane1" inflexibleHeight="0"
                                                        text="#{UIBundle.SYSTEM_PARAMETERS}">
                                         <af:panelGroupLayout id="pt_pgl1" layout="scroll"
                                                              inlineStyle="background-color:White;">
-                                            <af:iterator id="pt_i1" value="#{system_menu}" var="system">
+                                            <af:iterator id="i1" value="#{system_menu}" var="system">
                                                 <af:link id="pt_cl1"
                                                          inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 0; text-decoration:none solid currentColor;"
                                                          text="#{system.label}" rendered="#{system.rendered}"
@@ -112,7 +112,7 @@
                                         <af:panelGroupLayout id="pt_pgl14" layout="scroll" halign="center"
                                                              inlineStyle="background-color:White;"/>
                                     </af:showDetailItem>
-                                </af:panelAccordion>
+                                </af:panelAccordion-->
                             </f:facet>
                             <f:facet name="second">
                                 <af:panelGroupLayout id="pt_pgl4" layout="scroll">

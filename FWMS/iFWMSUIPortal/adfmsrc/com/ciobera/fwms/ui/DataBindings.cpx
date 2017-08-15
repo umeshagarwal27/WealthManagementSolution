@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
              SeparateXMLFiles="false" Package="com.ciobera.fwms.ui" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
   <pageMap>
     <page path="/home.jspx" usageId="com_ciobera_fwms_ui_homePageDef"/>
     <page path="/com/ciobera/fwms/ui/pages/global/login.jspx" usageId="com_ciobera_fwms_ui_loginPageDef"/>
@@ -16,6 +21,7 @@
           usageId="com_ciobera_fwms_ui_OrderManagementPageDef"/>
     <page path="/com/ciobera/fwms/ui/pages/trading/Tradebook.jspx" usageId="com_ciobera_fwms_ui_TradebookPageDef"/>
     <page path="/com/ciobera/fwms/ui/pages/testPage.jspx" usageId="com_ciobera_fwms_ui_testPagePageDef"/>
+    <page path="/test.jspx" usageId="com_ciobera_fwms_ui_testPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_ciobera_fwms_ui_homePageDef" path="com.ciobera.fwms.ui.pages.global.homePageDef"/>
@@ -31,6 +37,7 @@
           path="com.ciobera.fwms.ui.pages.trading.OrderManagementPageDef"/>
     <page id="com_ciobera_fwms_ui_TradebookPageDef" path="com.ciobera.fwms.ui.pages.trading.TradebookPageDef"/>
     <page id="com_ciobera_fwms_ui_testPagePageDef" path="com.ciobera.fwms.ui.pages.testPagePageDef"/>
+    <page id="com_ciobera_fwms_ui_testPageDef" path="com.ciobera.fwms.ui.pageDefs.testPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="FWMSRootAMDataControl" Package="com.ciobera.fwms.root.model.am"

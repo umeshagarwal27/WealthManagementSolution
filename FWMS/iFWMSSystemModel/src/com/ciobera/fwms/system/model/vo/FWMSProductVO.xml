@@ -484,6 +484,8 @@
           Value="combo_lov"/>
         <DISPLAYWIDTH
           Value="40"/>
+        <LABEL
+          ResId="${adfBundle['com.ciobera.fwms.bundle.model.ModelBundle']['ASSET']}"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -504,6 +506,8 @@
           Value="combo_lov"/>
         <DISPLAYWIDTH
           Value="40"/>
+        <LABEL
+          ResId="COUNTRY"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -524,6 +528,8 @@
           Value="combo_lov"/>
         <DISPLAYWIDTH
           Value="40"/>
+        <LABEL
+          ResId="CURRENCY"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -544,6 +550,8 @@
           Value="combo_lov"/>
         <DISPLAYWIDTH
           Value="40"/>
+        <LABEL
+          ResId="SECTOR"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -564,7 +572,13 @@
           Value="combo_lov"/>
         <DISPLAYWIDTH
           Value="40"/>
+        <LABEL
+          ResId="STOCK_EXCHANGE"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="testPageDef"
+                Package="com.ciobera.fwms.ui.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="oracle.ui.pattern.dynamicShell.model.dynamicTabShellDefinition" id="ptb1" Refresh="ifNeeded"/>
+    <taskFlow id="stockinformationtaskflowdefinition1"
+              taskFlowId="/WEB-INF/com/ciobera/fwms/system/ui/taskflows/stock-information-task-flow-definition.xml#stock-information-task-flow-definition"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="stocksetuptaskflowdefinition1"
+              taskFlowId="/WEB-INF/com/ciobera/fwms/system/ui/taskflows/stock-setup-task-flow-definition.xml#stock-setup-task-flow-definition"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="userlogtaskflowdefinition1"
+              taskFlowId="/WEB-INF/com/ciobera/fwms/system/ui/taskflows/user-log-task-flow-definition.xml#user-log-task-flow-definition"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="usermanagementtaskflowdefinition1"
+              taskFlowId="/WEB-INF/com/ciobera/fwms/system/ui/taskflows/user-management-task-flow-definition.xml#user-management-task-flow-definition"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="dashboardtaskflowdefinition1"
+              taskFlowId="/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/dashboard-task-flow-definition.xml#dashboard-task-flow-definition"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ordermanagementtaskflowdefinition1"
+              taskFlowId="/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/order-management-task-flow-definition.xml#order-management-task-flow-definition"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="tradebooktaskflowdefinition1"
+              taskFlowId="/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/trade-book-task-flow-definition.xml#trade-book-task-flow-definition"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

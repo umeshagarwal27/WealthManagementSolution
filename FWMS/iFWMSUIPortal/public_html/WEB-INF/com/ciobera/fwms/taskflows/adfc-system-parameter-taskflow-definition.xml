@@ -30,6 +30,10 @@
       <from-outcome>adfMenu_UserManagement</from-outcome>
       <to-activity-id>UserManagement</to-activity-id>
     </control-flow-case>
+    <control-flow-case id="__9">
+      <from-outcome>#{HomeBean. HomeBean.asdf}</from-outcome>
+      <to-activity-id>UserLog</to-activity-id>
+    </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__6">
     <description>Menu Model Managed Bean</description>

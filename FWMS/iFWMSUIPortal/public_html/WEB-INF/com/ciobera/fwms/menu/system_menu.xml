@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <menu xmlns="http://myfaces.apache.org/trinidad/menu">
-    <itemNode id="itemNode_UserManagement" label="#{UIBundle['USER_MANAGEMENT']}" action="adfMenu_UserManagement"
-              focusViewId="/UserManagement" disabled="false" rendered="true">
-        <itemNode id="itemNode_UserLog" label="#{UIBundle['USER_LOG']}" action="adfMenu_UserLog" focusViewId="/UserLog"
-                  disabled="false" rendered="true"/>
+    <itemNode id="itemNode_UserManagement" label="#{UIBundle['USER_MANAGEMENT']}"
+               disabled="false" rendered="true" focusViewId="/Home" actionListener="#{HomeBean.launchStockInformationTF}">
+        <itemNode id="itemNode_UserLog" label="#{UIBundle['USER_LOG']}" focusViewId="/UserLog"
+                  disabled="false" rendered="true" actionListener="#{HomeBean.launchStockInformationTF}"/>
     </itemNode>
     <itemNode id="itemNode_StockSetup" label="#{UIBundle['STOCK_SETUP']}" action="adfMenu_StockSetup"
               focusViewId="/StockSetup" disabled="false" rendered="true">
