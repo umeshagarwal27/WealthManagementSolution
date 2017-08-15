@@ -67,9 +67,7 @@
             <af:dialog id="d1">
                 <af:panelGroupLayout id="pgl3" layout="horizontal" valign="top" styleClass="AFStretchWidth">
                     <af:panelBox text="StockInfo" id="pb1" showDisclosure="false" showHeader="never">
-                        <f:facet name="toolbar"/>
-                        <af:panelFormLayout id="pfl2">
-                            <f:facet name="footer"/>
+                        <af:panelFormLayout id="pfl2" labelWidth="20%" fieldWidth="80%">
                             <af:inputText value="#{bindings.WmsProductName.inputValue}"
                                           label="#{bindings.WmsProductName.hints.label}"
                                           required="#{bindings.WmsProductName.hints.mandatory}"
@@ -79,8 +77,7 @@
                                 <f:validator binding="#{bindings.WmsProductName.validator}"/>
                             </af:inputText>
                         </af:panelFormLayout>
-                        <af:panelFormLayout id="pfl3" rows="3" maxColumns="2">
-                            <f:facet name="footer"/>
+                        <af:panelFormLayout id="pfl3" rows="3" maxColumns="2" fieldWidth="60%" labelWidth="40%">
                             <af:inputText value="#{bindings.WmsTicker.inputValue}"
                                           label="#{bindings.WmsTicker.hints.label}"
                                           required="#{bindings.WmsTicker.hints.mandatory}"
@@ -130,8 +127,7 @@
                                 <f:validator binding="#{bindings.WmsSedol.validator}"/>
                             </af:inputText>
                         </af:panelFormLayout>
-                        <af:panelFormLayout id="pfl4" rows="5" maxColumns="2">
-                            <f:facet name="footer"/>
+                        <af:panelFormLayout id="pfl4" rows="5" maxColumns="2" fieldWidth="60%" labelWidth="40%">
                             <af:inputText value="#{bindings.WmsCountry.inputValue}"
                                           label="#{bindings.WmsCountry.hints.label}"
                                           required="#{bindings.WmsCountry.hints.mandatory}"
@@ -427,7 +423,44 @@
                             </af:panelFormLayout>
                         </af:panelBox>
                         <af:panelBox text="PanelBox1" id="pb4" showHeader="never" showDisclosure="false">
-                            <f:facet name="toolbar"/>
+                            <f:facet name="toolbar">
+                            </f:facet>
+                            
+                                <af:panelCollection id="pc2">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="statusbar"/>
+                                    
+                                <af:table rows="#{bindings.FWMSBondCoupen.rangeSize}"
+                                          fetchSize="#{bindings.FWMSBondCoupen.rangeSize}"
+                                          emptyText="#{bindings.FWMSBondCoupen.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          var="row" value="#{bindings.FWMSBondCoupen.collectionModel}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.FWMSBondCoupen.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.FWMSBondCoupen.collectionModel.makeCurrent}"
+                                          rowSelection="single" id="t2" styleClass="AFStretchWidth">
+                                    <af:column headerText="#{bindings.FWMSBondCoupen.hints.WmsDate.label}"
+                                               sortProperty="#{bindings.FWMSBondCoupen.hints.WmsDate.name}"
+                                               sortable="false" id="c41">
+                                        <af:inputDate value="#{row.WmsDate}"
+                                                      shortDesc="#{bindings.FWMSBondCoupen.hints.WmsDate.tooltip}"
+                                                      id="ot1" label="#{null}">
+                                            <af:convertDateTime pattern="#{bindings.FWMSBondCoupen.hints.WmsDate.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.FWMSBondCoupen.hints.WmsCoupen.label}"
+                                               sortProperty="#{bindings.FWMSBondCoupen.hints.WmsCoupen.name}"
+                                               sortable="false" id="c58">
+                                        <af:inputText value="#{row.WmsCoupen}"
+                                                      shortDesc="#{bindings.FWMSBondCoupen.hints.WmsCoupen.tooltip}"
+                                                      id="ot41" label="#{null}">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.FWMSBondCoupen.hints.WmsCoupen.format}"/>
+                                        </af:inputText>
+                                    </af:column>                                   
+                                </af:table>
+                                </af:panelCollection>
+ 
                         </af:panelBox>
                     </af:panelBox>
                 </af:panelGroupLayout>
