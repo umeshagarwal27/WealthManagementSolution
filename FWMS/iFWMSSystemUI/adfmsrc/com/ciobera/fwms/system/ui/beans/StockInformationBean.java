@@ -11,7 +11,8 @@ package com.ciobera.fwms.system.ui.beans;
 import com.ciobera.fwms.common.util.logger.LoggingUtil;
 import com.ciobera.fwms.common.util.utils.common.ADFUtil;
 
-import java.awt.event.ActionEvent;
+import javax.faces.event.ActionEvent;
+
 
 import java.io.Serializable;
 
@@ -332,4 +333,6 @@ public class StockInformationBean implements Serializable {
     public String getUserId() {
         return userId;
     }
+
+    
 }
