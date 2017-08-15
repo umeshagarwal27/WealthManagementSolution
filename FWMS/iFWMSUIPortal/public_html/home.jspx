@@ -26,14 +26,14 @@
                                              inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 10px; text-decoration:none solid currentColor;"
                                              text="#{UIBundle.USER_LOG}" partialSubmit="true"
                                              actionListener="#{HomeBean.launchUserLogTF}"/>
-                                    <af:link id="l4"
-                                             inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 0; text-decoration:none solid currentColor;"
-                                             text="#{UIBundle.STOCK}" partialSubmit="true"
-                                             actionListener="#{HomeBean.launchStockInformationTF}"/>
                                     <af:link id="l5"
-                                             inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 10px; text-decoration:none solid currentColor;"
+                                             inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 0px; text-decoration:none solid currentColor;"
                                              text="#{UIBundle.STOCK_SETUP}" partialSubmit="true"
                                              actionListener="#{HomeBean.launchStockSetupTF}"/>
+                                    <af:link id="l4"
+                                             inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 10px; text-decoration:none solid currentColor;"
+                                             text="#{UIBundle.STOCK}" partialSubmit="true"
+                                             actionListener="#{HomeBean.launchStockInformationTF}"/>
                                 </af:panelGroupLayout>
                             </af:showDetailItem>
                             <af:showDetailItem id="pane2" inflexibleHeight="0" text="#{UIBundle.TRADING_MANAGEMENT}">

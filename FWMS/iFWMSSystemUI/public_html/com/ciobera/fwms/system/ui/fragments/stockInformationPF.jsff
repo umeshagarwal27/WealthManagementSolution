@@ -64,7 +64,7 @@
         </af:panelCollection>
         <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
                   binding="#{pageFlowScope.StockInformationBean.addUpdateStockPopupBinding}">
-            <af:dialog id="d1">
+            <af:dialog id="d1" type="none" title="Stock Information" closeIconVisible="false">
                 <af:panelGroupLayout id="pgl3" layout="horizontal" valign="top" styleClass="AFStretchWidth">
                     <af:panelBox text="#{null}" id="pb1" showDisclosure="false" showHeader="never">
                         <af:panelFormLayout id="pfl2" labelWidth="20%" fieldWidth="80%">
@@ -77,7 +77,7 @@
                                 <f:validator binding="#{bindings.WmsProductName.validator}"/>
                             </af:inputText>
                         </af:panelFormLayout>
-                        <af:panelFormLayout id="pfl3" rows="3" maxColumns="2" fieldWidth="60%" labelWidth="40%">
+                        <af:panelFormLayout id="pfl3" rows="3" maxColumns="2" fieldWidth="55%" labelWidth="45%">
                             <af:inputText value="#{bindings.WmsTicker.inputValue}"
                                           label="#{bindings.WmsTicker.hints.label}"
                                           required="#{bindings.WmsTicker.hints.mandatory}"
@@ -337,10 +337,14 @@
                             </af:inputDate>
                         </af:panelFormLayout>
                         <af:panelFormLayout id="pfl11" rows="1" maxColumns="4" fieldWidth="50%" labelWidth="50%">
-                            <af:button text="#{UIBundle.DELETE}" id="b7"/>
-                            <af:button text="#{UIBundle.SAVE}" id="b8"/>
-                            <af:button text="#{UIBundle.EXIT}" id="b9"/>
-                            <af:button text="#{UIBundle.APPROVE}" id="b10"/>
+                            <af:button text="Delete" id="b7"
+                                       actionListener="#{pageFlowScope.StockInformationBean.onDeleteStock}"/>
+                            <af:button text="Save" id="b8"
+                                       actionListener="#{pageFlowScope.StockInformationBean.onSave}"/>
+                            <af:button text="#{UIBundle.EXIT}" id="b9"
+                                       actionListener="#{pageFlowScope.StockInformationBean.onExit}"/>
+                            <af:button text="Approve" id="b10"
+                                       actionListener="#{pageFlowScope.StockInformationBean.onApproveStock}"/>
                         </af:panelFormLayout>
                     </af:panelBox>
                     <af:panelBox id="pb2" showDisclosure="false" titleHalign="center" text="#{UIBundle.BOND_DETAILS}">

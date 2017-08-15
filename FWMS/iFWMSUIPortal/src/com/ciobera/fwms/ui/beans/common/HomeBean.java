@@ -63,7 +63,7 @@ public class HomeBean implements Serializable {
     }
 
     public void launchStockInformationTF(ActionEvent actionEvent) {
-        _launchActivity("Stock Information", STOCK_SETUP_TASKFLOWID, false);
+        _launchActivity("Stock Information", STOCK_INFORMATION_TASKFLOWID, false);
     }
 
     public void launchStockSetupTF(ActionEvent actionEvent) {
