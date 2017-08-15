@@ -48,7 +48,7 @@
                 </af:column>
                 <af:column id="c57">
                     <af:button text="Edit" id="b6"
-                               actionListener="#{pageFlowScopeScope.StockInformationBean.onEditStock}"/>
+                               actionListener="#{pageFlowScope.StockInformationBean.onEditStock}"/>
                 </af:column>
                 <af:column id="c56" rendered="false">
                     <af:column sortProperty="#{bindings.FWMSProduct.hints.WmsTicker.name}" filterable="true"
