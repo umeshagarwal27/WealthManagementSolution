@@ -337,14 +337,22 @@
                             </af:inputDate>
                         </af:panelFormLayout>
                         <af:panelFormLayout id="pfl11" rows="1" maxColumns="4" fieldWidth="50%" labelWidth="50%">
+                            <f:facet name="footer"/>
                             <af:button text="Delete" id="b7"
                                        actionListener="#{pageFlowScope.StockInformationBean.onDeleteStock}"/>
                             <af:button text="Save" id="b8"
-                                       actionListener="#{pageFlowScope.StockInformationBean.onSave}"/>
+                                       actionListener="#{pageFlowScope.StockInformationBean.onSave}">
+                                <af:setPropertyListener from="#{pageFlowScope.StockInformationBean.mode}"
+                                                        to="#{bindings.mode.attributeValue}" type="action"/>
+                            </af:button>
                             <af:button text="#{UIBundle.EXIT}" id="b9"
                                        actionListener="#{pageFlowScope.StockInformationBean.onExit}"/>
                             <af:button text="Approve" id="b10"
-                                       actionListener="#{pageFlowScope.StockInformationBean.onApproveStock}"/>
+                                       actionListener="#{pageFlowScope.StockInformationBean.onApproveStock}">
+                                <af:setPropertyListener from="APPROVE" to="#{bindings.mode.attributeValue}"
+                                                        type="action"/>
+                                
+                            </af:button>
                         </af:panelFormLayout>
                     </af:panelBox>
                     <af:panelBox id="pb2" showDisclosure="false" titleHalign="center" text="#{UIBundle.BOND_DETAILS}">
@@ -480,6 +488,24 @@
                         </af:panelGroupLayout>
                     </af:panelBox>
                 </af:panelGroupLayout>
+                <af:panelFormLayout id="pfl12" rendered="false">
+                    <af:inputText value="#{bindings.mode.inputValue}" label="#{bindings.mode.hints.label}"
+                                  required="#{bindings.mode.hints.mandatory}"
+                                  columns="#{bindings.mode.hints.displayWidth}"
+                                  maximumLength="#{bindings.mode.hints.precision}"
+                                  shortDesc="#{bindings.mode.hints.tooltip}" id="it45">
+                        <f:validator binding="#{bindings.mode.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.updatedBy.inputValue}" label="#{bindings.updatedBy.hints.label}"
+                                  required="#{bindings.updatedBy.hints.mandatory}"
+                                  columns="#{bindings.updatedBy.hints.displayWidth}"
+                                  maximumLength="#{bindings.updatedBy.hints.precision}"
+                                  shortDesc="#{bindings.updatedBy.hints.tooltip}" id="it46">
+                        <f:validator binding="#{bindings.updatedBy.validator}"/>
+                    </af:inputText>
+                    <af:button actionListener="#{bindings.updateProductRecord.execute}" text="updateProductRecord"
+                               disabled="#{!bindings.updateProductRecord.enabled}" id="b11"/>
+                </af:panelFormLayout>
             </af:dialog>
         </af:popup>
         <af:popup childCreation="deferred" autoCancel="disabled" id="p4" contentDelivery="lazyUncached"

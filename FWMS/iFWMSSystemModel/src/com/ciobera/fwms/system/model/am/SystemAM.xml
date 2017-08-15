@@ -6,7 +6,12 @@
   Name="SystemAM"
   Version="12.2.1.16.48"
   InheritPersonalization="merge"
-  ClearCacheOnRollback="true">
+  ClearCacheOnRollback="true"
+  ComponentClass="com.ciobera.fwms.system.model.am.SystemAMImpl"
+  ComponentInterface="com.ciobera.fwms.system.model.am.common.SystemAM">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewUsage
     Name="FWMSProduct"
     ViewObjectName="com.ciobera.fwms.system.model.vo.FWMSProductVO"/>
@@ -19,4 +24,27 @@
     SrcViewUsageName="com.ciobera.fwms.system.model.am.SystemAM.FWMSProduct"
     DstViewUsageName="com.ciobera.fwms.system.model.am.SystemAM.FWMSBondCoupen"
     Reversed="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="executeEmptyRowSetBondCoupen"
+      MethodName="executeEmptyRowSetBondCoupen">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+    <Method
+      Name="updateProductRecord"
+      MethodName="updateProductRecord">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="mode"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="updatedBy"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
 </AppModule>

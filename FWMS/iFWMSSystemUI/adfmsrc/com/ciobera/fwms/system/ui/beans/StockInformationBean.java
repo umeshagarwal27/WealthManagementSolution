@@ -228,6 +228,10 @@ public class StockInformationBean implements Serializable {
      */
     public void onEditStock(ActionEvent actionEvent) {
         setMode("EDIT");
+        if (!executeMethod("executeEmptyRowSetBondCoupen", true)) {
+            displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
+            return;
+        }
         if (getAddUpdateStockPopupBinding() != null) {
             RichPopup.PopupHints hints = new RichPopup.PopupHints();
             getAddUpdateStockPopupBinding().show(hints);
@@ -239,7 +243,11 @@ public class StockInformationBean implements Serializable {
      * This method calls Commit operation to save all changes to DB.
      * @param actionEvent
      */
-    public void onSave(ActionEvent actionEvent) {
+    public void onSave(ActionEvent actionEvent) {  
+        if (!executeMethod("updateProductRecord", true)) {
+            displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
+            return;
+        }
         if (!executeMethod("Commit", true)) {
             displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
             return;
@@ -261,10 +269,19 @@ public class StockInformationBean implements Serializable {
      * @param actionEvent
      */
     public void onApproveStock(ActionEvent actionEvent) {
+        
+        setMode("EDIT");
+        if (!executeMethod("updateProductRecord", true)) {
+            displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
+            
+            return;
+        }else{     
+            
+        displayConfirmationPopup(ADFUtil.getUIBundleMsg("STOCK_APPROVED_SUCCESSFULLY"));
+        }
         if (getAddUpdateStockPopupBinding() != null) {
             getAddUpdateStockPopupBinding().hide();
         }
-        displayConfirmationPopup(ADFUtil.getUIBundleMsg("STOCK_APPROVED_SUCCESSFULLY"));
     }
 
     /**
