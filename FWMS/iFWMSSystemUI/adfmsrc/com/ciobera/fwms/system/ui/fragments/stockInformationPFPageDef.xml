@@ -7,6 +7,7 @@
     <iterator Binds="FWMSProduct" RangeSize="25" DataControl="SystemAMDataControl" id="FWMSProductIterator"/>
     <searchRegion Binds="FWMSProductIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="FWMSProductQuery"/>
+    <iterator Binds="FWMSBondCoupen" RangeSize="10" DataControl="SystemAMDataControl" id="FWMSBondCoupenIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="FWMSProductIterator" id="FWMSProduct">
@@ -117,16 +118,6 @@
         <Item Value="WmsOtherCode"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsOtherDesc">
-      <AttrNames>
-        <Item Value="WmsOtherDesc"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsPriceUpdate">
-      <AttrNames>
-        <Item Value="WmsPriceUpdate"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="FWMSProductIterator" id="WmsCountry">
       <AttrNames>
         <Item Value="WmsCountry"/>
@@ -182,11 +173,6 @@
         <Item Value="WmsBondCouponFrequency"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsBondDivisorDaysMonth">
-      <AttrNames>
-        <Item Value="WmsBondDivisorDaysMonth"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="FWMSProductIterator" id="WmsBondDivisorDaysYear">
       <AttrNames>
         <Item Value="WmsBondDivisorDaysYear"/>
@@ -212,11 +198,6 @@
         <Item Value="WmsBondCoupon4thIntdate"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsPutCallFlag">
-      <AttrNames>
-        <Item Value="WmsPutCallFlag"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="FWMSProductIterator" id="WmsPutCallExpiryDate">
       <AttrNames>
         <Item Value="WmsPutCallExpiryDate"/>
@@ -225,36 +206,6 @@
     <attributeValues IterBinding="FWMSProductIterator" id="WmsPutCallLotsize">
       <AttrNames>
         <Item Value="WmsPutCallLotsize"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsPutCallSprice">
-      <AttrNames>
-        <Item Value="WmsPutCallSprice"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsPutCallStatus">
-      <AttrNames>
-        <Item Value="WmsPutCallStatus"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsMutualFundsIssue">
-      <AttrNames>
-        <Item Value="WmsMutualFundsIssue"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsMutualInhouse3rdFlag">
-      <AttrNames>
-        <Item Value="WmsMutualInhouse3rdFlag"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsMutualFundsClosdedOpen">
-      <AttrNames>
-        <Item Value="WmsMutualFundsClosdedOpen"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsMutualFundsNavFlag">
-      <AttrNames>
-        <Item Value="WmsMutualFundsNavFlag"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="FWMSProductIterator" id="WmsComments">
@@ -272,11 +223,6 @@
         <Item Value="WmsEnterUid"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsEnterFpc">
-      <AttrNames>
-        <Item Value="WmsEnterFpc"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="FWMSProductIterator" id="WmsEnterDate">
       <AttrNames>
         <Item Value="WmsEnterDate"/>
@@ -285,11 +231,6 @@
     <attributeValues IterBinding="FWMSProductIterator" id="WmsLastUpdateUid">
       <AttrNames>
         <Item Value="WmsLastUpdateUid"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsLastFpc">
-      <AttrNames>
-        <Item Value="WmsLastFpc"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="FWMSProductIterator" id="WmsLastUpdateDate">
@@ -302,24 +243,9 @@
         <Item Value="WmsApproveUid"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsApproveFpc">
-      <AttrNames>
-        <Item Value="WmsApproveFpc"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="FWMSProductIterator" id="WmsApproveDate">
       <AttrNames>
         <Item Value="WmsApproveDate"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsMutualFundsValue">
-      <AttrNames>
-        <Item Value="WmsMutualFundsValue"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsMutualIbType">
-      <AttrNames>
-        <Item Value="WmsMutualIbType"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="FWMSProductIterator" id="WmsSedol">
@@ -327,9 +253,25 @@
         <Item Value="WmsSedol"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="FWMSProductIterator" id="First" RequiresUpdateModel="true" Action="first"/>
-    <action IterBinding="FWMSProductIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
-    <action IterBinding="FWMSProductIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
-    <action IterBinding="FWMSProductIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="FWMSProductIterator" id="CreateInsert" InstanceName="SystemAMDataControl.FWMSProduct"
+            DataControl="SystemAMDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="FWMSProductIterator" id="Delete" InstanceName="SystemAMDataControl.FWMSProduct"
+            DataControl="SystemAMDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="FWMSBondCoupenIterator" id="CreateInsertBond" InstanceName="SystemAMDataControl.FWMSBondCoupen"
+            DataControl="SystemAMDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="FWMSProductIterator" id="DeleteBond" InstanceName="SystemAMDataControl.FWMSProduct"
+            DataControl="SystemAMDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="SystemAMDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="SystemAMDataControl" RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <tree IterBinding="FWMSBondCoupenIterator" id="FWMSBondCoupen">
+      <nodeDefinition DefName="com.ciobera.fwms.system.model.vo.FWMSBondCoupenVO" Name="FWMSBondCoupen0">
+        <AttrNames>
+          <Item Value="WmsSno"/>
+          <Item Value="WmsBond"/>
+          <Item Value="WmsCoupen"/>
+          <Item Value="WmsDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

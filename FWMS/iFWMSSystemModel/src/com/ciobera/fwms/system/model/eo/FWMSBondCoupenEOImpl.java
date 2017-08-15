@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
 // ---------------------------------------------------------------------
@@ -104,15 +105,15 @@ public class FWMSBondCoupenEOImpl extends EntityImpl {
      * Gets the attribute value for WmsDate, using the alias name WmsDate.
      * @return the value of WmsDate
      */
-    public Timestamp getWmsDate() {
-        return (Timestamp) getAttributeInternal(WMSDATE);
+    public Date getWmsDate() {
+        return (Date) getAttributeInternal(WMSDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for WmsDate.
      * @param value value to set the WmsDate
      */
-    public void setWmsDate(Timestamp value) {
+    public void setWmsDate(Date value) {
         setAttributeInternal(WMSDATE, value);
     }
 

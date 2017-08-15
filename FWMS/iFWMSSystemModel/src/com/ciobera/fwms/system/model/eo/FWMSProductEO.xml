@@ -250,7 +250,7 @@
     Name="WmsBondIssueDate"
     ColumnName="WMS_BOND_ISSUE_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="FWMS_PRODUCT">
     <Properties>
@@ -266,7 +266,7 @@
     Name="WmsBondMaturityDt"
     ColumnName="WMS_BOND_MATURITY_DT"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="FWMS_PRODUCT">
     <Properties>
@@ -460,7 +460,7 @@
     Name="WmsPutCallExpiryDate"
     ColumnName="WMS_PUT_CALL_EXPIRY_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="FWMS_PRODUCT">
     <Properties>
@@ -632,7 +632,7 @@
     Name="WmsEnterDate"
     ColumnName="WMS_ENTER_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="FWMS_PRODUCT">
     <Properties>
@@ -680,7 +680,7 @@
     Name="WmsLastUpdateDate"
     ColumnName="WMS_LAST_UPDATE_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="FWMS_PRODUCT"/>
   <Attribute
@@ -719,7 +719,7 @@
     Name="WmsApproveDate"
     ColumnName="WMS_APPROVE_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="FWMS_PRODUCT"/>
   <Attribute

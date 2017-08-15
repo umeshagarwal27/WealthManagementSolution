@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
+import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
 // ---------------------------------------------------------------------
@@ -421,15 +422,15 @@ public class FWMSProductEOImpl extends EntityImpl {
      * Gets the attribute value for WmsBondIssueDate, using the alias name WmsBondIssueDate.
      * @return the value of WmsBondIssueDate
      */
-    public Timestamp getWmsBondIssueDate() {
-        return (Timestamp) getAttributeInternal(WMSBONDISSUEDATE);
+    public Date getWmsBondIssueDate() {
+        return (Date) getAttributeInternal(WMSBONDISSUEDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for WmsBondIssueDate.
      * @param value value to set the WmsBondIssueDate
      */
-    public void setWmsBondIssueDate(Timestamp value) {
+    public void setWmsBondIssueDate(Date value) {
         setAttributeInternal(WMSBONDISSUEDATE, value);
     }
 
@@ -437,15 +438,15 @@ public class FWMSProductEOImpl extends EntityImpl {
      * Gets the attribute value for WmsBondMaturityDt, using the alias name WmsBondMaturityDt.
      * @return the value of WmsBondMaturityDt
      */
-    public Timestamp getWmsBondMaturityDt() {
-        return (Timestamp) getAttributeInternal(WMSBONDMATURITYDT);
+    public Date getWmsBondMaturityDt() {
+        return (Date) getAttributeInternal(WMSBONDMATURITYDT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for WmsBondMaturityDt.
      * @param value value to set the WmsBondMaturityDt
      */
-    public void setWmsBondMaturityDt(Timestamp value) {
+    public void setWmsBondMaturityDt(Date value) {
         setAttributeInternal(WMSBONDMATURITYDT, value);
     }
 
@@ -613,15 +614,15 @@ public class FWMSProductEOImpl extends EntityImpl {
      * Gets the attribute value for WmsPutCallExpiryDate, using the alias name WmsPutCallExpiryDate.
      * @return the value of WmsPutCallExpiryDate
      */
-    public Timestamp getWmsPutCallExpiryDate() {
-        return (Timestamp) getAttributeInternal(WMSPUTCALLEXPIRYDATE);
+    public Date getWmsPutCallExpiryDate() {
+        return (Date) getAttributeInternal(WMSPUTCALLEXPIRYDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for WmsPutCallExpiryDate.
      * @param value value to set the WmsPutCallExpiryDate
      */
-    public void setWmsPutCallExpiryDate(Timestamp value) {
+    public void setWmsPutCallExpiryDate(Date value) {
         setAttributeInternal(WMSPUTCALLEXPIRYDATE, value);
     }
 
@@ -805,15 +806,15 @@ public class FWMSProductEOImpl extends EntityImpl {
      * Gets the attribute value for WmsEnterDate, using the alias name WmsEnterDate.
      * @return the value of WmsEnterDate
      */
-    public Timestamp getWmsEnterDate() {
-        return (Timestamp) getAttributeInternal(WMSENTERDATE);
+    public Date getWmsEnterDate() {
+        return (Date) getAttributeInternal(WMSENTERDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for WmsEnterDate.
      * @param value value to set the WmsEnterDate
      */
-    public void setWmsEnterDate(Timestamp value) {
+    public void setWmsEnterDate(Date value) {
         setAttributeInternal(WMSENTERDATE, value);
     }
 
@@ -853,15 +854,15 @@ public class FWMSProductEOImpl extends EntityImpl {
      * Gets the attribute value for WmsLastUpdateDate, using the alias name WmsLastUpdateDate.
      * @return the value of WmsLastUpdateDate
      */
-    public Timestamp getWmsLastUpdateDate() {
-        return (Timestamp) getAttributeInternal(WMSLASTUPDATEDATE);
+    public Date getWmsLastUpdateDate() {
+        return (Date) getAttributeInternal(WMSLASTUPDATEDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for WmsLastUpdateDate.
      * @param value value to set the WmsLastUpdateDate
      */
-    public void setWmsLastUpdateDate(Timestamp value) {
+    public void setWmsLastUpdateDate(Date value) {
         setAttributeInternal(WMSLASTUPDATEDATE, value);
     }
 
@@ -901,15 +902,15 @@ public class FWMSProductEOImpl extends EntityImpl {
      * Gets the attribute value for WmsApproveDate, using the alias name WmsApproveDate.
      * @return the value of WmsApproveDate
      */
-    public Timestamp getWmsApproveDate() {
-        return (Timestamp) getAttributeInternal(WMSAPPROVEDATE);
+    public Date getWmsApproveDate() {
+        return (Date) getAttributeInternal(WMSAPPROVEDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for WmsApproveDate.
      * @param value value to set the WmsApproveDate
      */
-    public void setWmsApproveDate(Timestamp value) {
+    public void setWmsApproveDate(Date value) {
         setAttributeInternal(WMSAPPROVEDATE, value);
     }
 

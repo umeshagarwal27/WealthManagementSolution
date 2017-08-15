@@ -15,8 +15,7 @@ import oracle.adf.share.logging.ADFLogger;
 
 public class StockSetupBean implements Serializable {
     @SuppressWarnings("compatibility:3262679831039105241")
-    private static final long serialVersionUID = 1L;
-
+    private static final long serialVersionUID = 2L;
     public static final ADFLogger LOGGER = ADFLogger.createADFLogger(StockSetupBean.class);
 
     /**

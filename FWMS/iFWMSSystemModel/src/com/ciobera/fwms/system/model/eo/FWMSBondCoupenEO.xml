@@ -38,7 +38,7 @@
     Name="WmsDate"
     ColumnName="WMS_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="FWMS_BOND_COUPEN">
     <Properties>

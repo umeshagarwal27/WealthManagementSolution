@@ -93,6 +93,10 @@ public class LoginBean implements Serializable {
         return resultMap;
     }
 
+    /**
+     * Helper method to display Error Popup with errorMessage passed to it.
+     * @param errorMessage
+     */
     private void displayErrorPopup(String errorMessage) {
         if (getErrorMessagePopupBinding() != null) {
             setCustomErrorMessage(errorMessage);
