@@ -36,7 +36,14 @@
     Type="java.lang.Long"
     ColumnType="NUMBER"
     TableName="FWMS_PRODUCT"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="STOCK_ID"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="WmsProductName"
     Precision="100"
@@ -189,7 +196,14 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"/>
+    TableName="FWMS_PRODUCT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="${adfBundle['com.ciobera.fwms.bundle.model.ModelBundle']['COUNTRY']}"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="WmsCurrency"
     Precision="4"
@@ -198,7 +212,14 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"/>
+    TableName="FWMS_PRODUCT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="CURRENCY"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="WmsStockExchange"
     Precision="4"
@@ -207,7 +228,14 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"/>
+    TableName="FWMS_PRODUCT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="STOCK_EXCHANGE"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="WmsSector"
     Precision="4"
@@ -216,7 +244,14 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"/>
+    TableName="FWMS_PRODUCT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="SECTOR"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="WmsAsset"
     Precision="4"
@@ -225,7 +260,14 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="FWMS_PRODUCT"/>
+    TableName="FWMS_PRODUCT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsAsset_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="WmsBondIssueNo"
     Precision="20"
@@ -682,7 +724,16 @@
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="FWMS_PRODUCT"/>
+    TableName="FWMS_PRODUCT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsLastUpdateDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="WmsApproveUid"
     Precision="20"
@@ -721,7 +772,16 @@
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="FWMS_PRODUCT"/>
+    TableName="FWMS_PRODUCT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsApproveDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="WmsMutualFundsValue"
     Precision="35"
