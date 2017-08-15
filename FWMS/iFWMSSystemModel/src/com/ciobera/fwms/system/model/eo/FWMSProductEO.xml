@@ -15,6 +15,26 @@
     <Attr Name="_codeGenFlag2" Value="Init|Access"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <ViewAccessor
+    Name="FWMSAsset"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSAssetVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FWMSCountry"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSCountryVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FWMSCurrency"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSCurrencyVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FWMSSector"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSSectorVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FWMSStockExchange"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSStockExchangeVO"
+    RowLevelBinds="true"/>
   <Attribute
     Name="WmsProductType"
     Precision="50"

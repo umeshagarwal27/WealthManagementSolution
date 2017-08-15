@@ -79,16 +79,6 @@
     <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsSectorTrans" id="WmsSectorTrans"/>
     <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsStockExchangeTrans"
                   id="WmsStockExchangeTrans"/>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsProductType">
-      <AttrNames>
-        <Item Value="WmsProductType"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsProductId">
-      <AttrNames>
-        <Item Value="WmsProductId"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="FWMSProductIterator" id="WmsProductName">
       <AttrNames>
         <Item Value="WmsProductName"/>
@@ -172,11 +162,6 @@
     <attributeValues IterBinding="FWMSProductIterator" id="WmsBondCouponFrequency">
       <AttrNames>
         <Item Value="WmsBondCouponFrequency"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsBondDivisorDaysYear">
-      <AttrNames>
-        <Item Value="WmsBondDivisorDaysYear"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="FWMSProductIterator" id="WmsBondCoupon1stIntdate">

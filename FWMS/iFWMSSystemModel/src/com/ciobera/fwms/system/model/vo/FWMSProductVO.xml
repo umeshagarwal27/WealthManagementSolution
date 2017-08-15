@@ -19,29 +19,9 @@
     <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
-  <ViewAccessor
-    Name="FWMSAsset"
-    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSAssetVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="FWMSCountry"
-    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSCountryVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="FWMSCurrency"
-    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSCurrencyVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="FWMSSector"
-    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSSectorVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="FWMSStockExchange"
-    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSStockExchangeVO"
-    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_WmsAssetTrans"
-    ListVOName="FWMSAsset"
+    ListVOName="FWMSProductEO.FWMSAsset"
     ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
@@ -63,7 +43,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_WmsCountryTrans"
-    ListVOName="FWMSCountry"
+    ListVOName="FWMSProductEO.FWMSCountry"
     ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
@@ -85,7 +65,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_WmsCurrencyTrans"
-    ListVOName="FWMSCurrency"
+    ListVOName="FWMSProductEO.FWMSCurrency"
     ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
@@ -107,7 +87,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_WmsSectorTrans"
-    ListVOName="FWMSSector"
+    ListVOName="FWMSProductEO.FWMSSector"
     ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
@@ -129,7 +109,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_WmsStockExchangeTrans"
-    ListVOName="FWMSStockExchange"
+    ListVOName="FWMSProductEO.FWMSStockExchange"
     ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
@@ -480,12 +460,12 @@
     LOVName="LOV_WmsAssetTrans">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
         <DISPLAYWIDTH
           Value="40"/>
         <LABEL
           ResId="${adfBundle['com.ciobera.fwms.bundle.model.ModelBundle']['ASSET']}"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -502,12 +482,12 @@
     LOVName="LOV_WmsCountryTrans">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
         <DISPLAYWIDTH
           Value="40"/>
         <LABEL
           ResId="COUNTRY"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -524,12 +504,12 @@
     LOVName="LOV_WmsCurrencyTrans">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
         <DISPLAYWIDTH
           Value="40"/>
         <LABEL
           ResId="CURRENCY"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -546,12 +526,12 @@
     LOVName="LOV_WmsSectorTrans">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
         <DISPLAYWIDTH
           Value="40"/>
         <LABEL
           ResId="SECTOR"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -568,15 +548,20 @@
     LOVName="LOV_WmsStockExchangeTrans">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
         <DISPLAYWIDTH
           Value="40"/>
         <LABEL
           ResId="STOCK_EXCHANGE"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="FWMSBondCoupenVO"
+    ViewLink="com.ciobera.fwms.system.model.vo.viewlink.FWMSProductVOToFWMSBondCoupenVO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>

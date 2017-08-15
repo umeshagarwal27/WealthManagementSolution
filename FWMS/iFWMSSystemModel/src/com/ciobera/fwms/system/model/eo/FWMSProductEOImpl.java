@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
+import oracle.jbo.RowSet;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
@@ -71,7 +72,12 @@ public class FWMSProductEOImpl extends EntityImpl {
         WmsMutualFundsValue,
         WmsMutualIbType,
         WmsSedol,
-        FWMSBondCoupenEO;
+        FWMSBondCoupenEO,
+        FWMSAsset,
+        FWMSCountry,
+        FWMSCurrency,
+        FWMSSector,
+        FWMSStockExchange;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -147,6 +153,11 @@ public class FWMSProductEOImpl extends EntityImpl {
     public static final int WMSMUTUALIBTYPE = AttributesEnum.WmsMutualIbType.index();
     public static final int WMSSEDOL = AttributesEnum.WmsSedol.index();
     public static final int FWMSBONDCOUPENEO = AttributesEnum.FWMSBondCoupenEO.index();
+    public static final int FWMSASSET = AttributesEnum.FWMSAsset.index();
+    public static final int FWMSCOUNTRY = AttributesEnum.FWMSCountry.index();
+    public static final int FWMSCURRENCY = AttributesEnum.FWMSCurrency.index();
+    public static final int FWMSSECTOR = AttributesEnum.FWMSSector.index();
+    public static final int FWMSSTOCKEXCHANGE = AttributesEnum.FWMSStockExchange.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -969,6 +980,41 @@ public class FWMSProductEOImpl extends EntityImpl {
         return (RowIterator) getAttributeInternal(FWMSBONDCOUPENEO);
     }
 
+
+    /**
+     * Gets the view accessor <code>RowSet</code> FWMSAsset.
+     */
+    public RowSet getFWMSAsset() {
+        return (RowSet) getAttributeInternal(FWMSASSET);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> FWMSCountry.
+     */
+    public RowSet getFWMSCountry() {
+        return (RowSet) getAttributeInternal(FWMSCOUNTRY);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> FWMSCurrency.
+     */
+    public RowSet getFWMSCurrency() {
+        return (RowSet) getAttributeInternal(FWMSCURRENCY);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> FWMSSector.
+     */
+    public RowSet getFWMSSector() {
+        return (RowSet) getAttributeInternal(FWMSSECTOR);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> FWMSStockExchange.
+     */
+    public RowSet getFWMSStockExchange() {
+        return (RowSet) getAttributeInternal(FWMSSTOCKEXCHANGE);
+    }
 
     /**
      * @param wmsProductId key constituent
