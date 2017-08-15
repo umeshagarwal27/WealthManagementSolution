@@ -1,6 +1,5 @@
 package com.ciobera.fwms.system.model.vo;
 
-import com.ciobera.fwms.system.model.vo.common.FWMSProductVO;
 
 import oracle.jbo.server.ViewObjectImpl;
 // ---------------------------------------------------------------------
@@ -9,7 +8,7 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class FWMSProductVOImpl extends ViewObjectImpl implements FWMSProductVO {
+public class FWMSProductVOImpl extends ViewObjectImpl {
     /**
      * This is the default constructor (do not remove).
      */
