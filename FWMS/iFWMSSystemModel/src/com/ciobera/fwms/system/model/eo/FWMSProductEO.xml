@@ -12,7 +12,7 @@
   BindingStyle="OracleName"
   RowClass="com.ciobera.fwms.system.model.eo.FWMSProductEOImpl">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+    <Attr Name="_codeGenFlag2" Value="Init|Access|DML"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewAccessor
@@ -53,11 +53,20 @@
     Scale="0"
     ColumnName="WMS_PRODUCT_ID"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
     TableName="FWMS_PRODUCT"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    IsUpdateable="while_insert">
     <Properties>
+      <CustomProperties>
+        <Property
+          Name="FWMS_PRODUCT_SEQ"
+          Value="FWMS_PRODUCT_SEQ"/>
+        <Property
+          Name="FWMS_PRODUCT_CREATE_SEQ"
+          Value="FWMS_PRODUCT_CREATE_SEQ"/>
+      </CustomProperties>
       <SchemaBasedProperties>
         <LABEL
           ResId="STOCK_ID"/>
@@ -860,8 +869,4 @@
       <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsProductId"/>
     </AttrArray>
   </Key>
-  <ResourceBundle>
-    <PropertiesBundle
-      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
-  </ResourceBundle>
 </Entity>

@@ -4,9 +4,6 @@ import com.ciobera.fwms.system.model.eo.FWMSProductEOImpl;
 
 import java.math.BigDecimal;
 
-import java.sql.Timestamp;
-
-import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.ViewRowImpl;
@@ -205,15 +202,15 @@ public class FWMSProductVORowImpl extends ViewRowImpl {
      * Gets the attribute value for WMS_PRODUCT_ID using the alias name WmsProductId.
      * @return the WMS_PRODUCT_ID
      */
-    public Long getWmsProductId() {
-        return (Long) getAttributeInternal(WMSPRODUCTID);
+    public oracle.jbo.domain.Number getWmsProductId() {
+        return (oracle.jbo.domain.Number) getAttributeInternal(WMSPRODUCTID);
     }
 
     /**
      * Sets <code>value</code> as attribute value for WMS_PRODUCT_ID using the alias name WmsProductId.
      * @param value value to set the WMS_PRODUCT_ID
      */
-    public void setWmsProductId(Long value) {
+    public void setWmsProductId(oracle.jbo.domain.Number value) {
         setAttributeInternal(WMSPRODUCTID, value);
     }
 
