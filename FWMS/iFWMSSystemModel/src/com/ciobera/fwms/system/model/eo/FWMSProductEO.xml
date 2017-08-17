@@ -57,7 +57,8 @@
     ColumnType="NUMBER"
     TableName="FWMS_PRODUCT"
     PrimaryKey="true"
-    IsUpdateable="while_insert">
+    IsUpdateable="while_insert"
+    RetrievedOnInsert="true">
     <Properties>
       <CustomProperties>
         <Property

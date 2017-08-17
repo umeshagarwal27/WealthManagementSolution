@@ -281,5 +281,10 @@
     <methodAction id="executeEmptyRowSetBondCoupen" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="executeEmptyRowSetBondCoupen" IsViewObjectMethod="false" DataControl="SystemAMDataControl"
                   InstanceName="bindings.executeEmptyRowSetBondCoupen.dataControl.dataProvider"/>
+    <attributeValues IterBinding="FWMSProductIterator" id="WmsProductId">
+      <AttrNames>
+        <Item Value="WmsProductId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -14,8 +14,7 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   RowClass="com.ciobera.fwms.system.model.vo.FWMSProductVORowImpl"
-  ComponentClass="com.ciobera.fwms.system.model.vo.FWMSProductVOImpl"
-  ComponentInterface="com.ciobera.fwms.system.model.vo.common.FWMSProductVO">
+  ComponentClass="com.ciobera.fwms.system.model.vo.FWMSProductVOImpl">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
@@ -145,7 +144,8 @@
     PrecisionRule="true"
     EntityAttrName="WmsProductId"
     EntityUsage="FWMSProductEO"
-    AliasName="WMS_PRODUCT_ID"/>
+    AliasName="WMS_PRODUCT_ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="WmsProductName"
     PrecisionRule="true"
@@ -558,29 +558,9 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
-  <ClientInterface
-    Name="__clientInterface">
-    <Method
-      Name="updateRecord"
-      MethodName="updateRecord">
-      <Return
-        Name="_return_type_"
-        Type="java.lang.String"/>
-      <Parameter
-        Name="mode"
-        Type="java.lang.String"/>
-      <Parameter
-        Name="updatedBy"
-        Type="java.lang.String"/>
-    </Method>
-  </ClientInterface>
   <ViewLinkAccessor
     Name="FWMSBondCoupenVO"
     ViewLink="com.ciobera.fwms.system.model.vo.viewlink.FWMSProductVOToFWMSBondCoupenVO"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
-  <ResourceBundle>
-    <PropertiesBundle
-      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
-  </ResourceBundle>
 </ViewObject>

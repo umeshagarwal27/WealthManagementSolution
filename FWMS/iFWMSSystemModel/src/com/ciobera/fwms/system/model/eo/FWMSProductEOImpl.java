@@ -34,6 +34,7 @@ public class FWMSProductEOImpl extends EntityImpl {
      */
     protected void doDML(int operation, TransactionEvent e) {
         super.doDML(operation, e);
+        if(operation==DML_INSERT){
         for(AttributeDef def:getEntityDef().getAttributeDefs()){
             String seqName=(String)def.getProperty("FWMS_PRODUCT_SEQ");
             if(seqName!=null){
@@ -41,6 +42,7 @@ public class FWMSProductEOImpl extends EntityImpl {
                 populateAttribute(def.getIndex(), a.getSequenceNumber());
                 break;
             }
+        }
         }
     }
 
