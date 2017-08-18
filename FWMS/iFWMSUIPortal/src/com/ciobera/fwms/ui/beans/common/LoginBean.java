@@ -20,11 +20,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -187,10 +189,18 @@ public class LoginBean implements Serializable {
                 //TODO: Navigate to Home Page
                 FacesContext ctx = FacesContext.getCurrentInstance();
                 HttpServletRequest request = (HttpServletRequest) ctx.getExternalContext().getRequest();
-                String loginUrl = "/faces/home.jspx";
+                String loginUrl = "http://localhost:7101/iWMSUIPortal/faces/home.jspx";
                 HttpServletResponse response = (HttpServletResponse) ctx.getExternalContext().getResponse();
                 //On successful authentication navigate to Home page
-                sendForward(request, response, loginUrl);
+//                sendForward(request, response, loginUrl);
+                //
+                try {
+                    redirectPage(loginUrl);
+//                    redirectRequest(response, loginUrl);
+                } catch (IOException ioe) {
+                    // TODO: Add catch code
+                    ioe.printStackTrace();
+                }
             } else {
                 String errorMessage = (String) resultMap.get("RESP_MESSAGE");
                 displayErrorPopup(errorMessage);
@@ -637,5 +647,16 @@ public class LoginBean implements Serializable {
     public static void main(String args[]) {
         LoginBean lb = new LoginBean();
         System.out.println(lb.validatePasswordRegex("Welcome123@"));
+    }
+    
+    public static void redirectPage(String urlPath) throws IOException {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        ExternalContext exctx = facesContext.getExternalContext();
+        exctx.redirect(urlPath);
+    }
+    
+    private void redirectRequest(ServletResponse servletResponse, String urlPath) throws IOException {
+        HttpServletResponse response = (HttpServletResponse)servletResponse;
+        response.sendRedirect(urlPath);
     }
 }

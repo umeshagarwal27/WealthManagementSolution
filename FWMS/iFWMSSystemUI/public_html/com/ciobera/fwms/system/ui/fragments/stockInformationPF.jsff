@@ -292,14 +292,14 @@
                                           required="#{bindings.WmsEnterUid.hints.mandatory}"
                                           columns="#{bindings.WmsEnterUid.hints.displayWidth}"
                                           maximumLength="#{bindings.WmsEnterUid.hints.precision}"
-                                          shortDesc="#{bindings.WmsEnterUid.hints.tooltip}" id="it36">
+                                          shortDesc="#{bindings.WmsEnterUid.hints.tooltip}" id="it36" disabled="true">
                                 <f:validator binding="#{bindings.WmsEnterUid.validator}"/>
                             </af:inputText>
                             <af:inputDate value="#{bindings.WmsEnterDate.inputValue}"
                                           label="#{bindings.WmsEnterDate.hints.label}"
                                           required="#{bindings.WmsEnterDate.hints.mandatory}"
                                           columns="#{bindings.WmsEnterDate.hints.displayWidth}"
-                                          shortDesc="#{bindings.WmsEnterDate.hints.tooltip}" id="id10">
+                                          shortDesc="#{bindings.WmsEnterDate.hints.tooltip}" id="id10" disabled="true">
                                 <f:validator binding="#{bindings.WmsEnterDate.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.WmsEnterDate.format}"/>
                             </af:inputDate>
@@ -308,14 +308,16 @@
                                           required="#{bindings.WmsLastUpdateUid.hints.mandatory}"
                                           columns="#{bindings.WmsLastUpdateUid.hints.displayWidth}"
                                           maximumLength="#{bindings.WmsLastUpdateUid.hints.precision}"
-                                          shortDesc="#{bindings.WmsLastUpdateUid.hints.tooltip}" id="it38">
+                                          shortDesc="#{bindings.WmsLastUpdateUid.hints.tooltip}" id="it38"
+                                          disabled="true">
                                 <f:validator binding="#{bindings.WmsLastUpdateUid.validator}"/>
                             </af:inputText>
                             <af:inputDate value="#{bindings.WmsLastUpdateDate.inputValue}"
                                           label="#{bindings.WmsLastUpdateDate.hints.label}"
                                           required="#{bindings.WmsLastUpdateDate.hints.mandatory}"
                                           columns="#{bindings.WmsLastUpdateDate.hints.displayWidth}"
-                                          shortDesc="#{bindings.WmsLastUpdateDate.hints.tooltip}" id="id11">
+                                          shortDesc="#{bindings.WmsLastUpdateDate.hints.tooltip}" id="id11"
+                                          disabled="true">
                                 <f:validator binding="#{bindings.WmsLastUpdateDate.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.WmsLastUpdateDate.format}"/>
                             </af:inputDate>
@@ -324,14 +326,15 @@
                                           required="#{bindings.WmsApproveUid.hints.mandatory}"
                                           columns="#{bindings.WmsApproveUid.hints.displayWidth}"
                                           maximumLength="#{bindings.WmsApproveUid.hints.precision}"
-                                          shortDesc="#{bindings.WmsApproveUid.hints.tooltip}" id="it40">
+                                          shortDesc="#{bindings.WmsApproveUid.hints.tooltip}" id="it40" disabled="true">
                                 <f:validator binding="#{bindings.WmsApproveUid.validator}"/>
                             </af:inputText>
                             <af:inputDate value="#{bindings.WmsApproveDate.inputValue}"
                                           label="#{bindings.WmsApproveDate.hints.label}"
                                           required="#{bindings.WmsApproveDate.hints.mandatory}"
                                           columns="#{bindings.WmsApproveDate.hints.displayWidth}"
-                                          shortDesc="#{bindings.WmsApproveDate.hints.tooltip}" id="id12">
+                                          shortDesc="#{bindings.WmsApproveDate.hints.tooltip}" id="id12"
+                                          disabled="true">
                                 <f:validator binding="#{bindings.WmsApproveDate.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.WmsApproveDate.format}"/>
                             </af:inputDate>
@@ -411,46 +414,42 @@
                                     <f:validator binding="#{bindings.WmsBondCouponFrequency.validator}"/>
                                 </af:inputText>
                             </af:panelFormLayout>
-                            <af:panelBox id="pb3" showDisclosure="false" text="#{UIBundle.PAYMENT_DATE__DD_MM_}">
-                                <af:panelFormLayout id="pfl6" rows="2" maxColumns="2">
-                                    <af:inputText value="#{bindings.WmsBondCoupon1stIntdate.inputValue}"
-                                                  label="#{bindings.WmsBondCoupon1stIntdate.hints.label}"
-                                                  required="#{bindings.WmsBondCoupon1stIntdate.hints.mandatory}"
-                                                  columns="#{bindings.WmsBondCoupon1stIntdate.hints.displayWidth}"
-                                                  maximumLength="#{bindings.WmsBondCoupon1stIntdate.hints.precision}"
-                                                  shortDesc="#{bindings.WmsBondCoupon1stIntdate.hints.tooltip}"
-                                                  id="it22">
-                                        <f:validator binding="#{bindings.WmsBondCoupon1stIntdate.validator}"/>
-                                    </af:inputText>
-                                    <af:inputText value="#{bindings.WmsBondCoupon2ndIntdate.inputValue}"
-                                                  label="#{bindings.WmsBondCoupon2ndIntdate.hints.label}"
-                                                  required="#{bindings.WmsBondCoupon2ndIntdate.hints.mandatory}"
-                                                  columns="#{bindings.WmsBondCoupon2ndIntdate.hints.displayWidth}"
-                                                  maximumLength="#{bindings.WmsBondCoupon2ndIntdate.hints.precision}"
-                                                  shortDesc="#{bindings.WmsBondCoupon2ndIntdate.hints.tooltip}"
-                                                  id="it23">
-                                        <f:validator binding="#{bindings.WmsBondCoupon2ndIntdate.validator}"/>
-                                    </af:inputText>
-                                    <af:inputText value="#{bindings.WmsBondCoupon3rdIntdate.inputValue}"
-                                                  label="#{bindings.WmsBondCoupon3rdIntdate.hints.label}"
-                                                  required="#{bindings.WmsBondCoupon3rdIntdate.hints.mandatory}"
-                                                  columns="#{bindings.WmsBondCoupon3rdIntdate.hints.displayWidth}"
-                                                  maximumLength="#{bindings.WmsBondCoupon3rdIntdate.hints.precision}"
-                                                  shortDesc="#{bindings.WmsBondCoupon3rdIntdate.hints.tooltip}"
-                                                  id="it24">
-                                        <f:validator binding="#{bindings.WmsBondCoupon3rdIntdate.validator}"/>
-                                    </af:inputText>
-                                    <af:inputText value="#{bindings.WmsBondCoupon4thIntdate.inputValue}"
-                                                  label="#{bindings.WmsBondCoupon4thIntdate.hints.label}"
-                                                  required="#{bindings.WmsBondCoupon4thIntdate.hints.mandatory}"
-                                                  columns="#{bindings.WmsBondCoupon4thIntdate.hints.displayWidth}"
-                                                  maximumLength="#{bindings.WmsBondCoupon4thIntdate.hints.precision}"
-                                                  shortDesc="#{bindings.WmsBondCoupon4thIntdate.hints.tooltip}"
-                                                  id="it25">
-                                        <f:validator binding="#{bindings.WmsBondCoupon4thIntdate.validator}"/>
-                                    </af:inputText>
-                                </af:panelFormLayout>
-                            </af:panelBox>
+                            <af:panelFormLayout id="pfl6" rows="2" maxColumns="2">
+                                <af:inputText value="#{bindings.WmsBondCoupon1stIntdate.inputValue}"
+                                              label="#{bindings.WmsBondCoupon1stIntdate.hints.label}"
+                                              required="#{bindings.WmsBondCoupon1stIntdate.hints.mandatory}"
+                                              columns="#{bindings.WmsBondCoupon1stIntdate.hints.displayWidth}"
+                                              maximumLength="#{bindings.WmsBondCoupon1stIntdate.hints.precision}"
+                                              shortDesc="#{bindings.WmsBondCoupon1stIntdate.hints.tooltip}" id="it22">
+                                    <f:validator binding="#{bindings.WmsBondCoupon1stIntdate.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.WmsBondCoupon2ndIntdate.inputValue}"
+                                              label="#{bindings.WmsBondCoupon2ndIntdate.hints.label}"
+                                              required="#{bindings.WmsBondCoupon2ndIntdate.hints.mandatory}"
+                                              columns="#{bindings.WmsBondCoupon2ndIntdate.hints.displayWidth}"
+                                              maximumLength="#{bindings.WmsBondCoupon2ndIntdate.hints.precision}"
+                                              shortDesc="#{bindings.WmsBondCoupon2ndIntdate.hints.tooltip}" id="it23">
+                                    <f:validator binding="#{bindings.WmsBondCoupon2ndIntdate.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.WmsBondCoupon3rdIntdate.inputValue}"
+                                              label="#{bindings.WmsBondCoupon3rdIntdate.hints.label}"
+                                              required="#{bindings.WmsBondCoupon3rdIntdate.hints.mandatory}"
+                                              columns="#{bindings.WmsBondCoupon3rdIntdate.hints.displayWidth}"
+                                              maximumLength="#{bindings.WmsBondCoupon3rdIntdate.hints.precision}"
+                                              shortDesc="#{bindings.WmsBondCoupon3rdIntdate.hints.tooltip}" id="it24">
+                                    <f:validator binding="#{bindings.WmsBondCoupon3rdIntdate.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.WmsBondCoupon4thIntdate.inputValue}"
+                                              label="#{bindings.WmsBondCoupon4thIntdate.hints.label}"
+                                              required="#{bindings.WmsBondCoupon4thIntdate.hints.mandatory}"
+                                              columns="#{bindings.WmsBondCoupon4thIntdate.hints.displayWidth}"
+                                              maximumLength="#{bindings.WmsBondCoupon4thIntdate.hints.precision}"
+                                              shortDesc="#{bindings.WmsBondCoupon4thIntdate.hints.tooltip}" id="it25">
+                                    <f:validator binding="#{bindings.WmsBondCoupon4thIntdate.validator}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                            <af:panelBox id="pb3" showDisclosure="false" text="#{UIBundle.PAYMENT_DATE__DD_MM_}"
+                                         contentStyle="width:250px;"/>
                             <af:panelCollection id="pc2">
                                 <f:facet name="menus"/>
                                 <af:table rows="#{bindings.FWMSBondCoupen.rangeSize}"
