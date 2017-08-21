@@ -59,7 +59,7 @@ public class HomeBean implements Serializable {
         //        if (!isSkipDirtyCheck() && checkAMDirty()) {
         //            return null;
         //        }
-        return "adfMenu_AccountingModule";
+        return "adfMenu_AccountingMlOodule";
     }
 
     public void launchStockInformationTF(ActionEvent actionEvent) {

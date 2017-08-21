@@ -24,6 +24,37 @@
   <ViewUsage
     Name="FWMSUsersUpdate"
     ViewObjectName="com.ciobera.fwms.common.model.vo.FWMSUsersUpdateVO"/>
+  <ViewUsage
+    Name="FWMSMainMenu"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO">
+    <ViewCriteriaUsage
+      Name="findBySNo"
+      FullName="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO.findBySNo"/>
+    <ViewCriteriaUsage
+      Name="findByUserId"
+      FullName="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO.findByUserId"/>
+    <ParameterMap>
+      <PIMap Variable="pUserId">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[SRINI]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="pSNo">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[1]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="FWMSMainMenuChildNodes"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO"/>
+  <ViewLinkUsage
+    Name="FWMSMainMenuFKViewLink"
+    ViewLinkObjectName="com.ciobera.fwms.common.model.vo.viewlink.FWMSMainMenuFKViewLink"
+    SrcViewUsageName="com.ciobera.fwms.common.model.am.CommonAM.FWMSMainMenu"
+    DstViewUsageName="com.ciobera.fwms.common.model.am.CommonAM.FWMSMainMenuChildNodes"
+    Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">
     <Method
