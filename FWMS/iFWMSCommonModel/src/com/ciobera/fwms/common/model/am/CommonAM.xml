@@ -37,7 +37,7 @@
       <PIMap Variable="pUserId">
         <TransientExpression
           trustMode="untrusted"
-          Name="ExpressionScript"><![CDATA[SRINI]]></TransientExpression>
+          Name="ExpressionScript"><![CDATA['SRINI']]></TransientExpression>
       </PIMap>
       <PIMap Variable="pSNo">
         <TransientExpression

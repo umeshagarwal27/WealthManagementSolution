@@ -59,7 +59,7 @@ WMM_MAKER_CHECKER, WMM_SNO FROM FWMS_MAIN_MENU]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="WMM_MENU"
     Expression="WMM_MENU"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="WmmPnode"
     IsUpdateable="false"
@@ -71,7 +71,7 @@ WMM_MAKER_CHECKER, WMM_SNO FROM FWMS_MAIN_MENU]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="WMM_PNODE"
     Expression="WMM_PNODE"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="WmmCnode"
     IsUpdateable="false"
@@ -83,7 +83,7 @@ WMM_MAKER_CHECKER, WMM_SNO FROM FWMS_MAIN_MENU]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="WMM_CNODE"
     Expression="WMM_CNODE"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="WmmDesc"
     IsUpdateable="false"
@@ -200,7 +200,7 @@ WMM_MAKER_CHECKER, WMM_SNO FROM FWMS_MAIN_MENU]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="WMM_SNO"
     Expression="WMM_SNO"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewCriteria
     Name="findByUserId"
     ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO"
@@ -279,11 +279,6 @@ WMM_MAKER_CHECKER, WMM_SNO FROM FWMS_MAIN_MENU]]></SQLQuery>
   </AttrArray>
   <ViewLinkAccessor
     Name="WmmCnodeFWMSMainMenuVO"
-    ViewLink="com.ciobera.fwms.common.model.vo.FWMSmainMenuFKViewLink"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <ViewLinkAccessor
-    Name="WmmCnodeFWMSMainMenuVO1"
     ViewLink="com.ciobera.fwms.common.model.vo.viewlink.FWMSMainMenuFKViewLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>

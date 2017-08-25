@@ -21,6 +21,20 @@ WMM_APPROVE_DATE                                               DATE,
 WMM_APPROVE_COMMENTS                                           VARCHAR2(300),
 WMS_STATUS                                                     VARCHAR2(20));
 
+ALTER TABLE FWMS_MAIN_MENU ADD TASK_FLOW_ID VARCHAR2(1000);
+
+UPDATE FWMS_MAIN_MENU SET TASK_FLOW_ID = '/WEB-INF/com/ciobera/fwms/system/ui/taskflows/user-log-task-flow-definition.xml#user-log-task-flow-definition' WHERE WMM_CNODE = 52;
+
+
+UPDATE FWMS_MAIN_MENU SET TASK_FLOW_ID = '/WEB-INF/com/ciobera/fwms/system/ui/taskflows/stock-information-task-flow-definition.xml#stock-information-task-flow-definition' WHERE WMM_CNODE = 54;
+
+
+UPDATE FWMS_MAIN_MENU SET TASK_FLOW_ID = '' WHERE WMM_CNODE = 301;
+
+
+UPDATE FWMS_MAIN_MENU SET TASK_FLOW_ID = '' WHERE WMM_CNODE = 302;
+
+UPDATE FWMS_MAIN_MENU SET TASK_FLOW_ID = '' WHERE WMM_CNODE = 303;
 
 
 ============================SYSTEM PARAMATER wmm_menu=1 ==========================================================

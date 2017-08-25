@@ -5,6 +5,29 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="oracle.ui.pattern.dynamicShell.model.dynamicTabShellDefinition" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="FWMSMainMenu" RangeSize="25" DataControl="CommonAMDataControl" id="FWMSMainMenuIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <tree IterBinding="FWMSMainMenuIterator" id="FWMSMainMenu">
+      <nodeDefinition DefName="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO" Name="FWMSMainMenu0">
+        <AttrNames>
+          <Item Value="WmmUserid"/>
+          <Item Value="WmmCnode"/>
+          <Item Value="WmmDelete"/>
+          <Item Value="WmmDesc"/>
+          <Item Value="WmmFile"/>
+          <Item Value="WmmInsert"/>
+          <Item Value="WmmMakerChecker"/>
+          <Item Value="WmmMenu"/>
+          <Item Value="WmmPnode"/>
+          <Item Value="WmmSno"/>
+          <Item Value="WmmUpdate"/>
+          <Item Value="WmmView"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="WmmCnodeFWMSMainMenuVO"/>
+        </Accessors>
+      </nodeDefinition>
+    </tree>
+  </bindings>
 </pageDefinition>

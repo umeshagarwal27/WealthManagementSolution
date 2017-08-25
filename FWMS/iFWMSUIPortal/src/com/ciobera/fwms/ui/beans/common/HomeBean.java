@@ -9,36 +9,38 @@
 
 package com.ciobera.fwms.ui.beans.common;
 
+import com.ciobera.fwms.common.util.utils.common.ADFUtil;
+
 import java.io.Serializable;
 
-import javax.faces.context.FacesContext;
+import java.util.Iterator;
+import java.util.List;
+
 import javax.faces.event.ActionEvent;
 
 import oracle.adf.share.logging.ADFLogger;
 
+import oracle.adf.view.rich.component.rich.data.RichTree;
+
+import oracle.jbo.Row;
+import oracle.jbo.uicli.binding.JUCtrlHierBinding;
+import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;
+
 import oracle.ui.pattern.dynamicShell.TabContext;
+
+import org.apache.myfaces.trinidad.event.SelectionEvent;
+import org.apache.myfaces.trinidad.model.CollectionModel;
+import org.apache.myfaces.trinidad.model.RowKeySet;
+
+import org.apache.myfaces.trinidad.model.TreeModel;
 
 
 public class HomeBean implements Serializable {
-    @SuppressWarnings("compatibility:-5778377143055031128")
+    @SuppressWarnings("compatibility:6865142187096768312")
     private static final long serialVersionUID = 1L;
-
-    private static final String STOCK_INFORMATION_TASKFLOWID =
-        "/WEB-INF/com/ciobera/fwms/system/ui/taskflows/stock-information-task-flow-definition.xml#stock-information-task-flow-definition";
-    private static final String STOCK_SETUP_TASKFLOWID =
-        "/WEB-INF/com/ciobera/fwms/system/ui/taskflows/stock-setup-task-flow-definition.xml#stock-setup-task-flow-definition";
-    private static final String USER_LOG_TASKFLOWID =
-        "/WEB-INF/com/ciobera/fwms/system/ui/taskflows/user-log-task-flow-definition.xml#user-log-task-flow-definition";
-    private static final String USER_MANAGEMENT_TASKFLOWID =
-        "/WEB-INF/com/ciobera/fwms/system/ui/taskflows/user-management-task-flow-definition.xml#user-management-task-flow-definition";
-    private static final String DASHBOARD_TASKFLOWID =
-        "/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/dashboard-task-flow-definition.xml#dashboard-task-flow-definition";
-    private static final String ORDER_MANAGEMENT_TASKFLOWID =
-        "/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/order-management-task-flow-definition.xml#order-management-task-flow-definition";
-    private static final String TRADE_BOOK_TASKFLOWID =
-        "/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/trade-book-task-flow-definition.xml#trade-book-task-flow-definition";
+    private String tabTitle;
+    private String tabTaskFlowId;
     public static final ADFLogger LOGGER = ADFLogger.createADFLogger(HomeBean.class);
-    private String asdf;
 
     /**
      *  Default Constructor
@@ -47,49 +49,10 @@ public class HomeBean implements Serializable {
         super();
     }
 
-    /**
-     * This method is called when the user clicks on Accounting Module link in Accounting Module Page
-     * @return
-     */
-    public String navigateToAccountingModule() {
-        FacesContext.getCurrentInstance()
-                    .getExternalContext()
-                    .getSessionMap()
-                    .put("navigation", "adfMenu_AccountingModule");
-        //        if (!isSkipDirtyCheck() && checkAMDirty()) {
-        //            return null;
-        //        }
-        return "adfMenu_AccountingMlOodule";
+    public void onScreenNameClick(ActionEvent actionEvent) {
+        if (tabTitle != null && !"".equals(tabTitle) && tabTaskFlowId != null && !"".equals(tabTaskFlowId))
+            _launchActivity(tabTitle, tabTaskFlowId, false);
     }
-
-    public void launchStockInformationTF(ActionEvent actionEvent) {
-        _launchActivity("Stock Information", STOCK_INFORMATION_TASKFLOWID, false);
-    }
-
-    public void launchStockSetupTF(ActionEvent actionEvent) {
-        _launchActivity("Stock Setup", STOCK_SETUP_TASKFLOWID, false);
-    }
-
-    public void launchUserManagementTF(ActionEvent actionEvent) {
-        _launchActivity("User Management", USER_MANAGEMENT_TASKFLOWID, false);
-    }
-
-    public void launchUserLogTF(ActionEvent actionEvent) {
-        _launchActivity("User Log", USER_LOG_TASKFLOWID, false);
-    }
-
-    public void launchDashboardTF(ActionEvent actionEvent) {
-        _launchActivity("Dashboard", DASHBOARD_TASKFLOWID, false);
-    }
-
-    public void launchOrderManagementTF(ActionEvent actionEvent) {
-        _launchActivity("Order Management", ORDER_MANAGEMENT_TASKFLOWID, false);
-    }
-
-    public void launchTradeBookTF(ActionEvent actionEvent) {
-        _launchActivity("Trade Book", TRADE_BOOK_TASKFLOWID, false);
-    }
-
 
     private void _launchActivity(String title, String taskflowId, boolean newTab) {
         try {
@@ -103,5 +66,47 @@ public class HomeBean implements Serializable {
             // too many tabs open - the new tab will not be opened...
             toe.handleDefault();
         }
+    }
+
+    /**
+     * Depending on the tree node selection show the corresponding attributes
+     * @param selectionEvent
+     */
+    public void select_bean(SelectionEvent selectionEvent) {
+        ADFUtil.invokeMethodExpression("#{bindings.FWMSMainMenu.treeModel.makeCurrent}",
+                                       new Class[] { SelectionEvent.class }, new Object[] { selectionEvent });
+        RichTree tree = (RichTree) selectionEvent.getSource(); // get the tree component from the event
+        TreeModel model = (TreeModel) tree.getValue();
+        //get selected nodes
+        RowKeySet rowKeySet = selectionEvent.getAddedSet();
+        Iterator rksIterator = rowKeySet.iterator();
+        //Validating for single select only. Need to check for multiselect
+        while (rksIterator.hasNext()) {
+            List key = (List) rksIterator.next();
+            JUCtrlHierBinding treeBinding = null;
+            CollectionModel collectionModel = (CollectionModel) tree.getValue();
+            treeBinding = (JUCtrlHierBinding) collectionModel.getWrappedData();
+            JUCtrlHierNodeBinding nodeBinding = null;
+            nodeBinding = treeBinding.findNodeByKeyPath(key);
+            Row row = nodeBinding.getRow();
+            row.getAttribute("WmmDesc");
+            row.getAttribute("TaskFlowId");
+        }
+    }
+
+    public void setTabTitle(String tabTitle) {
+        this.tabTitle = tabTitle;
+    }
+
+    public String getTabTitle() {
+        return tabTitle;
+    }
+
+    public void setTabTaskFlowId(String tabTaskFlowId) {
+        this.tabTaskFlowId = tabTaskFlowId;
+    }
+
+    public String getTabTaskFlowId() {
+        return tabTaskFlowId;
     }
 }

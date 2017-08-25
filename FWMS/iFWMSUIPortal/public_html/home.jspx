@@ -4,6 +4,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
         <af:document title="#{UIBundle.HOME}" id="d1">
+            <af:messages id="m1"/>
             <af:form id="f1">
                 <af:pageTemplate viewId="/oracle/ui/pattern/dynamicShell/dynamicTabShell.jspx" id="pt1"
                                  value="#{bindings.ptb1}">
@@ -14,73 +15,109 @@
                     </f:facet>
                     <f:facet name="about"/>
                     <f:facet name="navigation">
-                        <af:panelAccordion dimensionsFrom="auto" id="pa1">
-                            <af:showDetailItem id="pane1" inflexibleHeight="0" text="#{UIBundle.SYSTEM_PARAMETERS}">
-                                <af:panelGroupLayout id="pgl1" layout="scroll"
-                                                     inlineStyle="background-color:White;padding-left:10px;">
-                                    <af:link id="cl1"
-                                             inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 0px; text-decoration:none solid currentColor;"
-                                             text="#{UIBundle.USER_MANAGEMENT}" partialSubmit="true"
-                                             actionListener="#{HomeBean.launchUserManagementTF}"/>
-                                    <af:link id="l3"
-                                             inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 10px; text-decoration:none solid currentColor;"
-                                             text="#{UIBundle.USER_LOG}" partialSubmit="true"
-                                             actionListener="#{HomeBean.launchUserLogTF}"/>
-                                    <af:link id="l5"
-                                             inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 0px; text-decoration:none solid currentColor;"
-                                             text="#{UIBundle.STOCK_SETUP}" partialSubmit="true"
-                                             actionListener="#{HomeBean.launchStockSetupTF}"/>
-                                    <af:link id="l4"
-                                             inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 10px; text-decoration:none solid currentColor;"
-                                             text="#{UIBundle.STOCK}" partialSubmit="true"
-                                             actionListener="#{HomeBean.launchStockInformationTF}"/>
-                                </af:panelGroupLayout>
-                            </af:showDetailItem>
-                            <af:showDetailItem id="pane2" inflexibleHeight="0" text="#{UIBundle.TRADING_MANAGEMENT}">
-                                <af:panelGroupLayout id="pgl2" layout="scroll"
-                                                     inlineStyle="background-color:White; color:Blue;padding-left:10px;">
-                                    <af:link id="l1"
-                                             inlineStyle="font-size:15px;border-bottom: 1px solid rgba(0, 0, 0, 0.05);color: Blue;display: block;padding: 10px 0;text-decoration: none;"
-                                             text="#{UIBundle.ORDER_MANAGEMENT}"
-                                             actionListener="#{HomeBean.launchOrderManagementTF}" immediate="true"
-                                             partialSubmit="true"/>
-                                    <af:link id="l6"
-                                             inlineStyle="font-size:15px;border-bottom: 1px solid rgba(0, 0, 0, 0.05);color: Blue;display: block;padding: 10px 0;text-decoration: none;"
-                                             text="#{UIBundle.DASHBOARD}" actionListener="#{HomeBean.launchDashboardTF}"
-                                             immediate="true" partialSubmit="true"/>
-                                    <af:link id="l7"
-                                             inlineStyle="font-size:15px;border-bottom: 1px solid rgba(0, 0, 0, 0.05);color: Blue;display: block;padding: 10px 0;text-decoration: none;"
-                                             text="#{UIBundle.TRADE_BOOK}"
-                                             actionListener="#{HomeBean.launchTradeBookTF}" immediate="true"
-                                             partialSubmit="true"/>
-                                </af:panelGroupLayout>
-                            </af:showDetailItem>
-                            <af:showDetailItem id="pane3" inflexibleHeight="0" text="#{UIBundle.ACCOUNTING_MODULE}">
-                                <af:panelGroupLayout id="pgl3" layout="scroll" inlineStyle="background-color:White;"
-                                                     halign="center">
-                                    <af:iterator id="i3" value="#{accounting_menu}" var="accounting">
-                                        <af:link id="l2"
+                        <!--<af:panelGroupLayout id="pgl11" layout="vertical" rendered="false">
+                            <af:panelAccordion dimensionsFrom="auto" id="pa1" rendered="false">
+                                <af:showDetailItem id="pane1" inflexibleHeight="0" text="#{UIBundle.SYSTEM_PARAMETERS}">
+                                    <af:panelGroupLayout id="pgl1" layout="scroll"
+                                                         inlineStyle="background-color:White;padding-left:10px;">
+                                        <af:link id="cl1"
+                                                 inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 0px; text-decoration:none solid currentColor;"
+                                                 text="#{UIBundle.USER_MANAGEMENT}" partialSubmit="true"
+                                                 actionListener="#{HomeBean.launchUserManagementTF}"/>
+                                        <af:link id="l3"
+                                                 inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 10px; text-decoration:none solid currentColor;"
+                                                 text="#{UIBundle.USER_LOG}" partialSubmit="true"
+                                                 actionListener="#{HomeBean.launchUserLogTF}"/>
+                                        <af:link id="l5"
+                                                 inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 0px; text-decoration:none solid currentColor;"
+                                                 text="#{UIBundle.STOCK_SETUP}" partialSubmit="true"
+                                                 actionListener="#{HomeBean.launchStockSetupTF}"/>
+                                        <af:link id="l4"
+                                                 inlineStyle="font-size:15px; border-bottom:1px solid rgba(0, 0, 0, 0.05); color:Blue; display:block; padding:10px 10px; text-decoration:none solid currentColor;"
+                                                 text="#{UIBundle.STOCK}" partialSubmit="true"
+                                                 actionListener="#{HomeBean.launchStockInformationTF}"/>
+                                    </af:panelGroupLayout>
+                                </af:showDetailItem>
+                                <af:showDetailItem id="pane2" inflexibleHeight="0"
+                                                   text="#{UIBundle.TRADING_MANAGEMENT}">
+                                    <af:panelGroupLayout id="pgl2" layout="scroll"
+                                                         inlineStyle="background-color:White; color:Blue;padding-left:10px;">
+                                        <af:link id="l1"
                                                  inlineStyle="font-size:15px;border-bottom: 1px solid rgba(0, 0, 0, 0.05);color: Blue;display: block;padding: 10px 0;text-decoration: none;"
-                                                 text="#{accounting.label}" rendered="#{accounting.rendered}"
-                                                 action="#{accounting.doAction}" immediate="true" partialSubmit="true"/>
-                                    </af:iterator>
-                                </af:panelGroupLayout>
-                            </af:showDetailItem>
-                            <af:showDetailItem id="pane4" inflexibleHeight="0" text="#{UIBundle.PAYROLL}">
-                                <af:panelGroupLayout id="pgl5" layout="scroll" halign="center"
-                                                     inlineStyle="background-color:White;"/>
-                            </af:showDetailItem>
-                            <af:showDetailItem id="pane5" inflexibleHeight="0" text="#{UIBundle.FIXED_ASSETS}">
-                                <af:panelGroupLayout id="pgl11" layout="scroll" halign="center"
-                                                     inlineStyle="background-color:White;"/>
-                            </af:showDetailItem>
-                            <af:showDetailItem id="pane6" inflexibleHeight="0" text="#{UIBundle.COMPLIANCE_REPORTS}">
-                                <af:panelGroupLayout id="pgl13" layout="scroll" halign="center"
-                                                     inlineStyle="background-color:White;"/>
-                            </af:showDetailItem>
-                            <af:showDetailItem id="pane7" inflexibleHeight="0" text="#{UIBundle.MIS_REPORTS}">
-                                <af:panelGroupLayout id="pgl14" layout="scroll" halign="center"
-                                                     inlineStyle="background-color:White;"/>
+                                                 text="#{UIBundle.ORDER_MANAGEMENT}"
+                                                 actionListener="#{HomeBean.launchOrderManagementTF}" immediate="true"
+                                                 partialSubmit="true"/>
+                                        <af:link id="l6"
+                                                 inlineStyle="font-size:15px;border-bottom: 1px solid rgba(0, 0, 0, 0.05);color: Blue;display: block;padding: 10px 0;text-decoration: none;"
+                                                 text="#{UIBundle.DASHBOARD}"
+                                                 actionListener="#{HomeBean.launchDashboardTF}" immediate="true"
+                                                 partialSubmit="true"/>
+                                        <af:link id="l7"
+                                                 inlineStyle="font-size:15px;border-bottom: 1px solid rgba(0, 0, 0, 0.05);color: Blue;display: block;padding: 10px 0;text-decoration: none;"
+                                                 text="#{UIBundle.TRADE_BOOK}"
+                                                 actionListener="#{HomeBean.launchTradeBookTF}" immediate="true"
+                                                 partialSubmit="true"/>
+                                    </af:panelGroupLayout>
+                                </af:showDetailItem>
+                                <af:showDetailItem id="pane3" inflexibleHeight="0" text="#{UIBundle.ACCOUNTING_MODULE}">
+                                    <af:panelGroupLayout id="pgl3" layout="scroll" inlineStyle="background-color:White;"
+                                                         halign="center">
+                                        <af:iterator id="i3" value="#{accounting_menu}" var="accounting">
+                                            <af:link id="l2"
+                                                     inlineStyle="font-size:15px;border-bottom: 1px solid rgba(0, 0, 0, 0.05);color: Blue;display: block;padding: 10px 0;text-decoration: none;"
+                                                     text="#{accounting.label}" rendered="#{accounting.rendered}"
+                                                     action="#{accounting.doAction}" immediate="true"
+                                                     partialSubmit="true"/>
+                                        </af:iterator>
+                                    </af:panelGroupLayout>
+                                </af:showDetailItem>
+                                <af:showDetailItem id="pane4" inflexibleHeight="0" text="#{UIBundle.PAYROLL}">
+                                    <af:panelGroupLayout id="pgl5" layout="scroll" halign="center"
+                                                         inlineStyle="background-color:White;"/>
+                                </af:showDetailItem>
+                                <af:showDetailItem id="pane5" inflexibleHeight="0" text="#{UIBundle.FIXED_ASSETS}">
+                                    <af:panelGroupLayout id="pgl7" layout="scroll" halign="center"
+                                                         inlineStyle="background-color:White;"/>
+                                </af:showDetailItem>
+                                <af:showDetailItem id="pane6" inflexibleHeight="0"
+                                                   text="#{UIBundle.COMPLIANCE_REPORTS}">
+                                    <af:panelGroupLayout id="pgl13" layout="scroll" halign="center"
+                                                         inlineStyle="background-color:White;"/>
+                                </af:showDetailItem>
+                                <af:showDetailItem id="pane7" inflexibleHeight="0" text="#{UIBundle.MIS_REPORTS}">
+                                    <af:panelGroupLayout id="pgl14" layout="scroll" halign="center"
+                                                         inlineStyle="background-color:White;"/>
+                                </af:showDetailItem>
+                            </af:panelAccordion>
+                        </af:panelGroupLayout>-->
+                        <af:panelAccordion discloseMany="true" id="pa2" dimensionsFrom="auto">
+                            <af:showDetailItem id="pane8" inflexibleHeight="0" text="#{UIBundle.SYSTEM_PARAMETERS}">
+                                
+                                    <af:tree value="#{bindings.FWMSMainMenu.treeModel}" var="node" summary="#{null}"
+                                             selectionListener="#{bindings.FWMSMainMenu.treeModel.makeCurrent}"
+                                             rowSelection="single" id="t1" inlineStyle="padding-left:10px;">
+                                        <f:facet name="nodeStamp">
+                                            <af:group id="g1">
+                                                <af:panelGroupLayout id="pgl6" layout="horizontal"
+                                                                     rendered="#{node.WmmFile eq 'MENU'}">
+                                                    <af:image source="/images/folder.png" id="i1" shortDesc="#{null}"/>
+                                                    <af:outputText value="#{node.WmmDesc}" id="ot2"/>
+                                                    <f:facet name="separator">
+                                                        <af:spacer width="5" id="s1"/>
+                                                    </f:facet>
+                                                </af:panelGroupLayout>
+                                                <af:panelGroupLayout id="pgl8" layout="horizontal"
+                                                                     styleClass="AFStretchWidth"
+                                                                     rendered="#{node.WmmFile ne 'MENU'}">
+                                                    <af:image source="/images/file.png" id="i2" shortDesc="#{null}"/>
+                                                    <af:link id="ot1" text="#{node.WmmDesc}" partialSubmit="true"/>
+                                                    <f:facet name="separator">
+                                                        <af:spacer width="5" id="s6"/>
+                                                    </f:facet>
+                                                </af:panelGroupLayout>
+                                            </af:group>
+                                        </f:facet>
+                                    </af:tree>
                             </af:showDetailItem>
                         </af:panelAccordion>
                     </f:facet>
@@ -89,7 +126,7 @@
                         <af:panelGroupLayout id="pgl4" layout="horizontal">
                             <af:outputText value="#{UIBundle.WELCOME}" inlineStyle="font-size: 15px;" id="ot10"
                                            noWrap="true"/>
-                            <af:spacer width="10" height="10" id="s1"/>
+                            <af:spacer width="10" height="10" id="s5"/>
                             <af:outputText value="Umesh" id="ot4" inlineStyle="font-weight:bold; font-size: 15px;"
                                            noWrap="true"/>
                             <af:spacer width="10" height="10" id="s4"/>

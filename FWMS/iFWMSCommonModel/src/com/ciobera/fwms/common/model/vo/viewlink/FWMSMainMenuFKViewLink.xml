@@ -26,12 +26,12 @@
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
-    Name="WmmCnodeFWMSMainMenuVO1"
+    Name="WmmCnodeFWMSMainMenuVO"
     Cardinality="-1"
     Owner="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO">
     <DesignTime>
       <Attr Name="_isUpdateable" Value="true"/>
-      <Attr Name="_finderName" Value="WmmCnodeFWMSMainMenuVO1"/>
+      <Attr Name="_finderName" Value="WmmCnodeFWMSMainMenuVO"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO.WmmPnode"/>

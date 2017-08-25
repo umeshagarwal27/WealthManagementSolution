@@ -25,8 +25,7 @@ public class FWMSMainMenuVORowImpl extends ViewRowImpl {
         WmmDelete,
         WmmMakerChecker,
         WmmSno,
-        WmmCnodeFWMSMainMenuVO,
-        WmmCnodeFWMSMainMenuVO1;
+        WmmCnodeFWMSMainMenuVO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -64,7 +63,6 @@ public class FWMSMainMenuVORowImpl extends ViewRowImpl {
     public static final int WMMMAKERCHECKER = AttributesEnum.WmmMakerChecker.index();
     public static final int WMMSNO = AttributesEnum.WmmSno.index();
     public static final int WMMCNODEFWMSMAINMENUVO = AttributesEnum.WmmCnodeFWMSMainMenuVO.index();
-    public static final int WMMCNODEFWMSMAINMENUVO1 = AttributesEnum.WmmCnodeFWMSMainMenuVO1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -169,11 +167,12 @@ public class FWMSMainMenuVORowImpl extends ViewRowImpl {
     }
 
     /**
-     * Gets the associated <code>RowIterator</code> using master-detail link WmmCnodeFWMSMainMenuVO1.
+     * Gets the associated <code>RowIterator</code> using master-detail link WmmCnodeFWMSMainMenuVO.
      */
-    public RowIterator getWmmCnodeFWMSMainMenuVO1() {
-        return (RowIterator) getAttributeInternal(WMMCNODEFWMSMAINMENUVO1);
+    public RowIterator getWmmCnodeFWMSMainMenuVO() {
+        return (RowIterator) getAttributeInternal(WMMCNODEFWMSMAINMENUVO);
     }
+
 
 }
 
