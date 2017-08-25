@@ -23,6 +23,7 @@
           <Item Value="WmmSno"/>
           <Item Value="WmmUpdate"/>
           <Item Value="WmmView"/>
+          <Item Value="TaskFlowId"/>
         </AttrNames>
         <Accessors>
           <Item Value="WmmCnodeFWMSMainMenuVO"/>

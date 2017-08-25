@@ -30,9 +30,22 @@
     Name="pSNo"
     Kind="viewcriteria"
     Type="java.lang.Integer"/>
-  <SQLQuery><![CDATA[SELECT WMM_USERID, WMM_MENU, WMM_PNODE, WMM_CNODE, WMM_DESC,   
-WMM_FILE, WMM_VIEW, WMM_INSERT, WMM_UPDATE, WMM_DELETE,   
-WMM_MAKER_CHECKER, WMM_SNO FROM FWMS_MAIN_MENU]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT  
+    WMM_USERID,  
+    WMM_MENU,  
+    WMM_PNODE,  
+    WMM_CNODE,  
+    WMM_DESC,  
+    WMM_FILE,  
+    WMM_VIEW,  
+    WMM_INSERT,  
+    WMM_UPDATE,  
+    WMM_DELETE,  
+    WMM_MAKER_CHECKER,  
+    WMM_SNO,  
+    TASK_FLOW_ID  
+FROM  
+    FWMS_MAIN_MENU]]></SQLQuery>
   <ViewAttribute
     Name="WmmUserid"
     IsUpdateable="false"
@@ -201,6 +214,21 @@ WMM_MAKER_CHECKER, WMM_SNO FROM FWMS_MAIN_MENU]]></SQLQuery>
     AliasName="WMM_SNO"
     Expression="WMM_SNO"
     SQLType="INTEGER"/>
+  <ViewAttribute
+    Name="TaskFlowId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TASK_FLOW_ID"
+    Expression="TASK_FLOW_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewCriteria
     Name="findByUserId"
     ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO"

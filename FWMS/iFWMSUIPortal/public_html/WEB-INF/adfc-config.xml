@@ -20,7 +20,7 @@
   <managed-bean id="__10">
     <managed-bean-name>HomeBean</managed-bean-name>
     <managed-bean-class>com.ciobera.fwms.ui.beans.common.HomeBean</managed-bean-class>
-    <managed-bean-scope>request</managed-bean-scope>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
   </managed-bean>
   <managed-bean id="__11">
     <managed-bean-name>FWMSMainPageTemplateBean</managed-bean-name>

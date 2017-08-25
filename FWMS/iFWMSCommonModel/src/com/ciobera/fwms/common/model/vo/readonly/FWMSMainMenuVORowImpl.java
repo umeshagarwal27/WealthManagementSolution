@@ -25,6 +25,7 @@ public class FWMSMainMenuVORowImpl extends ViewRowImpl {
         WmmDelete,
         WmmMakerChecker,
         WmmSno,
+        TaskFlowId,
         WmmCnodeFWMSMainMenuVO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -62,6 +63,7 @@ public class FWMSMainMenuVORowImpl extends ViewRowImpl {
     public static final int WMMDELETE = AttributesEnum.WmmDelete.index();
     public static final int WMMMAKERCHECKER = AttributesEnum.WmmMakerChecker.index();
     public static final int WMMSNO = AttributesEnum.WmmSno.index();
+    public static final int TASKFLOWID = AttributesEnum.TaskFlowId.index();
     public static final int WMMCNODEFWMSMAINMENUVO = AttributesEnum.WmmCnodeFWMSMainMenuVO.index();
 
     /**
@@ -164,6 +166,14 @@ public class FWMSMainMenuVORowImpl extends ViewRowImpl {
      */
     public Integer getWmmSno() {
         return (Integer) getAttributeInternal(WMMSNO);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute TaskFlowId.
+     * @return the TaskFlowId
+     */
+    public String getTaskFlowId() {
+        return (String) getAttributeInternal(TASKFLOWID);
     }
 
     /**

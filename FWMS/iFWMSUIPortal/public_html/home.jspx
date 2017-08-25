@@ -94,7 +94,7 @@
                             <af:showDetailItem id="pane8" inflexibleHeight="0" text="#{UIBundle.SYSTEM_PARAMETERS}">
                                 
                                     <af:tree value="#{bindings.FWMSMainMenu.treeModel}" var="node" summary="#{null}"
-                                             selectionListener="#{bindings.FWMSMainMenu.treeModel.makeCurrent}"
+                                             selectionListener="#{pageFlowScope.HomeBean.onTreeSelection}"
                                              rowSelection="single" id="t1" inlineStyle="padding-left:10px;">
                                         <f:facet name="nodeStamp">
                                             <af:group id="g1">
@@ -110,7 +110,8 @@
                                                                      styleClass="AFStretchWidth"
                                                                      rendered="#{node.WmmFile ne 'MENU'}">
                                                     <af:image source="/images/file.png" id="i2" shortDesc="#{null}"/>
-                                                    <af:link id="ot1" text="#{node.WmmDesc}" partialSubmit="true"/>
+                                                    <af:link id="ot1" text="#{node.WmmDesc}" partialSubmit="true"
+                                                             actionListener="#{pageFlowScope.HomeBean.onScreenNameClick}"/>
                                                     <f:facet name="separator">
                                                         <af:spacer width="5" id="s6"/>
                                                     </f:facet>

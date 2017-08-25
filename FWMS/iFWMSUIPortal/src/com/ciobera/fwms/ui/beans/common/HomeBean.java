@@ -19,7 +19,6 @@ import java.util.List;
 import javax.faces.event.ActionEvent;
 
 import oracle.adf.share.logging.ADFLogger;
-
 import oracle.adf.view.rich.component.rich.data.RichTree;
 
 import oracle.jbo.Row;
@@ -31,7 +30,6 @@ import oracle.ui.pattern.dynamicShell.TabContext;
 import org.apache.myfaces.trinidad.event.SelectionEvent;
 import org.apache.myfaces.trinidad.model.CollectionModel;
 import org.apache.myfaces.trinidad.model.RowKeySet;
-
 import org.apache.myfaces.trinidad.model.TreeModel;
 
 
@@ -72,8 +70,8 @@ public class HomeBean implements Serializable {
      * Depending on the tree node selection show the corresponding attributes
      * @param selectionEvent
      */
-    public void select_bean(SelectionEvent selectionEvent) {
-        ADFUtil.invokeMethodExpression("#{bindings.FWMSMainMenu.treeModel.makeCurrent}",
+    public void onTreeSelection(SelectionEvent selectionEvent) {
+        ADFUtil.invokeEL("#{bindings.FWMSMainMenu.treeModel.makeCurrent}",
                                        new Class[] { SelectionEvent.class }, new Object[] { selectionEvent });
         RichTree tree = (RichTree) selectionEvent.getSource(); // get the tree component from the event
         TreeModel model = (TreeModel) tree.getValue();
@@ -89,8 +87,10 @@ public class HomeBean implements Serializable {
             JUCtrlHierNodeBinding nodeBinding = null;
             nodeBinding = treeBinding.findNodeByKeyPath(key);
             Row row = nodeBinding.getRow();
-            row.getAttribute("WmmDesc");
-            row.getAttribute("TaskFlowId");
+            if (row != null) {
+                tabTitle = (String) row.getAttribute("WmmDesc");
+                tabTaskFlowId = (String) row.getAttribute("TaskFlowId");
+            }
         }
     }
 
