@@ -3,10 +3,7 @@
                 Package="com.ciobera.fwms.system.ui.fragments">
   <parameters/>
   <executables>
-    <variableIterator id="variables">
-      <variable Type="java.lang.String" Name="updateProductRecord_mode" IsQueriable="false"/>
-      <variable Type="java.lang.String" Name="updateProductRecord_updatedBy" IsQueriable="false"/>
-    </variableIterator>
+    <variableIterator id="variables"/>
     <iterator Binds="FWMSProduct" RangeSize="25" DataControl="SystemAMDataControl" id="FWMSProductIterator"/>
     <searchRegion Binds="FWMSProductIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="FWMSProductQuery"/>
@@ -262,29 +259,5 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <methodAction id="updateProductRecord" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="updateProductRecord" IsViewObjectMethod="false" DataControl="SystemAMDataControl"
-                  InstanceName="bindings.updateProductRecord.dataControl.dataProvider">
-      <NamedData NDName="mode" NDType="java.lang.String" NDValue="${bindings.updateProductRecord_mode}"/>
-      <NamedData NDName="updatedBy" NDType="java.lang.String" NDValue="${bindings.updateProductRecord_updatedBy}"/>
-    </methodAction>
-    <attributeValues IterBinding="variables" id="mode">
-      <AttrNames>
-        <Item Value="updateProductRecord_mode"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="variables" id="updatedBy">
-      <AttrNames>
-        <Item Value="updateProductRecord_updatedBy"/>
-      </AttrNames>
-    </attributeValues>
-    <methodAction id="executeEmptyRowSetBondCoupen" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="executeEmptyRowSetBondCoupen" IsViewObjectMethod="false" DataControl="SystemAMDataControl"
-                  InstanceName="bindings.executeEmptyRowSetBondCoupen.dataControl.dataProvider"/>
-    <attributeValues IterBinding="FWMSProductIterator" id="WmsProductId">
-      <AttrNames>
-        <Item Value="WmsProductId"/>
-      </AttrNames>
-    </attributeValues>
   </bindings>
 </pageDefinition>

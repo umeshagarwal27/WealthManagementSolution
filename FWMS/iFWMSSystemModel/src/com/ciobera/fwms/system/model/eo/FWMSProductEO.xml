@@ -35,6 +35,10 @@
     Name="FWMSStockExchange"
     ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSStockExchangeVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProductIdSeq"
+    ViewObjectName="com.ciobera.fwms.system.model.vo.readonly.ProductIdSeq"
+    RowLevelBinds="true"/>
   <Attribute
     Name="WmsProductType"
     Precision="50"
@@ -53,21 +57,12 @@
     Scale="0"
     ColumnName="WMS_PRODUCT_ID"
     SQLType="NUMERIC"
-    Type="oracle.jbo.domain.Number"
+    Type="java.lang.Long"
     ColumnType="NUMBER"
     TableName="FWMS_PRODUCT"
     PrimaryKey="true"
-    IsUpdateable="while_insert"
-    RetrievedOnInsert="true">
+    IsUpdateable="while_insert">
     <Properties>
-      <CustomProperties>
-        <Property
-          Name="FWMS_PRODUCT_SEQ"
-          Value="FWMS_PRODUCT_SEQ"/>
-        <Property
-          Name="FWMS_PRODUCT_CREATE_SEQ"
-          Value="FWMS_PRODUCT_CREATE_SEQ"/>
-      </CustomProperties>
       <SchemaBasedProperties>
         <LABEL
           ResId="STOCK_ID"/>
@@ -870,4 +865,8 @@
       <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsProductId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

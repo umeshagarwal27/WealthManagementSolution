@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProductIdSeq"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="com.ciobera.fwms.system.model.vo.readonly.ProductIdSeqRowImpl"
+  ComponentClass="com.ciobera.fwms.system.model.vo.readonly.ProductIdSeqImpl"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ciobera.fwms.system.model.vo.readonly.ProductIdSeq_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT MAX(NVL(WMS_PRODUCT_ID,0)) + 1 AS MAX_PRODUCT_ID FROM FWMS_PRODUCT]]></SQLQuery>
+  <ViewAttribute
+    Name="MaxProductId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    AliasName="MAX_PRODUCT_ID"
+    Expression="MAX_PRODUCT_ID"
+    SQLType="NUMERIC"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="MaxProductId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

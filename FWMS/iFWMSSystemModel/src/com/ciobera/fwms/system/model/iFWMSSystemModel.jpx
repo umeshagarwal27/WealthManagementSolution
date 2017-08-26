@@ -39,6 +39,14 @@
     </DesignTime>
   </Containee>
   <Containee
+    Name="readonly"
+    PackageName="com.ciobera.fwms.system.model.vo.readonly"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
     Name="viewlink"
     PackageName="com.ciobera.fwms.system.model.vo.viewlink"
     ObjectType="JboPackage">

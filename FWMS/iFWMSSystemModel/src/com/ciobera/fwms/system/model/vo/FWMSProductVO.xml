@@ -145,7 +145,8 @@
     EntityAttrName="WmsProductId"
     EntityUsage="FWMSProductEO"
     AliasName="WMS_PRODUCT_ID"
-    IsUpdateable="while_insert"/>
+    IsUpdateable="while_insert"
+    DefaultValue="-1"/>
   <ViewAttribute
     Name="WmsProductName"
     PrecisionRule="true"

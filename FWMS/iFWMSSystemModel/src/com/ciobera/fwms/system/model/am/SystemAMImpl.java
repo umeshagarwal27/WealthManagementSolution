@@ -24,29 +24,13 @@ public class SystemAMImpl extends ApplicationModuleImpl implements SystemAM {
     }
 
     /**
-     * Container's getter for FWMSProduct.
-     * @return FWMSProduct
+     * This method is called to update logged in user and date for various scenarios.
+     * In Create Mode, WMSENTERUID, WMSENTERDATE is updated.
+     * In Edit Mode, WMSLASTUPDATEID, WMSLASTUPDATEDATE is updated.
+     * In case of Approve, WMSAPPROVEUID, WMSAPPROVEDATE is updated.
+     * @param mode
+     * @param updatedBy
      */
-    public FWMSProductVOImpl getFWMSProduct() {
-        return (FWMSProductVOImpl) findViewObject("FWMSProduct");
-    }
-
-    /**
-     * Container's getter for FWMSBondCoupen.
-     * @return FWMSBondCoupen
-     */
-    public FWMSBondCoupenVOImpl getFWMSBondCoupen() {
-        return (FWMSBondCoupenVOImpl) findViewObject("FWMSBondCoupen");
-    }
-
-    /**
-     * Container's getter for FWMSProductVOToFWMSBondCoupen.
-     * @return FWMSProductVOToFWMSBondCoupen
-     */
-    public ViewLinkImpl getFWMSProductVOToFWMSBondCoupen() {
-        return (ViewLinkImpl) findViewLink("FWMSProductVOToFWMSBondCoupen");
-    }
-
     public void updateProductRecord(String mode, String updatedBy) {
         Calendar cal = Calendar.getInstance();
         FWMSProductVOImpl productVO = getFWMSProduct();
@@ -69,12 +53,40 @@ public class SystemAMImpl extends ApplicationModuleImpl implements SystemAM {
             }
         }
     }
-    
-    public void executeEmptyRowSetBondCoupen(){
+
+    /**
+     *  This method is called in the create mode of add stock popup load.
+     *  This method executes empty row set on FWMSBondCoupen VO.
+     */
+    public void executeEmptyRowSetBondCoupen() {
         FWMSBondCoupenVOImpl bondCoupenVO = getFWMSBondCoupen();
-        if(bondCoupenVO != null){
+        if (bondCoupenVO != null) {
             bondCoupenVO.executeEmptyRowSet();
         }
+    }
+
+    /**
+     * Container's getter for FWMSProduct.
+     * @return FWMSProduct
+     */
+    public FWMSProductVOImpl getFWMSProduct() {
+        return (FWMSProductVOImpl) findViewObject("FWMSProduct");
+    }
+
+    /**
+     * Container's getter for FWMSBondCoupen.
+     * @return FWMSBondCoupen
+     */
+    public FWMSBondCoupenVOImpl getFWMSBondCoupen() {
+        return (FWMSBondCoupenVOImpl) findViewObject("FWMSBondCoupen");
+    }
+
+    /**
+     * Container's getter for FWMSProductVOToFWMSBondCoupen.
+     * @return FWMSProductVOToFWMSBondCoupen
+     */
+    public ViewLinkImpl getFWMSProductVOToFWMSBondCoupen() {
+        return (ViewLinkImpl) findViewLink("FWMSProductVOToFWMSBondCoupen");
     }
 }
 
