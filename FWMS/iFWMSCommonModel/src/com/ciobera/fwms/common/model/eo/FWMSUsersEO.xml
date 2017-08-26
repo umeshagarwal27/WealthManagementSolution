@@ -24,7 +24,7 @@
     Name="WmsCreateDate"
     ColumnName="WMS_CREATE_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="FWMS_USERS"/>
   <Attribute
@@ -112,14 +112,14 @@
     Name="WmsLastLogin"
     ColumnName="WMS_LAST_LOGIN"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="FWMS_USERS"/>
   <Attribute
     Name="WmsLastPasswordChange"
     ColumnName="WMS_LAST_PASSWORD_CHANGE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="FWMS_USERS"/>
   <Attribute
@@ -150,7 +150,7 @@
     Name="WmsStatusCdate"
     ColumnName="WMS_STATUS_CDATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="FWMS_USERS"/>
   <Attribute
@@ -193,7 +193,7 @@
     Name="WmsEnterDate"
     ColumnName="WMS_ENTER_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="FWMS_USERS"/>
   <Attribute
@@ -224,7 +224,7 @@
     Name="WmsLastUpdateDate"
     ColumnName="WMS_LAST_UPDATE_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="FWMS_USERS"/>
   <Attribute
@@ -255,7 +255,7 @@
     Name="WmsApproveDate"
     ColumnName="WMS_APPROVE_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="FWMS_USERS"/>
   <Attribute

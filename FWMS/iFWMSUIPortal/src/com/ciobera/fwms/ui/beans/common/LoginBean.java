@@ -10,6 +10,7 @@
 package com.ciobera.fwms.ui.beans.common;
 
 
+import com.ciobera.fwms.common.util.bean.GlobalBean;
 import com.ciobera.fwms.common.util.logger.LoggingUtil;
 import com.ciobera.fwms.common.util.utils.common.ADFUtil;
 
@@ -178,7 +179,7 @@ public class LoginBean implements Serializable {
                     displayErrorPopup(ADFUtil.getUIBundleMsg("USER_ACCOUNT_BLOCKED"));
                     return null;
                 }
-                long expiryDays = Long.parseLong((String) resultMap.get("EXPIRY_DAYS"));
+                int expiryDays = Integer.parseInt((String) resultMap.get("EXPIRY_DAYS"));
                 if (expiryDays == 0) {
                     if (getPasswordExpiredPopupBinding() != null) {
                         RichPopup.PopupHints hints = new RichPopup.PopupHints();
@@ -186,17 +187,35 @@ public class LoginBean implements Serializable {
                     }
                     return null;
                 }
+                GlobalBean globalBean = (GlobalBean) ADFUtil.evaluateEL("#{GlobalBean}");
+                if (globalBean == null) {
+                    LoggingUtil.logErrorMessages(LOGGER, "Global Info session Bean is null.");
+                    displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
+                    return null;
+                }
+                globalBean.setEmailAddress((String) resultMap.get("EMAIL"));
+                globalBean.setExpiryDays(expiryDays);
+                if ("Y".equalsIgnoreCase((String) resultMap.get("USER_BLOCKED"))) {
+                    globalBean.setIsUserBlocked(Boolean.TRUE);
+                } else {
+                    globalBean.setIsUserBlocked(Boolean.FALSE);
+                }
+                globalBean.setLastLogin((String) resultMap.get("LAST_LOGIN"));
+                globalBean.setLastPasswordChange((String) resultMap.get("LAST_PASSWORD_CHANGE"));
+                globalBean.setUserId((String) resultMap.get("USER_ID"));
+                globalBean.setUserName((String) resultMap.get("USER_NAME"));
+                globalBean.setStatus((String) resultMap.get("STATUS"));
                 //TODO: Navigate to Home Page
                 FacesContext ctx = FacesContext.getCurrentInstance();
                 HttpServletRequest request = (HttpServletRequest) ctx.getExternalContext().getRequest();
                 String loginUrl = "http://localhost:7101/iWMSUIPortal/faces/home.jspx";
                 HttpServletResponse response = (HttpServletResponse) ctx.getExternalContext().getResponse();
                 //On successful authentication navigate to Home page
-//                sendForward(request, response, loginUrl);
+                //                sendForward(request, response, loginUrl);
                 //
                 try {
                     redirectPage(loginUrl);
-//                    redirectRequest(response, loginUrl);
+                    //                    redirectRequest(response, loginUrl);
                 } catch (IOException ioe) {
                     // TODO: Add catch code
                     ioe.printStackTrace();
@@ -648,15 +667,15 @@ public class LoginBean implements Serializable {
         LoginBean lb = new LoginBean();
         System.out.println(lb.validatePasswordRegex("Welcome123@"));
     }
-    
+
     public static void redirectPage(String urlPath) throws IOException {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         ExternalContext exctx = facesContext.getExternalContext();
         exctx.redirect(urlPath);
     }
-    
+
     private void redirectRequest(ServletResponse servletResponse, String urlPath) throws IOException {
-        HttpServletResponse response = (HttpServletResponse)servletResponse;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
         response.sendRedirect(urlPath);
     }
 }

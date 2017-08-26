@@ -25,16 +25,13 @@ ALTER TABLE FWMS_MAIN_MENU ADD TASK_FLOW_ID VARCHAR2(1000);
 
 UPDATE FWMS_MAIN_MENU SET TASK_FLOW_ID = '/WEB-INF/com/ciobera/fwms/system/ui/taskflows/user-log-task-flow-definition.xml#user-log-task-flow-definition' WHERE WMM_CNODE = 52;
 
-
 UPDATE FWMS_MAIN_MENU SET TASK_FLOW_ID = '/WEB-INF/com/ciobera/fwms/system/ui/taskflows/stock-information-task-flow-definition.xml#stock-information-task-flow-definition' WHERE WMM_CNODE = 54;
 
+UPDATE FWMS_MAIN_MENU SET TASK_FLOW_ID = '/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/order-management-task-flow-definition.xml#order-management-task-flow-definition' WHERE WMM_CNODE = 301;
 
-UPDATE FWMS_MAIN_MENU SET TASK_FLOW_ID = '' WHERE WMM_CNODE = 301;
+UPDATE FWMS_MAIN_MENU SET TASK_FLOW_ID = '/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/dashboard-task-flow-definition.xml#dashboard-task-flow-definition' WHERE WMM_CNODE = 302;
 
-
-UPDATE FWMS_MAIN_MENU SET TASK_FLOW_ID = '' WHERE WMM_CNODE = 302;
-
-UPDATE FWMS_MAIN_MENU SET TASK_FLOW_ID = '' WHERE WMM_CNODE = 303;
+UPDATE FWMS_MAIN_MENU SET TASK_FLOW_ID = '/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/trade-book-task-flow-definition.xml#trade-book-task-flow-definition' WHERE WMM_CNODE = 303;
 
 
 ============================SYSTEM PARAMATER wmm_menu=1 ==========================================================

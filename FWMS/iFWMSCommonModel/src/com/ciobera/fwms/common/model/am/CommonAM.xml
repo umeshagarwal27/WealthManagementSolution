@@ -30,15 +30,7 @@
     <ViewCriteriaUsage
       Name="findBySNo"
       FullName="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO.findBySNo"/>
-    <ViewCriteriaUsage
-      Name="findByUserId"
-      FullName="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO.findByUserId"/>
     <ParameterMap>
-      <PIMap Variable="pUserId">
-        <TransientExpression
-          trustMode="untrusted"
-          Name="ExpressionScript"><![CDATA['SRINI']]></TransientExpression>
-      </PIMap>
       <PIMap Variable="pSNo">
         <TransientExpression
           trustMode="untrusted"
@@ -152,6 +144,16 @@
         Type="java.lang.String"/>
       <Parameter
         Name="newPassword"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="findMainMenuByUserId"
+      MethodName="findMainMenuByUserId">
+      <Return
+        Name="_return_type_"
+        Type="java.util.Map"/>
+      <Parameter
+        Name="userId"
         Type="java.lang.String"/>
     </Method>
   </ClientInterface>

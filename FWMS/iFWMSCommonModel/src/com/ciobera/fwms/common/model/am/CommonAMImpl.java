@@ -10,6 +10,10 @@ import com.ciobera.fwms.common.model.vo.readonly.FWMSUsersVOImpl;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,6 +33,23 @@ public class CommonAMImpl extends ApplicationModuleImpl implements CommonAM {
      * This is the default constructor (do not remove).
      */
     public CommonAMImpl() {
+    }
+    
+    /**
+     * Helper method to convert oracle.jbo.domain.Date to String
+     * @param domainDate
+     * @return
+     */
+    private String convertJbodateToString(oracle.jbo.domain.Date domainDate){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S"); 
+        Date date = null;
+        try {
+            date = (Date) formatter.parse(domainDate.toString().substring(0, 21));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        SimpleDateFormat FORMATTER = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        return FORMATTER.format(date);
     }
 
     /**
@@ -56,6 +77,12 @@ public class CommonAMImpl extends ApplicationModuleImpl implements CommonAM {
                         resultMap.put("EXPIRY_DAYS",
                                       Integer.toString((Integer) currentRow.getAttribute("WmsExpiryDays")));
                         resultMap.put("USER_BLOCKED", (String) currentRow.getAttribute("WmsBlock"));
+                        resultMap.put("USER_NAME", currentRow.getAttribute("WmsName"));
+                        resultMap.put("USER_ID", currentRow.getAttribute("WmsUserId"));
+                        resultMap.put("STATUS", currentRow.getAttribute("WmsStatus"));
+                        resultMap.put("LAST_LOGIN", convertJbodateToString((oracle.jbo.domain.Date)currentRow.getAttribute("WmsLastLogin")));
+                        resultMap.put("LAST_PASSWORD_CHANGE", convertJbodateToString((oracle.jbo.domain.Date)currentRow.getAttribute("WmsLastPasswordChange")));
+                        resultMap.put("EMAIL", currentRow.getAttribute("WmsEmail"));
                     } else {
                         resultMap.put("RESP_CODE", "INVALID");
                     }
@@ -278,19 +305,23 @@ public class CommonAMImpl extends ApplicationModuleImpl implements CommonAM {
      * @param userId
      * @return
      */
-    public Map findByUserId(String userId){
+    public Map findMainMenuByUserId(String userId){
         Map resultMap = new HashMap();
         FWMSMainMenuVOImpl mainMenuVO = this.getFWMSMainMenu();
         if (mainMenuVO != null) {
             ViewCriteria findByUserIdVC = mainMenuVO.getViewCriteria("findByUserId");
+            ViewCriteria findBySNoVC = mainMenuVO.getViewCriteria("findBySNo");
             if (findByUserIdVC != null) {
                 mainMenuVO.applyViewCriteria(null);
                 mainMenuVO.setNamedWhereClauseParam("pUserId", null);
+                mainMenuVO.setNamedWhereClauseParam("pSNo", null);
                 mainMenuVO.setNamedWhereClauseParam("pUserId", userId);
-                mainMenuVO.applyViewCriteria(findByUserIdVC);
+                mainMenuVO.setNamedWhereClauseParam("pSNo", 1);
+                mainMenuVO.applyViewCriteria(findBySNoVC,true);
+                mainMenuVO.applyViewCriteria(findByUserIdVC,true);
                 mainMenuVO.executeQuery();
                 Row rows[] = mainMenuVO.getAllRowsInRange();
-                if(rows != null){
+                if(rows != null && rows.length > 0){
                     resultMap.put("RESP_CODE", "SUCCESS");
                 } else {
                     resultMap.put("RESP_CODE", "INVALID");
@@ -306,7 +337,7 @@ public class CommonAMImpl extends ApplicationModuleImpl implements CommonAM {
         }
         return resultMap;
     }
-
+    
     /**
      * Container's getter for FWMSUsers.
      * @return FWMSUsers

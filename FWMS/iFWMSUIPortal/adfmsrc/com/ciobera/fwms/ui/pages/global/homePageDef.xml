@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="homePageDef"
-                Package="com.ciobera.fwms.ui.pages.global">
+                Package="com.ciobera.fwms.ui.pages.global" ControllerClass="com.ciobera.fwms.ui.beans.common.HomeBean">
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
@@ -30,5 +30,11 @@
         </Accessors>
       </nodeDefinition>
     </tree>
+    <methodAction id="findMainMenuByUserId" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="findMainMenuByUserId" IsViewObjectMethod="false" DataControl="CommonAMDataControl"
+                  InstanceName="bindings.findMainMenuByUserId.dataControl.dataProvider"
+                  ReturnName="data.CommonAMDataControl.methodResults.findMainMenuByUserId_findMainMenuByUserId_dataControl_dataProvider_findMainMenuByUserId_result">
+      <NamedData NDName="userId" NDValue="#{GlobalBean.userId}" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>
