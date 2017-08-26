@@ -46,6 +46,8 @@ public class FWMSBondCoupenEOImpl extends EntityImpl {
             return vals;
         }
     }
+
+
     public static final int WMSSNO = AttributesEnum.WmsSno.index();
     public static final int WMSBOND = AttributesEnum.WmsBond.index();
     public static final int WMSDATE = AttributesEnum.WmsDate.index();
@@ -57,6 +59,14 @@ public class FWMSBondCoupenEOImpl extends EntityImpl {
      */
     public FWMSBondCoupenEOImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("com.ciobera.fwms.system.model.eo.FWMSBondCoupenEO");
+    }
+
 
     /**
      * Gets the attribute value for WmsSno, using the alias name WmsSno.
@@ -136,6 +146,7 @@ public class FWMSBondCoupenEOImpl extends EntityImpl {
         setAttributeInternal(FWMSPRODUCTEO, value);
     }
 
+
     /**
      * @param wmsSno key constituent
 
@@ -143,13 +154,6 @@ public class FWMSBondCoupenEOImpl extends EntityImpl {
      */
     public static Key createPrimaryKey(Long wmsSno) {
         return new Key(new Object[] { wmsSno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("com.ciobera.fwms.system.model.eo.FWMSBondCoupenEO");
     }
 
     /**

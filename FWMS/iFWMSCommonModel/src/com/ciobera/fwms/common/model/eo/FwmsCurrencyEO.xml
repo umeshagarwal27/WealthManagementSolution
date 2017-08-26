@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FwmsCurrencyEO"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="FWMS_CURRENCY"
+  AliasName="FwmsCurrencyEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="WmsCurrencyId"
+    Precision="4"
+    Scale="0"
+    ColumnName="WMS_CURRENCY_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="FWMS_CURRENCY"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="WmsCurrencyDesc"
+    Precision="75"
+    ColumnName="WMS_CURRENCY_DESC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="FWMS_CURRENCY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="75"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WmsShortDesc"
+    Precision="10"
+    ColumnName="WMS_SHORT_DESC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="FWMS_CURRENCY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="FwmscurrencyeoPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="FWMSCURRENCYEO_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.ciobera.fwms.common.model.eo.FwmsCurrencyEO.WmsCurrencyId"/>
+    </AttrArray>
+  </Key>
+</Entity>

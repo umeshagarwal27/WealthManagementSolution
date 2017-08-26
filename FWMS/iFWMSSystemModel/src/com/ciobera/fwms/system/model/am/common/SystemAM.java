@@ -6,8 +6,9 @@ import oracle.jbo.ApplicationModule;
 // ---    Tue Aug 15 19:31:01 IST 2017
 // ---------------------------------------------------------------------
 public interface SystemAM extends ApplicationModule {
-    void executeEmptyRowSetBondCoupen();
 
     void updateProductRecord(String mode, String updatedBy);
+
+    void executeEmptyRowSetBondCoupen();
 }
 

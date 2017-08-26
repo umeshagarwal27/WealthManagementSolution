@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FwmsStockExchangeEO"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="FWMS_STOCK_EXCHANGE"
+  AliasName="FwmsStockExchangeEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="WmsStockExchangeId"
+    Precision="4"
+    Scale="0"
+    ColumnName="WMS_STOCK_EXCHANGE_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="FWMS_STOCK_EXCHANGE"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="WmsStockExchangeDesc"
+    Precision="75"
+    ColumnName="WMS_STOCK_EXCHANGE_DESC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="FWMS_STOCK_EXCHANGE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="75"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="FwmsstockexchangeeoPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="FWMSSTOCKEXCHANGEEO_PRIMARY_KE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.ciobera.fwms.common.model.eo.FwmsStockExchangeEO.WmsStockExchangeId"/>
+    </AttrArray>
+  </Key>
+</Entity>

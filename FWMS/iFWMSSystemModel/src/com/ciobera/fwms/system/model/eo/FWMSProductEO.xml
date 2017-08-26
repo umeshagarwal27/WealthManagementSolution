@@ -15,30 +15,6 @@
     <Attr Name="_codeGenFlag2" Value="Init|Access|DML"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
-  <ViewAccessor
-    Name="FWMSAsset"
-    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSAssetVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="FWMSCountry"
-    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSCountryVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="FWMSCurrency"
-    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSCurrencyVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="FWMSSector"
-    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSSectorVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="FWMSStockExchange"
-    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSStockExchangeVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="ProductIdSeq"
-    ViewObjectName="com.ciobera.fwms.system.model.vo.readonly.ProductIdSeq"
-    RowLevelBinds="true"/>
   <Attribute
     Name="WmsProductType"
     Precision="50"
@@ -853,6 +829,41 @@
     Association="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSBondCoupenEO"
     AssociationEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSBondCoupenEO.FWMSBondCoupenEO"
     AssociationOtherEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSBondCoupenEO.FWMSProductEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="FwmsAssetEO"
+    Association="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSAssetEO"
+    AssociationEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSAssetEO.FwmsAssetEO"
+    AssociationOtherEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSAssetEO.FWMSProductEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="FwmsCountryEO"
+    Association="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSCountryEO"
+    AssociationEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSCountryEO.FwmsCountryEO"
+    AssociationOtherEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSCountryEO.FWMSProductEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="FwmsCurrencyEO"
+    Association="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSCurrencyEO"
+    AssociationEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSCurrencyEO.FwmsCurrencyEO"
+    AssociationOtherEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSCurrencyEO.FWMSProductEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="FwmsSectorEO"
+    Association="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSSectorEO"
+    AssociationEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSSectorEO.FwmsSectorEO"
+    AssociationOtherEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSSectorEO.FWMSProductEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="FwmsStockExchangeEO"
+    Association="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSStockExchangeEO"
+    AssociationEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSStockExchangeEO.FwmsStockExchangeEO"
+    AssociationOtherEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSStockExchangeEO.FWMSProductEO"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FwmsCountryEO"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="FWMS_COUNTRY"
+  AliasName="FwmsCountryEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="WmsCountryId"
+    Precision="25"
+    Scale="0"
+    ColumnName="WMS_COUNTRY_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    TableName="FWMS_COUNTRY"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="WmsCountryDesc"
+    Precision="75"
+    ColumnName="WMS_COUNTRY_DESC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="FWMS_COUNTRY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="75"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="FwmscountryeoPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="FWMSCOUNTRYEO_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.ciobera.fwms.common.model.eo.FwmsCountryEO.WmsCountryId"/>
+    </AttrArray>
+  </Key>
+</Entity>

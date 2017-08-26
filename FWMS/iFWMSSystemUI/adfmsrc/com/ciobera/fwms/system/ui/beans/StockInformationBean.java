@@ -8,6 +8,7 @@
  ******************************************************************************************************/
 package com.ciobera.fwms.system.ui.beans;
 
+import com.ciobera.fwms.common.util.bean.GlobalBean;
 import com.ciobera.fwms.common.util.logger.LoggingUtil;
 import com.ciobera.fwms.common.util.utils.common.ADFUtil;
 
@@ -37,7 +38,7 @@ public class StockInformationBean implements Serializable {
     private String mode;
     private String errorMessage;
     private String confirmationMessage;
-    private String userId = "Umesh";
+    private String userId;
     private String fileName;
     private ComponentReference confirmationPopupBinding;
     private ComponentReference addUpdateStockPopupBinding;
@@ -269,7 +270,6 @@ public class StockInformationBean implements Serializable {
      * @param actionEvent
      */
     public void onApproveStock(ActionEvent actionEvent) {
-        
         setMode("EDIT");
         if (!executeMethod("updateProductRecord", true)) {
             displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
@@ -376,6 +376,10 @@ public class StockInformationBean implements Serializable {
     }
 
     public String getFileName() {
+        GlobalBean globalBean = (GlobalBean) ADFUtil.evaluateEL("#{GlobalBean}");
+        if (globalBean == null || globalBean.getUserId() == null) {
+            userId = globalBean.getUserId();
+        }
         if (getMindate() != null) {
             fileName = "Export_Stocks_" + userId + "_" + getMindate() + ".xls";
         } else {

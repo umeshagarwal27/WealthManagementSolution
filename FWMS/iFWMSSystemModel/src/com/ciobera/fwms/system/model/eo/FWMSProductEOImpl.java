@@ -1,13 +1,10 @@
 package com.ciobera.fwms.system.model.eo;
 
-import com.ciobera.fwms.system.model.vo.readonly.ProductIdSeqRowImpl;
-
 import java.math.BigDecimal;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
-import oracle.jbo.RowSet;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
@@ -74,12 +71,11 @@ public class FWMSProductEOImpl extends EntityImpl {
         WmsMutualIbType,
         WmsSedol,
         FWMSBondCoupenEO,
-        FWMSAsset,
-        FWMSCountry,
-        FWMSCurrency,
-        FWMSSector,
-        FWMSStockExchange,
-        ProductIdSeq;
+        FwmsAssetEO,
+        FwmsCountryEO,
+        FwmsCurrencyEO,
+        FwmsSectorEO,
+        FwmsStockExchangeEO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -102,6 +98,7 @@ public class FWMSProductEOImpl extends EntityImpl {
             return vals;
         }
     }
+
 
     public static final int WMSPRODUCTTYPE = AttributesEnum.WmsProductType.index();
     public static final int WMSPRODUCTID = AttributesEnum.WmsProductId.index();
@@ -154,12 +151,11 @@ public class FWMSProductEOImpl extends EntityImpl {
     public static final int WMSMUTUALIBTYPE = AttributesEnum.WmsMutualIbType.index();
     public static final int WMSSEDOL = AttributesEnum.WmsSedol.index();
     public static final int FWMSBONDCOUPENEO = AttributesEnum.FWMSBondCoupenEO.index();
-    public static final int FWMSASSET = AttributesEnum.FWMSAsset.index();
-    public static final int FWMSCOUNTRY = AttributesEnum.FWMSCountry.index();
-    public static final int FWMSCURRENCY = AttributesEnum.FWMSCurrency.index();
-    public static final int FWMSSECTOR = AttributesEnum.FWMSSector.index();
-    public static final int FWMSSTOCKEXCHANGE = AttributesEnum.FWMSStockExchange.index();
-    public static final int PRODUCTIDSEQ = AttributesEnum.ProductIdSeq.index();
+    public static final int FWMSASSETEO = AttributesEnum.FwmsAssetEO.index();
+    public static final int FWMSCOUNTRYEO = AttributesEnum.FwmsCountryEO.index();
+    public static final int FWMSCURRENCYEO = AttributesEnum.FwmsCurrencyEO.index();
+    public static final int FWMSSECTOREO = AttributesEnum.FwmsSectorEO.index();
+    public static final int FWMSSTOCKEXCHANGEEO = AttributesEnum.FwmsStockExchangeEO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -173,6 +169,7 @@ public class FWMSProductEOImpl extends EntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("com.ciobera.fwms.system.model.eo.FWMSProductEO");
     }
+
 
     /**
      * Gets the attribute value for WmsProductType, using the alias name WmsProductType.
@@ -982,45 +979,66 @@ public class FWMSProductEOImpl extends EntityImpl {
     }
 
     /**
-     * Gets the view accessor <code>RowSet</code> FWMSAsset.
+     * @return the associated entity oracle.jbo.server.EntityImpl.
      */
-    public RowSet getFWMSAsset() {
-        return (RowSet) getAttributeInternal(FWMSASSET);
+    public EntityImpl getFwmsAssetEO() {
+        return (EntityImpl) getAttributeInternal(FWMSASSETEO);
     }
 
     /**
-     * Gets the view accessor <code>RowSet</code> FWMSCountry.
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
      */
-    public RowSet getFWMSCountry() {
-        return (RowSet) getAttributeInternal(FWMSCOUNTRY);
+    public void setFwmsAssetEO(EntityImpl value) {
+        setAttributeInternal(FWMSASSETEO, value);
     }
 
     /**
-     * Gets the view accessor <code>RowSet</code> FWMSCurrency.
+     * @return the associated entity oracle.jbo.server.EntityImpl.
      */
-    public RowSet getFWMSCurrency() {
-        return (RowSet) getAttributeInternal(FWMSCURRENCY);
+    public EntityImpl getFwmsCountryEO() {
+        return (EntityImpl) getAttributeInternal(FWMSCOUNTRYEO);
     }
 
     /**
-     * Gets the view accessor <code>RowSet</code> FWMSSector.
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
      */
-    public RowSet getFWMSSector() {
-        return (RowSet) getAttributeInternal(FWMSSECTOR);
+    public void setFwmsCountryEO(EntityImpl value) {
+        setAttributeInternal(FWMSCOUNTRYEO, value);
     }
 
     /**
-     * Gets the view accessor <code>RowSet</code> FWMSStockExchange.
+     * @return the associated entity oracle.jbo.server.EntityImpl.
      */
-    public RowSet getFWMSStockExchange() {
-        return (RowSet) getAttributeInternal(FWMSSTOCKEXCHANGE);
+    public EntityImpl getFwmsCurrencyEO() {
+        return (EntityImpl) getAttributeInternal(FWMSCURRENCYEO);
     }
 
     /**
-     * Gets the view accessor <code>RowSet</code> ProductIdSeq.
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
      */
-    public RowSet getProductIdSeq() {
-        return (RowSet) getAttributeInternal(PRODUCTIDSEQ);
+    public void setFwmsCurrencyEO(EntityImpl value) {
+        setAttributeInternal(FWMSCURRENCYEO, value);
+    }
+
+    /**
+     * @return the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public EntityImpl getFwmsSectorEO() {
+        return (EntityImpl) getAttributeInternal(FWMSSECTOREO);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public void setFwmsSectorEO(EntityImpl value) {
+        setAttributeInternal(FWMSSECTOREO, value);
+    }
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getFwmsStockExchangeEO() {
+        return (RowIterator) getAttributeInternal(FWMSSTOCKEXCHANGEEO);
     }
 
 
@@ -1055,11 +1073,11 @@ public class FWMSProductEOImpl extends EntityImpl {
      */
     protected void doDML(int operation, TransactionEvent e) {
         if (operation == DML_INSERT) {
-            RowSet seqForThisProduct = getProductIdSeq();
-            ProductIdSeqRowImpl nextSeqNoRow = (ProductIdSeqRowImpl) seqForThisProduct.next();
-            Long next_seq = nextSeqNoRow.getMaxProductId();
-            setWmsProductId(next_seq);
-            seqForThisProduct.closeRowSet();
+//            RowSet seqForThisProduct = getProductIdSeq();
+//            ProductIdSeqRowImpl nextSeqNoRow = (ProductIdSeqRowImpl) seqForThisProduct.next();
+//            Long next_seq = nextSeqNoRow.getMaxProductId();
+//            setWmsProductId(next_seq);
+//            seqForThisProduct.closeRowSet();
         }
         super.doDML(operation, e);
     }

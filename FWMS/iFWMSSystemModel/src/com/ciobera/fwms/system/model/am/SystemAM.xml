@@ -27,13 +27,6 @@
   <ClientInterface
     Name="__clientInterface">
     <Method
-      Name="executeEmptyRowSetBondCoupen"
-      MethodName="executeEmptyRowSetBondCoupen">
-      <Return
-        Name="_return_type_"
-        Type="void"/>
-    </Method>
-    <Method
       Name="updateProductRecord"
       MethodName="updateProductRecord">
       <Return
@@ -45,6 +38,13 @@
       <Parameter
         Name="updatedBy"
         Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="executeEmptyRowSetBondCoupen"
+      MethodName="executeEmptyRowSetBondCoupen">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
     </Method>
   </ClientInterface>
 </AppModule>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FwmsSectorEO"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="FWMS_SECTOR"
+  AliasName="FwmsSectorEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="WmsSectorId"
+    Precision="4"
+    Scale="0"
+    ColumnName="WMS_SECTOR_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="FWMS_SECTOR"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="WmsSectorDesc"
+    Precision="75"
+    ColumnName="WMS_SECTOR_DESC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="FWMS_SECTOR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="75"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="FwmssectoreoPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="FWMSSECTOREO_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.ciobera.fwms.common.model.eo.FwmsSectorEO.WmsSectorId"/>
+    </AttrArray>
+  </Key>
+</Entity>

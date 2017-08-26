@@ -12,21 +12,47 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full"
   RowClass="com.ciobera.fwms.system.model.vo.FWMSProductVORowImpl"
-  ComponentClass="com.ciobera.fwms.system.model.vo.FWMSProductVOImpl">
+  ComponentClass="com.ciobera.fwms.system.model.vo.FWMSProductVOImpl"
+  PageIterMode="Full">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ciobera.fwms.system.model.vo.FWMSProductVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="FWMSAssetVA"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSAssetVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FWMSCountryVA"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSCountryVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FWMSCurrencyVA"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSCurrencyVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FWMSSectorVA"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSSectorVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FWMSStockExchangeVA"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSStockExchangeVO"
+    RowLevelBinds="true"/>
   <ListBinding
-    Name="LOV_WmsAssetTrans"
-    ListVOName="FWMSProductEO.FWMSAsset"
+    Name="LOV_WmsAssetDesc"
+    ListVOName="FWMSAssetVA"
     ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="WmsAssetTrans"/>
+      <Item Value="WmsAssetDesc"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
@@ -42,13 +68,13 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_WmsCountryTrans"
-    ListVOName="FWMSProductEO.FWMSCountry"
+    Name="LOV_WmsCountryDesc"
+    ListVOName="FWMSCountryVA"
     ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="WmsCountryTrans"/>
+      <Item Value="WmsCountryDesc"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
@@ -64,13 +90,13 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_WmsCurrencyTrans"
-    ListVOName="FWMSProductEO.FWMSCurrency"
+    Name="LOV_WmsCurrencyDesc"
+    ListVOName="FWMSCurrencyVA"
     ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="WmsCurrencyTrans"/>
+      <Item Value="WmsCurrencyDesc"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
@@ -86,13 +112,13 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_WmsSectorTrans"
-    ListVOName="FWMSProductEO.FWMSSector"
+    Name="LOV_WmsSectorDesc"
+    ListVOName="FWMSSectorVA"
     ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="WmsSectorTrans"/>
+      <Item Value="WmsSectorDesc"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
@@ -108,13 +134,13 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_WmsStockExchangeTrans"
-    ListVOName="FWMSProductEO.FWMSStockExchange"
+    Name="LOV_WmsStockExchangeDesc"
+    ListVOName="FWMSStockExchangeVA"
     ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="WmsStockExchangeTrans"/>
+      <Item Value="WmsStockExchangeDesc"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
@@ -132,6 +158,96 @@
   <EntityUsage
     Name="FWMSProductEO"
     Entity="com.ciobera.fwms.system.model.eo.FWMSProductEO"/>
+  <EntityUsage
+    Name="FwmsAssetEO"
+    Entity="com.ciobera.fwms.common.model.eo.FwmsAssetEO"
+    Association="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSAssetEO"
+    AssociationEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSAssetEO.FwmsAssetEO"
+    SourceUsage="com.ciobera.fwms.system.model.vo.FWMSProductVO.FWMSProductEO"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.ciobera.fwms.common.model.eo.FwmsAssetEO.WmsAssetId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsAsset"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="FwmsCountryEO"
+    Entity="com.ciobera.fwms.common.model.eo.FwmsCountryEO"
+    Association="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSCountryEO"
+    AssociationEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSCountryEO.FwmsCountryEO"
+    SourceUsage="com.ciobera.fwms.system.model.vo.FWMSProductVO.FWMSProductEO"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.ciobera.fwms.common.model.eo.FwmsCountryEO.WmsCountryId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsCountry"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="FwmsCurrencyEO"
+    Entity="com.ciobera.fwms.common.model.eo.FwmsCurrencyEO"
+    Association="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSCurrencyEO"
+    AssociationEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSCurrencyEO.FwmsCurrencyEO"
+    SourceUsage="com.ciobera.fwms.system.model.vo.FWMSProductVO.FWMSProductEO"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.ciobera.fwms.common.model.eo.FwmsCurrencyEO.WmsCurrencyId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsCurrency"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="FwmsSectorEO"
+    Entity="com.ciobera.fwms.common.model.eo.FwmsSectorEO"
+    Association="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSSectorEO"
+    AssociationEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSSectorEO.FwmsSectorEO"
+    SourceUsage="com.ciobera.fwms.system.model.vo.FWMSProductVO.FWMSProductEO"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.ciobera.fwms.common.model.eo.FwmsSectorEO.WmsSectorId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsSector"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="FwmsStockExchangeEO"
+    Entity="com.ciobera.fwms.common.model.eo.FwmsStockExchangeEO"
+    Association="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSStockExchangeEO"
+    AssociationEnd="com.ciobera.fwms.system.model.eo.assoc.FWMSProductEOToFWMSStockExchangeEO.FwmsStockExchangeEO"
+    SourceUsage="com.ciobera.fwms.system.model.vo.FWMSProductVO.FWMSProductEO"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.ciobera.fwms.common.model.eo.FwmsStockExchangeEO.WmsStockExchangeId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsStockExchange"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
   <ViewAttribute
     Name="WmsProductType"
     PrecisionRule="true"
@@ -450,118 +566,112 @@
     EntityUsage="FWMSProductEO"
     AliasName="WMS_SEDOL"/>
   <ViewAttribute
-    Name="WmsAssetTrans"
-    IsSelected="false"
-    IsPersistent="false"
+    Name="WmsAssetDesc"
     PrecisionRule="true"
-    Precision="255"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"
-    LOVName="LOV_WmsAssetTrans">
+    EntityAttrName="WmsAssetDesc"
+    EntityUsage="FwmsAssetEO"
+    AliasName="WMS_ASSET_DESC"
+    LOVName="LOV_WmsAssetDesc">
     <Properties>
       <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="40"/>
-        <LABEL
-          ResId="${adfBundle['com.ciobera.fwms.bundle.model.ModelBundle']['ASSET']}"/>
         <CONTROLTYPE
           Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="WmsCountryTrans"
-    IsSelected="false"
-    IsPersistent="false"
+    Name="WmsAssetId"
     PrecisionRule="true"
-    Precision="255"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"
-    LOVName="LOV_WmsCountryTrans">
+    EntityAttrName="WmsAssetId"
+    EntityUsage="FwmsAssetEO"
+    AliasName="WMS_ASSET_ID"/>
+  <ViewAttribute
+    Name="WmsCountryDesc"
+    PrecisionRule="true"
+    EntityAttrName="WmsCountryDesc"
+    EntityUsage="FwmsCountryEO"
+    AliasName="WMS_COUNTRY_DESC"
+    LOVName="LOV_WmsCountryDesc">
     <Properties>
       <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="40"/>
-        <LABEL
-          ResId="COUNTRY"/>
         <CONTROLTYPE
           Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="WmsCurrencyTrans"
-    IsSelected="false"
-    IsPersistent="false"
+    Name="WmsCountryId"
     PrecisionRule="true"
-    Precision="255"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"
-    LOVName="LOV_WmsCurrencyTrans">
+    EntityAttrName="WmsCountryId"
+    EntityUsage="FwmsCountryEO"
+    AliasName="WMS_COUNTRY_ID"/>
+  <ViewAttribute
+    Name="WmsCurrencyDesc"
+    PrecisionRule="true"
+    EntityAttrName="WmsCurrencyDesc"
+    EntityUsage="FwmsCurrencyEO"
+    AliasName="WMS_CURRENCY_DESC"
+    LOVName="LOV_WmsCurrencyDesc">
     <Properties>
       <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="40"/>
-        <LABEL
-          ResId="CURRENCY"/>
         <CONTROLTYPE
           Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="WmsSectorTrans"
-    IsSelected="false"
-    IsPersistent="false"
+    Name="WmsCurrencyId"
     PrecisionRule="true"
-    Precision="255"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"
-    LOVName="LOV_WmsSectorTrans">
+    EntityAttrName="WmsCurrencyId"
+    EntityUsage="FwmsCurrencyEO"
+    AliasName="WMS_CURRENCY_ID"/>
+  <ViewAttribute
+    Name="WmsSectorDesc"
+    PrecisionRule="true"
+    EntityAttrName="WmsSectorDesc"
+    EntityUsage="FwmsSectorEO"
+    AliasName="WMS_SECTOR_DESC"
+    LOVName="LOV_WmsSectorDesc">
     <Properties>
       <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="40"/>
-        <LABEL
-          ResId="SECTOR"/>
         <CONTROLTYPE
           Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="WmsStockExchangeTrans"
-    IsSelected="false"
-    IsPersistent="false"
+    Name="WmsSectorId"
     PrecisionRule="true"
-    Precision="255"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"
-    LOVName="LOV_WmsStockExchangeTrans">
+    EntityAttrName="WmsSectorId"
+    EntityUsage="FwmsSectorEO"
+    AliasName="WMS_SECTOR_ID"/>
+  <ViewAttribute
+    Name="WmsStockExchangeDesc"
+    PrecisionRule="true"
+    EntityAttrName="WmsStockExchangeDesc"
+    EntityUsage="FwmsStockExchangeEO"
+    AliasName="WMS_STOCK_EXCHANGE_DESC"
+    LOVName="LOV_WmsStockExchangeDesc">
     <Properties>
       <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="40"/>
-        <LABEL
-          ResId="STOCK_EXCHANGE"/>
         <CONTROLTYPE
           Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="WmsStockExchangeId"
+    PrecisionRule="true"
+    EntityAttrName="WmsStockExchangeId"
+    EntityUsage="FwmsStockExchangeEO"
+    AliasName="WMS_STOCK_EXCHANGE_ID"/>
   <ViewLinkAccessor
     Name="FWMSBondCoupenVO"
     ViewLink="com.ciobera.fwms.system.model.vo.viewlink.FWMSProductVOToFWMSBondCoupenVO"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>
