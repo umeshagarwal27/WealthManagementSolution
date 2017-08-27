@@ -59,12 +59,15 @@ public class SystemAMImpl extends ApplicationModuleImpl implements SystemAM {
                             productRow.setWmsProductId(productVORowImpl.getMaxProductId());
                             productRow.setWmsEnterUid(updatedBy);
                             productRow.setWmsEnterDate(getCurrentDate());
+                            productRow.setWmsLastUpdateUid(updatedBy);
+                            productRow.setWmsLastUpdateDate(getCurrentDate());
                         }
                     }
                 }
                 if ("APPROVE".equalsIgnoreCase(mode)) {
                     productRow.setWmsApproveUid(updatedBy);
                     productRow.setWmsApproveDate(getCurrentDate());
+                    productRow.setWmsStatus("APPROVED");
                 }
                 this.getDBTransaction().commit();
                 resultMap.put("RESP_CODE", "SUCCESS");

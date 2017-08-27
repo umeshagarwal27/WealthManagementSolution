@@ -61,7 +61,7 @@
         <LABEL
           ResId="${adfBundle['com.ciobera.fwms.bundle.model.ModelBundle']['STOCK_NAME']}"/>
         <DISPLAYWIDTH
-          Value="80"/>
+          Value="60"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -79,7 +79,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="30"/>
+          Value="15"/>
         <LABEL
           ResId="TICKER"/>
       </SchemaBasedProperties>
@@ -99,7 +99,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="30"/>
+          Value="15"/>
         <LABEL
           ResId="${adfBundle['com.ciobera.fwms.bundle.model.ModelBundle']['REUTERS_CODE']}"/>
       </SchemaBasedProperties>
@@ -121,7 +121,7 @@
         <LABEL
           ResId="BLOOMBERG_CODE"/>
         <DISPLAYWIDTH
-          Value="30"/>
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -141,7 +141,7 @@
         <LABEL
           ResId="ISIN_CODE"/>
         <DISPLAYWIDTH
-          Value="30"/>
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -161,7 +161,7 @@
         <LABEL
           ResId="CUSIP"/>
         <DISPLAYWIDTH
-          Value="30"/>
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -176,6 +176,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="15"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="WmsPriceUpdate"
@@ -202,6 +208,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="${adfBundle['com.ciobera.fwms.bundle.model.ModelBundle']['COUNTRY']}"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -218,6 +226,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="CURRENCY"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -234,6 +244,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="STOCK_EXCHANGE"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -250,6 +262,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="SECTOR"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -266,6 +280,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsAsset_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -285,7 +301,7 @@
         <LABEL
           ResId="ISSUE_NO"/>
         <DISPLAYWIDTH
-          Value="30"/>
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -299,7 +315,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="10"/>
         <LABEL
           ResId="${adfBundle['com.ciobera.fwms.bundle.model.ModelBundle']['ISSUE_DATE']}"/>
       </SchemaBasedProperties>
@@ -317,7 +333,7 @@
         <LABEL
           ResId="MATURITY_DATE"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -333,7 +349,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="30"/>
+          Value="15"/>
         <LABEL
           ResId="UNIT_PRICE"/>
       </SchemaBasedProperties>
@@ -351,7 +367,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="30"/>
+          Value="15"/>
         <LABEL
           ResId="${adfBundle['com.ciobera.fwms.bundle.model.ModelBundle']['COUPEN_RATE_']}"/>
       </SchemaBasedProperties>
@@ -373,7 +389,7 @@
         <LABEL
           ResId="FREQUENCY"/>
         <DISPLAYWIDTH
-          Value="30"/>
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -403,7 +419,7 @@
         <LABEL
           ResId="DIVISOR_DAYS"/>
         <DISPLAYWIDTH
-          Value="30"/>
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -511,7 +527,7 @@
         <LABEL
           ResId="EXPIRY_DATE"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -615,7 +631,7 @@
         <LABEL
           ResId="COMMENTS"/>
         <DISPLAYWIDTH
-          Value="80"/>
+          Value="60"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -633,7 +649,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="80"/>
+          Value="60"/>
         <LABEL
           ResId="STATUS"/>
       </SchemaBasedProperties>
@@ -655,7 +671,7 @@
         <LABEL
           ResId="ENTERED_BY"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -683,7 +699,7 @@
         <LABEL
           ResId="DATE"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -703,7 +719,7 @@
         <LABEL
           ResId="LAST_MODIFIED_BY"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -731,7 +747,7 @@
         <LABEL
           ResId="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsLastUpdateDate_LABEL"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -751,7 +767,7 @@
         <LABEL
           ResId="APPROVED_BY"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -779,7 +795,7 @@
         <LABEL
           ResId="com.ciobera.fwms.system.model.eo.FWMSProductEO.WmsApproveDate_LABEL"/>
         <DISPLAYWIDTH
-          Value="20"/>
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -820,7 +836,7 @@
         <LABEL
           ResId="SEDOL"/>
         <DISPLAYWIDTH
-          Value="30"/>
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>

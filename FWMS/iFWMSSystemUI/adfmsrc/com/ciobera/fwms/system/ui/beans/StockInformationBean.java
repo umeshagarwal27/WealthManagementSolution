@@ -27,6 +27,7 @@ import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.event.DialogEvent;
 
+import oracle.binding.AttributeBinding;
 import oracle.binding.OperationBinding;
 
 import org.apache.myfaces.trinidad.util.ComponentReference;
@@ -213,13 +214,16 @@ public class StockInformationBean implements Serializable {
                 displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
                 return;
             } else {
-                if (getAddUpdateStockPopupBinding() != null) {
-                    getAddUpdateStockPopupBinding().hide();
+                if (!executeMethod("Commit", true)) {
+                    displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
+                    return;
+                } else {
+                    if (getAddUpdateStockPopupBinding() != null) {
+                        getAddUpdateStockPopupBinding().hide();
+                    }
+                    displayConfirmationPopup(ADFUtil.getUIBundleMsg("STOCK_DELETED_SUCCESSFULLY"));
                 }
-                displayConfirmationPopup(ADFUtil.getUIBundleMsg("STOCK_DELETED_SUCCESSFULLY"));
             }
-        } else {
-
         }
     }
 
@@ -265,9 +269,17 @@ public class StockInformationBean implements Serializable {
      * @param actionEvent
      */
     public void onApproveStock(ActionEvent actionEvent) {
+        AttributeBinding enteredByAttrBind = ADFUtil.findControlBinding("WmsEnterUid");
+        if(enteredByAttrBind != null){
+            String enteredUid = (String)enteredByAttrBind.getInputValue();
+            if(userId.equalsIgnoreCase(enteredUid)){
+                displayErrorPopup(ADFUtil.getUIBundleMsg("APPROVE_ACCOUNT_NOT_POSSIBLE"));
+                return;
+            }
+        }
         setMode("APPROVE");
         Map resultMap = executeMethod("updateProductRecord");
-        if (resultMap != null && "SUCCESS".equalsIgnoreCase("RESP_CODE")) {
+        if (resultMap != null && "SUCCESS".equalsIgnoreCase((String)resultMap.get("RESP_CODE"))) {
             displayConfirmationPopup(ADFUtil.getUIBundleMsg("STOCK_APPROVED_SUCCESSFULLY"));
         } else {
             displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));

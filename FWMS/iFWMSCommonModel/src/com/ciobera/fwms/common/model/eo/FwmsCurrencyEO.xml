@@ -31,6 +31,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="75"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="WmsShortDesc"

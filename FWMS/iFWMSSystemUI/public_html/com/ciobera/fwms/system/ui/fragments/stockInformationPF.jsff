@@ -21,7 +21,8 @@
                       rowBandingInterval="0" fetchSize="#{bindings.FWMSProduct.rangeSize}" summary="#{null}"
                       filterModel="#{bindings.FWMSProductQuery.queryDescriptor}" filterVisible="true"
                       queryListener="#{bindings.FWMSProductQuery.processQuery}" varStatus="vs" id="t1"
-                      autoHeightRows="0" columnStretching="column:c3" styleClass="AFStretchWidth">
+                      autoHeightRows="0" columnStretching="column:c3" styleClass="AFStretchWidth" rowSelection="single"
+                      displayRow="selected" selectionListener="#{bindings.FWMSProduct.collectionModel.makeCurrent}">
                 <af:column id="c0" headerText="#{null}" rowHeader="true" width="10">
                     <af:outputText value="#{null}" id="ot57"/>
                 </af:column>
@@ -56,8 +57,7 @@
                                    shortDesc="#{bindings.FWMSProduct.hints.WmsApproveUid.tooltip}" id="ot45"/>
                 </af:column>
                 <af:column id="c57">
-                    <af:button text="Edit" id="b6"
-                               actionListener="#{pageFlowScope.StockInformationBean.onEditStock}"
+                    <af:button text="Edit" id="b6" actionListener="#{pageFlowScope.StockInformationBean.onEditStock}"
                                icon="/images/edit16.png"/>
                 </af:column>
             </af:table>
@@ -65,79 +65,92 @@
         <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
                   binding="#{pageFlowScope.StockInformationBean.addUpdateStockPopupBinding}">
             <af:dialog id="d1" type="none"
-                       title="#{pageFlowScope.StockInformationBean.mode eq 'EDIT' ? UIBundle.EDIT_STOCK  : UIBundle.CREATE_STOCK} #{pageFlowScope.StockInformationBean.mode eq 'EDIT' ? bindings.WmsProductName.inputValue : ''}" closeIconVisible="false">
+                       title="#{pageFlowScope.StockInformationBean.mode eq 'EDIT' ? UIBundle.EDIT_STOCK  : UIBundle.CREATE_STOCK} #{pageFlowScope.StockInformationBean.mode eq 'EDIT' ? bindings.WmsProductName.inputValue : ''}"
+                       closeIconVisible="false">
                 <af:panelGroupLayout id="pgl3" layout="horizontal" valign="top" styleClass="AFStretchWidth">
                     <af:panelBox text="#{null}" id="pb1" showDisclosure="false" showHeader="never">
-                        <af:panelFormLayout id="pfl2" labelWidth="20%" fieldWidth="80%">
+                        <af:panelFormLayout id="pfl2" labelWidth="20%" fieldWidth="80%" rows="1">
                             <af:inputText value="#{bindings.WmsProductName.inputValue}"
                                           label="#{bindings.WmsProductName.hints.label}"
                                           required="#{bindings.WmsProductName.hints.mandatory}"
                                           columns="#{bindings.WmsProductName.hints.displayWidth}"
+                                          disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                           maximumLength="#{bindings.WmsProductName.hints.precision}"
                                           shortDesc="#{bindings.WmsProductName.hints.tooltip}" id="it3">
                                 <f:validator binding="#{bindings.WmsProductName.validator}"/>
                             </af:inputText>
                         </af:panelFormLayout>
-                        <af:panelFormLayout id="pfl3" rows="3" maxColumns="2" fieldWidth="55%" labelWidth="45%">
-                            <af:inputText value="#{bindings.WmsTicker.inputValue}"
-                                          label="#{bindings.WmsTicker.hints.label}"
-                                          required="#{bindings.WmsTicker.hints.mandatory}"
-                                          columns="#{bindings.WmsTicker.hints.displayWidth}"
-                                          maximumLength="#{bindings.WmsTicker.hints.precision}"
-                                          shortDesc="#{bindings.WmsTicker.hints.tooltip}" id="it4">
-                                <f:validator binding="#{bindings.WmsTicker.validator}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.WmsRetuerCode.inputValue}"
-                                          label="#{bindings.WmsRetuerCode.hints.label}"
-                                          required="#{bindings.WmsRetuerCode.hints.mandatory}"
-                                          columns="#{bindings.WmsRetuerCode.hints.displayWidth}"
-                                          maximumLength="#{bindings.WmsRetuerCode.hints.precision}"
-                                          shortDesc="#{bindings.WmsRetuerCode.hints.tooltip}" id="it5">
-                                <f:validator binding="#{bindings.WmsRetuerCode.validator}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.WmsOtherCode.inputValue}"
-                                          label="#{bindings.WmsOtherCode.hints.label}"
-                                          required="#{bindings.WmsOtherCode.hints.mandatory}"
-                                          columns="#{bindings.WmsOtherCode.hints.displayWidth}"
-                                          maximumLength="#{bindings.WmsOtherCode.hints.precision}"
-                                          shortDesc="#{bindings.WmsOtherCode.hints.tooltip}" id="it8">
-                                <f:validator binding="#{bindings.WmsOtherCode.validator}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.WmsIsinCode.inputValue}"
-                                          label="#{bindings.WmsIsinCode.hints.label}"
-                                          required="#{bindings.WmsIsinCode.hints.mandatory}"
-                                          columns="#{bindings.WmsIsinCode.hints.displayWidth}"
-                                          maximumLength="#{bindings.WmsIsinCode.hints.precision}"
-                                          shortDesc="#{bindings.WmsIsinCode.hints.tooltip}" id="it7">
-                                <f:validator binding="#{bindings.WmsIsinCode.validator}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.WmsBloombergCode.inputValue}"
-                                          label="#{bindings.WmsBloombergCode.hints.label}"
-                                          required="#{bindings.WmsBloombergCode.hints.mandatory}"
-                                          columns="#{bindings.WmsBloombergCode.hints.displayWidth}"
-                                          maximumLength="#{bindings.WmsBloombergCode.hints.precision}"
-                                          shortDesc="#{bindings.WmsBloombergCode.hints.tooltip}" id="it6">
-                                <f:validator binding="#{bindings.WmsBloombergCode.validator}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.WmsSedol.inputValue}"
-                                          label="#{bindings.WmsSedol.hints.label}"
-                                          required="#{bindings.WmsSedol.hints.mandatory}"
-                                          columns="#{bindings.WmsSedol.hints.displayWidth}"
-                                          maximumLength="#{bindings.WmsSedol.hints.precision}"
-                                          shortDesc="#{bindings.WmsSedol.hints.tooltip}" id="it44">
-                                <f:validator binding="#{bindings.WmsSedol.validator}"/>
-                            </af:inputText>
-                        </af:panelFormLayout>
+                        <af:panelGroupLayout id="pgl1" layout="horizontal">
+                            <af:panelFormLayout id="pfl3" rows="3" maxColumns="1" inlineStyle="padding-left:25px;">
+                                <af:inputText value="#{bindings.WmsTicker.inputValue}"
+                                              label="#{bindings.WmsTicker.hints.label}"
+                                              required="#{bindings.WmsTicker.hints.mandatory}"
+                                              columns="#{bindings.WmsTicker.hints.displayWidth}"
+                                              disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                              maximumLength="#{bindings.WmsTicker.hints.precision}"
+                                              shortDesc="#{bindings.WmsTicker.hints.tooltip}" id="it4">
+                                    <f:validator binding="#{bindings.WmsTicker.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.WmsRetuerCode.inputValue}"
+                                              label="#{bindings.WmsRetuerCode.hints.label}"
+                                              required="#{bindings.WmsRetuerCode.hints.mandatory}"
+                                              columns="#{bindings.WmsRetuerCode.hints.displayWidth}"
+                                              disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                              maximumLength="#{bindings.WmsRetuerCode.hints.precision}"
+                                              shortDesc="#{bindings.WmsRetuerCode.hints.tooltip}" id="it5">
+                                    <f:validator binding="#{bindings.WmsRetuerCode.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.WmsOtherCode.inputValue}"
+                                              label="#{bindings.WmsOtherCode.hints.label}"
+                                              required="#{bindings.WmsOtherCode.hints.mandatory}"
+                                              columns="#{bindings.WmsOtherCode.hints.displayWidth}"
+                                              disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                              maximumLength="#{bindings.WmsOtherCode.hints.precision}"
+                                              shortDesc="#{bindings.WmsOtherCode.hints.tooltip}" id="it8">
+                                    <f:validator binding="#{bindings.WmsOtherCode.validator}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                            <af:panelFormLayout id="pfl1" maxColumns="1" rows="3">
+                                <af:inputText value="#{bindings.WmsIsinCode.inputValue}"
+                                              label="#{bindings.WmsIsinCode.hints.label}"
+                                              required="#{bindings.WmsIsinCode.hints.mandatory}"
+                                              columns="#{bindings.WmsIsinCode.hints.displayWidth}"
+                                              disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                              maximumLength="#{bindings.WmsIsinCode.hints.precision}"
+                                              shortDesc="#{bindings.WmsIsinCode.hints.tooltip}" id="it7">
+                                    <f:validator binding="#{bindings.WmsIsinCode.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.WmsBloombergCode.inputValue}"
+                                              label="#{bindings.WmsBloombergCode.hints.label}"
+                                              required="#{bindings.WmsBloombergCode.hints.mandatory}"
+                                              columns="#{bindings.WmsBloombergCode.hints.displayWidth}"
+                                              disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                              maximumLength="#{bindings.WmsBloombergCode.hints.precision}"
+                                              shortDesc="#{bindings.WmsBloombergCode.hints.tooltip}" id="it6">
+                                    <f:validator binding="#{bindings.WmsBloombergCode.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.WmsSedol.inputValue}"
+                                              label="#{bindings.WmsSedol.hints.label}"
+                                              required="#{bindings.WmsSedol.hints.mandatory}"
+                                              columns="#{bindings.WmsSedol.hints.displayWidth}"
+                                              disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                              maximumLength="#{bindings.WmsSedol.hints.precision}"
+                                              shortDesc="#{bindings.WmsSedol.hints.tooltip}" id="it44">
+                                    <f:validator binding="#{bindings.WmsSedol.validator}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                        </af:panelGroupLayout>
                         <af:panelFormLayout id="pfl4" fieldWidth="80%" labelWidth="20%">
                             <af:panelLabelAndMessage label="#{bindings.WmsCountry.hints.label}" id="plam1">
-                                <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                <af:panelGroupLayout id="pgl4" layout="horizontal"
+                                                     partialTriggers="WmsCountryDescId it11">
                                     <af:inputText value="#{bindings.WmsCountry.inputValue}"
                                                   label="#{bindings.WmsCountry.hints.label}"
                                                   required="#{bindings.WmsCountry.hints.mandatory}"
                                                   columns="#{bindings.WmsCountry.hints.displayWidth}"
                                                   maximumLength="#{bindings.WmsCountry.hints.precision}"
-                                                  shortDesc="#{bindings.WmsCountry.hints.tooltip}"
-                                                  partialTriggers="WmsCountryDescId" id="it11" simple="true">
+                                                  disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                                  shortDesc="#{bindings.WmsCountry.hints.tooltip}" id="it11" simple="true">
                                         <f:validator binding="#{bindings.WmsCountry.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsCountry.format}"/>
                                     </af:inputText>
@@ -145,6 +158,7 @@
                                                                   popupTitle="Search and Select: #{bindings.WmsCountryDesc.hints.label}"
                                                                   value="#{bindings.WmsCountryDesc.inputValue}"
                                                                   model="#{bindings.WmsCountryDesc.listOfValuesModel}"
+                                                                  disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                                                   required="#{bindings.WmsCountryDesc.hints.mandatory}"
                                                                   columns="#{bindings.WmsCountryDesc.hints.displayWidth}"
                                                                   shortDesc="#{bindings.WmsCountryDesc.hints.tooltip}">
@@ -153,14 +167,15 @@
                                 </af:panelGroupLayout>
                             </af:panelLabelAndMessage>
                             <af:panelLabelAndMessage label="#{bindings.WmsCurrency.hints.label}" id="plam2">
-                                <af:panelGroupLayout id="pgl5" layout="horizontal">
+                                <af:panelGroupLayout id="pgl5" layout="horizontal"
+                                                     partialTriggers="it12 WmsCurrencyDescId">
                                     <af:inputText value="#{bindings.WmsCurrency.inputValue}"
                                                   label="#{bindings.WmsCurrency.hints.label}"
                                                   required="#{bindings.WmsCurrency.hints.mandatory}"
                                                   columns="#{bindings.WmsCurrency.hints.displayWidth}"
+                                                  disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                                   maximumLength="#{bindings.WmsCurrency.hints.precision}"
-                                                  shortDesc="#{bindings.WmsCurrency.hints.tooltip}"
-                                                  partialTriggers="WmsCurrencyDescId" id="it12" simple="true">
+                                                  shortDesc="#{bindings.WmsCurrency.hints.tooltip}" id="it12" simple="true">
                                         <f:validator binding="#{bindings.WmsCurrency.validator}"/>
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.WmsCurrency.format}"/>
@@ -170,6 +185,7 @@
                                                                   value="#{bindings.WmsCurrencyDesc.inputValue}"
                                                                   model="#{bindings.WmsCurrencyDesc.listOfValuesModel}"
                                                                   required="#{bindings.WmsCurrencyDesc.hints.mandatory}"
+                                                                  disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                                                   columns="#{bindings.WmsCurrencyDesc.hints.displayWidth}"
                                                                   shortDesc="#{bindings.WmsCurrencyDesc.hints.tooltip}">
                                         <f:validator binding="#{bindings.WmsCurrencyDesc.validator}"/>
@@ -177,14 +193,15 @@
                                 </af:panelGroupLayout>
                             </af:panelLabelAndMessage>
                             <af:panelLabelAndMessage label="#{bindings.WmsStockExchange.hints.label}" id="plam3">
-                                <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                <af:panelGroupLayout id="pgl6" layout="horizontal"
+                                                     partialTriggers="it13 WmsStockExchangeDescId">
                                     <af:inputText value="#{bindings.WmsStockExchange.inputValue}"
                                                   label="#{bindings.WmsStockExchange.hints.label}"
                                                   required="#{bindings.WmsStockExchange.hints.mandatory}"
                                                   columns="#{bindings.WmsStockExchange.hints.displayWidth}"
+                                                  disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                                   maximumLength="#{bindings.WmsStockExchange.hints.precision}"
-                                                  shortDesc="#{bindings.WmsStockExchange.hints.tooltip}"
-                                                  partialTriggers="WmsStockExchangeDescId" id="it13" simple="true">
+                                                  shortDesc="#{bindings.WmsStockExchange.hints.tooltip}" id="it13" simple="true">
                                         <f:validator binding="#{bindings.WmsStockExchange.validator}"/>
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.WmsStockExchange.format}"/>
@@ -194,6 +211,7 @@
                                                                   value="#{bindings.WmsStockExchangeDesc.inputValue}"
                                                                   model="#{bindings.WmsStockExchangeDesc.listOfValuesModel}"
                                                                   required="#{bindings.WmsStockExchangeDesc.hints.mandatory}"
+                                                                  disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                                                   columns="#{bindings.WmsStockExchangeDesc.hints.displayWidth}"
                                                                   shortDesc="#{bindings.WmsStockExchangeDesc.hints.tooltip}">
                                         <f:validator binding="#{bindings.WmsStockExchangeDesc.validator}"/>
@@ -201,14 +219,15 @@
                                 </af:panelGroupLayout>
                             </af:panelLabelAndMessage>
                             <af:panelLabelAndMessage label="#{bindings.WmsSector.hints.label}" id="plam4">
-                                <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                <af:panelGroupLayout id="pgl7" layout="horizontal"
+                                                     partialTriggers="it14 WmsSectorDescId">
                                     <af:inputText value="#{bindings.WmsSector.inputValue}"
                                                   label="#{bindings.WmsSector.hints.label}"
                                                   required="#{bindings.WmsSector.hints.mandatory}"
                                                   columns="#{bindings.WmsSector.hints.displayWidth}"
+                                                  disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                                   maximumLength="#{bindings.WmsSector.hints.precision}"
-                                                  shortDesc="#{bindings.WmsSector.hints.tooltip}"
-                                                  partialTriggers="WmsSectorDescId" id="it14" simple="true">
+                                                  shortDesc="#{bindings.WmsSector.hints.tooltip}" id="it14" simple="true">
                                         <f:validator binding="#{bindings.WmsSector.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsSector.format}"/>
                                     </af:inputText>
@@ -217,6 +236,7 @@
                                                                   value="#{bindings.WmsSectorDesc.inputValue}"
                                                                   model="#{bindings.WmsSectorDesc.listOfValuesModel}"
                                                                   required="#{bindings.WmsSectorDesc.hints.mandatory}"
+                                                                  disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                                                   columns="#{bindings.WmsSectorDesc.hints.displayWidth}"
                                                                   shortDesc="#{bindings.WmsSectorDesc.hints.tooltip}">
                                         <f:validator binding="#{bindings.WmsSectorDesc.validator}"/>
@@ -224,14 +244,15 @@
                                 </af:panelGroupLayout>
                             </af:panelLabelAndMessage>
                             <af:panelLabelAndMessage label="#{bindings.WmsAsset.hints.label}" id="plam5">
-                                <af:panelGroupLayout id="pgl9" layout="horizontal">
+                                <af:panelGroupLayout id="pgl9" layout="horizontal"
+                                                     partialTriggers="it15 WmsAssetDescId">
                                     <af:inputText value="#{bindings.WmsAsset.inputValue}"
                                                   label="#{bindings.WmsAsset.hints.label}"
                                                   required="#{bindings.WmsAsset.hints.mandatory}"
                                                   columns="#{bindings.WmsAsset.hints.displayWidth}"
+                                                  disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                                   maximumLength="#{bindings.WmsAsset.hints.precision}"
-                                                  shortDesc="#{bindings.WmsAsset.hints.tooltip}"
-                                                  partialTriggers="WmsAssetDescId" id="it15" simple="true">
+                                                  shortDesc="#{bindings.WmsAsset.hints.tooltip}" id="it15" simple="true">
                                         <f:validator binding="#{bindings.WmsAsset.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsAsset.format}"/>
                                     </af:inputText>
@@ -240,6 +261,7 @@
                                                                   value="#{bindings.WmsAssetDesc.inputValue}"
                                                                   model="#{bindings.WmsAssetDesc.listOfValuesModel}"
                                                                   required="#{bindings.WmsAssetDesc.hints.mandatory}"
+                                                                  disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                                                   columns="#{bindings.WmsAssetDesc.hints.displayWidth}"
                                                                   shortDesc="#{bindings.WmsAssetDesc.hints.tooltip}">
                                         <f:validator binding="#{bindings.WmsAssetDesc.validator}"/>
@@ -247,11 +269,12 @@
                                 </af:panelGroupLayout>
                             </af:panelLabelAndMessage>
                         </af:panelFormLayout>
-                        <af:panelFormLayout id="pfl10" fieldWidth="80%" labelWidth="20%">
+                        <af:panelFormLayout id="pfl10" fieldWidth="80%" labelWidth="20%" rows="2">
                             <af:inputText value="#{bindings.WmsComments.inputValue}"
                                           label="#{bindings.WmsComments.hints.label}"
                                           required="#{bindings.WmsComments.hints.mandatory}"
                                           columns="#{bindings.WmsComments.hints.displayWidth}"
+                                          disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                           maximumLength="#{bindings.WmsComments.hints.precision}"
                                           shortDesc="#{bindings.WmsComments.hints.tooltip}" id="it34">
                                 <f:validator binding="#{bindings.WmsComments.validator}"/>
@@ -260,96 +283,120 @@
                                           label="#{bindings.WmsStatus.hints.label}"
                                           required="#{bindings.WmsStatus.hints.mandatory}"
                                           columns="#{bindings.WmsStatus.hints.displayWidth}"
+                                          disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                           maximumLength="#{bindings.WmsStatus.hints.precision}"
                                           shortDesc="#{bindings.WmsStatus.hints.tooltip}" id="it35">
                                 <f:validator binding="#{bindings.WmsStatus.validator}"/>
                             </af:inputText>
                         </af:panelFormLayout>
-                        <af:panelBox text="Futures" id="pb5" titleHalign="left" showDisclosure="false">
-                            <af:panelFormLayout id="pfl9" rows="1" maxColumns="2" labelWidth="40%" fieldWidth="60%">
-                                <af:inputDate value="#{bindings.WmsPutCallExpiryDate.inputValue}"
-                                              label="#{bindings.WmsPutCallExpiryDate.hints.label}"
-                                              required="#{bindings.WmsPutCallExpiryDate.hints.mandatory}"
-                                              columns="#{bindings.WmsPutCallExpiryDate.hints.displayWidth}"
-                                              shortDesc="#{bindings.WmsPutCallExpiryDate.hints.tooltip}" id="id9">
-                                    <f:validator binding="#{bindings.WmsPutCallExpiryDate.validator}"/>
-                                    <af:convertDateTime pattern="#{bindings.WmsPutCallExpiryDate.format}"/>
-                                </af:inputDate>
-                                <af:inputText value="#{bindings.WmsPutCallLotsize.inputValue}"
-                                              label="#{bindings.WmsPutCallLotsize.hints.label}"
-                                              required="#{bindings.WmsPutCallLotsize.hints.mandatory}"
-                                              columns="#{bindings.WmsPutCallLotsize.hints.displayWidth}"
-                                              maximumLength="#{bindings.WmsPutCallLotsize.hints.precision}"
-                                              shortDesc="#{bindings.WmsPutCallLotsize.hints.tooltip}" id="it27">
-                                    <f:validator binding="#{bindings.WmsPutCallLotsize.validator}"/>
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.WmsPutCallLotsize.format}"/>
+                        <af:spacer width="10" height="10" id="s2"/>
+                        <af:panelGroupLayout id="pgl2" layout="horizontal"
+                                             inlineStyle="border-width:1px; border-style: solid; padding: 5px;">
+                            <af:spacer width="5" id="s4"/>
+                            <af:outputFormatted value="#{UIBundle.FUTURES}" id="of1"/>
+                            <af:inputDate value="#{bindings.WmsPutCallExpiryDate.inputValue}"
+                                          label="#{bindings.WmsPutCallExpiryDate.hints.label}"
+                                          required="#{bindings.WmsPutCallExpiryDate.hints.mandatory}"
+                                          columns="#{bindings.WmsPutCallExpiryDate.hints.displayWidth}"
+                                          disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                          shortDesc="#{bindings.WmsPutCallExpiryDate.hints.tooltip}" id="id9">
+                                <f:validator binding="#{bindings.WmsPutCallExpiryDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.WmsPutCallExpiryDate.format}"/>
+                            </af:inputDate>
+                            <af:inputText value="#{bindings.WmsPutCallLotsize.inputValue}"
+                                          label="#{bindings.WmsPutCallLotsize.hints.label}"
+                                          required="#{bindings.WmsPutCallLotsize.hints.mandatory}"
+                                          columns="#{bindings.WmsPutCallLotsize.hints.displayWidth}"
+                                          disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                          maximumLength="#{bindings.WmsPutCallLotsize.hints.precision}"
+                                          shortDesc="#{bindings.WmsPutCallLotsize.hints.tooltip}" id="it27">
+                                <f:validator binding="#{bindings.WmsPutCallLotsize.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsPutCallLotsize.format}"/>
+                            </af:inputText>
+                            <f:facet name="separator">
+                                <af:spacer width="20" id="s3"/>
+                            </f:facet>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="pgl11" layout="horizontal">
+                            <af:panelFormLayout id="pfl7" rows="2" maxColumns="1">
+                                <af:inputText value="#{bindings.WmsEnterUid.inputValue}"
+                                              label="#{bindings.WmsEnterUid.hints.label}"
+                                              required="#{bindings.WmsEnterUid.hints.mandatory}" columns="10"
+                                              maximumLength="#{bindings.WmsEnterUid.hints.precision}"
+                                              shortDesc="#{bindings.WmsEnterUid.hints.tooltip}" id="it36"
+                                              disabled="true" rows="1">
+                                    <f:validator binding="#{bindings.WmsEnterUid.validator}"/>
                                 </af:inputText>
+                                <af:inputDate value="#{bindings.WmsEnterDate.inputValue}"
+                                              label="#{bindings.WmsEnterDate.hints.label}"
+                                              required="#{bindings.WmsEnterDate.hints.mandatory}" columns="7"
+                                              shortDesc="#{bindings.WmsEnterDate.hints.tooltip}" id="id10"
+                                              disabled="true">
+                                    <f:validator binding="#{bindings.WmsEnterDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.WmsEnterDate.format}"/>
+                                </af:inputDate>
                             </af:panelFormLayout>
-                        </af:panelBox>
-                        <af:panelFormLayout id="pfl7" rows="2" maxColumns="3" fieldWidth="50%" labelWidth="50%">
-                            <af:inputText value="#{bindings.WmsEnterUid.inputValue}"
-                                          label="#{bindings.WmsEnterUid.hints.label}"
-                                          required="#{bindings.WmsEnterUid.hints.mandatory}"
-                                          columns="#{bindings.WmsEnterUid.hints.displayWidth}"
-                                          maximumLength="#{bindings.WmsEnterUid.hints.precision}"
-                                          shortDesc="#{bindings.WmsEnterUid.hints.tooltip}" id="it36" disabled="true">
-                                <f:validator binding="#{bindings.WmsEnterUid.validator}"/>
-                            </af:inputText>
-                            <af:inputDate value="#{bindings.WmsEnterDate.inputValue}"
-                                          label="#{bindings.WmsEnterDate.hints.label}"
-                                          required="#{bindings.WmsEnterDate.hints.mandatory}"
-                                          columns="#{bindings.WmsEnterDate.hints.displayWidth}"
-                                          shortDesc="#{bindings.WmsEnterDate.hints.tooltip}" id="id10" disabled="true">
-                                <f:validator binding="#{bindings.WmsEnterDate.validator}"/>
-                                <af:convertDateTime pattern="#{bindings.WmsEnterDate.format}"/>
-                            </af:inputDate>
-                            <af:inputText value="#{bindings.WmsLastUpdateUid.inputValue}"
-                                          label="#{bindings.WmsLastUpdateUid.hints.label}"
-                                          required="#{bindings.WmsLastUpdateUid.hints.mandatory}"
-                                          columns="#{bindings.WmsLastUpdateUid.hints.displayWidth}"
-                                          maximumLength="#{bindings.WmsLastUpdateUid.hints.precision}"
-                                          shortDesc="#{bindings.WmsLastUpdateUid.hints.tooltip}" id="it38"
-                                          disabled="true">
-                                <f:validator binding="#{bindings.WmsLastUpdateUid.validator}"/>
-                            </af:inputText>
-                            <af:inputDate value="#{bindings.WmsLastUpdateDate.inputValue}"
-                                          label="#{bindings.WmsLastUpdateDate.hints.label}"
-                                          required="#{bindings.WmsLastUpdateDate.hints.mandatory}"
-                                          columns="#{bindings.WmsLastUpdateDate.hints.displayWidth}"
-                                          shortDesc="#{bindings.WmsLastUpdateDate.hints.tooltip}" id="id11"
-                                          disabled="true">
-                                <f:validator binding="#{bindings.WmsLastUpdateDate.validator}"/>
-                                <af:convertDateTime pattern="#{bindings.WmsLastUpdateDate.format}"/>
-                            </af:inputDate>
-                            <af:inputText value="#{bindings.WmsApproveUid.inputValue}"
-                                          label="#{bindings.WmsApproveUid.hints.label}"
-                                          required="#{bindings.WmsApproveUid.hints.mandatory}"
-                                          columns="#{bindings.WmsApproveUid.hints.displayWidth}"
-                                          maximumLength="#{bindings.WmsApproveUid.hints.precision}"
-                                          shortDesc="#{bindings.WmsApproveUid.hints.tooltip}" id="it40" disabled="true">
-                                <f:validator binding="#{bindings.WmsApproveUid.validator}"/>
-                            </af:inputText>
-                            <af:inputDate value="#{bindings.WmsApproveDate.inputValue}"
-                                          label="#{bindings.WmsApproveDate.hints.label}"
-                                          required="#{bindings.WmsApproveDate.hints.mandatory}"
-                                          columns="#{bindings.WmsApproveDate.hints.displayWidth}"
-                                          shortDesc="#{bindings.WmsApproveDate.hints.tooltip}" id="id12"
-                                          disabled="true">
-                                <f:validator binding="#{bindings.WmsApproveDate.validator}"/>
-                                <af:convertDateTime pattern="#{bindings.WmsApproveDate.format}"/>
-                            </af:inputDate>
-                        </af:panelFormLayout>
-                        <af:panelFormLayout id="pfl11" rows="1" maxColumns="4" fieldWidth="50%" labelWidth="50%">
-                            <af:button text="Delete" id="b7"
-                                       actionListener="#{pageFlowScope.StockInformationBean.onDeleteStock}"/>
-                            <af:button text="Save" id="b8"
-                                       actionListener="#{pageFlowScope.StockInformationBean.onSave}"/>
+                            <af:panelFormLayout id="pfl11" rows="2" maxColumns="1">
+                                <af:inputText value="#{bindings.WmsLastUpdateUid.inputValue}"
+                                              label="#{bindings.WmsLastUpdateUid.hints.label}"
+                                              required="#{bindings.WmsLastUpdateUid.hints.mandatory}" columns="10"
+                                              maximumLength="#{bindings.WmsLastUpdateUid.hints.precision}"
+                                              shortDesc="#{bindings.WmsLastUpdateUid.hints.tooltip}" id="it38"
+                                              disabled="true" rows="1">
+                                    <f:validator binding="#{bindings.WmsLastUpdateUid.validator}"/>
+                                </af:inputText>
+                                <af:inputDate value="#{bindings.WmsLastUpdateDate.inputValue}"
+                                              label="#{bindings.WmsLastUpdateDate.hints.label}"
+                                              required="#{bindings.WmsLastUpdateDate.hints.mandatory}" columns="7"
+                                              shortDesc="#{bindings.WmsLastUpdateDate.hints.tooltip}" id="id11"
+                                              disabled="true">
+                                    <f:validator binding="#{bindings.WmsLastUpdateDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.WmsLastUpdateDate.format}"/>
+                                </af:inputDate>
+                            </af:panelFormLayout>
+                            <af:panelFormLayout id="pfl8" maxColumns="1" rows="2">
+                                <af:inputText value="#{bindings.WmsApproveUid.inputValue}"
+                                              label="#{bindings.WmsApproveUid.hints.label}"
+                                              required="#{bindings.WmsApproveUid.hints.mandatory}" columns="10"
+                                              maximumLength="#{bindings.WmsApproveUid.hints.precision}"
+                                              shortDesc="#{bindings.WmsApproveUid.hints.tooltip}" id="it40"
+                                              disabled="true" rows="1">
+                                    <f:validator binding="#{bindings.WmsApproveUid.validator}"/>
+                                </af:inputText>
+                                <af:inputDate value="#{bindings.WmsApproveDate.inputValue}"
+                                              label="#{bindings.WmsApproveDate.hints.label}"
+                                              required="#{bindings.WmsApproveDate.hints.mandatory}" columns="7"
+                                              shortDesc="#{bindings.WmsApproveDate.hints.tooltip}" id="id12"
+                                              disabled="true">
+                                    <f:validator binding="#{bindings.WmsApproveDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.WmsApproveDate.format}"/>
+                                </af:inputDate>
+                            </af:panelFormLayout>
+                            <f:facet name="separator">
+                                <af:spacer width="1" id="s7"/>
+                            </f:facet>
+                        </af:panelGroupLayout>
+                        <af:spacer height="10" id="s8"/>
+                        <af:panelGroupLayout id="pgl10" layout="horizontal">
+                            <af:button text="#{UIBundle.DELETE}" id="b7"
+                                       disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                       actionListener="#{pageFlowScope.StockInformationBean.onDeleteStock}"
+                                       inlineStyle="width:100px; text-align:center;"/>
+                            <af:button text="#{UIBundle.SAVE}" id="b8"
+                                       disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                       actionListener="#{pageFlowScope.StockInformationBean.onSave}"
+                                       inlineStyle="width:100px; text-align:center;"/>
                             <af:button text="#{UIBundle.EXIT}" id="b9"
-                                       actionListener="#{pageFlowScope.StockInformationBean.onExit}"/>
-                            <af:button text="Approve" id="b10"
-                                       actionListener="#{pageFlowScope.StockInformationBean.onApproveStock}"/>
-                        </af:panelFormLayout>
+                                       actionListener="#{pageFlowScope.StockInformationBean.onExit}"
+                                       inlineStyle="width:100px; text-align:center;"/>
+                            <af:button text="#{UIBundle.APPROVE}" id="b10"
+                                       disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                       actionListener="#{pageFlowScope.StockInformationBean.onApproveStock}"
+                                       inlineStyle="width:100px; text-align:center;"/>
+                            <f:facet name="separator">
+                                <af:spacer width="35" id="s5"/>
+                            </f:facet>
+                        </af:panelGroupLayout>
                     </af:panelBox>
                     <af:panelBox id="pb2" showDisclosure="false" titleHalign="center" text="#{UIBundle.BOND_DETAILS}">
                         <af:panelGroupLayout id="pgl8" layout="vertical">
@@ -358,6 +405,7 @@
                                               label="#{bindings.WmsBondIssueNo.hints.label}"
                                               required="#{bindings.WmsBondIssueNo.hints.mandatory}"
                                               columns="#{bindings.WmsBondIssueNo.hints.displayWidth}"
+                                              disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                               maximumLength="#{bindings.WmsBondIssueNo.hints.precision}"
                                               shortDesc="#{bindings.WmsBondIssueNo.hints.tooltip}" id="it16">
                                     <f:validator binding="#{bindings.WmsBondIssueNo.validator}"/>
@@ -365,6 +413,7 @@
                                 <af:inputDate value="#{bindings.WmsBondIssueDate.inputValue}"
                                               label="#{bindings.WmsBondIssueDate.hints.label}"
                                               required="#{bindings.WmsBondIssueDate.hints.mandatory}"
+                                              disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                               columns="#{bindings.WmsBondIssueDate.hints.displayWidth}"
                                               shortDesc="#{bindings.WmsBondIssueDate.hints.tooltip}" id="id7">
                                     <f:validator binding="#{bindings.WmsBondIssueDate.validator}"/>
@@ -373,6 +422,7 @@
                                 <af:inputDate value="#{bindings.WmsBondMaturityDt.inputValue}"
                                               label="#{bindings.WmsBondMaturityDt.hints.label}"
                                               required="#{bindings.WmsBondMaturityDt.hints.mandatory}"
+                                              disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                               columns="#{bindings.WmsBondMaturityDt.hints.displayWidth}"
                                               shortDesc="#{bindings.WmsBondMaturityDt.hints.tooltip}" id="id8">
                                     <f:validator binding="#{bindings.WmsBondMaturityDt.validator}"/>
@@ -381,6 +431,7 @@
                                 <af:inputText value="#{bindings.WmsBondUnitPrice.inputValue}"
                                               label="#{bindings.WmsBondUnitPrice.hints.label}"
                                               required="#{bindings.WmsBondUnitPrice.hints.mandatory}"
+                                              disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                               columns="#{bindings.WmsBondUnitPrice.hints.displayWidth}"
                                               maximumLength="#{bindings.WmsBondUnitPrice.hints.precision}"
                                               shortDesc="#{bindings.WmsBondUnitPrice.hints.tooltip}" id="it17">
@@ -391,6 +442,7 @@
                                 <af:inputText value="#{bindings.WmsBondCouponRate.inputValue}"
                                               label="#{bindings.WmsBondCouponRate.hints.label}"
                                               required="#{bindings.WmsBondCouponRate.hints.mandatory}"
+                                              disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                               columns="#{bindings.WmsBondCouponRate.hints.displayWidth}"
                                               maximumLength="#{bindings.WmsBondCouponRate.hints.precision}"
                                               shortDesc="#{bindings.WmsBondCouponRate.hints.tooltip}" id="it18">
@@ -398,53 +450,84 @@
                                     <af:convertNumber groupingUsed="false"
                                                       pattern="#{bindings.WmsBondCouponRate.format}"/>
                                 </af:inputText>
+                                <af:inputText value="#{bindings.WmsBondDivisorDaysYear.inputValue}"
+                                              label="#{bindings.WmsBondDivisorDaysYear.hints.label}"
+                                              required="#{bindings.WmsBondDivisorDaysYear.hints.mandatory}"
+                                              disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                              columns="#{bindings.WmsBondDivisorDaysYear.hints.displayWidth}"
+                                              maximumLength="#{bindings.WmsBondDivisorDaysYear.hints.precision}"
+                                              shortDesc="#{bindings.WmsBondDivisorDaysYear.hints.tooltip}" id="it19">
+                                    <f:validator binding="#{bindings.WmsBondDivisorDaysYear.validator}"/>
+                                </af:inputText>
                                 <af:inputText value="#{bindings.WmsBondCouponFrequency.inputValue}"
                                               label="#{bindings.WmsBondCouponFrequency.hints.label}"
                                               required="#{bindings.WmsBondCouponFrequency.hints.mandatory}"
+                                              disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                               columns="#{bindings.WmsBondCouponFrequency.hints.displayWidth}"
                                               maximumLength="#{bindings.WmsBondCouponFrequency.hints.precision}"
-                                              shortDesc="#{bindings.WmsBondCouponFrequency.hints.tooltip}" id="it19">
+                                              shortDesc="#{bindings.WmsBondCouponFrequency.hints.tooltip}" id="it1">
                                     <f:validator binding="#{bindings.WmsBondCouponFrequency.validator}"/>
                                 </af:inputText>
                             </af:panelFormLayout>
-                            <af:panelFormLayout id="pfl6" rows="2" maxColumns="2">
-                                <af:inputText value="#{bindings.WmsBondCoupon1stIntdate.inputValue}"
-                                              label="#{bindings.WmsBondCoupon1stIntdate.hints.label}"
-                                              required="#{bindings.WmsBondCoupon1stIntdate.hints.mandatory}"
-                                              columns="#{bindings.WmsBondCoupon1stIntdate.hints.displayWidth}"
-                                              maximumLength="#{bindings.WmsBondCoupon1stIntdate.hints.precision}"
-                                              shortDesc="#{bindings.WmsBondCoupon1stIntdate.hints.tooltip}" id="it22">
-                                    <f:validator binding="#{bindings.WmsBondCoupon1stIntdate.validator}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.WmsBondCoupon2ndIntdate.inputValue}"
-                                              label="#{bindings.WmsBondCoupon2ndIntdate.hints.label}"
-                                              required="#{bindings.WmsBondCoupon2ndIntdate.hints.mandatory}"
-                                              columns="#{bindings.WmsBondCoupon2ndIntdate.hints.displayWidth}"
-                                              maximumLength="#{bindings.WmsBondCoupon2ndIntdate.hints.precision}"
-                                              shortDesc="#{bindings.WmsBondCoupon2ndIntdate.hints.tooltip}" id="it23">
-                                    <f:validator binding="#{bindings.WmsBondCoupon2ndIntdate.validator}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.WmsBondCoupon3rdIntdate.inputValue}"
-                                              label="#{bindings.WmsBondCoupon3rdIntdate.hints.label}"
-                                              required="#{bindings.WmsBondCoupon3rdIntdate.hints.mandatory}"
-                                              columns="#{bindings.WmsBondCoupon3rdIntdate.hints.displayWidth}"
-                                              maximumLength="#{bindings.WmsBondCoupon3rdIntdate.hints.precision}"
-                                              shortDesc="#{bindings.WmsBondCoupon3rdIntdate.hints.tooltip}" id="it24">
-                                    <f:validator binding="#{bindings.WmsBondCoupon3rdIntdate.validator}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.WmsBondCoupon4thIntdate.inputValue}"
-                                              label="#{bindings.WmsBondCoupon4thIntdate.hints.label}"
-                                              required="#{bindings.WmsBondCoupon4thIntdate.hints.mandatory}"
-                                              columns="#{bindings.WmsBondCoupon4thIntdate.hints.displayWidth}"
-                                              maximumLength="#{bindings.WmsBondCoupon4thIntdate.hints.precision}"
-                                              shortDesc="#{bindings.WmsBondCoupon4thIntdate.hints.tooltip}" id="it25">
-                                    <f:validator binding="#{bindings.WmsBondCoupon4thIntdate.validator}"/>
-                                </af:inputText>
-                            </af:panelFormLayout>
-                            <af:panelBox id="pb3" showDisclosure="false" text="#{UIBundle.PAYMENT_DATE__DD_MM_}"
-                                         contentStyle="width:250px;"/>
-                            <af:panelCollection id="pc2">
-                                <f:facet name="menus"/>
+                            <af:panelGroupLayout id="pgl13" layout="vertical"
+                                                 inlineStyle="border-width:1px; border-style: solid; padding: 5px;">
+                                <af:outputFormatted value="#{UIBundle.PAYMENT_DATE__DD_MM_}" id="of2"/>
+                                <af:panelGroupLayout id="pgl12" layout="horizontal">
+                                    <af:panelFormLayout id="pfl6" rows="2" maxColumns="1">
+                                        <af:inputText value="#{bindings.WmsBondCoupon1stIntdate.inputValue}"
+                                                      label="#{bindings.WmsBondCoupon1stIntdate.hints.label}"
+                                                      required="#{bindings.WmsBondCoupon1stIntdate.hints.mandatory}"
+                                                      disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                                      columns="10"
+                                                      maximumLength="#{bindings.WmsBondCoupon1stIntdate.hints.precision}"
+                                                      shortDesc="#{bindings.WmsBondCoupon1stIntdate.hints.tooltip}"
+                                                      id="it22" rows="1">
+                                            <f:validator binding="#{bindings.WmsBondCoupon1stIntdate.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.WmsBondCoupon2ndIntdate.inputValue}"
+                                                      label="#{bindings.WmsBondCoupon2ndIntdate.hints.label}"
+                                                      required="#{bindings.WmsBondCoupon2ndIntdate.hints.mandatory}"
+                                                      disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                                      columns="10"
+                                                      maximumLength="#{bindings.WmsBondCoupon2ndIntdate.hints.precision}"
+                                                      shortDesc="#{bindings.WmsBondCoupon2ndIntdate.hints.tooltip}"
+                                                      id="it23" rows="1">
+                                            <f:validator binding="#{bindings.WmsBondCoupon2ndIntdate.validator}"/>
+                                        </af:inputText>
+                                    </af:panelFormLayout>
+                                    <af:panelFormLayout id="pfl9" maxColumns="1" rows="2">
+                                        <af:inputText value="#{bindings.WmsBondCoupon3rdIntdate.inputValue}"
+                                                      label="#{bindings.WmsBondCoupon3rdIntdate.hints.label}"
+                                                      required="#{bindings.WmsBondCoupon3rdIntdate.hints.mandatory}"
+                                                      columns="10"
+                                                      disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                                      maximumLength="#{bindings.WmsBondCoupon3rdIntdate.hints.precision}"
+                                                      shortDesc="#{bindings.WmsBondCoupon3rdIntdate.hints.tooltip}"
+                                                      id="it24" rows="1">
+                                            <f:validator binding="#{bindings.WmsBondCoupon3rdIntdate.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.WmsBondCoupon4thIntdate.inputValue}"
+                                                      label="#{bindings.WmsBondCoupon4thIntdate.hints.label}"
+                                                      required="#{bindings.WmsBondCoupon4thIntdate.hints.mandatory}"
+                                                      disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                                      columns="10"
+                                                      maximumLength="#{bindings.WmsBondCoupon4thIntdate.hints.precision}"
+                                                      shortDesc="#{bindings.WmsBondCoupon4thIntdate.hints.tooltip}"
+                                                      id="it25" rows="1">
+                                            <f:validator binding="#{bindings.WmsBondCoupon4thIntdate.validator}"/>
+                                        </af:inputText>
+                                    </af:panelFormLayout>
+                                </af:panelGroupLayout>
+                            </af:panelGroupLayout>
+                            <af:panelCollection id="pc2" inlineStyle="width:300px;">
+                                <f:facet name="menus">
+                                    <af:menu text="#{UIBundle.OPTIONS}" id="m2">
+                                        <af:commandMenuItem text="#{UIBundle.ADD_BOND}" id="cmi3"
+                                                            icon="/images/add16.png"
+                                                            disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
+                                                            actionListener="#{bindings.CreateInsertBond.execute}"/>
+                                    </af:menu>
+                                </f:facet>
                                 <af:table rows="#{bindings.FWMSBondCoupen.rangeSize}"
                                           fetchSize="#{bindings.FWMSBondCoupen.rangeSize}"
                                           emptyText="#{bindings.FWMSBondCoupen.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -452,11 +535,13 @@
                                           rowBandingInterval="0"
                                           selectedRowKeys="#{bindings.FWMSBondCoupen.collectionModel.selectedRow}"
                                           selectionListener="#{bindings.FWMSBondCoupen.collectionModel.makeCurrent}"
-                                          rowSelection="single" id="t2" styleClass="AFStretchWidth">
+                                          rowSelection="single" id="t2" inlineStyle="width:300px;"
+                                          partialTriggers="::cmi3">
                                     <af:column headerText="#{bindings.FWMSBondCoupen.hints.WmsDate.label}"
                                                sortProperty="#{bindings.FWMSBondCoupen.hints.WmsDate.name}"
                                                sortable="false" id="c41">
                                         <af:inputDate value="#{row.WmsDate}"
+                                                        disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                                       shortDesc="#{bindings.FWMSBondCoupen.hints.WmsDate.tooltip}"
                                                       id="ot1" label="#{null}">
                                             <af:convertDateTime pattern="#{bindings.FWMSBondCoupen.hints.WmsDate.format}"/>
@@ -466,6 +551,7 @@
                                                sortProperty="#{bindings.FWMSBondCoupen.hints.WmsCoupen.name}"
                                                sortable="false" id="c58">
                                         <af:inputText value="#{row.WmsCoupen}"
+                                                        disabled="#{bindings.WmsStatus.inputValue eq 'APPROVED'}"
                                                       shortDesc="#{bindings.FWMSBondCoupen.hints.WmsCoupen.tooltip}"
                                                       id="ot41" label="#{null}">
                                             <af:convertNumber groupingUsed="false"
