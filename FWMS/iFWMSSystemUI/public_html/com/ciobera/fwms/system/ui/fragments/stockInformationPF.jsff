@@ -64,7 +64,8 @@
         </af:panelCollection>
         <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
                   binding="#{pageFlowScope.StockInformationBean.addUpdateStockPopupBinding}">
-            <af:dialog id="d1" type="none" title="Stock Information" closeIconVisible="false">
+            <af:dialog id="d1" type="none"
+                       title="#{pageFlowScope.StockInformationBean.mode eq 'EDIT' ? UIBundle.EDIT_STOCK  : UIBundle.CREATE_STOCK} #{pageFlowScope.StockInformationBean.mode eq 'EDIT' ? bindings.WmsProductName.inputValue : ''}" closeIconVisible="false">
                 <af:panelGroupLayout id="pgl3" layout="horizontal" valign="top" styleClass="AFStretchWidth">
                     <af:panelBox text="#{null}" id="pb1" showDisclosure="false" showHeader="never">
                         <af:panelFormLayout id="pfl2" labelWidth="20%" fieldWidth="80%">
@@ -136,18 +137,18 @@
                                                   columns="#{bindings.WmsCountry.hints.displayWidth}"
                                                   maximumLength="#{bindings.WmsCountry.hints.precision}"
                                                   shortDesc="#{bindings.WmsCountry.hints.tooltip}"
-                                                  partialTriggers="wmsCountryTransId" id="it11" simple="true">
+                                                  partialTriggers="WmsCountryDescId" id="it11" simple="true">
                                         <f:validator binding="#{bindings.WmsCountry.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsCountry.format}"/>
                                     </af:inputText>
-                                    <af:inputComboboxListOfValues id="wmsCountryTransId"
-                                                                  popupTitle="Search and Select: #{bindings.WmsCountryTrans.hints.label}"
-                                                                  value="#{bindings.WmsCountryTrans.inputValue}"
-                                                                  model="#{bindings.WmsCountryTrans.listOfValuesModel}"
-                                                                  required="#{bindings.WmsCountryTrans.hints.mandatory}"
-                                                                  columns="#{bindings.WmsCountryTrans.hints.displayWidth}"
-                                                                  shortDesc="#{bindings.WmsCountryTrans.hints.tooltip}">
-                                        <f:validator binding="#{bindings.WmsCountryTrans.validator}"/>
+                                    <af:inputComboboxListOfValues id="WmsCountryDescId"
+                                                                  popupTitle="Search and Select: #{bindings.WmsCountryDesc.hints.label}"
+                                                                  value="#{bindings.WmsCountryDesc.inputValue}"
+                                                                  model="#{bindings.WmsCountryDesc.listOfValuesModel}"
+                                                                  required="#{bindings.WmsCountryDesc.hints.mandatory}"
+                                                                  columns="#{bindings.WmsCountryDesc.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.WmsCountryDesc.hints.tooltip}">
+                                        <f:validator binding="#{bindings.WmsCountryDesc.validator}"/>
                                     </af:inputComboboxListOfValues>
                                 </af:panelGroupLayout>
                             </af:panelLabelAndMessage>
@@ -159,19 +160,19 @@
                                                   columns="#{bindings.WmsCurrency.hints.displayWidth}"
                                                   maximumLength="#{bindings.WmsCurrency.hints.precision}"
                                                   shortDesc="#{bindings.WmsCurrency.hints.tooltip}"
-                                                  partialTriggers="wmsCurrencyTransId" id="it12" simple="true">
+                                                  partialTriggers="WmsCurrencyDescId" id="it12" simple="true">
                                         <f:validator binding="#{bindings.WmsCurrency.validator}"/>
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.WmsCurrency.format}"/>
                                     </af:inputText>
-                                    <af:inputComboboxListOfValues id="wmsCurrencyTransId"
-                                                                  popupTitle="Search and Select: #{bindings.WmsCurrencyTrans.hints.label}"
-                                                                  value="#{bindings.WmsCurrencyTrans.inputValue}"
-                                                                  model="#{bindings.WmsCurrencyTrans.listOfValuesModel}"
-                                                                  required="#{bindings.WmsCurrencyTrans.hints.mandatory}"
-                                                                  columns="#{bindings.WmsCurrencyTrans.hints.displayWidth}"
-                                                                  shortDesc="#{bindings.WmsCurrencyTrans.hints.tooltip}">
-                                        <f:validator binding="#{bindings.WmsCurrencyTrans.validator}"/>
+                                    <af:inputComboboxListOfValues id="WmsCurrencyDescId"
+                                                                  popupTitle="Search and Select: #{bindings.WmsCurrencyDesc.hints.label}"
+                                                                  value="#{bindings.WmsCurrencyDesc.inputValue}"
+                                                                  model="#{bindings.WmsCurrencyDesc.listOfValuesModel}"
+                                                                  required="#{bindings.WmsCurrencyDesc.hints.mandatory}"
+                                                                  columns="#{bindings.WmsCurrencyDesc.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.WmsCurrencyDesc.hints.tooltip}">
+                                        <f:validator binding="#{bindings.WmsCurrencyDesc.validator}"/>
                                     </af:inputComboboxListOfValues>
                                 </af:panelGroupLayout>
                             </af:panelLabelAndMessage>
@@ -183,19 +184,19 @@
                                                   columns="#{bindings.WmsStockExchange.hints.displayWidth}"
                                                   maximumLength="#{bindings.WmsStockExchange.hints.precision}"
                                                   shortDesc="#{bindings.WmsStockExchange.hints.tooltip}"
-                                                  partialTriggers="wmsStockExchangeTransId" id="it13" simple="true">
+                                                  partialTriggers="WmsStockExchangeDescId" id="it13" simple="true">
                                         <f:validator binding="#{bindings.WmsStockExchange.validator}"/>
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.WmsStockExchange.format}"/>
                                     </af:inputText>
-                                    <af:inputComboboxListOfValues id="wmsStockExchangeTransId"
-                                                                  popupTitle="Search and Select: #{bindings.WmsStockExchangeTrans.hints.label}"
-                                                                  value="#{bindings.WmsStockExchangeTrans.inputValue}"
-                                                                  model="#{bindings.WmsStockExchangeTrans.listOfValuesModel}"
-                                                                  required="#{bindings.WmsStockExchangeTrans.hints.mandatory}"
-                                                                  columns="#{bindings.WmsStockExchangeTrans.hints.displayWidth}"
-                                                                  shortDesc="#{bindings.WmsStockExchangeTrans.hints.tooltip}">
-                                        <f:validator binding="#{bindings.WmsStockExchangeTrans.validator}"/>
+                                    <af:inputComboboxListOfValues id="WmsStockExchangeDescId"
+                                                                  popupTitle="Search and Select: #{bindings.WmsStockExchangeDesc.hints.label}"
+                                                                  value="#{bindings.WmsStockExchangeDesc.inputValue}"
+                                                                  model="#{bindings.WmsStockExchangeDesc.listOfValuesModel}"
+                                                                  required="#{bindings.WmsStockExchangeDesc.hints.mandatory}"
+                                                                  columns="#{bindings.WmsStockExchangeDesc.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.WmsStockExchangeDesc.hints.tooltip}">
+                                        <f:validator binding="#{bindings.WmsStockExchangeDesc.validator}"/>
                                     </af:inputComboboxListOfValues>
                                 </af:panelGroupLayout>
                             </af:panelLabelAndMessage>
@@ -207,18 +208,18 @@
                                                   columns="#{bindings.WmsSector.hints.displayWidth}"
                                                   maximumLength="#{bindings.WmsSector.hints.precision}"
                                                   shortDesc="#{bindings.WmsSector.hints.tooltip}"
-                                                  partialTriggers="wmsSectorTransId" id="it14" simple="true">
+                                                  partialTriggers="WmsSectorDescId" id="it14" simple="true">
                                         <f:validator binding="#{bindings.WmsSector.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsSector.format}"/>
                                     </af:inputText>
-                                    <af:inputComboboxListOfValues id="wmsSectorTransId"
-                                                                  popupTitle="Search and Select: #{bindings.WmsSectorTrans.hints.label}"
-                                                                  value="#{bindings.WmsSectorTrans.inputValue}"
-                                                                  model="#{bindings.WmsSectorTrans.listOfValuesModel}"
-                                                                  required="#{bindings.WmsSectorTrans.hints.mandatory}"
-                                                                  columns="#{bindings.WmsSectorTrans.hints.displayWidth}"
-                                                                  shortDesc="#{bindings.WmsSectorTrans.hints.tooltip}">
-                                        <f:validator binding="#{bindings.WmsSectorTrans.validator}"/>
+                                    <af:inputComboboxListOfValues id="WmsSectorDescId"
+                                                                  popupTitle="Search and Select: #{bindings.WmsSectorDesc.hints.label}"
+                                                                  value="#{bindings.WmsSectorDesc.inputValue}"
+                                                                  model="#{bindings.WmsSectorDesc.listOfValuesModel}"
+                                                                  required="#{bindings.WmsSectorDesc.hints.mandatory}"
+                                                                  columns="#{bindings.WmsSectorDesc.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.WmsSectorDesc.hints.tooltip}">
+                                        <f:validator binding="#{bindings.WmsSectorDesc.validator}"/>
                                     </af:inputComboboxListOfValues>
                                 </af:panelGroupLayout>
                             </af:panelLabelAndMessage>
@@ -230,18 +231,18 @@
                                                   columns="#{bindings.WmsAsset.hints.displayWidth}"
                                                   maximumLength="#{bindings.WmsAsset.hints.precision}"
                                                   shortDesc="#{bindings.WmsAsset.hints.tooltip}"
-                                                  partialTriggers="wmsAssetTransId" id="it15" simple="true">
+                                                  partialTriggers="WmsAssetDescId" id="it15" simple="true">
                                         <f:validator binding="#{bindings.WmsAsset.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.WmsAsset.format}"/>
                                     </af:inputText>
-                                    <af:inputComboboxListOfValues id="wmsAssetTransId"
-                                                                  popupTitle="Search and Select: #{bindings.WmsAssetTrans.hints.label}"
-                                                                  value="#{bindings.WmsAssetTrans.inputValue}"
-                                                                  model="#{bindings.WmsAssetTrans.listOfValuesModel}"
-                                                                  required="#{bindings.WmsAssetTrans.hints.mandatory}"
-                                                                  columns="#{bindings.WmsAssetTrans.hints.displayWidth}"
-                                                                  shortDesc="#{bindings.WmsAssetTrans.hints.tooltip}">
-                                        <f:validator binding="#{bindings.WmsAssetTrans.validator}"/>
+                                    <af:inputComboboxListOfValues id="WmsAssetDescId"
+                                                                  popupTitle="Search and Select: #{bindings.WmsAssetDesc.hints.label}"
+                                                                  value="#{bindings.WmsAssetDesc.inputValue}"
+                                                                  model="#{bindings.WmsAssetDesc.listOfValuesModel}"
+                                                                  required="#{bindings.WmsAssetDesc.hints.mandatory}"
+                                                                  columns="#{bindings.WmsAssetDesc.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.WmsAssetDesc.hints.tooltip}">
+                                        <f:validator binding="#{bindings.WmsAssetDesc.validator}"/>
                                     </af:inputComboboxListOfValues>
                                 </af:panelGroupLayout>
                             </af:panelLabelAndMessage>

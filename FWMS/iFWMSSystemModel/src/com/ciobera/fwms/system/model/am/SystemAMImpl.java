@@ -4,10 +4,12 @@ import com.ciobera.fwms.system.model.am.common.SystemAM;
 import com.ciobera.fwms.system.model.vo.FWMSBondCoupenVOImpl;
 import com.ciobera.fwms.system.model.vo.FWMSProductVOImpl;
 import com.ciobera.fwms.system.model.vo.FWMSProductVORowImpl;
+import com.ciobera.fwms.system.model.vo.readonly.ProductIdSeqImpl;
+import com.ciobera.fwms.system.model.vo.readonly.ProductIdSeqRowImpl;
 
-import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
-import oracle.jbo.Row;
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.ViewLinkImpl;
 // ---------------------------------------------------------------------
@@ -23,6 +25,13 @@ public class SystemAMImpl extends ApplicationModuleImpl implements SystemAM {
     public SystemAMImpl() {
     }
 
+    private oracle.jbo.domain.Date getCurrentDate() {
+        return new oracle.jbo.domain.Date(oracle.jbo
+                                                .domain
+                                                .Date
+                                                .getCurrentDate());
+    }
+
     /**
      * This method is called to update logged in user and date for various scenarios.
      * In Create Mode, WMSENTERUID, WMSENTERDATE is updated.
@@ -31,27 +40,37 @@ public class SystemAMImpl extends ApplicationModuleImpl implements SystemAM {
      * @param mode
      * @param updatedBy
      */
-    public void updateProductRecord(String mode, String updatedBy) {
-        Calendar cal = Calendar.getInstance();
+    public Map updateProductRecord(String mode, String updatedBy) {
+        Map resultMap = new HashMap();
         FWMSProductVOImpl productVO = getFWMSProduct();
         if (productVO != null) {
-            Row row = productVO.getCurrentRow();
-            if (row != null) {
+            FWMSProductVORowImpl productRow = (FWMSProductVORowImpl) productVO.getCurrentRow();
+            if (productRow != null) {
                 if ("EDIT".equalsIgnoreCase(mode)) {
-                    row.setAttribute(FWMSProductVORowImpl.WMSLASTUPDATEUID, updatedBy);
-                    row.setAttribute(FWMSProductVORowImpl.WMSLASTUPDATEDATE, cal.getTime());
+                    productRow.setWmsLastUpdateUid(updatedBy);
+                    productRow.setWmsLastUpdateDate(getCurrentDate());
                 }
                 if ("CREATE".equalsIgnoreCase(mode)) {
-                    row.setAttribute(FWMSProductVORowImpl.WMSENTERUID, updatedBy);
-                    row.setAttribute(FWMSProductVORowImpl.WMSENTERDATE, cal.getTime());
+                    ProductIdSeqImpl seqImpl = getProductIdSeq();
+                    if (seqImpl != null) {
+                        seqImpl.executeQuery();
+                        ProductIdSeqRowImpl productVORowImpl = (ProductIdSeqRowImpl) seqImpl.first();
+                        if (productVORowImpl != null) {
+                            productRow.setWmsProductId(productVORowImpl.getMaxProductId());
+                            productRow.setWmsEnterUid(updatedBy);
+                            productRow.setWmsEnterDate(getCurrentDate());
+                        }
+                    }
                 }
                 if ("APPROVE".equalsIgnoreCase(mode)) {
-                    row.setAttribute(FWMSProductVORowImpl.WMSAPPROVEUID, updatedBy);
-                    row.setAttribute(FWMSProductVORowImpl.WMSAPPROVEDATE, cal.getTime());
-                    this.getDBTransaction().commit();
+                    productRow.setWmsApproveUid(updatedBy);
+                    productRow.setWmsApproveDate(getCurrentDate());
                 }
+                this.getDBTransaction().commit();
+                resultMap.put("RESP_CODE", "SUCCESS");
             }
         }
+        return resultMap;
     }
 
     /**
@@ -87,6 +106,14 @@ public class SystemAMImpl extends ApplicationModuleImpl implements SystemAM {
      */
     public ViewLinkImpl getFWMSProductVOToFWMSBondCoupen() {
         return (ViewLinkImpl) findViewLink("FWMSProductVOToFWMSBondCoupen");
+    }
+
+    /**
+     * Container's getter for ProductIdSeq1.
+     * @return ProductIdSeq1
+     */
+    public ProductIdSeqImpl getProductIdSeq() {
+        return (ProductIdSeqImpl) findViewObject("ProductIdSeq");
     }
 }
 

@@ -38,7 +38,9 @@ public class StockInformationBean implements Serializable {
     private String mode;
     private String errorMessage;
     private String confirmationMessage;
-    private String userId;
+    private String userId =
+        ((GlobalBean) ADFUtil.evaluateEL("#{GlobalBean}")) != null ?
+        ((GlobalBean) ADFUtil.evaluateEL("#{GlobalBean}")).getUserId() : "VASU";
     private String fileName;
     private ComponentReference confirmationPopupBinding;
     private ComponentReference addUpdateStockPopupBinding;
@@ -86,7 +88,6 @@ public class StockInformationBean implements Serializable {
                 } else {
                     resultMap = (Map) executeMethodOP.getResult();
                 }
-
             }
         } catch (Exception e) {
             LoggingUtil.logDebugMessages(LOGGER,
@@ -244,23 +245,17 @@ public class StockInformationBean implements Serializable {
      * This method calls Commit operation to save all changes to DB.
      * @param actionEvent
      */
-    public void onSave(ActionEvent actionEvent) {  
-        if (!executeMethod("updateProductRecord", true)) {
-            displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
-            return;
-        }
-        if (!executeMethod("Commit", true)) {
-            displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
-            return;
-        } else {
+    public void onSave(ActionEvent actionEvent) {
+        Map resultMap = executeMethod("updateProductRecord");
+        if (resultMap != null && "SUCCESS".equalsIgnoreCase((String)resultMap.get("RESP_CODE"))) {
             if ("CREATE".equalsIgnoreCase(mode)) {
                 displayConfirmationPopup(ADFUtil.getUIBundleMsg("STOCK_ADDED_SUCCESSFULLY"));
             } else {
                 displayConfirmationPopup(ADFUtil.getUIBundleMsg("STOCK_UPDATE_SUCCESSFULLY"));
             }
-        }
-        if (getAddUpdateStockPopupBinding() != null) {
-            getAddUpdateStockPopupBinding().hide();
+            setMode("EDIT");
+        } else {
+            displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
         }
     }
 
@@ -270,17 +265,12 @@ public class StockInformationBean implements Serializable {
      * @param actionEvent
      */
     public void onApproveStock(ActionEvent actionEvent) {
-        setMode("EDIT");
-        if (!executeMethod("updateProductRecord", true)) {
+        setMode("APPROVE");
+        Map resultMap = executeMethod("updateProductRecord");
+        if (resultMap != null && "SUCCESS".equalsIgnoreCase("RESP_CODE")) {
+            displayConfirmationPopup(ADFUtil.getUIBundleMsg("STOCK_APPROVED_SUCCESSFULLY"));
+        } else {
             displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
-            
-            return;
-        }else{     
-            
-        displayConfirmationPopup(ADFUtil.getUIBundleMsg("STOCK_APPROVED_SUCCESSFULLY"));
-        }
-        if (getAddUpdateStockPopupBinding() != null) {
-            getAddUpdateStockPopupBinding().hide();
         }
     }
 
@@ -376,10 +366,6 @@ public class StockInformationBean implements Serializable {
     }
 
     public String getFileName() {
-        GlobalBean globalBean = (GlobalBean) ADFUtil.evaluateEL("#{GlobalBean}");
-        if (globalBean == null || globalBean.getUserId() == null) {
-            userId = globalBean.getUserId();
-        }
         if (getMindate() != null) {
             fileName = "Export_Stocks_" + userId + "_" + getMindate() + ".xls";
         } else {

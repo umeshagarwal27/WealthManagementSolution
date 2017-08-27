@@ -14,71 +14,21 @@
     <tree IterBinding="FWMSProductIterator" id="FWMSProduct">
       <nodeDefinition DefName="com.ciobera.fwms.system.model.vo.FWMSProductVO" Name="FWMSProduct0">
         <AttrNames>
-          <Item Value="WmsProductType"/>
-          <Item Value="WmsProductId"/>
-          <Item Value="WmsProductName"/>
-          <Item Value="WmsTicker"/>
-          <Item Value="WmsRetuerCode"/>
-          <Item Value="WmsBloombergCode"/>
-          <Item Value="WmsIsinCode"/>
-          <Item Value="WmsOtherCode"/>
-          <Item Value="WmsOtherDesc"/>
-          <Item Value="WmsPriceUpdate"/>
-          <Item Value="WmsCountry"/>
-          <Item Value="WmsCurrency"/>
-          <Item Value="WmsStockExchange"/>
-          <Item Value="WmsSector"/>
-          <Item Value="WmsAsset"/>
-          <Item Value="WmsBondIssueNo"/>
-          <Item Value="WmsBondIssueDate"/>
-          <Item Value="WmsBondMaturityDt"/>
-          <Item Value="WmsBondUnitPrice"/>
-          <Item Value="WmsBondCouponRate"/>
-          <Item Value="WmsBondCouponFrequency"/>
-          <Item Value="WmsBondDivisorDaysMonth"/>
-          <Item Value="WmsBondDivisorDaysYear"/>
-          <Item Value="WmsBondCoupon1stIntdate"/>
-          <Item Value="WmsBondCoupon2ndIntdate"/>
-          <Item Value="WmsBondCoupon3rdIntdate"/>
-          <Item Value="WmsBondCoupon4thIntdate"/>
-          <Item Value="WmsPutCallFlag"/>
-          <Item Value="WmsPutCallExpiryDate"/>
-          <Item Value="WmsPutCallLotsize"/>
-          <Item Value="WmsPutCallSprice"/>
-          <Item Value="WmsPutCallStatus"/>
-          <Item Value="WmsMutualFundsIssue"/>
-          <Item Value="WmsMutualInhouse3rdFlag"/>
-          <Item Value="WmsMutualFundsClosdedOpen"/>
-          <Item Value="WmsMutualFundsNavFlag"/>
-          <Item Value="WmsComments"/>
           <Item Value="WmsStatus"/>
+          <Item Value="WmsProductId"/>
           <Item Value="WmsEnterUid"/>
-          <Item Value="WmsEnterFpc"/>
-          <Item Value="WmsEnterDate"/>
-          <Item Value="WmsLastUpdateUid"/>
-          <Item Value="WmsLastFpc"/>
-          <Item Value="WmsLastUpdateDate"/>
           <Item Value="WmsApproveUid"/>
-          <Item Value="WmsApproveFpc"/>
-          <Item Value="WmsApproveDate"/>
-          <Item Value="WmsMutualFundsValue"/>
-          <Item Value="WmsMutualIbType"/>
-          <Item Value="WmsSedol"/>
-          <Item Value="WmsAssetTrans"/>
-          <Item Value="WmsCountryTrans"/>
-          <Item Value="WmsCurrencyTrans"/>
-          <Item Value="WmsSectorTrans"/>
-          <Item Value="WmsStockExchangeTrans"/>
+          <Item Value="WmsProductName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsAssetTrans" id="WmsAssetTrans"/>
-    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsCountryTrans" id="WmsCountryTrans"/>
-    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsCurrencyTrans"
-                  id="WmsCurrencyTrans"/>
-    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsSectorTrans" id="WmsSectorTrans"/>
-    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsStockExchangeTrans"
-                  id="WmsStockExchangeTrans"/>
+    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsAssetDesc" id="WmsAssetDesc"/>
+    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsCountryDesc" id="WmsCountryDesc"/>
+    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsCurrencyDesc"
+                  id="WmsCurrencyDesc"/>
+    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsSectorDesc" id="WmsSectorDesc"/>
+    <listOfValues IterBinding="FWMSProductIterator" StaticList="false" Uses="LOV_WmsStockExchangeDesc"
+                  id="WmsStockExchangeDesc"/>
     <attributeValues IterBinding="FWMSProductIterator" id="WmsProductName">
       <AttrNames>
         <Item Value="WmsProductName"/>
@@ -259,5 +209,14 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <methodAction id="updateProductRecord" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updateProductRecord" IsViewObjectMethod="false" DataControl="SystemAMDataControl"
+                  InstanceName="bindings.updateProductRecord.dataControl.dataProvider">
+      <NamedData NDName="mode" NDValue="#{pageFlowScope.StockInformationBean.mode}" NDType="java.lang.String"/>
+      <NamedData NDName="updatedBy" NDValue="#{pageFlowScope.StockInformationBean.userId}" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="executeEmptyRowSetBondCoupen" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="executeEmptyRowSetBondCoupen" IsViewObjectMethod="false" DataControl="SystemAMDataControl"
+                  InstanceName="bindings.executeEmptyRowSetBondCoupen.dataControl.dataProvider"/>
   </bindings>
 </pageDefinition>

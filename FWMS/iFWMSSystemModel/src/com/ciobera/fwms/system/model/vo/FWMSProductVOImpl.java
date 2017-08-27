@@ -13,5 +13,21 @@ public class FWMSProductVOImpl extends ViewObjectImpl {
      */
     public FWMSProductVOImpl() {
     }
+
+    /**
+     * Returns the variable value for pProductType.
+     * @return variable value for pProductType
+     */
+    public String getpProductType() {
+        return (String) ensureVariableManager().getVariableValue("pProductType");
+    }
+
+    /**
+     * Sets <code>value</code> for variable pProductType.
+     * @param value value to bind as pProductType
+     */
+    public void setpProductType(String value) {
+        ensureVariableManager().setVariableValue("pProductType", value);
+    }
 }
 

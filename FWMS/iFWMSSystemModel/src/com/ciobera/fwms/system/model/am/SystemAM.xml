@@ -14,10 +14,24 @@
   </DesignTime>
   <ViewUsage
     Name="FWMSProduct"
-    ViewObjectName="com.ciobera.fwms.system.model.vo.FWMSProductVO"/>
+    ViewObjectName="com.ciobera.fwms.system.model.vo.FWMSProductVO">
+    <ViewCriteriaUsage
+      Name="findByProductType"
+      FullName="com.ciobera.fwms.system.model.vo.FWMSProductVO.findByProductType"/>
+    <ParameterMap>
+      <PIMap Variable="pProductType">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA['STOCK']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
   <ViewUsage
     Name="FWMSBondCoupen"
     ViewObjectName="com.ciobera.fwms.system.model.vo.FWMSBondCoupenVO"/>
+  <ViewUsage
+    Name="ProductIdSeq"
+    ViewObjectName="com.ciobera.fwms.system.model.vo.readonly.ProductIdSeq"/>
   <ViewLinkUsage
     Name="FWMSProductVOToFWMSBondCoupen"
     ViewLinkObjectName="com.ciobera.fwms.system.model.vo.viewlink.FWMSProductVOToFWMSBondCoupenVO"
@@ -27,24 +41,24 @@
   <ClientInterface
     Name="__clientInterface">
     <Method
+      Name="executeEmptyRowSetBondCoupen"
+      MethodName="executeEmptyRowSetBondCoupen">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+    <Method
       Name="updateProductRecord"
       MethodName="updateProductRecord">
       <Return
         Name="_return_type_"
-        Type="void"/>
+        Type="java.util.Map"/>
       <Parameter
         Name="mode"
         Type="java.lang.String"/>
       <Parameter
         Name="updatedBy"
         Type="java.lang.String"/>
-    </Method>
-    <Method
-      Name="executeEmptyRowSetBondCoupen"
-      MethodName="executeEmptyRowSetBondCoupen">
-      <Return
-        Name="_return_type_"
-        Type="void"/>
     </Method>
   </ClientInterface>
 </AppModule>

@@ -25,6 +25,10 @@
         ResId="com.ciobera.fwms.system.model.vo.FWMSProductVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="pProductType"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="FWMSAssetVA"
     ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSAssetVO"
@@ -665,6 +669,42 @@
     EntityAttrName="WmsStockExchangeId"
     EntityUsage="FwmsStockExchangeEO"
     AliasName="WMS_STOCK_EXCHANGE_ID"/>
+  <ViewCriteria
+    Name="findByProductType"
+    ViewObjectName="com.ciobera.fwms.system.model.vo.FWMSProductVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="FWMSProductVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="WmsProductType"
+        ViewAttribute="WmsProductType"
+        Operator="="
+        Conjunction="AND"
+        Value=":pProductType"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="FWMSBondCoupenVO"
     ViewLink="com.ciobera.fwms.system.model.vo.viewlink.FWMSProductVOToFWMSBondCoupenVO"
