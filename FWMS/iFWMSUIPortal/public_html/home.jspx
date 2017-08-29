@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
-          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
         <af:document title="#{UIBundle.HOME}" id="d1">
@@ -91,34 +91,33 @@
                             </af:panelAccordion>
                         </af:panelGroupLayout>-->
                         <af:panelAccordion discloseMany="true" id="pa2" dimensionsFrom="auto">
-                            <af:showDetailItem id="pane8" inflexibleHeight="0"
-                                               text="#{UIBundle.NAVIGATION_MENU}">
-                                    <af:tree value="#{bindings.FWMSMainMenu.treeModel}" var="node" summary="#{null}"
-                                             selectionListener="#{pageFlowScope.HomeBean.onTreeSelection}"
-                                             rowSelection="single" id="t1" inlineStyle="padding-left:10px;">
-                                        <f:facet name="nodeStamp">
-                                            <af:group id="g1">
-                                                <af:panelGroupLayout id="pgl6" layout="horizontal"
-                                                                     rendered="#{node.WmmFile eq 'MENU'}">
-                                                    <af:image source="/images/folder.png" id="i1" shortDesc="#{null}"/>
-                                                    <af:outputText value="#{node.WmmDesc}" id="ot2"/>
-                                                    <f:facet name="separator">
-                                                        <af:spacer width="5" id="s1"/>
-                                                    </f:facet>
-                                                </af:panelGroupLayout>
-                                                <af:panelGroupLayout id="pgl8" layout="horizontal"
-                                                                     styleClass="AFStretchWidth"
-                                                                     rendered="#{node.WmmFile ne 'MENU'}">
-                                                    <af:image source="/images/file.png" id="i2" shortDesc="#{null}"/>
-                                                    <af:link id="ot1" text="#{node.WmmDesc}" partialSubmit="true"
-                                                             actionListener="#{pageFlowScope.HomeBean.onScreenNameClick}"/>
-                                                    <f:facet name="separator">
-                                                        <af:spacer width="5" id="s6"/>
-                                                    </f:facet>
-                                                </af:panelGroupLayout>
-                                            </af:group>
-                                        </f:facet>
-                                    </af:tree>
+                            <af:showDetailItem id="pane8" inflexibleHeight="0" text="#{UIBundle.NAVIGATION_MENU}">
+                                <af:tree value="#{bindings.FWMSMainMenu.treeModel}" var="node" summary="#{null}"
+                                         selectionListener="#{pageFlowScope.HomeBean.onTreeSelection}"
+                                         rowSelection="single" id="t1" inlineStyle="padding-left:10px;"
+                                         rowDisclosureListener="#{pageFlowScope.HomeBean.disclosureListener}">
+                                    <f:facet name="nodeStamp">
+                                        <af:group id="g1">
+                                            <af:panelGroupLayout id="pgl6" layout="horizontal"
+                                                                 rendered="#{node.WmmFile eq 'MENU'}">
+                                                <af:image source="/images/folder.png" id="i3" shortDesc="#{null}"/>
+                                                <af:outputText value="#{node.WmmDesc}" id="ot2"/>
+                                                <f:facet name="separator">
+                                                    <af:spacer width="5" id="s7"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                            <af:panelGroupLayout id="pgl8" layout="horizontal"
+                                                                 rendered="#{node.WmmFile ne 'MENU'}">
+                                                <af:image source="/images/file.png" id="i2" shortDesc="#{null}"/>
+                                                <af:link id="ot1" text="#{node.WmmDesc}" partialSubmit="true"
+                                                         actionListener="#{pageFlowScope.HomeBean.onScreenNameClick}"/>
+                                                <f:facet name="separator">
+                                                    <af:spacer width="5" id="s6"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                        </af:group>
+                                    </f:facet>
+                                </af:tree>
                             </af:showDetailItem>
                         </af:panelAccordion>
                     </f:facet>
@@ -128,13 +127,13 @@
                             <af:outputText value="#{UIBundle.WELCOME}" inlineStyle="font-size: 15px;" id="ot10"
                                            noWrap="true"/>
                             <af:spacer width="10" height="10" id="s5"/>
-                            <af:outputText value="#{GlobalBean.userName}" id="ot4" inlineStyle="font-weight:bold; font-size: 15px;"
-                                           noWrap="true"/>
+                            <af:outputText value="#{GlobalBean.userName}" id="ot4"
+                                           inlineStyle="font-weight:bold; font-size: 15px;" noWrap="true"/>
                             <af:spacer width="10" height="10" id="s4"/>
                             <af:outputText value="Last Login" id="ot11" inlineStyle="font-size: 15px;" noWrap="true"/>
                             <af:spacer width="10" height="10" id="s3"/>
-                            <af:outputText value="#{GlobalBean.lastLogin}" id="ot5" inlineStyle="font-weight:bold; font-size: 15px;"
-                                           noWrap="true"/>
+                            <af:outputText value="#{GlobalBean.lastLogin}" id="ot5"
+                                           inlineStyle="font-weight:bold; font-size: 15px;" noWrap="true"/>
                             <af:spacer width="10" height="10" id="s2"/>
                             <af:link text="#{UIBundle.LOGOUT}" id="cl5"
                                      inlineStyle="font-weight:bold; font-size:15px; color:White;" immediate="true"
@@ -148,14 +147,15 @@
                         <af:group id="g2">
                             <af:outputText value="#{UIBundle.HOME}" id="ot7"
                                            inlineStyle="font-weight:bold; font-size: 15px;"/>
-                                              <af:popup childCreation="deferred" autoCancel="disabled" id="p4" contentDelivery="lazyUncached"
-                  binding="#{pageFlowScope.HomeBean.errorMessagePopupBinding}">
-            <af:dialog id="d5" title="#{UIBundle.ERROR_MESSAGE}" type="ok" closeIconVisible="false"
-                       titleIconSource="/images/error.png"
-                       dialogListener="#{pageFlowScope.HomeBean.errorMessageDialogListener}">
-                <af:outputFormatted value="#{pageFlowScope.HomeBean.errorMessage}" id="of7"/>
-            </af:dialog>
-        </af:popup>
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="p4"
+                                      contentDelivery="lazyUncached"
+                                      binding="#{pageFlowScope.HomeBean.errorMessagePopupBinding}">
+                                <af:dialog id="d5" title="#{UIBundle.ERROR_MESSAGE}" type="ok" closeIconVisible="false"
+                                           titleIconSource="/images/error.png"
+                                           dialogListener="#{pageFlowScope.HomeBean.errorMessageDialogListener}">
+                                    <af:outputFormatted value="#{pageFlowScope.HomeBean.errorMessage}" id="of7"/>
+                                </af:dialog>
+                            </af:popup>
                         </af:group>
                     </f:facet>
                     <f:facet name="innerToolbar"/>

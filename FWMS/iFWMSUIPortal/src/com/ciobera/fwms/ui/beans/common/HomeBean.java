@@ -39,6 +39,7 @@ import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;
 
 import oracle.ui.pattern.dynamicShell.TabContext;
 
+import org.apache.myfaces.trinidad.event.RowDisclosureEvent;
 import org.apache.myfaces.trinidad.event.SelectionEvent;
 import org.apache.myfaces.trinidad.model.CollectionModel;
 import org.apache.myfaces.trinidad.model.RowKeySet;
@@ -198,6 +199,30 @@ public class HomeBean extends iFWMSPhaseListener implements Serializable {
             }
         }
     }
+    
+    public void disclosureListener(RowDisclosureEvent rowDisclosureEvent) {
+         
+          RichTree tree=(RichTree)rowDisclosureEvent.getSource();
+          RowKeySet rks=rowDisclosureEvent.getAddedSet();
+          if(rks!=null&&rks.size()>0){
+              Iterator iter=rks.iterator();
+
+              while(iter.hasNext()){
+                  Object rowKey=iter.next();
+                  tree.setRowKey(rowKey);
+                  JUCtrlHierNodeBinding rowData=(JUCtrlHierNodeBinding)tree.getRowData();
+                  if(rowData!=null&&rowData.getChildren()!=null){ // Iterate through the children of the expanded node and check if they have children
+                      for(Object child:rowData.getChildren()){
+                          JUCtrlHierNodeBinding childNode=(JUCtrlHierNodeBinding)child;
+                          if(childNode.getChildren()==null||childNode.getChildren().size()==0){ // Child node is a leaf.  Add it to the disclosed rows, to that the ADF tree will not display a disclosure icon
+                              tree.getDisclosedRowKeys().add(childNode.getKeyPath());
+                          }
+                      }
+                  }
+              }
+             
+          }
+      }
 
     /**
      * This method is called when the user clicks on Log out button.

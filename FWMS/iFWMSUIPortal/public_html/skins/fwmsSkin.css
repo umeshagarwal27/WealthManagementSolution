@@ -108,3 +108,14 @@ af|link.navTab:hover,
     -o-transition: all 0.2s;
     transition: all 0.2s;
 }
+.xx3{
+    margin-left:0px;margin-right:5px;float: left;
+}
+
+af|tree::data-cell{
+    padding-top:10px;
+     color: #fff;
+    font-size: 13px;
+    outline: none;
+    outline-color: none;
+}
