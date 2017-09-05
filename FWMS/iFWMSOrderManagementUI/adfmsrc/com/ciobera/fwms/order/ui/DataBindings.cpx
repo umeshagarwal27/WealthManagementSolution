@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.ciobera.fwms.order.ui" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/com/ciobera/fwms/order/ui/fragments/orderManagementPF.jsff"
+          usageId="com_ciobera_fwms_order_ui_orderManagementPFPageDef"/>
+    <page path="/testOrderPage.jsf" usageId="com_ciobera_fwms_order_ui_testOrderPagePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_ciobera_fwms_order_ui_orderManagementPFPageDef"
+          path="com.ciobera.fwms.order.ui.fragments.orderManagementPFPageDef"/>
+    <page id="com_ciobera_fwms_order_ui_testOrderPagePageDef"
+          path="com.ciobera.fwms.order.ui.pageDefs.testOrderPagePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="OrderManagementAMDataControl" Package="com.ciobera.fwms.order.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="OrderManagementAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

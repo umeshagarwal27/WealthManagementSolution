@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.ciobera.fwms.order.model.am.OrderManagementAM">
+      <AppModuleConfig name="OrderManagementAMLocal" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="com.ciobera.fwms.order.model.am.OrderManagementAM" jbo.project="com.ciobera.fwms.order.model.iFWMSOrderManagementModel">
+         <Database jbo.locking.mode="optimistic" JDBCDataSource="java:comp/env/jdbc/hrDS" jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="com.ciobera.fwms.order.model.am.OrderManagementAM"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="OrderManagementAMShared" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="com.ciobera.fwms.order.model.am.OrderManagementAM" jbo.project="com.ciobera.fwms.order.model.iFWMSOrderManagementModel">
+         <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1"/>
+         <Database jbo.locking.mode="optimistic" JDBCDataSource="java:comp/env/jdbc/hrDS" jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="com.ciobera.fwms.order.model.am.OrderManagementAM"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>
