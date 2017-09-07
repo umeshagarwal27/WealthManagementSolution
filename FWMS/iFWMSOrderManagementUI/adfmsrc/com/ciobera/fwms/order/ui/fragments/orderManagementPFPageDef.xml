@@ -8,22 +8,20 @@
                 DefaultValue='#{"SRINI"}'/>
       <variable Type="java.util.Date" Name="processAsOfDateRecord_asOfDate" IsQueriable="false"/>
     </variableIterator>
-    <iterator Binds="FWMSHoldingAllVO" RangeSize="25" DataControl="OrderManagementAMDataControl"
-              id="FWMSHoldingAllVOIterator"/>
-    <iterator Binds="FWMSHoldingAllCountryVO" RangeSize="-1" DataControl="OrderManagementAMDataControl"
-              id="FWMSHoldingAllCountryVOIterator"/>
-    <iterator Binds="FWMSHoldingAllCountryDVO" RangeSize="-1" DataControl="OrderManagementAMDataControl"
-              id="FWMSHoldingAllCountryDVOIterator"/>
-    <iterator Binds="FWMSHoldingAllCountryDVO1" RangeSize="-1" DataControl="OrderManagementAMDataControl"
-              id="FWMSHoldingAllCountryDVO1Iterator"/>
-    <iterator Binds="FWMSDHoldingAllExchangeVO" RangeSize="-1" DataControl="OrderManagementAMDataControl"
-              id="FWMSDHoldingAllExchangeVOIterator"/>
-    <iterator Binds="FWMSDHoldingAllExchangeDVO" RangeSize="-1" DataControl="OrderManagementAMDataControl"
-              id="FWMSDHoldingAllExchangeDVOIterator"/>
-    <iterator Binds="FWMSHoldingAllAssetVO" RangeSize="-1" DataControl="OrderManagementAMDataControl"
-              id="FWMSHoldingAllAssetVOIterator"/>
-    <iterator Binds="FWMSDHoldingAllAssetDVO" RangeSize="-1" DataControl="OrderManagementAMDataControl"
-              id="FWMSDHoldingAllAssetDVOIterator"/>
+    <iterator Binds="FWMSDHoldingAll" RangeSize="25" DataControl="OrderManagementAMDataControl"
+              id="FWMSDHoldingAllIterator"/>
+    <iterator Binds="FWMSDHoldingAllCountry" RangeSize="-1" DataControl="OrderManagementAMDataControl"
+              id="FWMSDHoldingAllCountryIterator"/>
+    <iterator Binds="FWMSDHoldingAllCountryD" RangeSize="-1" DataControl="OrderManagementAMDataControl"
+              id="FWMSDHoldingAllCountryDIterator"/>
+    <iterator Binds="FWMSDHoldingAllExchange" RangeSize="-1" DataControl="OrderManagementAMDataControl"
+              id="FWMSDHoldingAllExchangeIterator"/>
+    <iterator Binds="FWMSDHoldingAllExchangeD" RangeSize="-1" DataControl="OrderManagementAMDataControl"
+              id="FWMSDHoldingAllExchangeDIterator"/>
+    <iterator Binds="FWMSDHoldingAllAsset" RangeSize="-1" DataControl="OrderManagementAMDataControl"
+              id="FWMSDHoldingAllAssetIterator"/>
+    <iterator Binds="FWMSDHoldingAllAssetD" RangeSize="-1" DataControl="OrderManagementAMDataControl"
+              id="FWMSDHoldingAllAssetDIterator"/>
   </executables>
   <bindings>
     <methodAction id="processAsOfDateRecord" RequiresUpdateModel="true" Action="invokeMethod"
@@ -43,8 +41,8 @@
         <Item Value="processAsOfDateRecord_asOfDate"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="FWMSHoldingAllVOIterator" id="FWMSHoldingAllVO">
-      <nodeDefinition DefName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllVO" Name="FWMSHoldingAllVO0">
+    <tree IterBinding="FWMSDHoldingAllIterator" id="FWMSDHoldingAll">
+      <nodeDefinition DefName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllVO" Name="FWMSDHoldingAll">
         <AttrNames>
           <Item Value="FhaFname"/>
           <Item Value="FhaCashB"/>
@@ -65,61 +63,51 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="FWMSHoldingAllVOIterator" id="ExecuteWithParams"
-            InstanceName="OrderManagementAMDataControl.FWMSHoldingAllVO" DataControl="OrderManagementAMDataControl"
+    <!--action IterBinding="FWMSDHoldingAllVOIterator" id="ExecuteWithParams"
+            InstanceName="OrderManagementAMDataControl.FWMSHoldingAll" DataControl="OrderManagementAMDataControl"
             RequiresUpdateModel="true" Action="executeWithParams">
       <NamedData NDName="loggedInUserId" NDValue="SRINI" NDType="java.lang.String"/>
-    </action>
-    <tree IterBinding="FWMSHoldingAllCountryDVOIterator" id="FWMSHoldingAllCountryDVO" ChangeEventPolicy="ppr">
+    </action-->
+    <tree IterBinding="FWMSDHoldingAllCountryDIterator" id="FWMSDHoldingAllCountryD">
       <nodeDefinition DefName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllCountryDVO"
-                      Name="FWMSHoldingAllCountryDVO">
+                      Name="FWMSDHoldingAllCountryD">
         <AttrNames>
           <Item Value="FhaMvB"/>
           <Item Value="FhaFname"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <tree IterBinding="FWMSHoldingAllCountryVOIterator" id="FWMSHoldingAllCountryVO" ChangeEventPolicy="ppr">
+    <tree IterBinding="FWMSDHoldingAllCountryIterator" id="FWMSDHoldingAllCountry">
       <nodeDefinition DefName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllCountryVO"
-                      Name="FWMSHoldingAllCountryVO">
+                      Name="FWMSDHoldingAllCountry">
         <AttrNames>
           <Item Value="FhaMvB"/>
           <Item Value="FhaCname"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="FWMSHoldingAllCountryVOIterator" id="ExecuteWithParamsCountry"
-            InstanceName="OrderManagementAMDataControl.FWMSHoldingAllCountryVO"
+    <!--action IterBinding="FWMSDHoldingAllCountryVOIterator" id="ExecuteWithParamsCountry"
+            InstanceName="OrderManagementAMDataControl.FWMSHoldingAllCountry"
             DataControl="OrderManagementAMDataControl" RequiresUpdateModel="true" Action="executeWithParams">
       <NamedData NDName="loggedInUserId" NDValue="SRINI" NDType="java.lang.String"/>
     </action>
     <action IterBinding="FWMSHoldingAllCountryDVOIterator" id="ExecuteWithParamsCountryD"
-            InstanceName="OrderManagementAMDataControl.FWMSHoldingAllCountryDVO"
+            InstanceName="OrderManagementAMDataControl.FWMSHoldingAllCountryD"
             DataControl="OrderManagementAMDataControl" RequiresUpdateModel="true" Action="executeWithParams">
       <NamedData NDName="loggedInUserId" NDValue="SRINI" NDType="java.lang.String"/>
-    </action>
-    <tree IterBinding="FWMSHoldingAllCountryDVOIterator" id="FWMSHoldingAllCountryDVO1" ChangeEventPolicy="ppr">
-      <nodeDefinition DefName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllCountryDVO"
-                      Name="FWMSHoldingAllCountryDVO1">
-        <AttrNames>
-          <Item Value="FhaMvB"/>
-          <Item Value="FhaCname"/>
-          <Item Value="FhaFname"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <tree IterBinding="FWMSDHoldingAllExchangeVOIterator" id="FWMSDHoldingAllExchangeVO" ChangeEventPolicy="ppr">
+    </action-->
+    <tree IterBinding="FWMSDHoldingAllExchangeIterator" id="FWMSDHoldingAllExchange">
       <nodeDefinition DefName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllExchangeVO"
-                      Name="FWMSDHoldingAllExchangeVO">
+                      Name="FWMSDHoldingAllExchange">
         <AttrNames>
           <Item Value="FhaMvB"/>
           <Item Value="FhaEname"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <tree IterBinding="FWMSDHoldingAllExchangeDVOIterator" id="FWMSDHoldingAllExchangeDVO" ChangeEventPolicy="ppr">
+    <tree IterBinding="FWMSDHoldingAllExchangeDIterator" id="FWMSDHoldingAllExchangeD">
       <nodeDefinition DefName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllExchangeDVO"
-                      Name="FWMSDHoldingAllExchangeDVO">
+                      Name="FWMSDHoldingAllExchangeD">
         <AttrNames>
           <Item Value="FhaMvB"/>
           <Item Value="FhaFname"/>
@@ -127,18 +115,18 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <tree IterBinding="FWMSHoldingAllAssetVOIterator" id="FWMSHoldingAllAssetVO" ChangeEventPolicy="ppr">
+    <tree IterBinding="FWMSDHoldingAllAssetIterator" id="FWMSDHoldingAllAsset">
       <nodeDefinition DefName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllAssetVO"
-                      Name="FWMSHoldingAllAssetVO">
+                      Name="FWMSDHoldingAllAsset">
         <AttrNames>
           <Item Value="FhaMvB"/>
           <Item Value="FhaAname"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <tree IterBinding="FWMSDHoldingAllAssetDVOIterator" id="FWMSDHoldingAllAssetDVO" ChangeEventPolicy="ppr">
+    <tree IterBinding="FWMSDHoldingAllAssetDIterator" id="FWMSDHoldingAllAssetD">
       <nodeDefinition DefName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllAssetDVO"
-                      Name="FWMSDHoldingAllAssetDVO">
+                      Name="FWMSDHoldingAllAssetD">
         <AttrNames>
           <Item Value="FhaMvB"/>
           <Item Value="FhaFname"/>
@@ -146,25 +134,25 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="FWMSHoldingAllAssetVOIterator" id="ExecuteWithParamsAsset"
-            InstanceName="OrderManagementAMDataControl.FWMSHoldingAllAssetVO" DataControl="OrderManagementAMDataControl"
+    <!--action IterBinding="FWMSDHoldingAllAssetIterator" id="ExecuteWithParamsAsset"
+            InstanceName="OrderManagementAMDataControl.FWMSDHoldingAllAsset" DataControl="OrderManagementAMDataControl"
             RequiresUpdateModel="true" Action="executeWithParams">
       <NamedData NDName="loggedInUserId" NDValue="SRINI" NDType="java.lang.String"/>
     </action>
     <action IterBinding="FWMSDHoldingAllAssetDVOIterator" id="ExecuteWithParamsAssetD"
-            InstanceName="OrderManagementAMDataControl.FWMSDHoldingAllAssetDVO"
+            InstanceName="OrderManagementAMDataControl.FWMSDHoldingAllAssetD"
             DataControl="OrderManagementAMDataControl" RequiresUpdateModel="true" Action="executeWithParams">
       <NamedData NDName="loggeInUserId" NDValue="SRINI" NDType="java.lang.String"/>
     </action>
     <action IterBinding="FWMSDHoldingAllExchangeVOIterator" id="ExecuteWithParamsExchange"
-            InstanceName="OrderManagementAMDataControl.FWMSDHoldingAllExchangeVO"
+            InstanceName="OrderManagementAMDataControl.FWMSDHoldingAllExchange"
             DataControl="OrderManagementAMDataControl" RequiresUpdateModel="true" Action="executeWithParams">
       <NamedData NDName="loggedInUserId" NDValue="SRINI" NDType="java.lang.String"/>
     </action>
     <action IterBinding="FWMSDHoldingAllExchangeDVOIterator" id="ExecuteWithParamsExchangeD"
-            InstanceName="OrderManagementAMDataControl.FWMSDHoldingAllExchangeDVO"
+            InstanceName="OrderManagementAMDataControl.FWMSDHoldingAllExchangeD"
             DataControl="OrderManagementAMDataControl" RequiresUpdateModel="true" Action="executeWithParams">
       <NamedData NDName="loggedInUserID" NDValue="SRINI" NDType="java.lang.String"/>
-    </action>
+    </action-->
   </bindings>
 </pageDefinition>

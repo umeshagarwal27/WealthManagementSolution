@@ -9,5 +9,7 @@ import oracle.jbo.ApplicationModule;
 // ---------------------------------------------------------------------
 public interface OrderManagementAM extends ApplicationModule {
     void processAsOfDateRecord(String userId, Date asOfDate);
+
+    void getFWMSHoldingRecordsForUserId(String userId);
 }
 

@@ -72,6 +72,17 @@
    <value n="jbo.JpxName" v="com.ciobera.fwms.order.model.iFWMSOrderManagementModel"/>
    <value n="jbo.NoAttrEnumClasses" v="true"/>
    <value n="JboProject" v="true"/>
+   <hash n="oracle.ide.model.DependencyConfiguration">
+      <list n="dependencyList">
+         <hash>
+            <hash n="dependable">
+               <url n="sourceOwnerURL" path="../FWMS.jws"/>
+               <url n="sourceURL" path="../iFWMSBundle/iFWMSBundle.jpr"/>
+            </hash>
+            <value n="recognizerId" v="oracle.jdeveloper.library"/>
+         </hash>
+      </list>
+   </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ADFbc"/>
@@ -286,5 +297,15 @@
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
       <url n="outputDirectory" path="classes/"/>
+   </hash>
+   <hash n="ResourceBundleOptions">
+      <value n="DefaultProjectBundleName" v="com.ciobera.fwms.bundle.model.ModelBundle"/>
+      <list n="RegisteredResourceBundles">
+         <hash>
+            <value n="BundleId" v="com.ciobera.fwms.bundle.model.ModelBundle"/>
+            <value n="LibraryURL"/>
+            <url n="ProjectURL" path="../iFWMSBundle/iFWMSBundle.jpr"/>
+         </hash>
+      </list>
    </hash>
 </jpr:project>

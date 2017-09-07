@@ -12,12 +12,16 @@
     <page path="/com/ciobera/fwms/order/ui/fragments/orderManagementPF.jsff"
           usageId="com_ciobera_fwms_order_ui_orderManagementPFPageDef"/>
     <page path="/testOrderPage.jsf" usageId="com_ciobera_fwms_order_ui_testOrderPagePageDef"/>
+    <page path="/WEB-INF/com/ciobera/fwms/order/ui/taskflows/order-management-task-flow-definition.xml#order-management-task-flow-definition@getFWMSHoldingRecordsForUserId"
+          usageId="com_ciobera_fwms_order_ui_order_management_task_flow_definition_order_management_task_flow_definition_getFWMSHoldingRecordsForUserIdPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_ciobera_fwms_order_ui_orderManagementPFPageDef"
           path="com.ciobera.fwms.order.ui.fragments.orderManagementPFPageDef"/>
     <page id="com_ciobera_fwms_order_ui_testOrderPagePageDef"
           path="com.ciobera.fwms.order.ui.pageDefs.testOrderPagePageDef"/>
+    <page id="com_ciobera_fwms_order_ui_order_management_task_flow_definition_order_management_task_flow_definition_getFWMSHoldingRecordsForUserIdPageDef"
+          path="com.ciobera.fwms.order.ui.taskflows.order_management_task_flow_definition_order_management_task_flow_definition_getFWMSHoldingRecordsForUserIdPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="OrderManagementAMDataControl" Package="com.ciobera.fwms.order.model.am"

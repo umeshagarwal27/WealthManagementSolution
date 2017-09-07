@@ -13,46 +13,43 @@
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewUsage
-    Name="FWMSHoldingAllVO"
+    Name="FWMSDHoldingAll"
     ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllVO"/>
   <ViewUsage
-    Name="FWMSHoldingAllCountryVO"
-    ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllCountryVO"/>
-  <ViewUsage
-    Name="FWMSHoldingAllCountryDVO"
-    ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllCountryDVO"/>
-  <ViewUsage
-    Name="FWMSHoldingAllCountryDVO1"
-    ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllCountryDVO"/>
-  <ViewUsage
-    Name="FWMSHoldingAllAssetVO"
+    Name="FWMSDHoldingAllAsset"
     ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllAssetVO"/>
   <ViewUsage
-    Name="FWMSDHoldingAllAssetDVO"
+    Name="FWMSDHoldingAllAssetD"
     ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllAssetDVO"/>
   <ViewUsage
-    Name="FWMSDHoldingAllExchangeVO"
+    Name="FWMSDHoldingAllCountry"
+    ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllCountryVO"/>
+  <ViewUsage
+    Name="FWMSDHoldingAllCountryD"
+    ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllCountryDVO"/>
+  <ViewUsage
+    Name="FWMSDHoldingAllExchange"
     ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllExchangeVO"/>
   <ViewUsage
-    Name="FWMSDHoldingAllExchangeDVO"
+    Name="FWMSDHoldingAllExchangeD"
     ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllExchangeDVO"/>
   <ViewLinkUsage
-    Name="FWMSHoldingAllCountryVOToFWMSHoldingAllCountryDVO1"
-    ViewLinkObjectName="com.ciobera.fwms.order.model.vo.viewlink.FWMSHoldingAllCountryVOToFWMSHoldingAllCountryDVO"
-    SrcViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSHoldingAllCountryVO"
-    DstViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSHoldingAllCountryDVO"
-    Reversed="false"/>
-  <ViewLinkUsage
-    Name="FWMSDHoldingAllAssetVOToFWMSDHoldingAllAssetDVO1"
+    Name="FWMSDHoldingAllAssetVOToFWMSDHoldingAllAssetDVO"
     ViewLinkObjectName="com.ciobera.fwms.order.model.vo.viewlink.FWMSDHoldingAllAssetVOToFWMSDHoldingAllAssetDVO"
-    SrcViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSHoldingAllAssetVO"
-    DstViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAllAssetDVO"
+    SrcViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAllAsset"
+    DstViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAllAssetD"
     Reversed="false"/>
   <ViewLinkUsage
-    Name="FWMSDHoldingAllExchangeVOToFWMSDHoldingAllExchangeDVO1"
+    Name="FWMSHoldingAllCountryVOToFWMSHoldingAllCountryDVO"
+    ViewLinkObjectName="com.ciobera.fwms.order.model.vo.viewlink.FWMSHoldingAllCountryVOToFWMSHoldingAllCountryDVO"
+    SrcViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAllCountry"
+    DstViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAllCountryD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FWMSDHoldingAllExchangeVOToFWMSDHoldingAllExchangeDVO"
     ViewLinkObjectName="com.ciobera.fwms.order.model.vo.viewlink.FWMSDHoldingAllExchangeVOToFWMSDHoldingAllExchangeDVO"
-    SrcViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAllExchangeVO"
-    DstViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAllExchangeDVO"
+    SrcViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAllExchange"
+    DstViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAllExchangeD"
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">
@@ -68,6 +65,16 @@
       <Parameter
         Name="asOfDate"
         Type="java.util.Date"/>
+    </Method>
+    <Method
+      Name="getFWMSHoldingRecordsForUserId"
+      MethodName="getFWMSHoldingRecordsForUserId">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.String"/>
     </Method>
   </ClientInterface>
 </AppModule>

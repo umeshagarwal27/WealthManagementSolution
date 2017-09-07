@@ -1,7 +1,17 @@
+/*****************************************************************************************************
+ ** Program Name            - OrderManagementBean.java
+ ** Program Description     - This class contains the logic of Order Management Screen.
+ ** Date written            -
+ ** Author                  - Umesh Agarwal
+ ** Additional Information  -
+ ** Copyright notice        -
+ ******************************************************************************************************/
 package com.ciobera.fwms.order.ui.beans;
 
 import com.ciobera.fwms.common.util.logger.LoggingUtil;
 import com.ciobera.fwms.common.util.utils.common.ADFUtil;
+
+import java.io.Serializable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +34,9 @@ import oracle.binding.OperationBinding;
 
 import org.apache.myfaces.trinidad.event.SelectionEvent;
 
-public class OrderManagementBean {
+public class OrderManagementBean implements Serializable {
+    @SuppressWarnings("compatibility:1524626334163952164")
+    private static final long serialVersionUID = -3351246699426832773L;
     public static final ADFLogger LOGGER = ADFLogger.createADFLogger(OrderManagementBean.class);
     private boolean showGraph = false;
     private RichPopup countryPopup;
@@ -231,7 +243,7 @@ public class OrderManagementBean {
         }
         
         public void countrySelectionListener(SelectionEvent selectionEvent){
-            pieChartSelectionListener(selectionEvent,"#{bindings.FWMSHoldingAllCountryVO.collectionModel.makeCurrent}");
+            pieChartSelectionListener(selectionEvent,"#{bindings.FWMSDHoldingAllCountry.collectionModel.makeCurrent}");
             if (getCountryPopup() != null) {
                 RichPopup.PopupHints hints = new RichPopup.PopupHints();
                 getCountryPopup().show(hints);
@@ -239,7 +251,7 @@ public class OrderManagementBean {
         }
         
     public void exchangeSelectionListener(SelectionEvent selectionEvent){
-        pieChartSelectionListener(selectionEvent,"#{bindings.FWMSDHoldingAllExchangeVO.collectionModel.makeCurrent}");
+        pieChartSelectionListener(selectionEvent,"#{bindings.FWMSDHoldingAllExchange.collectionModel.makeCurrent}");
         if (getExchangePopup() != null) {
             RichPopup.PopupHints hints = new RichPopup.PopupHints();
             getExchangePopup().show(hints);
@@ -247,7 +259,7 @@ public class OrderManagementBean {
     }
     
     public void assetSelectionListener(SelectionEvent selectionEvent){
-        pieChartSelectionListener(selectionEvent,"#{bindings.FWMSHoldingAllAssetVO.collectionModel.makeCurrent}");
+        pieChartSelectionListener(selectionEvent,"#{bindings.FWMSDHoldingAllAsset.collectionModel.makeCurrent}");
         if (getAssetPopup() != null) {
             RichPopup.PopupHints hints = new RichPopup.PopupHints();
             getAssetPopup().show(hints);

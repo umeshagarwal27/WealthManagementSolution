@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="order_management_task_flow_definition_order_management_task_flow_definition_getFWMSHoldingRecordsForUserIdPageDef"
+                Package="com.ciobera.fwms.order.ui.taskflows" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="getFWMSHoldingRecordsForUserId" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getFWMSHoldingRecordsForUserId" IsViewObjectMethod="false"
+                  DataControl="OrderManagementAMDataControl"
+                  InstanceName="bindings.getFWMSHoldingRecordsForUserId.dataControl.dataProvider">
+      <NamedData NDName="userId" NDValue="#{'SRINI'}" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

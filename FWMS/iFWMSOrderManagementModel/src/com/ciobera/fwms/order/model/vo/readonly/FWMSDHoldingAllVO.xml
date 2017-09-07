@@ -293,6 +293,6 @@
   </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
-      PropertiesFile="com.ciobera.fwms.order.model.iFWMSOrderManagementModelBundle"/>
+      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
   </ResourceBundle>
 </ViewObject>
