@@ -17,6 +17,14 @@
                   id="FWMSDHoldingAllAssetIterator"/>
         <iterator Binds="FWMSDHoldingAllAssetD" RangeSize="-1" DataControl="OrderManagementAMDataControl"
                   id="FWMSDHoldingAllAssetDIterator"/>
+        <iterator Binds="FWMSDHoldingSelectedVO" RangeSize="25" DataControl="OrderManagementAMDataControl"
+                  id="FWMSDHoldingSelectedVOIterator"/>
+        <iterator Binds="FWMSDHoldingAllCountrySVO" RangeSize="10" DataControl="OrderManagementAMDataControl"
+                  id="FWMSDHoldingAllCountrySVOIterator"/>
+        <iterator Binds="FWMSDHoldingAllExchangeSVO" RangeSize="10" DataControl="OrderManagementAMDataControl"
+                  id="FWMSDHoldingAllExchangeSVOIterator"/>
+        <iterator Binds="FWMSDHoldingAllAssetSVO" RangeSize="10" DataControl="OrderManagementAMDataControl"
+                  id="FWMSDHoldingAllAssetSVOIterator"/>
     </executables>
     <bindings>
         <tree IterBinding="FWMSDHoldingAllIterator" id="FWMSDHoldingAll">
@@ -146,5 +154,94 @@
             <NamedData NDName="userId" NDType="java.lang.String" NDValue="#{pageFlowScope.OrderManagementBean.userId}"/>
             <NamedData NDName="asOfDate" NDType="java.util.Date" NDValue=""/>
         </methodAction>
+        <tree IterBinding="FWMSDHoldingSelectedVOIterator" id="FWMSDHoldingSelectedVO">
+            <nodeDefinition DefName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingSelectedVO"
+                            Name="FWMSDHoldingSelectedVO0">
+                <AttrNames>
+                    <Item Value="FhaUserid"/>
+                    <Item Value="FhaFund"/>
+                    <Item Value="FhaFname"/>
+                    <Item Value="FhaStock"/>
+                    <Item Value="FhaStockName"/>
+                    <Item Value="FhaShortName"/>
+                    <Item Value="FhaCurrency"/>
+                    <Item Value="FhaCname"/>
+                    <Item Value="FhaLongShort"/>
+                    <Item Value="FhaQty"/>
+                    <Item Value="FhaCprice"/>
+                    <Item Value="FhaCost"/>
+                    <Item Value="FhaMp"/>
+                    <Item Value="FhaMv"/>
+                    <Item Value="FhaUgl"/>
+                    <Item Value="FhaFxRate"/>
+                    <Item Value="FhaCostB"/>
+                    <Item Value="FhaMvB"/>
+                    <Item Value="FhaUglB"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <action IterBinding="FWMSDHoldingSelectedVOIterator" id="ExecuteWithParamsSelected"
+                InstanceName="OrderManagementAMDataControl.FWMSDHoldingSelectedVO"
+                DataControl="OrderManagementAMDataControl" RequiresUpdateModel="true" Action="executeWithParams">
+            <NamedData NDName="loggedInUserId" NDValue="#{pageFlowScope.OrderManagementBean.userId}"
+                       NDType="java.lang.String"/>
+        </action>
+        <action IterBinding="FWMSDHoldingAllCountrySVOIterator" id="ExecuteWithParamsCountryS"
+                InstanceName="OrderManagementAMDataControl.FWMSDHoldingAllCountrySVO"
+                DataControl="OrderManagementAMDataControl" RequiresUpdateModel="true" Action="executeWithParams">
+            <NamedData NDName="loggedInUserId" NDValue="#{pageFlowScope.OrderManagementBean.userId}"
+                       NDType="java.lang.String"/>
+        </action>
+        <action IterBinding="FWMSDHoldingAllExchangeSVOIterator" id="ExecuteWithParamsExchangeS"
+                InstanceName="OrderManagementAMDataControl.FWMSDHoldingAllExchangeSVO"
+                DataControl="OrderManagementAMDataControl" RequiresUpdateModel="true" Action="executeWithParams">
+            <NamedData NDName="loggedInUserId" NDValue="#{pageFlowScope.OrderManagementBean.userId}"
+                       NDType="java.lang.String"/>
+        </action>
+        <action IterBinding="FWMSDHoldingAllAssetSVOIterator" id="ExecuteWithParamsAssetS"
+                InstanceName="OrderManagementAMDataControl.FWMSDHoldingAllAssetSVO"
+                DataControl="OrderManagementAMDataControl" RequiresUpdateModel="true" Action="executeWithParams">
+            <NamedData NDName="loggedInUserId" NDValue="#{pageFlowScope.OrderManagementBean.userId}"
+                       NDType="java.lang.String"/>
+        </action>
+        <tree IterBinding="FWMSDHoldingAllCountrySVOIterator" id="FWMSDHoldingAllCountrySVO">
+            <nodeDefinition DefName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllCountrySVO"
+                            Name="FWMSDHoldingAllCountrySVO0">
+                <AttrNames>
+                    <Item Value="FhaUserid"/>
+                    <Item Value="FhaFund"/>
+                    <Item Value="FhaFname"/>
+                    <Item Value="FhaMvB"/>
+                    <Item Value="FhaCname"/>
+                    <Item Value="FhaCountry"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="FWMSDHoldingAllExchangeSVOIterator" id="FWMSDHoldingAllExchangeSVO">
+            <nodeDefinition DefName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllExchangeSVO"
+                            Name="FWMSDHoldingAllExchangeSVO0">
+                <AttrNames>
+                    <Item Value="FhaUserid"/>
+                    <Item Value="FhaEname"/>
+                    <Item Value="FhaExchange"/>
+                    <Item Value="FhaFname"/>
+                    <Item Value="FhaFund"/>
+                    <Item Value="FhaMvB"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
+        <tree IterBinding="FWMSDHoldingAllAssetSVOIterator" id="FWMSDHoldingAllAssetSVO">
+            <nodeDefinition DefName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllAssetSVO"
+                            Name="FWMSDHoldingAllAssetSVO0">
+                <AttrNames>
+                    <Item Value="FhaUserid"/>
+                    <Item Value="FhaAname"/>
+                    <Item Value="FhaAsset"/>
+                    <Item Value="FhaFname"/>
+                    <Item Value="FhaFund"/>
+                    <Item Value="FhaMvB"/>
+                </AttrNames>
+            </nodeDefinition>
+        </tree>
     </bindings>
 </pageDefinition>

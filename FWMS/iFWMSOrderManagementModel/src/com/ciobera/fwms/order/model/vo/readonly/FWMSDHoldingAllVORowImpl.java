@@ -29,7 +29,11 @@ public class FWMSDHoldingAllVORowImpl extends ViewRowImpl {
         FhaNavNavY,
         FhaNavNavYp,
         FhaNavNavYtd,
-        FhaNavNavYtdp;
+        FhaNavNavYtdp,
+        FWMSDHoldingSelectedVO,
+        FWMSDHoldingAllCountrySVO,
+        FWMSDHoldingAllExchangeSVO,
+        FWMSDHoldingAllAssetSVO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -53,6 +57,8 @@ public class FWMSDHoldingAllVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int FHAUSERID = AttributesEnum.FhaUserid.index();
     public static final int FHAFUND = AttributesEnum.FhaFund.index();
     public static final int FHAFNAME = AttributesEnum.FhaFname.index();
@@ -69,6 +75,10 @@ public class FWMSDHoldingAllVORowImpl extends ViewRowImpl {
     public static final int FHANAVNAVYP = AttributesEnum.FhaNavNavYp.index();
     public static final int FHANAVNAVYTD = AttributesEnum.FhaNavNavYtd.index();
     public static final int FHANAVNAVYTDP = AttributesEnum.FhaNavNavYtdp.index();
+    public static final int FWMSDHOLDINGSELECTEDVO = AttributesEnum.FWMSDHoldingSelectedVO.index();
+    public static final int FWMSDHOLDINGALLCOUNTRYSVO = AttributesEnum.FWMSDHoldingAllCountrySVO.index();
+    public static final int FWMSDHOLDINGALLEXCHANGESVO = AttributesEnum.FWMSDHoldingAllExchangeSVO.index();
+    public static final int FWMSDHOLDINGALLASSETSVO = AttributesEnum.FWMSDHoldingAllAssetSVO.index();
 
     /**
      * This is the default constructor (do not remove).

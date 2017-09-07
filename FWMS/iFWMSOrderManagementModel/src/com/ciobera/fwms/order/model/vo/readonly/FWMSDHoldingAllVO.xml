@@ -143,11 +143,7 @@
     ColumnType="NUMBER"
     AliasName="FHA_NAV_NAV_D"
     Expression="FHA_NAV_NAV_D"
-    SQLType="NUMERIC">
-    <Properties>
-      <SchemaBasedProperties/>
-    </Properties>
-  </ViewAttribute>
+    SQLType="NUMERIC"/>
   <ViewAttribute
     Name="FhaNavNavDp"
     IsUpdateable="false"
@@ -291,6 +287,26 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="FWMSDHoldingSelectedVO"
+    ViewLink="com.ciobera.fwms.order.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingSelectedSVO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="FWMSDHoldingAllCountrySVO"
+    ViewLink="com.ciobera.fwms.order.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllCountrySVO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="FWMSDHoldingAllExchangeSVO"
+    ViewLink="com.ciobera.fwms.order.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllExchangeSVO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="FWMSDHoldingAllAssetSVO"
+    ViewLink="com.ciobera.fwms.order.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllAssetSVO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>

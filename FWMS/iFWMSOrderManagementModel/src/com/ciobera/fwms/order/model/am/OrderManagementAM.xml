@@ -33,6 +33,18 @@
   <ViewUsage
     Name="FWMSDHoldingAllExchangeD"
     ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllExchangeDVO"/>
+  <ViewUsage
+    Name="FWMSDHoldingSelectedVO"
+    ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingSelectedVO"/>
+  <ViewUsage
+    Name="FWMSDHoldingAllCountrySVO"
+    ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllCountrySVO"/>
+  <ViewUsage
+    Name="FWMSDHoldingAllExchangeSVO"
+    ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllExchangeSVO"/>
+  <ViewUsage
+    Name="FWMSDHoldingAllAssetSVO"
+    ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllAssetSVO"/>
   <ViewLinkUsage
     Name="FWMSDHoldingAllAssetVOToFWMSDHoldingAllAssetDVO"
     ViewLinkObjectName="com.ciobera.fwms.order.model.vo.viewlink.FWMSDHoldingAllAssetVOToFWMSDHoldingAllAssetDVO"
@@ -50,6 +62,30 @@
     ViewLinkObjectName="com.ciobera.fwms.order.model.vo.viewlink.FWMSDHoldingAllExchangeVOToFWMSDHoldingAllExchangeDVO"
     SrcViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAllExchange"
     DstViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAllExchangeD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FWMSDHoldingAllVOToFWMSDHoldingSelectedSVO1"
+    ViewLinkObjectName="com.ciobera.fwms.order.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingSelectedSVO"
+    SrcViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAll"
+    DstViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingSelectedVO"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FWMSDHoldingAllVOToFWMSDHoldingAllCountrySVO1"
+    ViewLinkObjectName="com.ciobera.fwms.order.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllCountrySVO"
+    SrcViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAll"
+    DstViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAllCountrySVO"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FWMSDHoldingAllVOToFWMSDHoldingAllExchangeSVO1"
+    ViewLinkObjectName="com.ciobera.fwms.order.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllExchangeSVO"
+    SrcViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAll"
+    DstViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAllExchangeSVO"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FWMSDHoldingAllVOToFWMSDHoldingAllAssetSVO1"
+    ViewLinkObjectName="com.ciobera.fwms.order.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllAssetSVO"
+    SrcViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAll"
+    DstViewUsageName="com.ciobera.fwms.order.model.am.OrderManagementAM.FWMSDHoldingAllAssetSVO"
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">
