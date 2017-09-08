@@ -139,8 +139,7 @@
         </af:panelCollection>
         <af:spacer width="10" height="10" id="s6"/>
         <af:popup childCreation="deferred" autoCancel="disabled" id="p4" contentDelivery="lazyUncached">
-            <af:dialog id="d4" type="none" stretchChildren="first">
-                <f:facet name="buttonBar"/>
+            <af:dialog id="d4" type="none" stretchChildren="first" contentWidth="1000" contentHeight="500">
                 <af:panelGroupLayout id="pgl3">
                     <af:spacer width="10" height="10" id="s8"/>
                     <af:panelCollection id="pc2">

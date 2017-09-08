@@ -15,19 +15,19 @@ public class FWMSDHoldingAllAssetDVOImpl extends ViewObjectImpl {
     }
 
     /**
-     * Returns the bind variable value for loggeInUserId.
-     * @return bind variable value for loggeInUserId
+     * Returns the bind variable value for loggedInUserId.
+     * @return bind variable value for loggedInUserId
      */
-    public String getloggeInUserId() {
-        return (String) getNamedWhereClauseParam("loggeInUserId");
+    public String getloggedInUserId() {
+        return (String) getNamedWhereClauseParam("loggedInUserId");
     }
 
     /**
-     * Sets <code>value</code> for bind variable loggeInUserId.
-     * @param value value to bind as loggeInUserId
+     * Sets <code>value</code> for bind variable loggedInUserId.
+     * @param value value to bind as loggedInUserId
      */
-    public void setloggeInUserId(String value) {
-        setNamedWhereClauseParam("loggeInUserId", value);
+    public void setloggedInUserId(String value) {
+        setNamedWhereClauseParam("loggedInUserId", value);
     }
 }
 

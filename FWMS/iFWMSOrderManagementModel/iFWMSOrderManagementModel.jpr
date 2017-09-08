@@ -119,7 +119,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="FWMS_iFWMSOrderManagementModel">
+         <hash n="AdflibFWMSOrderManagementModel">
             <value n="adflib-connectionDetails" v="true"/>
             <hash n="archiveOptions">
                <value n="hasManifest" v="true"/>
@@ -153,54 +153,24 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/FWMS_iFWMSOrderManagementModel.jar"/>
-            <hash n="LibraryDependencies"/>
-            <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="FWMS_iFWMSOrderManagementModel"/>
-         </hash>
-         <hash n="FWMS_iFWMSOrderManagementModel_adflib">
-            <value n="adflib-connectionDetails" v="true"/>
-            <hash n="archiveOptions">
-               <value n="hasManifest" v="true"/>
-            </hash>
-            <hash n="fileGroups">
-               <list n="groups">
+            <url n="jarURL" path="../adflibs/AdflibFWMSOrderManagementModel.jar"/>
+            <hash n="LibraryDependencies">
+               <list n="dependencyList">
                   <hash>
-                     <list n="contributors">
-                        <hash>
-                           <value n="type" v="2"/>
-                        </hash>
-                        <hash>
-                           <value n="type" v="5"/>
-                        </hash>
-                     </list>
-                     <value n="displayName" v="Project Output"/>
-                     <hash n="filters">
-                        <list n="rules">
-                           <hash>
-                              <value n="pattern" v="WEB-INF/classes/**"/>
-                              <value n="type" v="1"/>
-                           </hash>
-                           <hash>
-                              <value n="pattern" v="**"/>
-                              <value n="type" v="0"/>
-                           </hash>
-                        </list>
+                     <hash n="dependable">
+                        <url n="sourceOwnerURL" path="../FWMS.jws"/>
+                        <url n="sourceURL" path="../iFWMSBundle/iFWMSBundle.jpr"/>
                      </hash>
-                     <value n="internalName" v="project-output"/>
-                     <value n="type" v="1"/>
+                     <value n="recognizerId" v="oracle.jdeveloper.library"/>
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/FWMS_iFWMSOrderManagementModel_adflib.jar"/>
-            <hash n="LibraryDependencies"/>
             <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="FWMS_iFWMSOrderManagementModel_adflib"/>
+            <value n="profileName" v="AdflibFWMSOrderManagementModel"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="FWMS_iFWMSOrderManagementModel_adflib"/>
-         <string v="FWMS_iFWMSOrderManagementModel"/>
+         <string v="AdflibFWMSOrderManagementModel"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">

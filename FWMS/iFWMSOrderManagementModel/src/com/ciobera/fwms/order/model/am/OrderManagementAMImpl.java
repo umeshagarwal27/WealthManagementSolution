@@ -26,45 +26,61 @@ public class OrderManagementAMImpl extends ApplicationModuleImpl implements Orde
      */
     public OrderManagementAMImpl() {
     }
-    
+
     /**
      * This method is called to populate the Order Management data for the input date using the stored procedure .
      * @param userId
      * @param asOfDate
      */
     public void processAsOfDateRecord(String userId, Date asOfDate) {
-        //TODO call Stored Procedure to fill the data in the table forthe selected user and asof date 
+        //TODO call Stored Procedure to fill the data in the table forthe selected user and asof date
     }
 
-
-    public void getFWMSHoldingRecordsForUserId(String userId){
-        if(userId != null){
+    public void getFWMSHoldingRecordsForUserId(String userId) {
+        if (userId != null) {
             FWMSDHoldingAllVOImpl holdingAllVOImpl = getFWMSDHoldingAll();
-            if(holdingAllVOImpl != null){
+            if (holdingAllVOImpl != null) {
                 holdingAllVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
                 holdingAllVOImpl.executeQuery();
             }
-            
+
             FWMSDHoldingAllAssetVOImpl holdingAllAssetVOImpl = getFWMSDHoldingAllAsset();
-            if(holdingAllAssetVOImpl != null){
+            if (holdingAllAssetVOImpl != null) {
                 holdingAllAssetVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
                 holdingAllAssetVOImpl.executeQuery();
             }
-            
+
             FWMSDHoldingAllCountryVOImpl holdingAllCountryVOImpl = getFWMSDHoldingAllCountry();
-            if(holdingAllCountryVOImpl != null){
+            if (holdingAllCountryVOImpl != null) {
                 holdingAllCountryVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
                 holdingAllCountryVOImpl.executeQuery();
             }
-            
+
             FWMSDHoldingAllExchangeVOImpl holdingAllExchangeVOImpl = getFWMSDHoldingAllExchange();
-            if(holdingAllExchangeVOImpl != null){
+            if (holdingAllExchangeVOImpl != null) {
                 holdingAllExchangeVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
                 holdingAllExchangeVOImpl.executeQuery();
             }
+
+            FWMSDHoldingAllAssetDVOImpl holdingAllAssetDVOImpl = getFWMSDHoldingAllAssetD();
+            if (holdingAllAssetDVOImpl != null) {
+                holdingAllAssetDVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
+                holdingAllAssetDVOImpl.executeQuery();
+            }    
+
+            FWMSDHoldingAllCountryDVOImpl holdingAllCountryDVOImpl = getFWMSDHoldingAllCountryD();
+            if (holdingAllCountryDVOImpl != null) {
+                holdingAllCountryDVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
+                holdingAllCountryDVOImpl.executeQuery();
+            }
+
+            FWMSDHoldingAllExchangeDVOImpl holdingAllExchangeDVOImpl = getFWMSDHoldingAllExchangeD();
+            if (holdingAllExchangeDVOImpl != null) {
+                holdingAllExchangeDVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
+                holdingAllExchangeDVOImpl.executeQuery();
+            }
         }
     }
-
 
     /**
      * Container's getter for FWMSDHoldingAllVO1.

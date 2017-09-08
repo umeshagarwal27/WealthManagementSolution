@@ -23,18 +23,18 @@
     </SchemaBasedProperties>
   </Properties>
   <Variable
-    Name="loggedInUserID"
+    Name="loggedInUserId"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT  
-    FWMSD_HOLDING_ALL_EXCHAGNE_D.FHA_FUND FHA_FUND,  
-    FWMSD_HOLDING_ALL_EXCHAGNE_D.FHA_FNAME FHA_FNAME,  
-    FWMSD_HOLDING_ALL_EXCHAGNE_D.FHA_EXCHANGE FHA_EXCHANGE,  
-    FWMSD_HOLDING_ALL_EXCHAGNE_D.FHA_ENAME FHA_ENAME,  
-    FWMSD_HOLDING_ALL_EXCHAGNE_D.FHA_MV_B FHA_MV_B  
-FROM  
-    FWMSD_HOLDING_ALL_EXCHAGNE_D 
-    where FHA_USERID=:loggedInUserID]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT   
+    FWMSD_HOLDING_ALL_EXCHAGNE_D.FHA_FUND FHA_FUND,   
+    FWMSD_HOLDING_ALL_EXCHAGNE_D.FHA_FNAME FHA_FNAME,   
+    FWMSD_HOLDING_ALL_EXCHAGNE_D.FHA_EXCHANGE FHA_EXCHANGE,   
+    FWMSD_HOLDING_ALL_EXCHAGNE_D.FHA_ENAME FHA_ENAME,   
+    FWMSD_HOLDING_ALL_EXCHAGNE_D.FHA_MV_B FHA_MV_B   
+FROM   
+    FWMSD_HOLDING_ALL_EXCHAGNE_D  
+    where FHA_USERID=:loggedInUserId]]></SQLQuery>
   <ViewAttribute
     Name="FhaFund"
     IsUpdateable="false"
@@ -101,6 +101,6 @@ FROM
     SQLType="NUMERIC"/>
   <ResourceBundle>
     <PropertiesBundle
-      PropertiesFile="com.ciobera.fwms.order.model.iFWMSOrderManagementModelBundle"/>
+      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
   </ResourceBundle>
 </ViewObject>
