@@ -1,2 +1,458 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"></jsp:root>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+ xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+   <c:set var="UIBundle" value="#{adfBundle['com.ciobera.fwms.bundle.ui.UIBundle']}"/>
+   <af:group id="g1">
+        <af:panelGroupLayout id="pgl2" layout="horizontal">
+            <af:inputDate label="#{UIBundle.AS_OF_DATE}" id="id1" value="#{pageFlowScope.OrderManagementBean.asOfdate}"
+                          autoSubmit="true"/>
+            <af:button text="#{UIBundle.PROCESS}" id="b1"
+                       actionListener="#{pageFlowScope.OrderManagementBean.processAction}"/>
+            <f:facet name="separator">
+                <af:spacer width="10" height="10" id="s5"/>
+            </f:facet>
+        </af:panelGroupLayout>
+        <af:spacer width="10" height="10" id="s7"/>
+        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <af:table value="#{bindings.FWMSDHoldingAll.collectionModel}" var="row"
+                      rows="#{bindings.FWMSDHoldingAll.rangeSize}"
+                      emptyText="#{bindings.FWMSDHoldingAll.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" fetchSize="#{bindings.FWMSDHoldingAll.rangeSize}" id="t1"
+                      styleClass="AFStretchWidth" columnStretching="column:c3" rowSelection="single"
+                      selectionListener="#{pageFlowScope.OrderManagementBean.fundSelectionListener}">
+                <af:column id="c0" headerText="#{null}" rowHeader="true" width="10">
+                    <af:outputText value="#{null}" id="ot57"/>
+                </af:column>
+                <af:column headerText="#{UIBundle.FUND_NAME}" id="c3">
+                    <af:link text="#{null}" id="l1">
+                        <af:outputText value="#{row.FhaFname}"
+                                       shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaFname.tooltip}" id="ot3"/>
+                    </af:link>
+                </af:column>
+                <af:column headerText="#{UIBundle.CASH}" id="c4">
+                    <af:outputText value="#{row.FhaCashB}"
+                                   shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaCashB.tooltip}" id="ot4">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaCashB.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{UIBundle.MARKET_VALUE}" id="c5">
+                    <af:outputText value="#{row.FhaMvB}" shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaMvB.tooltip}"
+                                   id="ot5">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaMvB.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{UIBundle.NAV}" id="c6">
+                    <af:outputText value="#{row.FhaNavB}" shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavB.tooltip}"
+                                   id="ot6">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavB.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{UIBundle.DAILY_}" id="c8">
+                    <af:outputText value="#{row.FhaNavNavDp}"
+                                   shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavDp.tooltip}" id="ot8">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavDp.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{UIBundle.WEEKLY_}" id="c10">
+                    <af:outputText value="#{row.FhaNavNavWp}"
+                                   shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavWp.tooltip}" id="ot10">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavWp.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{UIBundle.MONTHLY_}" id="c12">
+                    <af:outputText value="#{row.FhaNavNavMp}"
+                                   shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavMp.tooltip}" id="ot12">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavMp.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{UIBundle.YEARLY_}" id="c14">
+                    <af:outputText value="#{row.FhaNavNavYp}"
+                                   shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYp.tooltip}" id="ot14">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYp.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{UIBundle.SINCE_INC_}" id="c16">
+                    <af:outputText value="#{row.FhaNavNavYtdp}"
+                                   shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYtdp.tooltip}" id="ot16">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYtdp.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column id="c17" rendered="false">
+                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavW.label}" id="c9">
+                        <af:outputText value="#{row.FhaNavNavW}"
+                                       shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavW.tooltip}" id="ot9">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavW.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavY.label}" id="c13">
+                        <af:outputText value="#{row.FhaNavNavY}"
+                                       shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavY.tooltip}" id="ot13">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavY.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavM.label}" id="c11">
+                        <af:outputText value="#{row.FhaNavNavM}"
+                                       shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavM.tooltip}" id="ot11">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavM.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaUserid.label}" id="c1">
+                        <af:outputText value="#{row.FhaUserid}"
+                                       shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaUserid.tooltip}" id="ot1"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaFund.label}" id="c2">
+                        <af:outputText value="#{row.FhaFund}"
+                                       shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaFund.tooltip}" id="ot2">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.FWMSDHoldingAll.hints.FhaFund.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavD.label}" id="c7">
+                        <af:outputText value="#{row.FhaNavNavD}"
+                                       shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavD.tooltip}" id="ot7">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavD.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYtd.label}" id="c15">
+                        <af:outputText value="#{row.FhaNavNavYtd}"
+                                       shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYtd.tooltip}" id="ot15">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYtd.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:column>
+            </af:table>
+        </af:panelCollection>
+        <af:spacer width="10" height="10" id="s6"/>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p4" contentDelivery="lazyUncached"
+                  binding="#{pageFlowScope.OrderManagementBean.fundsPopup}">
+            <af:dialog id="d4" type="none"
+                       title="#{UIBundle.DETAILS_OF} #{pageFlowScope.OrderManagementBean.selectedFundName}">
+                <af:panelGroupLayout id="pgl3" styleClass="AFStretchWidth" layout="vertical">
+                    <af:spacer width="10" height="10" id="s8"/>
+                    <af:panelCollection id="pc2" styleClass="AFStretchWidth" featuresOff="detach">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.FWMSDHoldingSelected.collectionModel}" var="row"
+                                  rows="#{bindings.FWMSDHoldingSelected.rangeSize}"
+                                  emptyText="#{bindings.FWMSDHoldingSelected.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0" fetchSize="#{bindings.FWMSDHoldingSelected.rangeSize}" id="t2"
+                                  columnStretching="column:c22" partialTriggers=":::pc1:t1" styleClass="AFStretchWidth">
+                            <af:column id="c38" headerText="#{null}" width="10">
+                                <af:outputText value="#{null}" id="ot36"/>
+                            </af:column>
+                            <af:column headerText="#{UIBundle.STOCK_NAME}" id="c22">
+                                <af:outputText value="#{row.FhaStockName}"
+                                               shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaStockName.tooltip}"
+                                               id="ot21"/>
+                            </af:column>
+                            <af:column headerText="#{UIBundle.CURRENCY}" id="c25">
+                                <af:outputText value="#{row.FhaCname}"
+                                               shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaCname.tooltip}"
+                                               id="ot24"/>
+                            </af:column>
+                            <af:column headerText="#{UIBundle.L_S}" id="c26">
+                                <af:outputText value="#{row.FhaLongShort}"
+                                               shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaLongShort.tooltip}"
+                                               id="ot25"/>
+                            </af:column>
+                            <af:column headerText="#{UIBundle.QTY}" id="c27">
+                                <af:outputText value="#{row.FhaQty}"
+                                               shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaQty.tooltip}"
+                                               id="ot26">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaQty.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{UIBundle.COST_PRICE}" id="c28">
+                                <af:outputText value="#{row.FhaCprice}"
+                                               shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaCprice.tooltip}"
+                                               id="ot27">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaCprice.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{UIBundle.COST_VALUE}" id="c29">
+                                <af:outputText value="#{row.FhaCost}"
+                                               shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaCost.tooltip}"
+                                               id="ot28">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaCost.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{UIBundle.MARKET_PRICE}" id="c30">
+                                <af:outputText value="#{row.FhaMp}"
+                                               shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaMp.tooltip}"
+                                               id="ot29">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaMp.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{UIBundle.MARKET_VALUE}" id="c31">
+                                <af:outputText value="#{row.FhaMv}"
+                                               shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaMv.tooltip}"
+                                               id="ot30">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaMv.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column id="c32" headerText="#{UIBundle.UNREALIZED_G_L}">
+                                <af:outputText value="#{row.FhaUgl}"
+                                               shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaUgl.tooltip}"
+                                               id="ot31">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaUgl.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{UIBundle.FX_RATE}" id="c33">
+                                <af:outputText value="#{row.FhaFxRate}"
+                                               shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaFxRate.tooltip}"
+                                               id="ot32">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaFxRate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{UIBundle.COST_VALUE}" id="c34">
+                                <af:outputText value="#{row.FhaCostB}"
+                                               shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaCostB.tooltip}"
+                                               id="ot33">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaCostB.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{UIBundle.MARKET_VALUE}" id="c35">
+                                <af:outputText value="#{row.FhaMvB}"
+                                               shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaMvB.tooltip}"
+                                               id="ot34">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaMvB.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{UIBundle.UNREALIZED_G_L}" id="c36">
+                                <af:outputText value="#{row.FhaUglB}"
+                                               shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaUglB.tooltip}"
+                                               id="ot35">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaUglB.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column id="c37" rendered="false">
+                                <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaUserid.label}" id="c18">
+                                    <af:outputText value="#{row.FhaUserid}"
+                                                   shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaUserid.tooltip}"
+                                                   id="ot17"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaFund.label}" id="c19">
+                                    <af:outputText value="#{row.FhaFund}"
+                                                   shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaFund.tooltip}"
+                                                   id="ot18">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.FWMSDHoldingSelected.hints.FhaFund.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaFname.label}" id="c20">
+                                    <af:outputText value="#{row.FhaFname}"
+                                                   shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaFname.tooltip}"
+                                                   id="ot19"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaStock.label}" id="c21">
+                                    <af:outputText value="#{row.FhaStock}"
+                                                   shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaStock.tooltip}"
+                                                   id="ot20">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.FWMSDHoldingSelected.hints.FhaStock.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaShortName.label}"
+                                           id="c23">
+                                    <af:outputText value="#{row.FhaShortName}"
+                                                   shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaShortName.tooltip}"
+                                                   id="ot22"/>
+                                </af:column>
+                                <af:column headerText="#{UIBundle.CURRENCY}" id="c24">
+                                    <af:outputText value="#{row.FhaCurrency}"
+                                                   shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaCurrency.tooltip}"
+                                                   id="ot23">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.FWMSDHoldingSelected.hints.FhaCurrency.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                    <af:spacer width="10" height="10" id="s9"/>
+                    <af:panelGroupLayout id="pgl7" layout="horizontal" styleClass="AFStretchWidth">
+                        <af:panelBox text="#{UIBundle.COUNTRY_WISE_GRAPH}" id="pb1" showDisclosure="false">
+                            <f:facet name="toolbar"/>
+                            <af:panelStretchLayout id="psl4">
+                                <f:facet name="start"/>
+                                <f:facet name="end"/>
+                                <f:facet name="top"/>
+                                <f:facet name="bottom"/>
+                                <f:facet name="center">
+                                    <af:panelGroupLayout id="pgl8">
+                                        <af:separator id="s10"/>
+                                        <dvt:pieChart id="pieChart8" var="row"
+                                                      value="#{bindings.FWMSDHoldingAllCountrySVO1.collectionModel}">
+                                            <dvt:chartLegend id="cl8"/>
+                                            <dvt:pieDataItem id="di8" label="#{row.FhaCname}" value="#{row.FhaMvB}"/>
+                                        </dvt:pieChart>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                            </af:panelStretchLayout>
+                        </af:panelBox>
+                        <af:panelBox text="#{UIBundle.EXCHANGE_WISE_GRAPH}" id="pb5" showDisclosure="false">
+                            <f:facet name="toolbar"/>
+                            <af:panelStretchLayout id="psl5">
+                                <f:facet name="start"/>
+                                <f:facet name="end"/>
+                                <f:facet name="top"/>
+                                <f:facet name="bottom"/>
+                                <f:facet name="center">
+                                    <af:panelGroupLayout id="pgl9">
+                                        <af:separator id="s11"/>
+                                        <dvt:pieChart id="pieChart7" var="row"
+                                                      value="#{bindings.FWMSDHoldingAllExchangeSVO1.collectionModel}">
+                                            <dvt:chartLegend id="cl7"/>
+                                            <dvt:pieDataItem id="di7" label="#{row.FhaEname}" value="#{row.FhaMvB}"/>
+                                        </dvt:pieChart>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                            </af:panelStretchLayout>
+                        </af:panelBox>
+                        <af:panelBox text="#{UIBundle.ASSET_WISE_GRAPH}" id="pb6" showDisclosure="false">
+                            <f:facet name="toolbar"/>
+                            <af:panelStretchLayout id="psl6">
+                                <f:facet name="start"/>
+                                <f:facet name="end"/>
+                                <f:facet name="top"/>
+                                <f:facet name="bottom"/>
+                                <f:facet name="center">
+                                    <af:panelGroupLayout id="pgl10">
+                                        <af:separator id="s12"/>
+                                        <dvt:pieChart id="pieChart9" var="row"
+                                                      value="#{bindings.FWMSDHoldingAllAssetSVO1.collectionModel}">
+                                            <dvt:chartLegend id="cl9"/>
+                                            <dvt:pieDataItem id="di9" label="#{row.FhaAname}" value="#{row.FhaMvB}"/>
+                                        </dvt:pieChart>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                            </af:panelStretchLayout>
+                        </af:panelBox>
+                        <f:facet name="separator">
+                            <af:spacer width="10" height="10" id="s13"/>
+                        </f:facet>
+                    </af:panelGroupLayout>
+                </af:panelGroupLayout>
+            </af:dialog>
+        </af:popup>
+        <af:panelGroupLayout id="pgl6" halign="center" layout="horizontal" styleClass="AFStretchWidth">
+            <af:panelBox text="#{UIBundle.COUNTRY_WISE_GRAPH}" id="pb2" showHeader="always" styleClass="AFStretchWidth"
+                         showDisclosure="false">
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                          binding="#{pageFlowScope.OrderManagementBean.countryPopup}">
+                    <af:dialog id="d2" title="#{UIBundle.FUNDS_GRAPH_FOR_COUNTRY}" type="none">
+                        <f:facet name="buttonBar"/>
+                        <dvt:pieChart selectionListener="#{bindings.FWMSDHoldingAllCountryD.collectionModel.makeCurrent}"
+                                      dataSelection="single" id="pieChart1" var="row"
+                                      value="#{bindings.FWMSDHoldingAllCountryD.collectionModel}">
+                            <dvt:chartLegend id="cl1"/>
+                            <dvt:pieDataItem id="di1" label="#{row.FhaCname} #{row.FhaFname}" value="#{row.FhaMvB}"/>
+                        </dvt:pieChart>
+                    </af:dialog>
+                </af:popup>
+                <af:panelStretchLayout id="psl1">
+                    <f:facet name="center">
+                        <af:panelGroupLayout id="pgl1">
+                            <af:separator id="s4"/>
+                            <dvt:pieChart selectionListener="#{pageFlowScope.OrderManagementBean.countrySelectionListener}"
+                                          dataSelection="single" id="pieChart2" var="row"
+                                          value="#{bindings.FWMSDHoldingAllCountry.collectionModel}" drilling="on"
+                                          drillListener="#{pageFlowScope.OrderManagementBean.onCountrySelect}">
+                                <dvt:chartLegend id="cl2"/>
+                                <dvt:pieDataItem id="di2" label="#{row.FhaCname}" value="#{row.FhaMvB}"/>
+                                <af:showPopupBehavior popupId="::p2"/>
+                            </dvt:pieChart>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelStretchLayout>
+            </af:panelBox>
+            <af:panelBox text="#{UIBundle.EXCHANGE_WISE_GRAPH}" id="pb3" showHeader="always" showDisclosure="false">
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
+                          binding="#{pageFlowScope.OrderManagementBean.exchangePopup}">
+                    <af:dialog id="d3" type="none" title="#{UIBundle.FUNDS_FOR_EXCHANGE}">
+                        <f:facet name="buttonBar"/>
+                        <dvt:pieChart selectionListener="#{bindings.FWMSDHoldingAllExchangeD.collectionModel.makeCurrent}"
+                                      dataSelection="single" id="pieChart4" var="row"
+                                      value="#{bindings.FWMSDHoldingAllExchangeD.collectionModel}">
+                            <dvt:chartLegend id="cl4"/>
+                            <dvt:pieDataItem id="di4" label="#{row.FhaFname} #{row.FhaEname}" value="#{row.FhaMvB}"/>
+                        </dvt:pieChart>
+                    </af:dialog>
+                </af:popup>
+                <af:panelStretchLayout id="psl2">
+                    <f:facet name="center">
+                        <af:panelGroupLayout id="pgl4">
+                            <af:separator id="s2"/>
+                            <dvt:pieChart selectionListener="#{pageFlowScope.OrderManagementBean.exchangeSelectionListener}"
+                                          dataSelection="single" id="pieChart3" var="row"
+                                          value="#{bindings.FWMSDHoldingAllExchange.collectionModel}"
+                                          drillListener="#{pageFlowScope.OrderManagementBean.onExchangeSelect}"
+                                          drilling="on">
+                                <dvt:chartLegend id="cl3"/>
+                                <dvt:pieDataItem id="di3" label="#{row.FhaEname}" value="#{row.FhaMvB}"/>
+                                <af:showPopupBehavior popupId="::p3"/>
+                            </dvt:pieChart>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelStretchLayout>
+            </af:panelBox>
+            <af:panelBox text="#{UIBundle.ASSET_WISE_GRAPH}" id="pb4" showHeader="always" showDisclosure="false">
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                          binding="#{pageFlowScope.OrderManagementBean.assetPopup}">
+                    <af:dialog id="d1" type="none" title="#{UIBundle.FUNDS_FOR_ASSET}">
+                        <f:facet name="buttonBar"/>
+                        <dvt:pieChart selectionListener="#{bindings.FWMSDHoldingAllAssetD.collectionModel.makeCurrent}"
+                                      dataSelection="single" id="pieChart6" var="row"
+                                      value="#{bindings.FWMSDHoldingAllAssetD.collectionModel}">
+                            <dvt:chartLegend id="cl6"/>
+                            <dvt:pieDataItem id="di6" label="#{row.FhaFname} #{row.FhaAname}" value="#{row.FhaMvB}"/>
+                        </dvt:pieChart>
+                    </af:dialog>
+                </af:popup>
+                <af:panelStretchLayout id="psl3">
+                    <f:facet name="center">
+                        <af:panelGroupLayout id="pgl5">
+                            <af:separator id="s3"/>
+                            <dvt:pieChart selectionListener="#{pageFlowScope.OrderManagementBean.assetSelectionListener}"
+                                          dataSelection="single" id="pieChart5" var="row"
+                                          value="#{bindings.FWMSDHoldingAllAsset.collectionModel}" drilling="on"
+                                          drillListener="#{pageFlowScope.OrderManagementBean.onCountrySelect}">
+                                <dvt:chartLegend id="cl5"/>
+                                <dvt:pieDataItem id="di5" label="#{row.FhaAname}" value="#{row.FhaMvB}"/>
+                                <af:showPopupBehavior popupId="::p1"/>
+                            </dvt:pieChart>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelStretchLayout>
+            </af:panelBox>
+            <f:facet name="separator">
+                <af:spacer width="10" height="10" id="s1"/>
+            </f:facet>
+        </af:panelGroupLayout>
+    </af:group>
+</jsp:root>

@@ -12,7 +12,7 @@
   ComponentClass="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVOImpl"
   PageIterMode="Full">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_codeGenFlag2" Value="Coll"/>
     <Attr Name="_isExpertMode" Value="true"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
@@ -23,32 +23,10 @@
     </SchemaBasedProperties>
   </Properties>
   <Variable
-    Name="pLoggedInUserId"
+    Name="loggedInUserId"
     Kind="where"
-    Type="java.lang.String">
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Display"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Variable>
-  <SQLQuery><![CDATA[SELECT FHA_USERID,  
-FHA_FUND, 
-FHA_FNAME, 
-FHA_CASH_B, 
-FHA_MV_B, 
-FHA_NAV_B, 
-FHA_NAV_NAV_D, 
-FHA_NAV_NAV_DP, 
-FHA_NAV_NAV_W, 
-FHA_NAV_NAV_WP, 
-FHA_NAV_NAV_M, 
-FHA_NAV_NAV_MP, 
-FHA_NAV_NAV_Y, 
-FHA_NAV_NAV_YP, 
-FHA_NAV_NAV_YTD, 
-FHA_NAV_NAV_YTDP FROM FWMSD_HOLDING_ALL WHERE FHA_USERID = :pLoggedInUserId]]></SQLQuery>
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[select * from FWMSD_HOLDING_ALL where FHA_USERID = :loggedInUserId]]></SQLQuery>
   <ViewAttribute
     Name="FhaUserid"
     IsUpdateable="false"
@@ -90,6 +68,12 @@ FHA_NAV_NAV_YTDP FROM FWMSD_HOLDING_ALL WHERE FHA_USERID = :pLoggedInUserId]]></
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL_PLURAL
+          ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO.FhaFname_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="FhaCashB"
@@ -102,7 +86,14 @@ FHA_NAV_NAV_YTDP FROM FWMSD_HOLDING_ALL WHERE FHA_USERID = :pLoggedInUserId]]></
     ColumnType="NUMBER"
     AliasName="FHA_CASH_B"
     Expression="FHA_CASH_B"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL_PLURAL
+          ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO.FhaCashB_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FhaMvB"
     IsUpdateable="false"
@@ -114,7 +105,14 @@ FHA_NAV_NAV_YTDP FROM FWMSD_HOLDING_ALL WHERE FHA_USERID = :pLoggedInUserId]]></
     ColumnType="NUMBER"
     AliasName="FHA_MV_B"
     Expression="FHA_MV_B"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL_PLURAL
+          ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO.FhaMvB_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FhaNavB"
     IsUpdateable="false"
@@ -126,7 +124,14 @@ FHA_NAV_NAV_YTDP FROM FWMSD_HOLDING_ALL WHERE FHA_USERID = :pLoggedInUserId]]></
     ColumnType="NUMBER"
     AliasName="FHA_NAV_B"
     Expression="FHA_NAV_B"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL_PLURAL
+          ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO.FhaNavB_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FhaNavNavD"
     IsUpdateable="false"
@@ -150,7 +155,14 @@ FHA_NAV_NAV_YTDP FROM FWMSD_HOLDING_ALL WHERE FHA_USERID = :pLoggedInUserId]]></
     ColumnType="NUMBER"
     AliasName="FHA_NAV_NAV_DP"
     Expression="FHA_NAV_NAV_DP"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL_PLURAL
+          ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO.FhaNavNavDp_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FhaNavNavW"
     IsUpdateable="false"
@@ -174,7 +186,14 @@ FHA_NAV_NAV_YTDP FROM FWMSD_HOLDING_ALL WHERE FHA_USERID = :pLoggedInUserId]]></
     ColumnType="NUMBER"
     AliasName="FHA_NAV_NAV_WP"
     Expression="FHA_NAV_NAV_WP"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL_PLURAL
+          ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO.FhaNavNavWp_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FhaNavNavM"
     IsUpdateable="false"
@@ -198,7 +217,14 @@ FHA_NAV_NAV_YTDP FROM FWMSD_HOLDING_ALL WHERE FHA_USERID = :pLoggedInUserId]]></
     ColumnType="NUMBER"
     AliasName="FHA_NAV_NAV_MP"
     Expression="FHA_NAV_NAV_MP"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL_PLURAL
+          ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO.FhaNavNavMp_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FhaNavNavY"
     IsUpdateable="false"
@@ -222,7 +248,14 @@ FHA_NAV_NAV_YTDP FROM FWMSD_HOLDING_ALL WHERE FHA_USERID = :pLoggedInUserId]]></
     ColumnType="NUMBER"
     AliasName="FHA_NAV_NAV_YP"
     Expression="FHA_NAV_NAV_YP"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL_PLURAL
+          ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO.FhaNavNavYp_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FhaNavNavYtd"
     IsUpdateable="false"
@@ -246,11 +279,34 @@ FHA_NAV_NAV_YTDP FROM FWMSD_HOLDING_ALL WHERE FHA_USERID = :pLoggedInUserId]]></
     ColumnType="NUMBER"
     AliasName="FHA_NAV_NAV_YTDP"
     Expression="FHA_NAV_NAV_YTDP"
-    SQLType="NUMERIC"/>
-  <AttrArray Name="KeyAttributes">
-    <Item Value="FhaUserid"/>
-    <Item Value="FhaFund"/>
-  </AttrArray>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL_PLURAL
+          ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO.FhaNavNavYtdp_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="FWMSDHoldingSelectedVO"
+    ViewLink="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingSelectedSVO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="FWMSDHoldingAllCountrySVO"
+    ViewLink="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllCountrySVO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="FWMSDHoldingAllExchangeSVO"
+    ViewLink="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllExchangeSVO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="FWMSDHoldingAllAssetSVO"
+    ViewLink="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllAssetSVO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>

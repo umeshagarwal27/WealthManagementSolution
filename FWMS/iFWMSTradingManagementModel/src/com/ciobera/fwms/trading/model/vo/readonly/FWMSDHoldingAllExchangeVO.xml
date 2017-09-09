@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FWMSDHoldingAllExchangeVO"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  RowClass="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllExchangeVORowImpl"
+  ComponentClass="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllExchangeVOImpl">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllExchangeVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="loggedInUserId"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[select FHA_ENAME,FHA_MV_B,FHA_EXCHANGE FROM FWMSD_HOLDING_ALL_EXCHAGNE WHERE FHA_USERID=:loggedInUserId]]></SQLQuery>
+  <ViewAttribute
+    Name="FhaEname"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FHA_ENAME"
+    Expression="FHA_ENAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FhaMvB"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_MV_B"
+    Expression="FHA_MV_B"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaExchange"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="0"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    AliasName="FHA_EXCHANGE"
+    Expression="FHA_EXCHANGE"
+    SQLType="NUMERIC"/>
+  <ViewLinkAccessor
+    Name="FWMSDHoldingAllExchangeDVO"
+    ViewLink="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllExchangeVOToFWMSDHoldingAllExchangeDVO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ciobera.fwms.trading.model.iFWMSOrderManagementModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

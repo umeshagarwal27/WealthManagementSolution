@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FWMSDHoldingAllVOToFWMSDHoldingSelectedSVO"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingSelectedSVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="FWMSDHoldingAllVO"
+    Cardinality="1"
+    Source="true"
+    Owner="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="FWMSDHoldingAllVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO.FhaUserid"/>
+      <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO.FhaFund"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="FWMSDHoldingSelectedVO"
+    Cardinality="-1"
+    Owner="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingSelectedVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="FWMSDHoldingSelectedVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingSelectedVO.FhaUserid"/>
+      <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingSelectedVO.FhaFname"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

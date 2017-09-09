@@ -32,7 +32,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>getFWMSHoldingRecordsForUserId&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">204.74707</property>
+         name="y">204.0459</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -44,6 +44,6 @@
       <property
          name="fromOutcome">getFWMSHoldingRecordsForUserId</property>
       <property
-         name="sdm:polyPoints">R50,57.029297,204.39648,335.6953,204.89062,L50</property>
+         name="sdm:polyPoints">R50,57.029297,203.69531,335.6953,204.89062,L50</property>
    </ControlFlowCase>
 </SDM>

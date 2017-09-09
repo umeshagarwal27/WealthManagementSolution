@@ -9,16 +9,41 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">240.0</property>
+         name="x">501.0</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>orderManagementPF&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>orderManagementPF&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">218.5459</property>
+         name="y">214.74121</property>
       <property
          name="page">/com/ciobera/fwms/trading/ui/fragments/orderManagementPF.jsff</property>
       <property
          name="exceptionHandler">false</property>
    </View>
+   <MethodCall
+      id="MethodCall3">
+      <property
+         name="activityId">getFWMSHoldingRecordsForUserId</property>
+      <property
+         name="x">157.0293</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>getFWMSHoldingRecordsForUserId&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">211.74707</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall3"
+      to="View2">
+      <property
+         name="fromOutcome">getFWMSHoldingRecordsForUserId</property>
+      <property
+         name="sdm:polyPoints">R50,198.0293,211.39648,460.0,214.39062,L50</property>
+   </ControlFlowCase>
 </SDM>

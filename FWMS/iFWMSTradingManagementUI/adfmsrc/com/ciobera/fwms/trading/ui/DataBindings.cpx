@@ -14,6 +14,8 @@
     <page path="/com/ciobera/fwms/trading/ui/fragments/tradeBookPF.jsff"
           usageId="com_ciobera_fwms_trading_ui_tradeBookPFPageDef"/>
     <page path="/testPage.jspx" usageId="com_ciobera_fwms_trading_ui_testPagePageDef"/>
+    <page path="/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/order-management-task-flow-definition.xml#order-management-task-flow-definition@getFWMSHoldingRecordsForUserId"
+          usageId="com_ciobera_fwms_trading_ui_order_management_task_flow_definition_order_management_task_flow_definition_getFWMSHoldingRecordsForUserIdPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_ciobera_fwms_trading_ui_dashboardPFPageDef"
@@ -23,5 +25,19 @@
     <page id="com_ciobera_fwms_trading_ui_tradeBookPFPageDef"
           path="com.ciobera.fwms.trading.ui.fragments.tradeBookPFPageDef"/>
     <page id="com_ciobera_fwms_trading_ui_testPagePageDef" path="com.ciobera.fwms.trading.ui.pageDefs.testPagePageDef"/>
+    <page id="com_ciobera_fwms_trading_ui_order_management_task_flow_definition_order_management_task_flow_definition_getFWMSHoldingRecordsForUserIdPageDef"
+          path="com.ciobera.fwms.trading.ui.taskflows.order_management_task_flow_definition_order_management_task_flow_definition_getFWMSHoldingRecordsForUserIdPageDef"/>
   </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="OrderManagementAMDataControl" Package="com.ciobera.fwms.order.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="OrderManagementAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="TradingManagementAMDataControl" Package="com.ciobera.fwms.trading.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="TradingManagementAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
 </Application>

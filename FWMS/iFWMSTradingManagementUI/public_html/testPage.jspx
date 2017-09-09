@@ -5,7 +5,7 @@
     <f:view>
         <af:document title="testPage.jspx" id="d1">
             <af:form id="f1">
-                <af:region value="#{bindings.dashboardtaskflowdefinition1.regionModel}" id="r1"/>
+                <af:region value="#{bindings.ordermanagementtaskflowdefinition1.regionModel}" id="r1"/>
             </af:form>
         </af:document>
     </f:view>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FWMSDHoldingAllVOToFWMSDHoldingAllCountrySVO"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllCountrySVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="FWMSDHoldingAllVO"
+    Cardinality="1"
+    Source="true"
+    Owner="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="FWMSDHoldingAllVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO.FhaUserid"/>
+      <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO.FhaFund"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="FWMSDHoldingAllCountrySVO"
+    Cardinality="-1"
+    Owner="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllCountrySVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="FWMSDHoldingAllCountrySVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllCountrySVO.FhaUserid"/>
+      <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllCountrySVO.FhaFund"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

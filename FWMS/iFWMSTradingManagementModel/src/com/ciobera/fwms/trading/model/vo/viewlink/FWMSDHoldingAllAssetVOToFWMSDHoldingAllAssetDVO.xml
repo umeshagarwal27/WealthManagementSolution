@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FWMSDHoldingAllAssetVOToFWMSDHoldingAllAssetDVO"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllAssetVOToFWMSDHoldingAllAssetDVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="FWMSHoldingAllAssetVO"
+    Cardinality="1"
+    Source="true"
+    Owner="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllAssetVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="FWMSHoldingAllAssetVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllAssetVO.FhaAsset"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="FWMSDHoldingAllAssetDVO"
+    Cardinality="-1"
+    Owner="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllAssetDVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="FWMSDHoldingAllAssetDVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllAssetDVO.FhaAsset"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

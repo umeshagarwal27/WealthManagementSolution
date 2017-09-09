@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FWMSDHoldingSelectedVO"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingSelectedVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="loggedInUserId"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="fundSelected"
+    Kind="where"
+    Type="java.lang.Long"/>
+  <SQLQuery><![CDATA[SELECT   
+    FWMSD_HOLDING_SELECTED.FHA_USERID FHA_USERID,   
+    FWMSD_HOLDING_SELECTED.FHA_FUND FHA_FUND,   
+    FWMSD_HOLDING_SELECTED.FHA_FNAME FHA_FNAME,   
+    FWMSD_HOLDING_SELECTED.FHA_STOCK FHA_STOCK,   
+    FWMSD_HOLDING_SELECTED.FHA_STOCK_NAME FHA_STOCK_NAME,   
+    FWMSD_HOLDING_SELECTED.FHA_SHORT_NAME FHA_SHORT_NAME,   
+    FWMSD_HOLDING_SELECTED.FHA_CURRENCY FHA_CURRENCY,   
+    FWMSD_HOLDING_SELECTED.FHA_CNAME FHA_CNAME,   
+    FWMSD_HOLDING_SELECTED.FHA_LONG_SHORT FHA_LONG_SHORT,   
+    FWMSD_HOLDING_SELECTED.FHA_QTY FHA_QTY,   
+    FWMSD_HOLDING_SELECTED.FHA_CPRICE FHA_CPRICE,   
+    FWMSD_HOLDING_SELECTED.FHA_COST FHA_COST,   
+    FWMSD_HOLDING_SELECTED.FHA_MP FHA_MP,   
+    FWMSD_HOLDING_SELECTED.FHA_MV FHA_MV,   
+    FWMSD_HOLDING_SELECTED.FHA_UGL FHA_UGL,   
+    FWMSD_HOLDING_SELECTED.FHA_FX_RATE FHA_FX_RATE,   
+    FWMSD_HOLDING_SELECTED.FHA_COST_B FHA_COST_B,   
+    FWMSD_HOLDING_SELECTED.FHA_MV_B FHA_MV_B,   
+    FWMSD_HOLDING_SELECTED.FHA_UGL_B FHA_UGL_B   
+FROM   
+    FWMSD_HOLDING_SELECTED   
+WHERE   
+    FHA_USERID = :loggedInUserId 
+    and FHA_FUND = :fundSelected]]></SQLQuery>
+  <ViewAttribute
+    Name="FhaUserid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FHA_USERID"
+    Expression="FHA_USERID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FhaFund"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="0"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    AliasName="FHA_FUND"
+    Expression="FHA_FUND"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaFname"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FHA_FNAME"
+    Expression="FHA_FNAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FhaStock"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="0"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    AliasName="FHA_STOCK"
+    Expression="FHA_STOCK"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaStockName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FHA_STOCK_NAME"
+    Expression="FHA_STOCK_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FhaShortName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FHA_SHORT_NAME"
+    Expression="FHA_SHORT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FhaCurrency"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Scale="0"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="FHA_CURRENCY"
+    Expression="FHA_CURRENCY"
+    SQLType="INTEGER"/>
+  <ViewAttribute
+    Name="FhaCname"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FHA_CNAME"
+    Expression="FHA_CNAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FhaLongShort"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FHA_LONG_SHORT"
+    Expression="FHA_LONG_SHORT"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FhaQty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_QTY"
+    Expression="FHA_QTY"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaCprice"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_CPRICE"
+    Expression="FHA_CPRICE"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaCost"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_COST"
+    Expression="FHA_COST"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaMp"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_MP"
+    Expression="FHA_MP"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaMv"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_MV"
+    Expression="FHA_MV"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaUgl"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_UGL"
+    Expression="FHA_UGL"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaFxRate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="8"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_FX_RATE"
+    Expression="FHA_FX_RATE"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaCostB"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_COST_B"
+    Expression="FHA_COST_B"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaMvB"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_MV_B"
+    Expression="FHA_MV_B"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaUglB"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_UGL_B"
+    Expression="FHA_UGL_B"
+    SQLType="NUMERIC"/>
+</ViewObject>
