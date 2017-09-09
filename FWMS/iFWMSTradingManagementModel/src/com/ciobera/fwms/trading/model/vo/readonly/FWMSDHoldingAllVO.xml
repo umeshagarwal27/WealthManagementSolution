@@ -8,25 +8,30 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  RowClass="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVORowImpl"
-  ComponentClass="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVOImpl"
   PageIterMode="Full">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Coll"/>
     <Attr Name="_isExpertMode" Value="true"/>
-    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
-  <Properties>
-    <SchemaBasedProperties>
-      <LABEL
-        ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO_LABEL"/>
-    </SchemaBasedProperties>
-  </Properties>
   <Variable
-    Name="loggedInUserId"
+    Name="pLoggedInUserId"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[select * from FWMSD_HOLDING_ALL where FHA_USERID = :loggedInUserId]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT FHA_USERID,    
+FHA_FUND,   
+FHA_FNAME,   
+FHA_CASH_B,   
+FHA_MV_B,   
+FHA_NAV_B,   
+FHA_NAV_NAV_D,   
+FHA_NAV_NAV_DP,   
+FHA_NAV_NAV_W,   
+FHA_NAV_NAV_WP,   
+FHA_NAV_NAV_M,   
+FHA_NAV_NAV_MP,   
+FHA_NAV_NAV_Y,   
+FHA_NAV_NAV_YP,   
+FHA_NAV_NAV_YTD,   
+FHA_NAV_NAV_YTDP FROM FWMSD_HOLDING_ALL WHERE UPPER(FHA_USERID) = UPPER(:pLoggedInUserId)]]></SQLQuery>
   <ViewAttribute
     Name="FhaUserid"
     IsUpdateable="false"
@@ -287,9 +292,13 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="FhaUserid"/>
+    <Item Value="FhaFund"/>
+  </AttrArray>
   <ViewLinkAccessor
     Name="FWMSDHoldingSelectedVO"
-    ViewLink="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingSelectedSVO"
+    ViewLink="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingSelectedVO"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor

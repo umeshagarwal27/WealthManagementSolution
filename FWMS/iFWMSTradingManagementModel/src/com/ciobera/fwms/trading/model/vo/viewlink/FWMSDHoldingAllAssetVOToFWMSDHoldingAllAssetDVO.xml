@@ -23,6 +23,7 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllAssetVO.FhaAsset"/>
+      <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllAssetVO.FhaUserid"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
@@ -35,6 +36,7 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllAssetDVO.FhaAsset"/>
+      <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllAssetDVO.FhaUserid"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

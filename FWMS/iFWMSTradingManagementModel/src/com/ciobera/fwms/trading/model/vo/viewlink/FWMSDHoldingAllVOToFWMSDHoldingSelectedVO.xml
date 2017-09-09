@@ -3,13 +3,13 @@
 <!---->
 <ViewLink
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="FWMSDHoldingAllVOToFWMSDHoldingSelectedSVO"
+  Name="FWMSDHoldingAllVOToFWMSDHoldingSelectedVO"
   Version="12.2.1.16.48"
   InheritPersonalization="merge">
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingSelectedSVO_LABEL"/>
+        ResId="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingSelectedVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <ViewLinkDefEnd
@@ -36,7 +36,7 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingSelectedVO.FhaUserid"/>
-      <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingSelectedVO.FhaFname"/>
+      <Item Value="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingSelectedVO.FhaFund"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

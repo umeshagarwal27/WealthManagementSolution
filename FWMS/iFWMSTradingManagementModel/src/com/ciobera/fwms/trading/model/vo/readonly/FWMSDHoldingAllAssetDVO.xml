@@ -8,13 +8,9 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full"
-  RowClass="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllAssetDVORowImpl"
-  ComponentClass="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllAssetDVOImpl">
+  PageIterMode="Full">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
-    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
-    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
@@ -22,19 +18,15 @@
         ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllAssetDVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <Variable
-    Name="loggedInUserId"
-    Kind="where"
-    Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT   
-    FWMSD_HOLDING_ALL_ASSET_D.FHA_FUND FHA_FUND,   
-    FWMSD_HOLDING_ALL_ASSET_D.FHA_FNAME FHA_FNAME,   
-    FWMSD_HOLDING_ALL_ASSET_D.FHA_ASSET FHA_ASSET,   
-    FWMSD_HOLDING_ALL_ASSET_D.FHA_ANAME FHA_ANAME,   
-    FWMSD_HOLDING_ALL_ASSET_D.FHA_MV_B FHA_MV_B   
-FROM   
-    FWMSD_HOLDING_ALL_ASSET_D  
-    where FHA_USERID=:loggedInUserId]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT      
+    FWMSD_HOLDING_ALL_ASSET_D.FHA_FUND FHA_FUND,      
+    FWMSD_HOLDING_ALL_ASSET_D.FHA_FNAME FHA_FNAME,      
+    FWMSD_HOLDING_ALL_ASSET_D.FHA_ASSET FHA_ASSET,      
+    FWMSD_HOLDING_ALL_ASSET_D.FHA_ANAME FHA_ANAME,      
+    FWMSD_HOLDING_ALL_ASSET_D.FHA_MV_B FHA_MV_B,   
+    FWMSD_HOLDING_ALL_ASSET_D.FHA_USERID  
+FROM      
+    FWMSD_HOLDING_ALL_ASSET_D]]></SQLQuery>
   <ViewAttribute
     Name="FhaFund"
     IsUpdateable="false"
@@ -99,6 +91,25 @@ FROM
     AliasName="FHA_MV_B"
     Expression="FHA_MV_B"
     SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaUserid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FHA_USERID"
+    Expression="FHA_USERID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="FhaFund"/>
+    <Item Value="FhaAsset"/>
+  </AttrArray>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>

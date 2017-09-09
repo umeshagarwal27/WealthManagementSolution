@@ -18,25 +18,15 @@
         ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllExchangeSVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <Variable
-    Name="loggedInUserId"
-    Kind="where"
-    Type="java.lang.String"/>
-  <Variable
-    Name="fundSelected"
-    Kind="where"
-    Type="java.lang.Long"/>
-  <SQLQuery><![CDATA[SELECT   
-    FWMSD_HOLDING_ALL_EXCHAGNE_S.FHA_USERID FHA_USERID,   
-    FWMSD_HOLDING_ALL_EXCHAGNE_S.FHA_FUND FHA_FUND,   
-    FWMSD_HOLDING_ALL_EXCHAGNE_S.FHA_FNAME FHA_FNAME,   
-    FWMSD_HOLDING_ALL_EXCHAGNE_S.FHA_EXCHANGE FHA_EXCHANGE,   
-    FWMSD_HOLDING_ALL_EXCHAGNE_S.FHA_ENAME FHA_ENAME,   
-    FWMSD_HOLDING_ALL_EXCHAGNE_S.FHA_MV_B FHA_MV_B   
-FROM   
-    FWMSD_HOLDING_ALL_EXCHAGNE_S  
-    WHERE FHA_USERID=:loggedInUserId 
-    and FHA_FUND = :fundSelected]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT    
+    FWMSD_HOLDING_ALL_EXCHAGNE_S.FHA_USERID FHA_USERID,    
+    FWMSD_HOLDING_ALL_EXCHAGNE_S.FHA_FUND FHA_FUND,    
+    FWMSD_HOLDING_ALL_EXCHAGNE_S.FHA_FNAME FHA_FNAME,    
+    FWMSD_HOLDING_ALL_EXCHAGNE_S.FHA_EXCHANGE FHA_EXCHANGE,    
+    FWMSD_HOLDING_ALL_EXCHAGNE_S.FHA_ENAME FHA_ENAME,    
+    FWMSD_HOLDING_ALL_EXCHAGNE_S.FHA_MV_B FHA_MV_B    
+FROM    
+    FWMSD_HOLDING_ALL_EXCHAGNE_S]]></SQLQuery>
   <ViewAttribute
     Name="FhaUserid"
     IsUpdateable="false"
@@ -118,4 +108,12 @@ FROM
     AliasName="FHA_MV_B"
     Expression="FHA_MV_B"
     SQLType="NUMERIC"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
+  </ResourceBundle>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="FhaFund"/>
+    <Item Value="FhaExchange"/>
+  </AttrArray>
 </ViewObject>

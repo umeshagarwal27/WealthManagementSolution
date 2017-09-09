@@ -8,13 +8,9 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full"
-  RowClass="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllCountryVORowImpl"
-  ComponentClass="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllCountryVOImpl">
+  PageIterMode="Full">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
-    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
-    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
@@ -23,10 +19,10 @@
     </SchemaBasedProperties>
   </Properties>
   <Variable
-    Name="loggedInUserId"
+    Name="pLoggedInUserId"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[select FHA_CNAME,FHA_MV_B,FHA_COUNTRY FROM FWMSD_HOLDING_ALL_COUNTRY WHERE FHA_USERID=:loggedInUserId]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT FHA_CNAME,FHA_MV_B,FHA_COUNTRY, FHA_USERID FROM FWMSD_HOLDING_ALL_COUNTRY WHERE UPPER(FHA_USERID) = UPPER(:pLoggedInUserId)]]></SQLQuery>
   <ViewAttribute
     Name="FhaCname"
     IsUpdateable="false"
@@ -66,6 +62,25 @@
     AliasName="FHA_COUNTRY"
     Expression="FHA_COUNTRY"
     SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaUserid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FHA_USERID"
+    Expression="FHA_USERID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="FhaCountry"/>
+    <Item Value="FhaUserid"/>
+  </AttrArray>
   <ViewLinkAccessor
     Name="FWMSHoldingAllCountryDVO"
     ViewLink="com.ciobera.fwms.trading.model.vo.viewlink.FWMSHoldingAllCountryVOToFWMSHoldingAllCountryDVO"

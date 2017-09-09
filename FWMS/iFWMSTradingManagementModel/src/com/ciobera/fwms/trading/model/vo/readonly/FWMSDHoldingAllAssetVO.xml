@@ -8,13 +8,9 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full"
-  RowClass="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllAssetVORowImpl"
-  ComponentClass="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllAssetVOImpl">
+  PageIterMode="Full">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
-    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
-    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
@@ -23,17 +19,18 @@
     </SchemaBasedProperties>
   </Properties>
   <Variable
-    Name="loggedInUserId"
+    Name="pLoggedInUserId"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT  
-    FHA_ANAME,  
-    FHA_MV_B,  
-    FHA_ASSET  
-FROM  
-    FWMSD_HOLDING_ALL_ASSET  
-WHERE  
-    FHA_USERID = :loggedInUserId]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT    
+    FHA_ANAME,    
+    FHA_MV_B,    
+    FHA_ASSET,  
+    FHA_USERID  
+FROM    
+    FWMSD_HOLDING_ALL_ASSET    
+WHERE    
+    UPPER(FHA_USERID) = UPPER(:pLoggedInUserId)]]></SQLQuery>
   <ViewAttribute
     Name="FhaAname"
     IsUpdateable="false"
@@ -73,6 +70,25 @@ WHERE
     AliasName="FHA_ASSET"
     Expression="FHA_ASSET"
     SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaUserid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FHA_USERID"
+    Expression="FHA_USERID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="FhaAsset"/>
+    <Item Value="FhaUserid"/>
+  </AttrArray>
   <ViewLinkAccessor
     Name="FWMSDHoldingAllAssetDVO"
     ViewLink="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllAssetVOToFWMSDHoldingAllAssetDVO"

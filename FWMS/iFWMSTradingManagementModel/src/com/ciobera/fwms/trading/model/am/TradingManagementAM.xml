@@ -34,18 +34,6 @@
     Name="FWMSDHoldingAllExchangeD"
     ViewObjectName="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllExchangeDVO"/>
   <ViewUsage
-    Name="FWMSDHoldingSelectedVO"
-    ViewObjectName="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingSelectedVO"/>
-  <ViewUsage
-    Name="FWMSDHoldingAllCountrySVO"
-    ViewObjectName="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllCountrySVO"/>
-  <ViewUsage
-    Name="FWMSDHoldingAllExchangeSVO"
-    ViewObjectName="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllExchangeSVO"/>
-  <ViewUsage
-    Name="FWMSDHoldingAllAssetSVO"
-    ViewObjectName="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllAssetSVO"/>
-  <ViewUsage
     Name="FWMSDHoldingSelected"
     ViewObjectName="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingSelectedVO"/>
   <ViewUsage
@@ -76,28 +64,28 @@
     DstViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingAllExchangeD"
     Reversed="false"/>
   <ViewLinkUsage
-    Name="FWMSDHoldingAllVOToFWMSDHoldingSelectedSVO1"
-    ViewLinkObjectName="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingSelectedSVO"
+    Name="FWMSDHoldingAllVOToFWMSDHoldingSelectedVO"
+    ViewLinkObjectName="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingSelectedVO"
     SrcViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingAll"
-    DstViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingSelectedVO"
+    DstViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingSelected"
     Reversed="false"/>
   <ViewLinkUsage
-    Name="FWMSDHoldingAllVOToFWMSDHoldingAllCountrySVO1"
-    ViewLinkObjectName="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllCountrySVO"
-    SrcViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingAll"
-    DstViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingAllCountrySVO"
-    Reversed="false"/>
-  <ViewLinkUsage
-    Name="FWMSDHoldingAllVOToFWMSDHoldingAllExchangeSVO1"
-    ViewLinkObjectName="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllExchangeSVO"
-    SrcViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingAll"
-    DstViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingAllExchangeSVO"
-    Reversed="false"/>
-  <ViewLinkUsage
-    Name="FWMSDHoldingAllVOToFWMSDHoldingAllAssetSVO1"
+    Name="FWMSDHoldingAllVOToFWMSDHoldingAllAssetSVO"
     ViewLinkObjectName="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllAssetSVO"
     SrcViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingAll"
-    DstViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingAllAssetSVO"
+    DstViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingAllAssetS"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FWMSDHoldingAllVOToFWMSDHoldingAllCountrySVO"
+    ViewLinkObjectName="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllCountrySVO"
+    SrcViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingAll"
+    DstViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingAllCountryS"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FWMSDHoldingAllVOToFWMSDHoldingAllExchangeSVO"
+    ViewLinkObjectName="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllExchangeSVO"
+    SrcViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingAll"
+    DstViewUsageName="com.ciobera.fwms.trading.model.am.TradingManagementAM.FWMSDHoldingAllExchangeS"
     Reversed="false"/>
   <ClientInterface
     Name="__clientInterface">
@@ -125,4 +113,4 @@
         Type="java.lang.String"/>
     </Method>
   </ClientInterface>
-  </AppModule>
+</AppModule>
