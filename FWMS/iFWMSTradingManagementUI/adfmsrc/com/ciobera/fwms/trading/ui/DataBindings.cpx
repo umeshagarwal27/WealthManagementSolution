@@ -16,6 +16,8 @@
     <page path="/testPage.jspx" usageId="com_ciobera_fwms_trading_ui_testPagePageDef"/>
     <page path="/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/order-management-task-flow-definition.xml#order-management-task-flow-definition@getFWMSHoldingRecordsForUserId"
           usageId="com_ciobera_fwms_trading_ui_order_management_task_flow_definition_order_management_task_flow_definition_getFWMSHoldingRecordsForUserIdPageDef"/>
+    <page path="/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/dashboard-task-flow-definition.xml#dashboard-task-flow-definition@getFWMSHoldingRecordsForUserId"
+          usageId="com_ciobera_fwms_trading_ui_dashboard_task_flow_definition_dashboard_task_flow_definition_getFWMSHoldingRecordsForUserIdPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_ciobera_fwms_trading_ui_dashboardPFPageDef"
@@ -27,6 +29,8 @@
     <page id="com_ciobera_fwms_trading_ui_testPagePageDef" path="com.ciobera.fwms.trading.ui.pageDefs.testPagePageDef"/>
     <page id="com_ciobera_fwms_trading_ui_order_management_task_flow_definition_order_management_task_flow_definition_getFWMSHoldingRecordsForUserIdPageDef"
           path="com.ciobera.fwms.trading.ui.taskflows.order_management_task_flow_definition_order_management_task_flow_definition_getFWMSHoldingRecordsForUserIdPageDef"/>
+    <page id="com_ciobera_fwms_trading_ui_dashboard_task_flow_definition_dashboard_task_flow_definition_getFWMSHoldingRecordsForUserIdPageDef"
+          path="com.ciobera.fwms.trading.ui.taskflows.dashboard_task_flow_definition_dashboard_task_flow_definition_getFWMSHoldingRecordsForUserIdPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="OrderManagementAMDataControl" Package="com.ciobera.fwms.order.model.am"

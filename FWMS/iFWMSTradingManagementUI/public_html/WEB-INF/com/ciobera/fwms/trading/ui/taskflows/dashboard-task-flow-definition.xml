@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="dashboard-task-flow-definition">
-    <default-activity>dashboardPF</default-activity>
+    <default-activity>getFWMSHoldingRecordsForUserId</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
@@ -13,6 +13,19 @@
     <view id="dashboardPF">
       <page>/com/ciobera/fwms/trading/ui/fragments/dashboardPF.jsff</page>
     </view>
+    <method-call id="getFWMSHoldingRecordsForUserId">
+      <method>#{bindings.getFWMSHoldingRecordsForUserId.execute}</method>
+      <outcome>
+        <fixed-outcome>getFWMSHoldingRecordsForUserId</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>getFWMSHoldingRecordsForUserId</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>getFWMSHoldingRecordsForUserId</from-outcome>
+        <to-activity-id>dashboardPF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

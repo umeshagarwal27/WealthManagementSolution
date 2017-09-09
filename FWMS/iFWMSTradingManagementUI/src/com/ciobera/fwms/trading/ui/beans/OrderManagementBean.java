@@ -256,10 +256,10 @@ public class OrderManagementBean implements Serializable {
             setSelectedFund((Long)selectedRow.getAttribute(1));
             setSelectedFundName((String)selectedRow.getAttribute(2));
             setSelectedFund(defaultFund);
-            executeMethod("ExecuteWithParamsSelected", true);
-            executeMethod("ExecuteWithParamsExchangeS", true);
-            executeMethod("ExecuteWithParamsAssetS", true);
-            executeMethod("ExecuteWithParamsCountryS", true);
+            //executeMethod("ExecuteWithParamsSelected", true);
+            //executeMethod("ExecuteWithParamsExchangeS", true);
+            //executeMethod("ExecuteWithParamsAssetS", true);
+            //sexecuteMethod("ExecuteWithParamsCountryS", true);
             RichPopup.PopupHints hints = new RichPopup.PopupHints();
             getFundsPopup().show(hints);
         }

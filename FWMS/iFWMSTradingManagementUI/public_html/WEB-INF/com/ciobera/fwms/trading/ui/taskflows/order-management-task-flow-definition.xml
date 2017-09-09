@@ -13,12 +13,6 @@
     <view id="orderManagementPF">
       <page>/com/ciobera/fwms/trading/ui/fragments/orderManagementPF.jsff</page>
     </view>
-    <method-call id="getFWMSHoldingRecordsForUserId">
-      <method>#{bindings.getFWMSHoldingRecordsForUserId.execute}</method>
-      <outcome>
-        <fixed-outcome>getFWMSHoldingRecordsForUserId</fixed-outcome>
-      </outcome>
-    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>getFWMSHoldingRecordsForUserId</from-activity-id>
       <control-flow-case id="__3">
