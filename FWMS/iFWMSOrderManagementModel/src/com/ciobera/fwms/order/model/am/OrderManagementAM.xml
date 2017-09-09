@@ -45,6 +45,18 @@
   <ViewUsage
     Name="FWMSDHoldingAllAssetSVO"
     ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllAssetSVO"/>
+  <ViewUsage
+    Name="FWMSDHoldingSelected"
+    ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingSelectedVO"/>
+  <ViewUsage
+    Name="FWMSDHoldingAllAssetS"
+    ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllAssetSVO"/>
+  <ViewUsage
+    Name="FWMSDHoldingAllCountryS"
+    ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllCountrySVO"/>
+  <ViewUsage
+    Name="FWMSDHoldingAllExchangeS"
+    ViewObjectName="com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllExchangeSVO"/>
   <ViewLinkUsage
     Name="FWMSDHoldingAllAssetVOToFWMSDHoldingAllAssetDVO"
     ViewLinkObjectName="com.ciobera.fwms.order.model.vo.viewlink.FWMSDHoldingAllAssetVOToFWMSDHoldingAllAssetDVO"

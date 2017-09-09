@@ -22,16 +22,21 @@
     Name="loggedInUserId"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT  
-    FWMSD_HOLDING_ALL_COUNTRY_S.FHA_USERID FHA_USERID,  
-    FWMSD_HOLDING_ALL_COUNTRY_S.FHA_FUND FHA_FUND,  
-    FWMSD_HOLDING_ALL_COUNTRY_S.FHA_FNAME FHA_FNAME,  
-    FWMSD_HOLDING_ALL_COUNTRY_S.FHA_COUNTRY FHA_COUNTRY,  
-    FWMSD_HOLDING_ALL_COUNTRY_S.FHA_CNAME FHA_CNAME,  
-    FWMSD_HOLDING_ALL_COUNTRY_S.FHA_MV_B FHA_MV_B  
-FROM  
-    FWMSD_HOLDING_ALL_COUNTRY_S 
-    where FHA_USERID=:loggedInUserId]]></SQLQuery>
+  <Variable
+    Name="fundSelected"
+    Kind="where"
+    Type="java.lang.Long"/>
+  <SQLQuery><![CDATA[SELECT   
+    FWMSD_HOLDING_ALL_COUNTRY_S.FHA_USERID FHA_USERID,   
+    FWMSD_HOLDING_ALL_COUNTRY_S.FHA_FUND FHA_FUND,   
+    FWMSD_HOLDING_ALL_COUNTRY_S.FHA_FNAME FHA_FNAME,   
+    FWMSD_HOLDING_ALL_COUNTRY_S.FHA_COUNTRY FHA_COUNTRY,   
+    FWMSD_HOLDING_ALL_COUNTRY_S.FHA_CNAME FHA_CNAME,   
+    FWMSD_HOLDING_ALL_COUNTRY_S.FHA_MV_B FHA_MV_B   
+FROM   
+    FWMSD_HOLDING_ALL_COUNTRY_S  
+    where FHA_USERID=:loggedInUserId 
+    and FHA_FUND = :fundSelected]]></SQLQuery>
   <ViewAttribute
     Name="FhaUserid"
     IsUpdateable="false"
@@ -113,8 +118,4 @@ FROM
     AliasName="FHA_MV_B"
     Expression="FHA_MV_B"
     SQLType="NUMERIC"/>
-  <ResourceBundle>
-    <PropertiesBundle
-      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
-  </ResourceBundle>
 </ViewObject>

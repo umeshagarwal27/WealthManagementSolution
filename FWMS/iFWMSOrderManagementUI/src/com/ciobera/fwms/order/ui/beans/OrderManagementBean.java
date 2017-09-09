@@ -32,6 +32,8 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 
 import oracle.binding.OperationBinding;
 
+import oracle.jbo.Row;
+
 import org.apache.myfaces.trinidad.event.SelectionEvent;
 
 public class OrderManagementBean implements Serializable {
@@ -46,6 +48,10 @@ public class OrderManagementBean implements Serializable {
     private RichPopup countryPopup;
     private RichPopup exchangePopup;
     private RichPopup assetPopup;
+    private RichPopup fundsPopup;
+    private String selectedFundName;
+    private Long selectedFund;
+    private static Long defaultFund= new Long(1); // to remove 
 
     /**
      * Default Constructor
@@ -258,6 +264,25 @@ public class OrderManagementBean implements Serializable {
         }
     }
 
+    public void fundSelectionListener(SelectionEvent selectionEvent) {
+        
+        pieChartSelectionListener(selectionEvent, "#{bindings.FWMSDHoldingAll.treeModel.makeCurrent}");
+        Row selectedRow =
+                 (Row)ADFUtil.evaluateEL("#{bindings.FWMSDHoldingAll.currentRow}");
+        if (getFundsPopup() != null) {
+            //setSelectedFund(fund);
+            setSelectedFund((Long)selectedRow.getAttribute(1));
+            setSelectedFundName((String)selectedRow.getAttribute(2));
+            setSelectedFund(defaultFund);
+            executeMethod("ExecuteWithParamsSelected", true);
+            executeMethod("ExecuteWithParamsExchangeS", true);
+            executeMethod("ExecuteWithParamsAssetS", true);
+            executeMethod("ExecuteWithParamsCountryS", true);
+            RichPopup.PopupHints hints = new RichPopup.PopupHints();
+            getFundsPopup().show(hints);
+        }
+    }
+
     public void setShowGraph(boolean showGraph) {
         this.showGraph = showGraph;
     }
@@ -304,5 +329,30 @@ public class OrderManagementBean implements Serializable {
 
     public Date getAsOfdate() {
         return asOfdate;
+    }
+
+    public void setFundsPopup(RichPopup fundsPopup) {
+        this.fundsPopup = fundsPopup;
+    }
+
+    public RichPopup getFundsPopup() {
+        return fundsPopup;
+    }
+
+
+    public void setSelectedFundName(String selectedFundName) {
+        this.selectedFundName = selectedFundName;
+    }
+
+    public String getSelectedFundName() {
+        return selectedFundName;
+    }
+
+    public void setSelectedFund(Long selectedFund) {
+        this.selectedFund = selectedFund;
+    }
+
+    public Long getSelectedFund() {
+        return selectedFund;
     }
 }

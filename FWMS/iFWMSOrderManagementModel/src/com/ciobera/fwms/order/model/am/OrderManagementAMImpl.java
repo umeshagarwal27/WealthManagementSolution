@@ -9,6 +9,7 @@ import com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllExchangeDVOImpl;
 import com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllExchangeVOImpl;
 import com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllVOImpl;
 
+
 import java.util.Date;
 
 import oracle.jbo.server.ApplicationModuleImpl;
@@ -61,24 +62,45 @@ public class OrderManagementAMImpl extends ApplicationModuleImpl implements Orde
                 holdingAllExchangeVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
                 holdingAllExchangeVOImpl.executeQuery();
             }
-
-            FWMSDHoldingAllAssetDVOImpl holdingAllAssetDVOImpl = getFWMSDHoldingAllAssetD();
-            if (holdingAllAssetDVOImpl != null) {
-                holdingAllAssetDVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
-                holdingAllAssetDVOImpl.executeQuery();
-            }    
-
-            FWMSDHoldingAllCountryDVOImpl holdingAllCountryDVOImpl = getFWMSDHoldingAllCountryD();
-            if (holdingAllCountryDVOImpl != null) {
-                holdingAllCountryDVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
-                holdingAllCountryDVOImpl.executeQuery();
-            }
-
+            
             FWMSDHoldingAllExchangeDVOImpl holdingAllExchangeDVOImpl = getFWMSDHoldingAllExchangeD();
-            if (holdingAllExchangeDVOImpl != null) {
+            if(holdingAllExchangeDVOImpl != null){
                 holdingAllExchangeDVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
                 holdingAllExchangeDVOImpl.executeQuery();
             }
+            
+            FWMSDHoldingAllCountryDVOImpl holdingAllCountryDVOImpl = getFWMSDHoldingAllCountryD();
+            if(holdingAllCountryDVOImpl != null){
+                holdingAllCountryDVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
+                holdingAllCountryDVOImpl.executeQuery();
+            }
+            
+            FWMSDHoldingAllAssetDVOImpl holdingAllAssetDVOImpl = getFWMSDHoldingAllAssetD();
+            if(holdingAllAssetDVOImpl != null){
+                holdingAllAssetDVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
+                holdingAllAssetDVOImpl.executeQuery();
+            }
+            ViewObjectImpl holdingAllAssetSVOImpl = getFWMSDHoldingAllAssetSVO();
+            if(holdingAllAssetDVOImpl != null){
+                holdingAllAssetDVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
+                holdingAllAssetDVOImpl.executeQuery();
+            }
+            ViewObjectImpl holdingSelectedVOImpl = getFWMSDHoldingSelectedVO();
+            if(holdingSelectedVOImpl != null){
+                holdingSelectedVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
+                holdingSelectedVOImpl.executeQuery();
+            }
+            ViewObjectImpl holdingAllExchangeSVOImpl = getFWMSDHoldingAllExchangeSVO();
+            if(holdingAllExchangeSVOImpl != null){
+                holdingAllExchangeSVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
+                holdingAllExchangeSVOImpl.executeQuery();
+            }
+            ViewObjectImpl holdingAllCountrySVOImpl = getFWMSDHoldingAllCountrySVO();
+            if(holdingAllCountrySVOImpl != null){
+                holdingAllCountrySVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
+                holdingAllCountrySVOImpl.executeQuery();
+            }
+            
         }
     }
 
@@ -224,6 +246,46 @@ public class OrderManagementAMImpl extends ApplicationModuleImpl implements Orde
      */
     public ViewLinkImpl getFWMSDHoldingAllVOToFWMSDHoldingAllAssetSVO1() {
         return (ViewLinkImpl) findViewLink("FWMSDHoldingAllVOToFWMSDHoldingAllAssetSVO1");
+    }
+
+    /**
+     * Container's getter for FWMSDHoldingSelectedVO1.
+     * @return FWMSDHoldingSelectedVO1
+     */
+    public ViewObjectImpl getFWMSDHoldingSelected() {
+        return (ViewObjectImpl) findViewObject("FWMSDHoldingSelected");
+    }
+
+    /**
+     * Container's getter for FWMSDHoldingAllVOToFWMSDHoldingAllExchangeSVO1.
+     * @return FWMSDHoldingAllVOToFWMSDHoldingAllExchangeSVO1
+     */
+    public ViewLinkImpl getFWMSDHoldingAllVOToFWMSDHoldingAllExchangeSVO1() {
+        return (ViewLinkImpl) findViewLink("FWMSDHoldingAllVOToFWMSDHoldingAllExchangeSVO1");
+    }
+
+    /**
+     * Container's getter for FWMSDHoldingAllAssetSVO1.
+     * @return FWMSDHoldingAllAssetSVO1
+     */
+    public ViewObjectImpl getFWMSDHoldingAllAssetS() {
+        return (ViewObjectImpl) findViewObject("FWMSDHoldingAllAssetS");
+    }
+
+    /**
+     * Container's getter for FWMSDHoldingAllCountrySVO1.
+     * @return FWMSDHoldingAllCountrySVO1
+     */
+    public ViewObjectImpl getFWMSDHoldingAllCountryS() {
+        return (ViewObjectImpl) findViewObject("FWMSDHoldingAllCountryS");
+    }
+
+    /**
+     * Container's getter for FWMSDHoldingAllExchangeSVO1.
+     * @return FWMSDHoldingAllExchangeSVO1
+     */
+    public ViewObjectImpl getFWMSDHoldingAllExchangeS() {
+        return (ViewObjectImpl) findViewObject("FWMSDHoldingAllExchangeS");
     }
 }
 
