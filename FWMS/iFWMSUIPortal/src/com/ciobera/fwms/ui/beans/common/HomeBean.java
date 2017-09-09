@@ -26,6 +26,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import javax.servlet.http.HttpServletRequest;
+
 import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichTree;
@@ -93,7 +95,15 @@ public class HomeBean extends iFWMSPhaseListener implements Serializable {
      *  Helper method to navigate to Login page.
      */
     private void navigateToLoginPage() {
-        String loginUrl = "http://localhost:7101/iWMSUIPortal/faces/com/ciobera/fwms/ui/pages/global/login.jspx";
+        FacesContext ctx = FacesContext.getCurrentInstance();
+        HttpServletRequest request = (HttpServletRequest) ctx.getExternalContext().getRequest();
+
+        String serverName = request.getServerName();
+        int port = request.getServerPort();
+        String scheme = request.getScheme();
+
+        String loginUrl = scheme + "://" + serverName + ":" + port + "/iWMSUIPortal/faces/com/ciobera/fwms/ui/pages/global/login.jspx";
+        
         try {
             redirectPage(loginUrl);
         } catch (IOException ioe) {

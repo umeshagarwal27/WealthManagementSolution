@@ -208,13 +208,19 @@ public class LoginBean implements Serializable {
                 //TODO: Navigate to Home Page
                 FacesContext ctx = FacesContext.getCurrentInstance();
                 HttpServletRequest request = (HttpServletRequest) ctx.getExternalContext().getRequest();
-                String loginUrl = "http://localhost:7101/iWMSUIPortal/faces/home.jspx";
+
+                String serverName = request.getServerName();
+                int port = request.getServerPort();
+                String scheme = request.getScheme();
+
+
+                String homePageUrl = scheme + "://" + serverName + ":" + port + "/iWMSUIPortal/faces/home.jspx";
                 HttpServletResponse response = (HttpServletResponse) ctx.getExternalContext().getResponse();
                 //On successful authentication navigate to Home page
                 //                sendForward(request, response, loginUrl);
                 //
                 try {
-                    redirectPage(loginUrl);
+                    redirectPage(homePageUrl);
                     //                    redirectRequest(response, loginUrl);
                 } catch (IOException ioe) {
                     // TODO: Add catch code
