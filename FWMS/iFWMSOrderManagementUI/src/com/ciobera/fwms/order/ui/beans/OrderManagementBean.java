@@ -97,27 +97,8 @@ public class OrderManagementBean implements Serializable {
             setShowGraph(Boolean.TRUE);
             //displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
             return;
-        }
-        if (!executeMethod("ExecuteWithParamsSelected", true)) {
-            setShowGraph(Boolean.TRUE);
-            //displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
-            return;
-        }
-        if (!executeMethod("ExecuteWithParamsCountryS", true)) {
-            setShowGraph(Boolean.TRUE);
-            //displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
-            return;
-        }
-        if (!executeMethod("ExecuteWithParamsAssetS", true)) {
-            setShowGraph(Boolean.TRUE);
-            //displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
-            return;
-        }
-        if (!executeMethod("ExecuteWithParamsExchangeS", true)) {
-            setShowGraph(Boolean.TRUE);
-            //displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
-            return;
-        }
+        }       
+       
     }
 
     /**

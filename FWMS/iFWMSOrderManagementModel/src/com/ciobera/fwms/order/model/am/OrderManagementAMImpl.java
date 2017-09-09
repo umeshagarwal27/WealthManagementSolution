@@ -9,7 +9,6 @@ import com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllExchangeDVOImpl;
 import com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllExchangeVOImpl;
 import com.ciobera.fwms.order.model.vo.readonly.FWMSDHoldingAllVOImpl;
 
-
 import java.util.Date;
 
 import oracle.jbo.server.ApplicationModuleImpl;
@@ -80,26 +79,7 @@ public class OrderManagementAMImpl extends ApplicationModuleImpl implements Orde
                 holdingAllAssetDVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
                 holdingAllAssetDVOImpl.executeQuery();
             }
-            ViewObjectImpl holdingAllAssetSVOImpl = getFWMSDHoldingAllAssetSVO();
-            if(holdingAllAssetDVOImpl != null){
-                holdingAllAssetDVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
-                holdingAllAssetDVOImpl.executeQuery();
-            }
-            ViewObjectImpl holdingSelectedVOImpl = getFWMSDHoldingSelectedVO();
-            if(holdingSelectedVOImpl != null){
-                holdingSelectedVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
-                holdingSelectedVOImpl.executeQuery();
-            }
-            ViewObjectImpl holdingAllExchangeSVOImpl = getFWMSDHoldingAllExchangeSVO();
-            if(holdingAllExchangeSVOImpl != null){
-                holdingAllExchangeSVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
-                holdingAllExchangeSVOImpl.executeQuery();
-            }
-            ViewObjectImpl holdingAllCountrySVOImpl = getFWMSDHoldingAllCountrySVO();
-            if(holdingAllCountrySVOImpl != null){
-                holdingAllCountrySVOImpl.setNamedWhereClauseParam("loggedInUserId", userId);
-                holdingAllCountrySVOImpl.executeQuery();
-            }
+            
             
         }
     }
