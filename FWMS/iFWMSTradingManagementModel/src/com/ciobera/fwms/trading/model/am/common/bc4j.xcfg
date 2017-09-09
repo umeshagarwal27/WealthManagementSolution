@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="com.ciobera.fwms.trading.model.am.TradingManagementAM">
+    <AppModuleConfig name="TradingManagementAMLocal"
+                     jbo.project="com.ciobera.fwms.trading.model.iFWMSTradingManagementModel"
+                     ApplicationName="com.ciobera.fwms.trading.model.am.TradingManagementAM" DeployPlatform="LOCAL">
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      <Security AppModuleJndiName="com.ciobera.fwms.trading.model.am.TradingManagementAM"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="TradingManagementAMShared"
+                     jbo.project="com.ciobera.fwms.trading.model.iFWMSTradingManagementModel"
+                     ApplicationName="com.ciobera.fwms.trading.model.am.TradingManagementAM" DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      <Security AppModuleJndiName="com.ciobera.fwms.trading.model.am.TradingManagementAM"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>

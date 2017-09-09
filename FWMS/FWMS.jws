@@ -36,6 +36,7 @@
       <hash><url n="URL" path="iFWMSRootModel/iFWMSRootModel.jpr"/></hash>
       <hash><url n="URL" path="iFWMSSystemModel/iFWMSSystemModel.jpr"/></hash>
       <hash><url n="URL" path="iFWMSSystemUI/iFWMSSystemUI.jpr"/></hash>
+      <hash><url n="URL" path="iFWMSTradingManagementModel/iFWMSTradingManagementModel.jpr"/></hash>
       <hash><url n="URL" path="iFWMSTradingManagementUI/iFWMSTradingManagementUI.jpr"/></hash>
       <hash><url n="URL" path="iFWMSUIPortal/iFWMSUIPortal.jpr"/></hash>
    </list>

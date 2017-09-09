@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FWMSDHoldingAllVO"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVORowImpl"
+  ComponentClass="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVOImpl"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pLoggedInUserId"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Display"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <SQLQuery><![CDATA[SELECT FHA_USERID,  
+FHA_FUND, 
+FHA_FNAME, 
+FHA_CASH_B, 
+FHA_MV_B, 
+FHA_NAV_B, 
+FHA_NAV_NAV_D, 
+FHA_NAV_NAV_DP, 
+FHA_NAV_NAV_W, 
+FHA_NAV_NAV_WP, 
+FHA_NAV_NAV_M, 
+FHA_NAV_NAV_MP, 
+FHA_NAV_NAV_Y, 
+FHA_NAV_NAV_YP, 
+FHA_NAV_NAV_YTD, 
+FHA_NAV_NAV_YTDP FROM FWMSD_HOLDING_ALL WHERE FHA_USERID = :pLoggedInUserId]]></SQLQuery>
+  <ViewAttribute
+    Name="FhaUserid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FHA_USERID"
+    Expression="FHA_USERID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FhaFund"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="0"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    AliasName="FHA_FUND"
+    Expression="FHA_FUND"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaFname"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FHA_FNAME"
+    Expression="FHA_FNAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FhaCashB"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_CASH_B"
+    Expression="FHA_CASH_B"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaMvB"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_MV_B"
+    Expression="FHA_MV_B"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaNavB"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_NAV_B"
+    Expression="FHA_NAV_B"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaNavNavD"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_NAV_NAV_D"
+    Expression="FHA_NAV_NAV_D"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaNavNavDp"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_NAV_NAV_DP"
+    Expression="FHA_NAV_NAV_DP"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaNavNavW"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_NAV_NAV_W"
+    Expression="FHA_NAV_NAV_W"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaNavNavWp"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_NAV_NAV_WP"
+    Expression="FHA_NAV_NAV_WP"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaNavNavM"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_NAV_NAV_M"
+    Expression="FHA_NAV_NAV_M"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaNavNavMp"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_NAV_NAV_MP"
+    Expression="FHA_NAV_NAV_MP"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaNavNavY"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_NAV_NAV_Y"
+    Expression="FHA_NAV_NAV_Y"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaNavNavYp"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_NAV_NAV_YP"
+    Expression="FHA_NAV_NAV_YP"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaNavNavYtd"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_NAV_NAV_YTD"
+    Expression="FHA_NAV_NAV_YTD"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="FhaNavNavYtdp"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Scale="3"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="FHA_NAV_NAV_YTDP"
+    Expression="FHA_NAV_NAV_YTDP"
+    SQLType="NUMERIC"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="FhaUserid"/>
+    <Item Value="FhaFund"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
