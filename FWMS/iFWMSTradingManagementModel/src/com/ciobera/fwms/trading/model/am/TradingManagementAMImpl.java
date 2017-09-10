@@ -2,6 +2,9 @@ package com.ciobera.fwms.trading.model.am;
 
 
 import com.ciobera.fwms.trading.model.am.common.TradingManagementAM;
+import com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVOImpl;
+
+import com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingSelectedVOImpl;
 
 import java.sql.CallableStatement;
 import java.sql.SQLException;
@@ -107,8 +110,8 @@ public class TradingManagementAMImpl extends ApplicationModuleImpl implements Tr
      * Container's getter for FWMSDHoldingAllVO.
      * @return FWMSDHoldingAllVO
      */
-    public ViewObjectImpl getFWMSDHoldingAll() {
-        return (ViewObjectImpl) findViewObject("FWMSDHoldingAll");
+    public FWMSDHoldingAllVOImpl getFWMSDHoldingAll() {
+        return (FWMSDHoldingAllVOImpl) findViewObject("FWMSDHoldingAll");
     }
 
     /**
@@ -187,8 +190,8 @@ public class TradingManagementAMImpl extends ApplicationModuleImpl implements Tr
      * Container's getter for FWMSDHoldingSelectedVO.
      * @return FWMSDHoldingSelectedVO
      */
-    public ViewObjectImpl getFWMSDHoldingSelected() {
-        return (ViewObjectImpl) findViewObject("FWMSDHoldingSelected");
+    public FWMSDHoldingSelectedVOImpl getFWMSDHoldingSelected() {
+        return (FWMSDHoldingSelectedVOImpl) findViewObject("FWMSDHoldingSelected");
     }
 
     /**

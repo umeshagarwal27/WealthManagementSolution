@@ -28,7 +28,7 @@
                       selectedRowKeys="#{bindings.FWMSDHoldingAll.collectionModel.selectedRow}"
                       filterModel="#{bindings.FWMSDHoldingAllQuery.queryDescriptor}" filterVisible="true"
                       queryListener="#{bindings.FWMSDHoldingAllQuery.processQuery}" varStatus="vs">
-                <af:column id="c0" headerText="#{null}" rowHeader="true" width="10" filterable="true" sortable="true">
+                <af:column id="c0" headerText="#{null}" rowHeader="true" width="10" sortable="true" filterable="true">
                     <af:outputText value="#{null}" id="ot57"/>
                 </af:column>
                 <af:column headerText="#{UIBundle.FUND_NAME}" id="c3" styleClass="min-width:100%"
@@ -47,15 +47,28 @@
                         <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2" maxFractionDigits="2"
                                           roundingMode="HALF_EVEN"/>
                     </af:outputText>
+                    <f:facet name="footer">
+                        <af:outputText value="#{bindings.FWMSDHoldingAllIterator.viewObject.sum['FhaCashB']}" id="ot37">
+                            <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                              maxFractionDigits="2" roundingMode="HALF_EVEN"/>
+                        </af:outputText>
+                    </f:facet>
                 </af:column>
-                <af:column headerText="#{UIBundle.MARKET_VALUE}" filterable="true" width="150"
-                           sortable="true" sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaMvB.name}" id="c5"
-                           align="right">
+                <af:column headerText="#{UIBundle.MARKET_VALUE}" width="150" id="c5" align="right"
+                           sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaMvB.name}" filterable="true"
+                           sortable="true">
                     <af:outputText value="#{row.FhaMvB}" shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaMvB.tooltip}"
                                    id="ot5">
                         <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##" minFractionDigits="2"
                                           maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                     </af:outputText>
+                    <f:facet name="footer">
+                    <af:outputText value="#{bindings.FWMSDHoldingAllIterator.viewObject.sum['FhaMvB']}"                        
+                     id="otS1">
+                            <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                              maxFractionDigits="2" roundingMode="HALF_EVEN"/>
+                        </af:outputText>
+                     </f:facet>
                 </af:column>
                 <af:column headerText="#{UIBundle.NAV}" id="c6" align="right" width="150"
                            sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaNavB.name}" filterable="true"
@@ -65,6 +78,12 @@
                         <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##" minFractionDigits="2"
                                           maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                     </af:outputText>
+                    <f:facet name="footer">
+                        <af:outputText value="#{bindings.FWMSDHoldingAllIterator.viewObject.sum['FhaNavB']}" id="ot38">
+                            <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                              maxFractionDigits="2" roundingMode="HALF_EVEN"/>
+                        </af:outputText>
+                    </f:facet>
                 </af:column>
                 <af:column headerText="#{UIBundle.DAILY_}" id="c8" align="right"
                            sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaNavNavDp.name}" filterable="true"
@@ -111,7 +130,7 @@
                                           maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                     </af:outputText>
                 </af:column>
-                <af:column id="c17" rendered="false" filterable="true" sortable="true" headerText="Group">
+                <af:column id="c17" rendered="false" headerText="Group" sortable="true" filterable="true">
                     <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavW.label}" id="c9"
                                sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaNavNavW.name}" filterable="true"
                                sortable="true">
@@ -229,6 +248,14 @@
                                     <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
                                                       maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
+                                <f:facet name="footer">
+                                    <af:outputText value="#{bindings.FWMSDHoldingSelectedVOIterator.viewObject.sum['FhaQty']}"
+                                                   id="ot39">
+                                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##"
+                                                          minFractionDigits="2" maxFractionDigits="2"
+                                                          roundingMode="HALF_EVEN"/>
+                                    </af:outputText>
+                                </f:facet>
                             </af:column>
                             <af:column headerText="#{UIBundle.COST_PRICE}" id="c28" align="right"
                                        sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaCprice.name}"
@@ -239,6 +266,14 @@
                                     <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
                                                       maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
+                                <f:facet name="footer">
+                                    <af:outputText value="#{bindings.FWMSDHoldingSelectedVOIterator.viewObject.sum['FhaCprice']}"
+                                                   id="ot40">
+                                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##"
+                                                          minFractionDigits="2" maxFractionDigits="2"
+                                                          roundingMode="HALF_EVEN"/>
+                                    </af:outputText>
+                                </f:facet>
                             </af:column>
                             <af:column headerText="#{UIBundle.COST_VALUE}" id="c29" align="right"
                                        sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaCost.name}"
@@ -249,6 +284,14 @@
                                     <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
                                                       maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
+                                <f:facet name="footer">
+                                    <af:outputText value="#{bindings.FWMSDHoldingSelectedVOIterator.viewObject.sum['FhaCost']}"
+                                                   id="ot41">
+                                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##"
+                                                          minFractionDigits="2" maxFractionDigits="2"
+                                                          roundingMode="HALF_EVEN"/>
+                                    </af:outputText>
+                                </f:facet>
                             </af:column>
                             <af:column headerText="#{UIBundle.MARKET_PRICE}" id="c30" align="right"
                                        sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaMp.name}"
@@ -259,6 +302,14 @@
                                     <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
                                                       maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
+                                <f:facet name="footer">
+                                    <af:outputText value="#{bindings.FWMSDHoldingSelectedVOIterator.viewObject.sum['FhaMp']}"
+                                                   id="ot42">
+                                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##"
+                                                          minFractionDigits="2" maxFractionDigits="2"
+                                                          roundingMode="HALF_EVEN"/>
+                                    </af:outputText>
+                                </f:facet>
                             </af:column>
                             <af:column headerText="#{UIBundle.MARKET_VALUE}" id="c31" align="right"
                                        sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaMv.name}"
@@ -269,6 +320,14 @@
                                     <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
                                                       maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
+                                <f:facet name="footer">
+                                    <af:outputText value="#{bindings.FWMSDHoldingSelectedVOIterator.viewObject.sum['FhaMv']}"
+                                                   id="ot43">
+                                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##"
+                                                          minFractionDigits="2" maxFractionDigits="2"
+                                                          roundingMode="HALF_EVEN"/>
+                                    </af:outputText>
+                                </f:facet>
                             </af:column>
                             <af:column id="c32" headerText="#{UIBundle.UNREALIZED_G_L}" align="right"
                                        sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaUgl.name}"
@@ -279,6 +338,14 @@
                                     <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
                                                       maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
+                                <f:facet name="footer">
+                                    <af:outputText value="#{bindings.FWMSDHoldingSelectedVOIterator.viewObject.sum['FhaUgl']}"
+                                                   id="ot44">
+                                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##"
+                                                          minFractionDigits="2" maxFractionDigits="2"
+                                                          roundingMode="HALF_EVEN"/>
+                                    </af:outputText>
+                                </f:facet>
                             </af:column>
                             <af:column headerText="#{UIBundle.FX_RATE}" id="c33" align="right"
                                        sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaFxRate.name}"
@@ -289,6 +356,14 @@
                                     <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
                                                       maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
+                                <f:facet name="footer">
+                                    <af:outputText value="#{bindings.FWMSDHoldingSelectedVOIterator.viewObject.sum['FhaFxRate']}"
+                                                   id="ot45">
+                                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##"
+                                                          minFractionDigits="2" maxFractionDigits="2"
+                                                          roundingMode="HALF_EVEN"/>
+                                    </af:outputText>
+                                </f:facet>
                             </af:column>
                             <af:column headerText="#{UIBundle.COST_VALUE}" id="c34" align="right"
                                        sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaCostB.name}"
@@ -299,6 +374,14 @@
                                     <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
                                                       maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
+                                <f:facet name="footer">
+                                    <af:outputText value="#{bindings.FWMSDHoldingSelectedVOIterator.viewObject.sum['FhaCostB']}"
+                                                   id="ot46">
+                                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##"
+                                                          minFractionDigits="2" maxFractionDigits="2"
+                                                          roundingMode="HALF_EVEN"/>
+                                    </af:outputText>
+                                </f:facet>
                             </af:column>
                             <af:column headerText="#{UIBundle.MARKET_VALUE}" id="c35" align="right"
                                        sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaMvB.name}"
@@ -309,6 +392,14 @@
                                     <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
                                                       maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
+                                <f:facet name="footer">
+                                    <af:outputText value="#{bindings.FWMSDHoldingSelectedVOIterator.viewObject.sum['FhaMvB']}"
+                                                   id="ot47">
+                                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##"
+                                                          minFractionDigits="2" maxFractionDigits="2"
+                                                          roundingMode="HALF_EVEN"/>
+                                    </af:outputText>
+                                </f:facet>
                             </af:column>
                             <af:column headerText="#{UIBundle.UNREALIZED_G_L}" id="c36" align="right"
                                        sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaUglB.name}"
@@ -319,6 +410,14 @@
                                     <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
                                                       maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
+                                <f:facet name="footer">
+                                    <af:outputText value="#{bindings.FWMSDHoldingSelectedVOIterator.viewObject.sum['FhaUglB']}"
+                                                   id="ot48">
+                                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##"
+                                                          minFractionDigits="2" maxFractionDigits="2"
+                                                          roundingMode="HALF_EVEN"/>
+                                    </af:outputText>
+                                </f:facet>
                             </af:column>
                             <af:column id="c37" rendered="false" headerText="Group" sortable="true" filterable="true">
                                 <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaUserid.label}" id="c18"

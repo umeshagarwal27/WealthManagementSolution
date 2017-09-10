@@ -8,9 +8,12 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVOImpl"
+  ComponentInterface="com.ciobera.fwms.trading.model.vo.readonly.common.FWMSDHoldingAllVO">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Coll"/>
   </DesignTime>
   <Variable
     Name="pLoggedInUserId"
@@ -316,8 +319,21 @@ FHA_NAV_NAV_YTDP FROM FWMSD_HOLDING_ALL WHERE UPPER(FHA_USERID) = UPPER(:pLogged
     ViewLink="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllVOToFWMSDHoldingAllAssetSVO"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
-  <ResourceBundle>
-    <PropertiesBundle
-      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
-  </ResourceBundle>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="getCount"
+      MethodName="getCount">
+      <Return
+        Name="_return_type_"
+        Type="java.util.Map"/>
+    </Method>
+    <Method
+      Name="getSum"
+      MethodName="getSum">
+      <Return
+        Name="_return_type_"
+        Type="java.util.Map"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>
