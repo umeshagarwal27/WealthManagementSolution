@@ -6,6 +6,9 @@
     <variableIterator id="variables"/>
     <page path="oracle.ui.pattern.dynamicShell.model.dynamicTabShellDefinition" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="FWMSMainMenu" RangeSize="25" DataControl="CommonAMDataControl" id="FWMSMainMenuIterator"/>
+    <taskFlow id="dashboardtaskflowdefinition1"
+              taskFlowId="/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/dashboard-task-flow-definition.xml#dashboard-task-flow-definition"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <tree IterBinding="FWMSMainMenuIterator" id="FWMSMainMenu">

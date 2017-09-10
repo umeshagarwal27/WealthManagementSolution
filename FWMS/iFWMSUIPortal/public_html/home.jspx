@@ -156,6 +156,7 @@
                                     <af:outputFormatted value="#{pageFlowScope.HomeBean.errorMessage}" id="of7"/>
                                 </af:dialog>
                             </af:popup>
+                            <af:region value="#{bindings.dashboardtaskflowdefinition1.regionModel}" id="r1"/>
                         </af:group>
                     </f:facet>
                     <f:facet name="innerToolbar"/>

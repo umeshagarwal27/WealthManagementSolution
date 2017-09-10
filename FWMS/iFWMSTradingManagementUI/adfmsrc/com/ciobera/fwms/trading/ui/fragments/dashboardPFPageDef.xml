@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="dashboardPFPageDef"
                 Package="com.ciobera.fwms.trading.ui.fragments">
-  <parameters/>
+    <parameters/>
     <executables>
         <iterator Binds="FWMSDHoldingAll" RangeSize="25" DataControl="TradingManagementAMDataControl"
                   id="FWMSDHoldingAllIterator"/>
@@ -28,7 +28,8 @@
     </executables>
     <bindings>
         <tree IterBinding="FWMSDHoldingAllIterator" id="FWMSDHoldingAll">
-            <nodeDefinition DefName="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO" Name="FWMSDHoldingAll">
+            <nodeDefinition DefName="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVO"
+                            Name="FWMSDHoldingAll">
                 <AttrNames>
                     <Item Value="FhaFname"/>
                     <Item Value="FhaCashB"/>
@@ -106,8 +107,8 @@
             </nodeDefinition>
         </tree>
         <action IterBinding="FWMSDHoldingAllIterator" id="ExecuteWithParams"
-                InstanceName="TradingManagementAMDataControl.FWMSDHoldingAll" DataControl="TradingManagementAMDataControl"
-                RequiresUpdateModel="true" Action="executeWithParams">
+                InstanceName="TradingManagementAMDataControl.FWMSDHoldingAll"
+                DataControl="TradingManagementAMDataControl" RequiresUpdateModel="true" Action="executeWithParams">
             <NamedData NDName="loggedInUserId" NDValue="#{pageFlowScope.OrderManagementBean.userId}"
                        NDType="java.lang.String"/>
         </action>

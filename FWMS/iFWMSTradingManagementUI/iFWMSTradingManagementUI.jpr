@@ -84,7 +84,7 @@
          <hash>
             <hash n="dependable">
                <url n="sourceOwnerURL" path="../FWMS.jws"/>
-               <url n="sourceURL" path="../iFWMSOrderManagementModel/iFWMSOrderManagementModel.jpr"/>
+               <url n="sourceURL" path="../iFWMSCommonModel/iFWMSCommonModel.jpr"/>
             </hash>
             <value n="recognizerId" v="oracle.jdeveloper.library"/>
          </hash>
@@ -322,8 +322,8 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
+                  <url path="../adflibs/AdflibFWMSBundle.jar" jar-entry=""/>
                   <url path="../adflibs/AdflibFWMSCommonUtil.jar" jar-entry=""/>
-                  <url path="../adflibs/AdflibFWMSCommonModel.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
