@@ -25,6 +25,10 @@
                   id="FWMSDHoldingAllExchangeSVOIterator"/>
         <iterator Binds="FWMSDHoldingAllAssetS" RangeSize="25" DataControl="TradingManagementAMDataControl"
                   id="FWMSDHoldingAllAssetSVOIterator"/>
+        <searchRegion Binds="FWMSDHoldingSelectedVOIterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="FWMSDHoldingSelectedQuery"/>
+        <searchRegion Binds="FWMSDHoldingAllIterator" Criteria=""
+                      Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="FWMSDHoldingAllQuery"/>
     </executables>
     <bindings>
         <tree IterBinding="FWMSDHoldingAllIterator" id="FWMSDHoldingAll">
@@ -36,17 +40,17 @@
                     <Item Value="FhaMvB"/>
                     <Item Value="FhaNavB"/>
                     <Item Value="FhaNavNavDp"/>
-                    <Item Value="FhaNavNavW"/>
                     <Item Value="FhaNavNavWp"/>
-                    <Item Value="FhaNavNavM"/>
                     <Item Value="FhaNavNavMp"/>
-                    <Item Value="FhaNavNavY"/>
                     <Item Value="FhaNavNavYp"/>
-                    <Item Value="FhaNavNavYtd"/>
                     <Item Value="FhaNavNavYtdp"/>
+                    <Item Value="FhaNavNavW"/>
+                    <Item Value="FhaNavNavY"/>
+                    <Item Value="FhaNavNavM"/>
                     <Item Value="FhaUserid"/>
                     <Item Value="FhaFund"/>
                     <Item Value="FhaNavNavD"/>
+                    <Item Value="FhaNavNavYtd"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>
@@ -211,13 +215,7 @@
             <nodeDefinition DefName="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingSelectedVO"
                             Name="FWMSDHoldingSelected0">
                 <AttrNames>
-                    <Item Value="FhaUserid"/>
-                    <Item Value="FhaFund"/>
-                    <Item Value="FhaFname"/>
-                    <Item Value="FhaStock"/>
                     <Item Value="FhaStockName"/>
-                    <Item Value="FhaShortName"/>
-                    <Item Value="FhaCurrency"/>
                     <Item Value="FhaCname"/>
                     <Item Value="FhaLongShort"/>
                     <Item Value="FhaQty"/>
@@ -230,6 +228,12 @@
                     <Item Value="FhaCostB"/>
                     <Item Value="FhaMvB"/>
                     <Item Value="FhaUglB"/>
+                    <Item Value="FhaUserid"/>
+                    <Item Value="FhaFund"/>
+                    <Item Value="FhaFname"/>
+                    <Item Value="FhaStock"/>
+                    <Item Value="FhaShortName"/>
+                    <Item Value="FhaCurrency"/>
                 </AttrNames>
             </nodeDefinition>
         </tree>
@@ -241,5 +245,10 @@
             <NamedData NDName="asOfDate" NDValue="#{pageFlowScope.DashboardBean.asOfdate}"
                        NDType="oracle.jbo.domain.Date"/>
         </methodAction>
+        <attributeValues IterBinding="FWMSDHoldingAllIterator" id="FhaFname">
+            <AttrNames>
+                <Item Value="FhaFname"/>
+            </AttrNames>
+        </attributeValues>
     </bindings>
 </pageDefinition>

@@ -21,114 +21,151 @@
             <af:table value="#{bindings.FWMSDHoldingAll.collectionModel}" var="row"
                       rows="#{bindings.FWMSDHoldingAll.rangeSize}"
                       emptyText="#{bindings.FWMSDHoldingAll.viewable ? 'No data to display.' : 'Access Denied.'}"
-                      rowBandingInterval="0" fetchSize="#{bindings.FWMSDHoldingAll.rangeSize}" id="t1"
+                      rowBandingInterval="1" fetchSize="#{bindings.FWMSDHoldingAll.rangeSize}" id="t1"
                       styleClass="AFStretchWidth" columnStretching="column:c3" rowSelection="single"
-                      selectionListener="#{pageFlowScope.DashboardBean.fundSelectionListener}">
-                <af:column id="c0" headerText="#{null}" rowHeader="true" width="10">
+                      selectionListener="#{pageFlowScope.DashboardBean.fundSelectionListener}"
+                      columnBandingInterval="0"
+                      selectedRowKeys="#{bindings.FWMSDHoldingAll.collectionModel.selectedRow}"
+                      filterModel="#{bindings.FWMSDHoldingAllQuery.queryDescriptor}" filterVisible="true"
+                      queryListener="#{bindings.FWMSDHoldingAllQuery.processQuery}" varStatus="vs">
+                <af:column id="c0" headerText="#{null}" rowHeader="true" width="10" filterable="true" sortable="true">
                     <af:outputText value="#{null}" id="ot57"/>
                 </af:column>
-                <af:column headerText="#{UIBundle.FUND_NAME}" id="c3" styleClass="min-width:100%">
-                    <af:outputText value="#{row.FhaFname}"
-                                   shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaFname.tooltip}" id="ot3"
-                                   inlineStyle="padding-right:40px; padding-top:3px; padding-bottom:3px;"/>
+                <af:column headerText="#{UIBundle.FUND_NAME}" id="c3" styleClass="min-width:100%"
+                           sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaFname.name}" filterable="true"
+                           sortable="true">
+                    <af:link text="#{null}" id="l1" actionListener="#{pageFlowScope.DashboardBean.onFundSelected}">
+                        <af:outputText value="#{row.FhaFname}"
+                                       shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaFname.tooltip}" id="ot3"/>
+                    </af:link>
                 </af:column>
-                <af:column headerText="#{UIBundle.CASH}" id="c4">
+                <af:column headerText="#{UIBundle.CASH}" id="c4" align="right" width="150"
+                           sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaCashB.name}" filterable="true"
+                           sortable="true">
                     <af:outputText value="#{row.FhaCashB}"
                                    shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaCashB.tooltip}" id="ot4">
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaCashB.format}"/>
+                        <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2" maxFractionDigits="2"
+                                          roundingMode="HALF_EVEN"/>
                     </af:outputText>
                 </af:column>
-                <af:column headerText="#{UIBundle.MARKET_VALUE}" id="c5">
+                <af:column headerText="#{UIBundle.MARKET_VALUE}" filterable="true" width="150"
+                           sortable="true" sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaMvB.name}" id="c5"
+                           align="right">
                     <af:outputText value="#{row.FhaMvB}" shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaMvB.tooltip}"
                                    id="ot5">
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaMvB.format}"/>
+                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                          maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                     </af:outputText>
                 </af:column>
-                <af:column headerText="#{UIBundle.NAV}" id="c6">
+                <af:column headerText="#{UIBundle.NAV}" id="c6" align="right" width="150"
+                           sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaNavB.name}" filterable="true"
+                           sortable="true">
                     <af:outputText value="#{row.FhaNavB}" shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavB.tooltip}"
                                    id="ot6">
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavB.format}"/>
+                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                          maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                     </af:outputText>
                 </af:column>
-                <af:column headerText="#{UIBundle.DAILY_}" id="c8">
-                    <af:outputText value="#{row.FhaNavNavDp}"
+                <af:column headerText="#{UIBundle.DAILY_}" id="c8" align="right"
+                           sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaNavNavDp.name}" filterable="true"
+                           sortable="true">
+                    <af:outputText value="#{row.FhaNavNavDp} %"
                                    shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavDp.tooltip}" id="ot8">
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavDp.format}"/>
+                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                          maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                     </af:outputText>
                 </af:column>
-                <af:column headerText="#{UIBundle.WEEKLY_}" id="c10">
-                    <af:outputText value="#{row.FhaNavNavWp}"
+                <af:column headerText="#{UIBundle.WEEKLY_}" id="c10" align="right"
+                           sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaNavNavWp.name}" filterable="true"
+                           sortable="true">
+                    <af:outputText value="#{row.FhaNavNavWp} %"
                                    shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavWp.tooltip}" id="ot10">
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavWp.format}"/>
+                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                          maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                     </af:outputText>
                 </af:column>
-                <af:column headerText="#{UIBundle.MONTHLY_}" id="c12">
-                    <af:outputText value="#{row.FhaNavNavMp}"
+                <af:column headerText="#{UIBundle.MONTHLY_}" id="c12" align="right"
+                           sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaNavNavMp.name}" filterable="true"
+                           sortable="true">
+                    <af:outputText value="#{row.FhaNavNavMp} %"
                                    shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavMp.tooltip}" id="ot12">
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavMp.format}"/>
+                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                          maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                     </af:outputText>
                 </af:column>
-                <af:column headerText="#{UIBundle.YEARLY_}" id="c14">
-                    <af:outputText value="#{row.FhaNavNavYp}"
+                <af:column headerText="#{UIBundle.YEARLY_}" id="c14" align="right"
+                           sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYp.name}" filterable="true"
+                           sortable="true">
+                    <af:outputText value="#{row.FhaNavNavYp} %"
                                    shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYp.tooltip}" id="ot14">
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYp.format}"/>
+                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                          maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                     </af:outputText>
                 </af:column>
-                <af:column headerText="#{UIBundle.SINCE_INC_}" id="c16">
-                    <af:outputText value="#{row.FhaNavNavYtdp}"
+                <af:column headerText="#{UIBundle.SINCE_INC_}" id="c16" align="right"
+                           sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYtdp.name}" filterable="true"
+                           sortable="true">
+                    <af:outputText value="#{row.FhaNavNavYtdp} %"
                                    shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYtdp.tooltip}" id="ot16">
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYtdp.format}"/>
+                        <af:convertNumber groupingUsed="true" pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                          maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                     </af:outputText>
                 </af:column>
-                <af:column id="c17" rendered="false">
-                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavW.label}" id="c9">
+                <af:column id="c17" rendered="false" filterable="true" sortable="true" headerText="Group">
+                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavW.label}" id="c9"
+                               sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaNavNavW.name}" filterable="true"
+                               sortable="true">
                         <af:outputText value="#{row.FhaNavNavW}"
                                        shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavW.tooltip}" id="ot9">
                             <af:convertNumber groupingUsed="false"
                                               pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavW.format}"/>
                         </af:outputText>
                     </af:column>
-                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavY.label}" id="c13">
+                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavY.label}" id="c13"
+                               sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaNavNavY.name}" filterable="true"
+                               sortable="true">
                         <af:outputText value="#{row.FhaNavNavY}"
                                        shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavY.tooltip}" id="ot13">
                             <af:convertNumber groupingUsed="false"
                                               pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavY.format}"/>
                         </af:outputText>
                     </af:column>
-                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavM.label}" id="c11">
+                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavM.label}" id="c11"
+                               sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaNavNavM.name}" filterable="true"
+                               sortable="true">
                         <af:outputText value="#{row.FhaNavNavM}"
                                        shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavM.tooltip}" id="ot11">
                             <af:convertNumber groupingUsed="false"
                                               pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavM.format}"/>
                         </af:outputText>
                     </af:column>
-                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaUserid.label}" id="c1">
+                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaUserid.label}" id="c1"
+                               sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaUserid.name}" filterable="true"
+                               sortable="true">
                         <af:outputText value="#{row.FhaUserid}"
                                        shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaUserid.tooltip}" id="ot1"/>
                     </af:column>
-                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaFund.label}" id="c2">
+                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaFund.label}" id="c2"
+                               sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaFund.name}" filterable="true"
+                               sortable="true">
                         <af:outputText value="#{row.FhaFund}"
                                        shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaFund.tooltip}" id="ot2">
                             <af:convertNumber groupingUsed="false"
                                               pattern="#{bindings.FWMSDHoldingAll.hints.FhaFund.format}"/>
                         </af:outputText>
                     </af:column>
-                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavD.label}" id="c7">
+                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavD.label}" id="c7"
+                               sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaNavNavD.name}" filterable="true"
+                               sortable="true">
                         <af:outputText value="#{row.FhaNavNavD}"
                                        shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavD.tooltip}" id="ot7">
                             <af:convertNumber groupingUsed="false"
                                               pattern="#{bindings.FWMSDHoldingAll.hints.FhaNavNavD.format}"/>
                         </af:outputText>
                     </af:column>
-                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYtd.label}" id="c15">
+                    <af:column headerText="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYtd.label}" id="c15"
+                               sortProperty="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYtd.name}" filterable="true"
+                               sortable="true">
                         <af:outputText value="#{row.FhaNavNavYtd}"
                                        shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaNavNavYtd.tooltip}" id="ot15">
                             <af:convertNumber groupingUsed="false"
@@ -154,112 +191,146 @@
                                   rows="#{bindings.FWMSDHoldingSelected.rangeSize}"
                                   emptyText="#{bindings.FWMSDHoldingSelected.viewable ? 'No data to display.' : 'Access Denied.'}"
                                   rowBandingInterval="0" fetchSize="#{bindings.FWMSDHoldingSelected.rangeSize}" id="t2"
-                                  columnStretching="column:c22" partialTriggers=":::pc1:t1" styleClass="AFStretchWidth">
-                            <af:column id="c38" headerText="#{null}" width="10">
+                                  columnStretching="column:c22" partialTriggers=":::pc1:t1" styleClass="AFStretchWidth"
+                                  filterModel="#{bindings.FWMSDHoldingSelectedQuery.queryDescriptor}"
+                                  filterVisible="true"
+                                  queryListener="#{bindings.FWMSDHoldingSelectedQuery.processQuery}" varStatus="vs">
+                            <af:column id="c38" headerText="#{null}" width="10" rowHeader="true" sortable="true"
+                                       filterable="true">
                                 <af:outputText value="#{null}" id="ot36"/>
                             </af:column>
-                            <af:column headerText="#{UIBundle.STOCK_NAME}" id="c22">
+                            <af:column headerText="#{UIBundle.STOCK_NAME}" id="c22"
+                                       sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaStockName.name}"
+                                       filterable="true" sortable="true">
                                 <af:outputText value="#{row.FhaStockName}"
                                                shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaStockName.tooltip}"
                                                id="ot21"/>
                             </af:column>
-                            <af:column headerText="#{UIBundle.CURRENCY}" id="c25">
+                            <af:column headerText="#{UIBundle.CURRENCY}" id="c25"
+                                       sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaCname.name}"
+                                       filterable="true" sortable="true">
                                 <af:outputText value="#{row.FhaCname}"
                                                shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaCname.tooltip}"
                                                id="ot24"/>
                             </af:column>
-                            <af:column headerText="#{UIBundle.L_S}" id="c26">
+                            <af:column headerText="#{UIBundle.L_S}" id="c26"
+                                       sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaLongShort.name}"
+                                       filterable="true" sortable="true">
                                 <af:outputText value="#{row.FhaLongShort}"
                                                shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaLongShort.tooltip}"
                                                id="ot25"/>
                             </af:column>
-                            <af:column headerText="#{UIBundle.QTY}" id="c27">
+                            <af:column headerText="#{UIBundle.QTY}" id="c27" align="right"
+                                       sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaQty.name}"
+                                       filterable="true" sortable="true">
                                 <af:outputText value="#{row.FhaQty}"
                                                shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaQty.tooltip}"
                                                id="ot26">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaQty.format}"/>
+                                    <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                                      maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
                             </af:column>
-                            <af:column headerText="#{UIBundle.COST_PRICE}" id="c28">
+                            <af:column headerText="#{UIBundle.COST_PRICE}" id="c28" align="right"
+                                       sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaCprice.name}"
+                                       filterable="true" sortable="true">
                                 <af:outputText value="#{row.FhaCprice}"
                                                shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaCprice.tooltip}"
                                                id="ot27">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaCprice.format}"/>
+                                    <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                                      maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
                             </af:column>
-                            <af:column headerText="#{UIBundle.COST_VALUE}" id="c29">
+                            <af:column headerText="#{UIBundle.COST_VALUE}" id="c29" align="right"
+                                       sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaCost.name}"
+                                       filterable="true" sortable="true">
                                 <af:outputText value="#{row.FhaCost}"
                                                shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaCost.tooltip}"
                                                id="ot28">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaCost.format}"/>
+                                    <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                                      maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
                             </af:column>
-                            <af:column headerText="#{UIBundle.MARKET_PRICE}" id="c30">
+                            <af:column headerText="#{UIBundle.MARKET_PRICE}" id="c30" align="right"
+                                       sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaMp.name}"
+                                       filterable="true" sortable="true">
                                 <af:outputText value="#{row.FhaMp}"
                                                shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaMp.tooltip}"
                                                id="ot29">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaMp.format}"/>
+                                    <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                                      maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
                             </af:column>
-                            <af:column headerText="#{UIBundle.MARKET_VALUE}" id="c31">
+                            <af:column headerText="#{UIBundle.MARKET_VALUE}" id="c31" align="right"
+                                       sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaMv.name}"
+                                       filterable="true" sortable="true">
                                 <af:outputText value="#{row.FhaMv}"
                                                shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaMv.tooltip}"
                                                id="ot30">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaMv.format}"/>
+                                    <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                                      maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
                             </af:column>
-                            <af:column id="c32" headerText="#{UIBundle.UNREALIZED_G_L}">
+                            <af:column id="c32" headerText="#{UIBundle.UNREALIZED_G_L}" align="right"
+                                       sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaUgl.name}"
+                                       filterable="true" sortable="true">
                                 <af:outputText value="#{row.FhaUgl}"
                                                shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaUgl.tooltip}"
                                                id="ot31">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaUgl.format}"/>
+                                    <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                                      maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
                             </af:column>
-                            <af:column headerText="#{UIBundle.FX_RATE}" id="c33">
+                            <af:column headerText="#{UIBundle.FX_RATE}" id="c33" align="right"
+                                       sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaFxRate.name}"
+                                       filterable="true" sortable="true">
                                 <af:outputText value="#{row.FhaFxRate}"
                                                shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaFxRate.tooltip}"
                                                id="ot32">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaFxRate.format}"/>
+                                    <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                                      maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
                             </af:column>
-                            <af:column headerText="#{UIBundle.COST_VALUE}" id="c34">
+                            <af:column headerText="#{UIBundle.COST_VALUE}" id="c34" align="right"
+                                       sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaCostB.name}"
+                                       filterable="true" sortable="true">
                                 <af:outputText value="#{row.FhaCostB}"
                                                shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaCostB.tooltip}"
                                                id="ot33">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaCostB.format}"/>
+                                    <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                                      maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
                             </af:column>
-                            <af:column headerText="#{UIBundle.MARKET_VALUE}" id="c35">
+                            <af:column headerText="#{UIBundle.MARKET_VALUE}" id="c35" align="right"
+                                       sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaMvB.name}"
+                                       filterable="true" sortable="true">
                                 <af:outputText value="#{row.FhaMvB}"
                                                shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaMvB.tooltip}"
                                                id="ot34">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaMvB.format}"/>
+                                    <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                                      maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
                             </af:column>
-                            <af:column headerText="#{UIBundle.UNREALIZED_G_L}" id="c36">
+                            <af:column headerText="#{UIBundle.UNREALIZED_G_L}" id="c36" align="right"
+                                       sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaUglB.name}"
+                                       filterable="true" sortable="true">
                                 <af:outputText value="#{row.FhaUglB}"
                                                shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaUglB.tooltip}"
                                                id="ot35">
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.FWMSDHoldingSelected.hints.FhaUglB.format}"/>
+                                    <af:convertNumber pattern="##,##,##,##,###.##" minFractionDigits="2"
+                                                      maxFractionDigits="2" roundingMode="HALF_EVEN"/>
                                 </af:outputText>
                             </af:column>
-                            <af:column id="c37" rendered="false">
-                                <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaUserid.label}" id="c18">
+                            <af:column id="c37" rendered="false" headerText="Group" sortable="true" filterable="true">
+                                <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaUserid.label}" id="c18"
+                                           sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaUserid.name}"
+                                           filterable="true" sortable="true">
                                     <af:outputText value="#{row.FhaUserid}"
                                                    shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaUserid.tooltip}"
                                                    id="ot17"/>
                                 </af:column>
-                                <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaFund.label}" id="c19">
+                                <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaFund.label}" id="c19"
+                                           sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaFund.name}"
+                                           filterable="true" sortable="true">
                                     <af:outputText value="#{row.FhaFund}"
                                                    shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaFund.tooltip}"
                                                    id="ot18">
@@ -267,12 +338,16 @@
                                                           pattern="#{bindings.FWMSDHoldingSelected.hints.FhaFund.format}"/>
                                     </af:outputText>
                                 </af:column>
-                                <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaFname.label}" id="c20">
+                                <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaFname.label}" id="c20"
+                                           sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaFname.name}"
+                                           filterable="true" sortable="true">
                                     <af:outputText value="#{row.FhaFname}"
                                                    shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaFname.tooltip}"
                                                    id="ot19"/>
                                 </af:column>
-                                <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaStock.label}" id="c21">
+                                <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaStock.label}" id="c21"
+                                           sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaStock.name}"
+                                           filterable="true" sortable="true">
                                     <af:outputText value="#{row.FhaStock}"
                                                    shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaStock.tooltip}"
                                                    id="ot20">
@@ -281,12 +356,16 @@
                                     </af:outputText>
                                 </af:column>
                                 <af:column headerText="#{bindings.FWMSDHoldingSelected.hints.FhaShortName.label}"
-                                           id="c23">
+                                           id="c23"
+                                           sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaShortName.name}"
+                                           filterable="true" sortable="true">
                                     <af:outputText value="#{row.FhaShortName}"
                                                    shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaShortName.tooltip}"
                                                    id="ot22"/>
                                 </af:column>
-                                <af:column headerText="#{UIBundle.CURRENCY}" id="c24">
+                                <af:column headerText="#{UIBundle.CURRENCY}" id="c24"
+                                           sortProperty="#{bindings.FWMSDHoldingSelected.hints.FhaCurrency.name}"
+                                           filterable="true" sortable="true">
                                     <af:outputText value="#{row.FhaCurrency}"
                                                    shortDesc="#{bindings.FWMSDHoldingSelected.hints.FhaCurrency.tooltip}"
                                                    id="ot23">

@@ -234,6 +234,23 @@ public class DashboardBean implements Serializable {
         }
     }
 
+     public void fundSelectionListener(SelectionEvent selectionEvent) {
+         
+         pieChartSelectionListener(selectionEvent, "#{bindings.FWMSDHoldingAll.treeModel.makeCurrent}");
+         Row selectedRow =
+                  (Row)ADFUtil.evaluateEL("#{bindings.FWMSDHoldingAll.currentRow}");
+         setSelectedFund((Long)selectedRow.getAttribute(1));
+         setSelectedFundName((String)selectedRow.getAttribute(2));
+//         if (getFundsPopup() != null) {
+//             //executeMethod("ExecuteWithParamsSelected", true);
+//             //executeMethod("ExecuteWithParamsExchangeS", true);
+//             //executeMethod("ExecuteWithParamsAssetS", true);
+//             //sexecuteMethod("ExecuteWithParamsCountryS", true);
+//             RichPopup.PopupHints hints = new RichPopup.PopupHints();
+//             getFundsPopup().show(hints);
+//         }
+         
+     }
     public void exchangeSelectionListener(SelectionEvent selectionEvent) {
         pieChartSelectionListener(selectionEvent, "#{bindings.FWMSDHoldingAllExchange.collectionModel.makeCurrent}");
         if (getExchangePopup() != null) {
@@ -250,22 +267,6 @@ public class DashboardBean implements Serializable {
         }
     }
 
-    public void fundSelectionListener(SelectionEvent selectionEvent) {
-
-        pieChartSelectionListener(selectionEvent, "#{bindings.FWMSDHoldingAll.treeModel.makeCurrent}");
-        Row selectedRow = (Row) ADFUtil.evaluateEL("#{bindings.FWMSDHoldingAll.currentRow}");
-        setSelectedFund((Long) selectedRow.getAttribute(1));
-        setSelectedFundName((String) selectedRow.getAttribute(2));
-        if (getFundsPopup() != null) {
-            //executeMethod("ExecuteWithParamsSelected", true);
-            //executeMethod("ExecuteWithParamsExchangeS", true);
-            //executeMethod("ExecuteWithParamsAssetS", true);
-            //sexecuteMethod("ExecuteWithParamsCountryS", true);
-            RichPopup.PopupHints hints = new RichPopup.PopupHints();
-            getFundsPopup().show(hints);
-        }
-
-    }
 
     public void setShowGraph(boolean showGraph) {
         this.showGraph = showGraph;
@@ -323,6 +324,17 @@ public class DashboardBean implements Serializable {
         return fundsPopup;
     }
 
+    public void onFundSelected(ActionEvent actionEvent) {
+        // Add event code here...
+        if (getFundsPopup() != null) {
+            //executeMethod("ExecuteWithParamsSelected", true);
+            //executeMethod("ExecuteWithParamsExchangeS", true);
+            //executeMethod("ExecuteWithParamsAssetS", true);
+            //sexecuteMethod("ExecuteWithParamsCountryS", true);
+            RichPopup.PopupHints hints = new RichPopup.PopupHints();
+            getFundsPopup().show(hints);
+        }
+    }
 
     public void setSelectedFundName(String selectedFundName) {
         this.selectedFundName = selectedFundName;
