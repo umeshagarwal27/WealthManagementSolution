@@ -7,6 +7,7 @@
 <c:set var="UIBundle" value="#{adfBundle['com.ciobera.fwms.bundle.ui.UIBundle']}"/>
  <af:group id="g1">
         <af:panelGroupLayout id="pgl2" layout="horizontal">
+            <af:spacer width="30" height="10" id="s14"/>
             <af:inputDate label="#{UIBundle.AS_OF_DATE}" id="id1" value="#{pageFlowScope.DashboardBean.asOfdate}"
                           autoSubmit="true"/>
             <af:button text="#{UIBundle.PROCESS}" id="b1"
@@ -26,11 +27,10 @@
                 <af:column id="c0" headerText="#{null}" rowHeader="true" width="10">
                     <af:outputText value="#{null}" id="ot57"/>
                 </af:column>
-                <af:column headerText="#{UIBundle.FUND_NAME}" id="c3">
-                    <af:link text="#{null}" id="l1">
-                        <af:outputText value="#{row.FhaFname}"
-                                       shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaFname.tooltip}" id="ot3"/>
-                    </af:link>
+                <af:column headerText="#{UIBundle.FUND_NAME}" id="c3" styleClass="min-width:100%">
+                    <af:outputText value="#{row.FhaFname}"
+                                   shortDesc="#{bindings.FWMSDHoldingAll.hints.FhaFname.tooltip}" id="ot3"
+                                   inlineStyle="padding-right:40px; padding-top:3px; padding-bottom:3px;"/>
                 </af:column>
                 <af:column headerText="#{UIBundle.CASH}" id="c4">
                     <af:outputText value="#{row.FhaCashB}"
@@ -140,7 +140,8 @@
         </af:panelCollection>
         <af:spacer width="10" height="10" id="s6"/>
         <af:popup childCreation="deferred" autoCancel="disabled" id="p4" contentDelivery="lazyUncached"
-                  binding="#{pageFlowScope.DashboardBean.fundsPopup}">
+                  binding="#{pageFlowScope.DashboardBean.fundsPopup}"
+                  popupCanceledListener="#{pageFlowScope.DashboardBean.onPopupCanceled}">
             <af:dialog id="d4" type="none"
                        title="#{UIBundle.DETAILS_OF} #{pageFlowScope.DashboardBean.selectedFundName}">
                 <af:panelGroupLayout id="pgl3" styleClass="AFStretchWidth" layout="vertical">

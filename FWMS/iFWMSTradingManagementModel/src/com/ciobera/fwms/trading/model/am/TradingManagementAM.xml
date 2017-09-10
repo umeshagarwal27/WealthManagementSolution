@@ -90,6 +90,16 @@
   <ClientInterface
     Name="__clientInterface">
     <Method
+      Name="getFWMSHoldingRecordsForUserId"
+      MethodName="getFWMSHoldingRecordsForUserId">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
       Name="processAsOfDateRecord"
       MethodName="processAsOfDateRecord">
       <Return
@@ -100,17 +110,7 @@
         Type="java.lang.String"/>
       <Parameter
         Name="asOfDate"
-        Type="java.util.Date"/>
-    </Method>
-    <Method
-      Name="getFWMSHoldingRecordsForUserId"
-      MethodName="getFWMSHoldingRecordsForUserId">
-      <Return
-        Name="_return_type_"
-        Type="void"/>
-      <Parameter
-        Name="userId"
-        Type="java.lang.String"/>
+        Type="oracle.jbo.domain.Date"/>
     </Method>
   </ClientInterface>
 </AppModule>

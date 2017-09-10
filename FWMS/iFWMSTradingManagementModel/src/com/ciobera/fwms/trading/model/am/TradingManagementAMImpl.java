@@ -3,9 +3,12 @@ package com.ciobera.fwms.trading.model.am;
 
 import com.ciobera.fwms.trading.model.am.common.TradingManagementAM;
 
-import java.util.Date;
+import java.sql.CallableStatement;
+import java.sql.SQLException;
 
+import oracle.jbo.domain.Date;
 import oracle.jbo.server.ApplicationModuleImpl;
+import oracle.jbo.server.DBTransactionImpl;
 import oracle.jbo.server.ViewLinkImpl;
 import oracle.jbo.server.ViewObjectImpl;
 // ---------------------------------------------------------------------
@@ -28,7 +31,29 @@ public class TradingManagementAMImpl extends ApplicationModuleImpl implements Tr
      */
     public void processAsOfDateRecord(String userId, Date asOfDate) {
         //TODO call Stored Procedure to fill the data in the table forthe selected user and asof date
-
+        DBTransactionImpl dbTransaction = (DBTransactionImpl) getDBTransaction();
+                CallableStatement custCtxStmt = null;
+                String procedure =
+                    "begin  FWMSD_HOLDING_G(?,?); end;";
+                if (userId != null && asOfDate != null) {
+                    custCtxStmt = dbTransaction.createCallableStatement(procedure, 0);
+                    try {
+                        custCtxStmt.setString(1, userId);
+                                custCtxStmt.setDate(2, asOfDate.dateValue());
+                        custCtxStmt.execute();
+                       
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    } finally {
+                        if (custCtxStmt != null) {
+                            try {
+                                custCtxStmt.close();
+                            } catch (SQLException sqle) {
+                                sqle.printStackTrace();
+                            }
+                        }
+                    }
+                }
 
     }
 

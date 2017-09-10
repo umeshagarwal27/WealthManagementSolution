@@ -15,9 +15,9 @@ import com.ciobera.fwms.common.util.utils.common.ADFUtil;
 
 import java.io.Serializable;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import oracle.jbo.domain.Date;
 
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
@@ -30,6 +30,7 @@ import javax.faces.event.ActionEvent;
 import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.faces.bi.event.chart.ChartDrillEvent;
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.event.PopupCanceledEvent;
 
 import oracle.binding.OperationBinding;
 
@@ -253,11 +254,9 @@ public class DashboardBean implements Serializable {
          pieChartSelectionListener(selectionEvent, "#{bindings.FWMSDHoldingAll.treeModel.makeCurrent}");
          Row selectedRow =
                   (Row)ADFUtil.evaluateEL("#{bindings.FWMSDHoldingAll.currentRow}");
+         setSelectedFund((Long)selectedRow.getAttribute(1));
+         setSelectedFundName((String)selectedRow.getAttribute(2));
          if (getFundsPopup() != null) {
-             //setSelectedFund(fund);
-             setSelectedFund((Long)selectedRow.getAttribute(1));
-             setSelectedFundName((String)selectedRow.getAttribute(2));
-             setSelectedFund(defaultFund);
              //executeMethod("ExecuteWithParamsSelected", true);
              //executeMethod("ExecuteWithParamsExchangeS", true);
              //executeMethod("ExecuteWithParamsAssetS", true);
@@ -265,6 +264,7 @@ public class DashboardBean implements Serializable {
              RichPopup.PopupHints hints = new RichPopup.PopupHints();
              getFundsPopup().show(hints);
          }
+         
      }
 
      public void setShowGraph(boolean showGraph) {
@@ -339,5 +339,10 @@ public class DashboardBean implements Serializable {
      public Long getSelectedFund() {
          return selectedFund;
      }
+
+
+    public void onPopupCanceled(PopupCanceledEvent popupCanceledEvent) {
+        // Add event code here...
+    }
 }
 

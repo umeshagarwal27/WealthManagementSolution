@@ -10,6 +10,6 @@ import oracle.jbo.ApplicationModule;
 public interface TradingManagementAM extends ApplicationModule {
     void getFWMSHoldingRecordsForUserId(String userId);
 
-    void processAsOfDateRecord(String userId, Date asOfDate);
+    void processAsOfDateRecord(String userId, oracle.jbo.domain.Date asOfDate);
 }
 

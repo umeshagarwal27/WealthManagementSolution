@@ -147,13 +147,6 @@
             <NamedData NDName="loggedInUserId" NDValue="#{pageFlowScope.OrderManagementBean.userId}"
                        NDType="java.lang.String"/>
         </action>
-        <methodAction id="processAsOfDateRecord" RequiresUpdateModel="true" Action="invokeMethod"
-                      MethodName="processAsOfDateRecord" IsViewObjectMethod="false"
-                      DataControl="TradingManagementAMDataControl"
-                      InstanceName="bindings.processAsOfDateRecord.dataControl.dataProvider">
-            <NamedData NDName="userId" NDType="java.lang.String" NDValue="#{pageFlowScope.OrderManagementBean.userId}"/>
-            <NamedData NDName="asOfDate" NDType="java.util.Date" NDValue=""/>
-        </methodAction>
         <action IterBinding="FWMSDHoldingSelectedVOIterator" id="ExecuteWithParamsSelected"
                 InstanceName="TradingManagementAMDataControl.FWMSDHoldingSelected"
                 DataControl="TradingManagementAMDataControl" RequiresUpdateModel="true" Action="executeWithParams">
@@ -239,5 +232,13 @@
                 </AttrNames>
             </nodeDefinition>
         </tree>
+        <methodAction id="processAsOfDateRecord" RequiresUpdateModel="true" Action="invokeMethod"
+                      MethodName="processAsOfDateRecord" IsViewObjectMethod="false"
+                      DataControl="TradingManagementAMDataControl"
+                      InstanceName="bindings.processAsOfDateRecord.dataControl.dataProvider">
+            <NamedData NDName="userId" NDValue="#{pageFlowScope.DashboardBean.userId}" NDType="java.lang.String"/>
+            <NamedData NDName="asOfDate" NDValue="#{pageFlowScope.DashboardBean.asOfdate}"
+                       NDType="oracle.jbo.domain.Date"/>
+        </methodAction>
     </bindings>
 </pageDefinition>
