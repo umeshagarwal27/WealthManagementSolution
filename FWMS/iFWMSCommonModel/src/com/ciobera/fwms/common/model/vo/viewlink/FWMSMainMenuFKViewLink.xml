@@ -23,6 +23,7 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO.WmmCnode"/>
+      <Item Value="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO.WmmUserid"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
@@ -35,6 +36,7 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO.WmmPnode"/>
+      <Item Value="com.ciobera.fwms.common.model.vo.readonly.FWMSMainMenuVO.WmmUserid"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>
