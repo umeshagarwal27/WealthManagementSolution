@@ -47,6 +47,8 @@ public class StockInformationBean implements Serializable {
     private ComponentReference addUpdateStockPopupBinding;
     private ComponentReference errorMessagePopupBinding;
     private ComponentReference confirmMessagePopupBinding;
+    private static final String EXCEL_EXTENSION = ".xls";
+    private static final String EXCEL_EXPORT_FILE_NAME = "Export_Stocks_";
     public static final ADFLogger LOGGER = ADFLogger.createADFLogger(StockInformationBean.class);
 
     /**
@@ -251,7 +253,7 @@ public class StockInformationBean implements Serializable {
      */
     public void onSave(ActionEvent actionEvent) {
         Map resultMap = executeMethod("updateProductRecord");
-        if (resultMap != null && "SUCCESS".equalsIgnoreCase((String)resultMap.get("RESP_CODE"))) {
+        if (resultMap != null && "SUCCESS".equalsIgnoreCase((String) resultMap.get("RESP_CODE"))) {
             if ("CREATE".equalsIgnoreCase(mode)) {
                 displayConfirmationPopup(ADFUtil.getUIBundleMsg("STOCK_ADDED_SUCCESSFULLY"));
             } else {
@@ -270,16 +272,16 @@ public class StockInformationBean implements Serializable {
      */
     public void onApproveStock(ActionEvent actionEvent) {
         AttributeBinding enteredByAttrBind = ADFUtil.findControlBinding("WmsEnterUid");
-        if(enteredByAttrBind != null){
-            String enteredUid = (String)enteredByAttrBind.getInputValue();
-            if(userId.equalsIgnoreCase(enteredUid)){
+        if (enteredByAttrBind != null) {
+            String enteredUid = (String) enteredByAttrBind.getInputValue();
+            if (userId.equalsIgnoreCase(enteredUid)) {
                 displayErrorPopup(ADFUtil.getUIBundleMsg("APPROVE_ACCOUNT_NOT_POSSIBLE"));
                 return;
             }
         }
         setMode("APPROVE");
         Map resultMap = executeMethod("updateProductRecord");
-        if (resultMap != null && "SUCCESS".equalsIgnoreCase((String)resultMap.get("RESP_CODE"))) {
+        if (resultMap != null && "SUCCESS".equalsIgnoreCase((String) resultMap.get("RESP_CODE"))) {
             displayConfirmationPopup(ADFUtil.getUIBundleMsg("STOCK_APPROVED_SUCCESSFULLY"));
         } else {
             displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
@@ -379,9 +381,9 @@ public class StockInformationBean implements Serializable {
 
     public String getFileName() {
         if (getMindate() != null) {
-            fileName = "Export_Stocks_" + userId + "_" + getMindate() + ".xls";
+            fileName = EXCEL_EXPORT_FILE_NAME + userId + "_" + getMindate() + EXCEL_EXTENSION;
         } else {
-            fileName = "Export_Stocks_" + userId + ".xls";
+            fileName = EXCEL_EXPORT_FILE_NAME + userId + EXCEL_EXTENSION;
         }
         return fileName;
     }

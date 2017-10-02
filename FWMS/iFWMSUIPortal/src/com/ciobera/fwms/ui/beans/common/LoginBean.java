@@ -200,8 +200,8 @@ public class LoginBean implements Serializable {
                 } else {
                     globalBean.setIsUserBlocked(Boolean.FALSE);
                 }
-                globalBean.setLastLogin((String) resultMap.get("LAST_LOGIN"));
-                globalBean.setLastPasswordChange((String) resultMap.get("LAST_PASSWORD_CHANGE"));
+                globalBean.setLastLogin(resultMap.get("LAST_LOGIN") != null ? (String) resultMap.get("LAST_LOGIN") : "");
+                globalBean.setLastPasswordChange(resultMap.get("LAST_PASSWORD_CHANGE") != null ? (String) resultMap.get("LAST_PASSWORD_CHANGE") : "");
                 globalBean.setUserId((String) resultMap.get("USER_ID"));
                 globalBean.setUserName((String) resultMap.get("USER_NAME"));
                 globalBean.setStatus((String) resultMap.get("STATUS"));

@@ -41,6 +41,9 @@ public class CommonAMImpl extends ApplicationModuleImpl implements CommonAM {
      * @return
      */
     private String convertJbodateToString(oracle.jbo.domain.Date domainDate){
+        if(domainDate == null){
+            return null;
+        }
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S"); 
         Date date = null;
         try {
