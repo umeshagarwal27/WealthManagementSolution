@@ -238,10 +238,6 @@ public class TradeBookBean implements Serializable {
      */
     public void onEditOrder(ActionEvent actionEvent) {
         setMode("EDIT");
-        if (!executeMethod("executeEmptyRowSetBondCoupen", true)) {
-            displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
-            return;
-        }
         if (getAddUpdateOrderPopupBinding() != null) {
             RichPopup.PopupHints hints = new RichPopup.PopupHints();
             getAddUpdateOrderPopupBinding().show(hints);
@@ -254,7 +250,7 @@ public class TradeBookBean implements Serializable {
      * @param actionEvent
      */
     public void onSave(ActionEvent actionEvent) {
-        Map resultMap = executeMethod("updateProductRecord");
+        Map resultMap = executeMethod("updateOrderRecord");
         if (resultMap != null && "SUCCESS".equalsIgnoreCase((String) resultMap.get("RESP_CODE"))) {
             if ("CREATE".equalsIgnoreCase(mode)) {
                 displayConfirmationPopup(ADFUtil.getUIBundleMsg("ORDER_ADDED_SUCCESSFULLY"));
@@ -266,7 +262,7 @@ public class TradeBookBean implements Serializable {
             displayErrorPopup(ADFUtil.getUIBundleMsg("UNEXPECTED_ERROR"));
         }
     }
-    
+
     /**
      * This method is called when the user clicks on approve button.
      * This method approves the selected Order in DB.
@@ -282,7 +278,7 @@ public class TradeBookBean implements Serializable {
             }
         }
         setMode("APPROVE");
-        Map resultMap = executeMethod("updateProductRecord");
+        Map resultMap = executeMethod("updateOrderRecord");
         if (resultMap != null && "SUCCESS".equalsIgnoreCase((String) resultMap.get("RESP_CODE"))) {
             displayConfirmationPopup(ADFUtil.getUIBundleMsg("ORDER_APPROVED_SUCCESSFULLY"));
         } else {

@@ -4,7 +4,7 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="FWMSOrderBook" RangeSize="25" DataControl="TradingManagementAMDataControl"
+    <iterator Binds="FWMSOrderBook" RangeSize="-1" DataControl="TradingManagementAMDataControl"
               id="FWMSOrderBookIterator"/>
     <searchRegion Binds="FWMSOrderBookIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="FWMSOrderBookQuery"/>
@@ -159,5 +159,21 @@
         <Item Value="FobOstatus"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="FWMSOrderBookIterator" id="CreateInsert"
+            InstanceName="TradingManagementAMDataControl.FWMSOrderBook" DataControl="TradingManagementAMDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="FWMSOrderBookIterator" id="Delete" InstanceName="TradingManagementAMDataControl.FWMSOrderBook"
+            DataControl="TradingManagementAMDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <methodAction id="updateOrderRecord" RequiresUpdateModel="true" Action="invokeMethod" MethodName="updateOrderRecord"
+                  IsViewObjectMethod="false" DataControl="TradingManagementAMDataControl"
+                  InstanceName="bindings.updateOrderRecord.dataControl.dataProvider"
+                  ReturnName="data.TradingManagementAMDataControl.methodResults.updateOrderRecord_updateOrderRecord_dataControl_dataProvider_updateOrderRecord_result">
+      <NamedData NDName="mode" NDValue="#{pageFlowScope.TradeBookBean.mode}" NDType="java.lang.String"/>
+      <NamedData NDName="updatedBy" NDValue="#{pageFlowScope.TradeBookBean.userId}" NDType="java.lang.String"/>
+    </methodAction>
+    <action id="Commit" DataControl="TradingManagementAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" DataControl="TradingManagementAMDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
   </bindings>
 </pageDefinition>

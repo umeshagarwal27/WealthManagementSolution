@@ -337,6 +337,14 @@
       Name="ExpressionScript"
       trustMode="untrusted"
       CodeSourceName="FWMSOrderBookVORow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="com.ciobera.fwms.trading.model.vo.FWMSOrderBookVO.BrokerName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="FundName"
@@ -352,6 +360,14 @@
       Name="ExpressionScript"
       trustMode="untrusted"
       CodeSourceName="FWMSOrderBookVORow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="com.ciobera.fwms.trading.model.vo.FWMSOrderBookVO.FundName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="ClientName"
@@ -367,5 +383,17 @@
       Name="ExpressionScript"
       trustMode="untrusted"
       CodeSourceName="FWMSOrderBookVORow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="com.ciobera.fwms.trading.model.vo.FWMSOrderBookVO.ClientName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ciobera.fwms.bundle.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

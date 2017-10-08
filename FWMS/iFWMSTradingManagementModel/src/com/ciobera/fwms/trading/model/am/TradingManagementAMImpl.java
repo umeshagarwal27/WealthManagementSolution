@@ -8,6 +8,8 @@ import com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingSelectedVOImpl;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 
+import java.text.SimpleDateFormat;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +37,12 @@ public class TradingManagementAMImpl extends ApplicationModuleImpl implements Tr
                                                 .domain
                                                 .Date
                                                 .getCurrentDate());
+    }
+    
+    private String getCurrentTime(){
+        java.util.Date date = new java.util.Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        return sdf.format(date);
     }
 
     /**
@@ -66,7 +74,6 @@ public class TradingManagementAMImpl extends ApplicationModuleImpl implements Tr
                 }
             }
         }
-
     }
 
     public void getFWMSHoldingRecordsForUserId(String userId) {
@@ -144,6 +151,8 @@ public class TradingManagementAMImpl extends ApplicationModuleImpl implements Tr
                             orderRow.setAttribute("WmsEnterDate", getCurrentDate());
                             orderRow.setAttribute("WmsLastUpdateUid", updatedBy);
                             orderRow.setAttribute("WmsLastUpdateDate", getCurrentDate());
+                            orderRow.setAttribute("FobDate", getCurrentDate());
+                            orderRow.setAttribute("FobTime", getCurrentTime());
                         }
                     }
                 }

@@ -4,7 +4,7 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="FWMSProduct" RangeSize="25" DataControl="SystemAMDataControl" id="FWMSProductIterator"/>
+    <iterator Binds="FWMSProduct" RangeSize="-1" DataControl="SystemAMDataControl" id="FWMSProductIterator"/>
     <searchRegion Binds="FWMSProductIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="FWMSProductQuery"/>
     <iterator Binds="FWMSBondCoupen" RangeSize="25" DataControl="SystemAMDataControl" id="FWMSBondCoupenIterator"
