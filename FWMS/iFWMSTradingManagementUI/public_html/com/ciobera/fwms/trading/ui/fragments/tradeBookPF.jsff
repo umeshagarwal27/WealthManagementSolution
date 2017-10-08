@@ -64,7 +64,8 @@
                                    shortDesc="#{bindings.FWMSOrderBook.hints.BrokerName.tooltip}" id="ot5"/>
                 </af:column>
                 <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobTicker.name}" filterable="true"
-                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobTicker.label}" id="c6">
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobTicker.label}" id="c6"
+                           rendered="false">
                     <af:outputText value="#{row.FobTicker}"
                                    shortDesc="#{bindings.FWMSOrderBook.hints.FobTicker.tooltip}" id="ot6"/>
                 </af:column>
@@ -177,10 +178,8 @@
                                     <af:panelGroupLayout id="pgl6" layout="horizontal">
                                         <af:inputText value="#{bindings.FobStock.inputValue}"
                                                       label="#{bindings.FobStock.hints.label}"
-                                                      required="#{bindings.FobStock.hints.mandatory}"
-                                                      columns="5"
+                                                      required="#{bindings.FobStock.hints.mandatory}" columns="5"
                                                       maximumLength="#{bindings.FobStock.hints.precision}"
-                                                      disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                                       shortDesc="#{bindings.FobStock.hints.tooltip}" id="it1"
                                                       simple="true" rows="1">
                                             <f:validator binding="#{bindings.FobStock.validator}"/>
@@ -190,7 +189,6 @@
                                         <af:inputText value="#{bindings.FobStockName.inputValue}" simple="true"
                                                       required="#{bindings.FobStockName.hints.mandatory}"
                                                       columns="#{bindings.FobStockName.hints.displayWidth}"
-                                                      disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                                       maximumLength="#{bindings.FobStockName.hints.precision}"
                                                       shortDesc="#{bindings.FobStockName.hints.tooltip}" id="it2">
                                             <f:validator binding="#{bindings.FobStockName.validator}"/>
@@ -204,9 +202,7 @@
                                     <af:panelGroupLayout id="pgl2" layout="horizontal">
                                         <af:inputText value="#{bindings.FobBroker.inputValue}"
                                                       label="#{bindings.FobBroker.hints.label}"
-                                                      required="#{bindings.FobBroker.hints.mandatory}"
-                                                      columns="5"
-                                                      disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
+                                                      required="#{bindings.FobBroker.hints.mandatory}" columns="5"
                                                       maximumLength="#{bindings.FobBroker.hints.precision}"
                                                       shortDesc="#{bindings.FobBroker.hints.tooltip}" id="it4"
                                                       simple="true" rows="1">
@@ -217,7 +213,6 @@
                                         <af:inputText value="#{bindings.BrokerName.inputValue}" simple="true"
                                                       required="#{bindings.BrokerName.hints.mandatory}"
                                                       columns="#{bindings.BrokerName.hints.displayWidth}"
-                                                      disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                                       maximumLength="#{bindings.BrokerName.hints.precision}"
                                                       shortDesc="#{bindings.BrokerName.hints.tooltip}" id="it3">
                                             <f:validator binding="#{bindings.BrokerName.validator}"/>
@@ -231,9 +226,7 @@
                                     <af:panelGroupLayout id="pgl4" layout="horizontal">
                                         <af:inputText value="#{bindings.FobFund.inputValue}"
                                                       label="#{bindings.FobFund.hints.label}"
-                                                      required="#{bindings.FobFund.hints.mandatory}"
-                                                      columns="5"
-                                                      disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
+                                                      required="#{bindings.FobFund.hints.mandatory}" columns="5"
                                                       maximumLength="#{bindings.FobFund.hints.precision}"
                                                       shortDesc="#{bindings.FobFund.hints.tooltip}" id="it5"
                                                       simple="true" rows="1">
@@ -244,7 +237,6 @@
                                         <af:inputText value="#{bindings.FundName.inputValue}" simple="true"
                                                       required="#{bindings.FundName.hints.mandatory}"
                                                       columns="#{bindings.FundName.hints.displayWidth}"
-                                                      disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                                       maximumLength="#{bindings.FundName.hints.precision}"
                                                       shortDesc="#{bindings.FundName.hints.tooltip}" id="it6">
                                             <f:validator binding="#{bindings.FundName.validator}"/>
@@ -261,9 +253,7 @@
                                         </f:facet>
                                         <af:inputText value="#{bindings.FobClient.inputValue}"
                                                       label="#{bindings.FobClient.hints.label}"
-                                                      required="#{bindings.FobClient.hints.mandatory}"
-                                                      disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
-                                                      columns="5"
+                                                      required="#{bindings.FobClient.hints.mandatory}" columns="5"
                                                       maximumLength="#{bindings.FobClient.hints.precision}"
                                                       shortDesc="#{bindings.FobClient.hints.tooltip}" id="it8"
                                                       simple="true" rows="1">
@@ -274,7 +264,6 @@
                                         <af:inputText value="#{bindings.ClientName.inputValue}" simple="true"
                                                       required="#{bindings.ClientName.hints.mandatory}"
                                                       columns="#{bindings.ClientName.hints.displayWidth}"
-                                                      disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                                       maximumLength="#{bindings.ClientName.hints.precision}"
                                                       shortDesc="#{bindings.ClientName.hints.tooltip}" id="it7">
                                             <f:validator binding="#{bindings.ClientName.validator}"/>
@@ -287,14 +276,12 @@
                                 <af:panelLabelAndMessage label="#{bindings.FobBS.hints.label}" id="plam8">
                                     <af:panelGroupLayout id="pgl11" layout="horizontal">
                                         <af:selectOneChoice label="#{bindings.FobBS.hints.label}" id="soc1"
-                                                            disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                                             value="#{bindings.FobBS.inputValue}" autoSubmit="true"
                                                             simple="true">
                                             <af:selectItem label="Buy" id="si3" value="BUY"/>
                                             <af:selectItem label="Sell" id="si4" value="SELL"/>
                                         </af:selectOneChoice>
                                         <af:selectOneChoice label="#{bindings.FobLM.hints.label}" id="soc2"
-                                                            disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                                             value="#{bindings.FobLM.inputValue}" autoSubmit="true">
                                             <af:selectItem label="Limit" value="LIMIT" id="si1"/>
                                             <af:selectItem label="Market" value="MKT" id="si2"/>
@@ -310,7 +297,6 @@
                                               label="#{bindings.FobQty.hints.label}"
                                               required="#{bindings.FobQty.hints.mandatory}"
                                               columns="#{bindings.FobQty.hints.displayWidth}"
-                                              disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                               maximumLength="#{bindings.FobQty.hints.precision}"
                                               shortDesc="#{bindings.FobQty.hints.tooltip}" id="it11">
                                     <f:validator binding="#{bindings.FobQty.validator}"/>
@@ -320,7 +306,6 @@
                                               label="#{bindings.FobPrice.hints.label}"
                                               required="#{bindings.FobPrice.hints.mandatory}"
                                               columns="#{bindings.FobPrice.hints.displayWidth}"
-                                              disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                               maximumLength="#{bindings.FobPrice.hints.precision}"
                                               shortDesc="#{bindings.FobPrice.hints.tooltip}" id="it12">
                                     <f:validator binding="#{bindings.FobPrice.validator}"/>
@@ -330,7 +315,6 @@
                                               label="#{bindings.FobValue.hints.label}"
                                               required="#{bindings.FobValue.hints.mandatory}"
                                               columns="#{bindings.FobValue.hints.displayWidth}"
-                                              disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                               maximumLength="#{bindings.FobValue.hints.precision}"
                                               shortDesc="#{bindings.FobValue.hints.tooltip}" id="it13">
                                     <f:validator binding="#{bindings.FobValue.validator}"/>
@@ -387,7 +371,8 @@
                                         </f:facet>
                                     </af:panelGroupLayout>
                                 </af:panelLabelAndMessage>
-                                <af:panelLabelAndMessage label="#{bindings.WmsApproveUid.hints.label}" id="plam7">
+                                <af:panelLabelAndMessage label="#{bindings.WmsApproveUid.hints.label}" id="plam7"
+                                                         rendered="false">
                                     <af:panelGroupLayout id="pgl9" layout="horizontal">
                                         <af:inputText value="#{bindings.WmsApproveUid.inputValue}"
                                                       label="#{bindings.WmsApproveUid.hints.label}"
@@ -419,7 +404,6 @@
                                               label="#{bindings.FobBrokerQty.hints.label}"
                                               required="#{bindings.FobBrokerQty.hints.mandatory}"
                                               columns="#{bindings.FobBrokerQty.hints.displayWidth}"
-                                              disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                               maximumLength="#{bindings.FobBrokerQty.hints.precision}"
                                               shortDesc="#{bindings.FobBrokerQty.hints.tooltip}" id="it17">
                                     <f:validator binding="#{bindings.FobBrokerQty.validator}"/>
@@ -429,7 +413,6 @@
                                               label="#{bindings.FobBrokerCash.hints.label}"
                                               required="#{bindings.FobBrokerCash.hints.mandatory}"
                                               columns="#{bindings.FobBrokerCash.hints.displayWidth}"
-                                              disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                               maximumLength="#{bindings.FobBrokerCash.hints.precision}"
                                               shortDesc="#{bindings.FobBrokerCash.hints.tooltip}" id="it18">
                                     <f:validator binding="#{bindings.FobBrokerCash.validator}"/>
@@ -439,7 +422,6 @@
                                               label="#{bindings.FobMarginAmt.hints.label}"
                                               required="#{bindings.FobMarginAmt.hints.mandatory}"
                                               columns="#{bindings.FobMarginAmt.hints.displayWidth}"
-                                              disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                               maximumLength="#{bindings.FobMarginAmt.hints.precision}"
                                               shortDesc="#{bindings.FobMarginAmt.hints.tooltip}" id="it19">
                                     <f:validator binding="#{bindings.FobMarginAmt.validator}"/>
@@ -453,7 +435,6 @@
                                                   label="#{bindings.FobEqty.hints.label}"
                                                   required="#{bindings.FobEqty.hints.mandatory}"
                                                   columns="#{bindings.FobEqty.hints.displayWidth}"
-                                                  disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                                   maximumLength="#{bindings.FobEqty.hints.precision}"
                                                   shortDesc="#{bindings.FobEqty.hints.tooltip}" id="it20">
                                         <f:validator binding="#{bindings.FobEqty.validator}"/>
@@ -463,18 +444,16 @@
                                                   label="#{bindings.FobEprice.hints.label}"
                                                   required="#{bindings.FobEprice.hints.mandatory}"
                                                   columns="#{bindings.FobEprice.hints.displayWidth}"
-                                                  disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                                   maximumLength="#{bindings.FobEprice.hints.precision}"
                                                   shortDesc="#{bindings.FobEprice.hints.tooltip}" id="it21">
                                         <f:validator binding="#{bindings.FobEprice.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.FobEprice.format}"/>
                                     </af:inputText>
-                                    <af:inputText label="#{UIBundle.BAL_QTY}" id="it9"/>
+                                    <af:inputText label="#{UIBundle.BAL_QTY}" id="it9" columns="8" rows="1"/>
                                     <af:inputText value="#{bindings.FobOstatus.inputValue}"
                                                   label="#{bindings.FobOstatus.hints.label}"
                                                   required="#{bindings.FobOstatus.hints.mandatory}"
                                                   columns="#{bindings.FobOstatus.hints.displayWidth}"
-                                                  disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                                   maximumLength="#{bindings.FobOstatus.hints.precision}"
                                                   shortDesc="#{bindings.FobOstatus.hints.tooltip}" id="it22" rows="1">
                                         <f:validator binding="#{bindings.FobOstatus.validator}"/>
@@ -488,20 +467,17 @@
                     </af:panelGroupLayout>
                     <af:panelGroupLayout id="pgl10" layout="horizontal">
                         <af:button text="#{UIBundle.DELETE}" id="b7"
-                                   disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                    actionListener="#{pageFlowScope.TradeBookBean.onDeleteOrder}"
                                    inlineStyle="width:100px; text-align:center;"/>
                         <af:button text="#{UIBundle.SAVE}" id="b8"
-                                   disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                    actionListener="#{pageFlowScope.TradeBookBean.onSave}"
                                    inlineStyle="width:100px; text-align:center;"/>
                         <af:button text="#{UIBundle.EXIT}" id="b9"
                                    actionListener="#{pageFlowScope.TradeBookBean.onExit}"
                                    inlineStyle="width:100px; text-align:center;"/>
                         <af:button text="#{UIBundle.APPROVE}" id="b10"
-                                   disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                    actionListener="#{pageFlowScope.TradeBookBean.onApproveOrder}"
-                                   inlineStyle="width:100px; text-align:center;"/>
+                                   inlineStyle="width:100px; text-align:center;" rendered="false"/>
                         <f:facet name="separator">
                             <af:spacer width="35" id="s5"/>
                         </f:facet>
