@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FWMSClientSubVO"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.ciobera.fwms.common.model.vo.readonly.FWMSClientSubVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pSubClientName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pSubClient"
+    Kind="viewcriteria"
+    Type="java.lang.Long"/>
+  <SQLQuery><![CDATA[SELECT WMS_SUB_CLIENT, WMS_SUB_CLIENT_NAME FROM FWMS_CLIENT_SUB]]></SQLQuery>
+  <ViewAttribute
+    Name="WmsSubClient"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Long"
+    ColumnType="BIGINT"
+    AliasName="WMS_SUB_CLIENT"
+    Expression="WMS_SUB_CLIENT"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="WmsSubClientName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="WMS_SUB_CLIENT_NAME"
+    Expression="WMS_SUB_CLIENT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="findBySubClientName"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSClientSubVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="FWMSClientSubVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="WmsSubClientName"
+        ViewAttribute="WmsSubClientName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":pSubClientName"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="findBySubClient"
+    ViewObjectName="com.ciobera.fwms.common.model.vo.readonly.FWMSClientSubVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="FWMSClientSubVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="FWMSClientSubVOCriteria_FWMSClientSubVOCriteria_row_0_WmsSubClient"
+        ViewAttribute="WmsSubClient"
+        Operator="="
+        Conjunction="AND"
+        Value=":pSubClient"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="WmsSubClient"/>
+  </AttrArray>
+</ViewObject>

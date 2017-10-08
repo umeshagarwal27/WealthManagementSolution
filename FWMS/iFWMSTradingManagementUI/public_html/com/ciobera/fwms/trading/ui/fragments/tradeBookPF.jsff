@@ -1,2 +1,489 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"></jsp:root>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="UIBundle" value="#{adfBundle['com.ciobera.fwms.bundle.ui.UIBundle']}"/>
+    <af:group id="g1">
+        <af:panelCollection id="pc1">
+            <f:facet name="menus">
+                <af:menu text="#{UIBundle.OPTIONS}" id="m1">
+                    <af:commandMenuItem text="#{UIBundle.EXPORT_TO_EXCEL}" id="cmi1" icon="/images/excel16.png">
+                        <af:exportCollectionActionListener type="excelHTML" exportedId="t1"
+                                                           filename="#{pageFlowScope.TradeBookBean.fileName}"/>
+                    </af:commandMenuItem>
+                    <af:commandMenuItem text="#{UIBundle.ADD_ORDER}" id="cmi2" icon="/images/add16.png"
+                                        actionListener="#{pageFlowScope.TradeBookBean.onAddOrder}"/>
+                </af:menu>
+            </f:facet>
+            <f:facet name="toolbar"/>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.FWMSOrderBook.collectionModel}" var="row"
+                      rows="#{bindings.FWMSOrderBook.rangeSize}"
+                      emptyText="#{bindings.FWMSOrderBook.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="1" selectedRowKeys="#{bindings.FWMSOrderBook.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.FWMSOrderBook.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.FWMSOrderBook.rangeSize}" summary="#{null}" displayRow="selected"
+                      autoHeightRows="0" columnStretching="column:c3" styleClass="AFStretchWidth"
+                      filterModel="#{bindings.FWMSOrderBookQuery.queryDescriptor}" filterVisible="true"
+                      queryListener="#{bindings.FWMSOrderBookQuery.processQuery}" varStatus="vs" id="t1">
+                <af:column id="c0" headerText="#{null}" rowHeader="true" width="10">
+                    <af:outputText value="#{null}" id="ot57"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobDate.name}" filterable="true" sortable="true"
+                           headerText="#{bindings.FWMSOrderBook.hints.FobDate.label}" id="c1">
+                    <f:facet name="filter">
+                        <af:inputDate value="#{bindings.FWMSOrderBookQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.FobDate.value}"
+                                      id="id1">
+                            <af:convertDateTime pattern="#{bindings.FWMSOrderBook.hints.FobDate.format}"/>
+                        </af:inputDate>
+                    </f:facet>
+                    <af:outputText value="#{row.FobDate}" shortDesc="#{bindings.FWMSOrderBook.hints.FobDate.tooltip}"
+                                   id="ot1">
+                        <af:convertDateTime pattern="#{bindings.FWMSOrderBook.hints.FobDate.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobTime.name}" filterable="true" sortable="true"
+                           headerText="#{bindings.FWMSOrderBook.hints.FobTime.label}" id="c2">
+                    <af:outputText value="#{row.FobTime}" shortDesc="#{bindings.FWMSOrderBook.hints.FobTime.tooltip}"
+                                   id="ot2"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobNo.name}" filterable="true" sortable="true"
+                           headerText="#{bindings.FWMSOrderBook.hints.FobNo.label}" id="c3">
+                    <af:outputText value="#{row.FobNo}" shortDesc="#{bindings.FWMSOrderBook.hints.FobNo.tooltip}"
+                                   id="ot3">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSOrderBook.hints.FobNo.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FundName.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FundName.label}" id="c4">
+                    <af:outputText value="#{row.FundName}" shortDesc="#{bindings.FWMSOrderBook.hints.FundName.tooltip}"
+                                   id="ot4"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.BrokerName.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.BrokerName.label}" id="c5">
+                    <af:outputText value="#{row.BrokerName}"
+                                   shortDesc="#{bindings.FWMSOrderBook.hints.BrokerName.tooltip}" id="ot5"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobTicker.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobTicker.label}" id="c6">
+                    <af:outputText value="#{row.FobTicker}"
+                                   shortDesc="#{bindings.FWMSOrderBook.hints.FobTicker.tooltip}" id="ot6"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.ClientName.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.ClientName.label}" id="c7">
+                    <af:outputText value="#{row.ClientName}"
+                                   shortDesc="#{bindings.FWMSOrderBook.hints.ClientName.tooltip}" id="ot7"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobStockName.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobStockName.label}" id="c8">
+                    <af:outputText value="#{row.FobStockName}"
+                                   shortDesc="#{bindings.FWMSOrderBook.hints.FobStockName.tooltip}" id="ot8"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobBS.name}" filterable="true" sortable="true"
+                           headerText="#{bindings.FWMSOrderBook.hints.FobBS.label}" id="c9">
+                    <af:outputText value="#{row.FobBS}" shortDesc="#{bindings.FWMSOrderBook.hints.FobBS.tooltip}"
+                                   id="ot9"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobQty.name}" filterable="true" sortable="true"
+                           headerText="#{bindings.FWMSOrderBook.hints.FobQty.label}" id="c10">
+                    <af:outputText value="#{row.FobQty}" shortDesc="#{bindings.FWMSOrderBook.hints.FobQty.tooltip}"
+                                   id="ot10">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSOrderBook.hints.FobQty.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobPrice.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobPrice.label}" id="c11">
+                    <af:outputText value="#{row.FobPrice}" shortDesc="#{bindings.FWMSOrderBook.hints.FobPrice.tooltip}"
+                                   id="ot11">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSOrderBook.hints.FobPrice.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobEqty.name}" filterable="true" sortable="true"
+                           headerText="#{bindings.FWMSOrderBook.hints.FobEqty.label}" id="c12">
+                    <af:outputText value="#{row.FobEqty}" shortDesc="#{bindings.FWMSOrderBook.hints.FobEqty.tooltip}"
+                                   id="ot12">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSOrderBook.hints.FobEqty.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobEprice.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobEprice.label}" id="c13">
+                    <af:outputText value="#{row.FobEprice}"
+                                   shortDesc="#{bindings.FWMSOrderBook.hints.FobEprice.tooltip}" id="ot13">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSOrderBook.hints.FobEprice.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobOstatus.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobOstatus.label}" id="c14">
+                    <af:outputText value="#{row.FobOstatus}"
+                                   shortDesc="#{bindings.FWMSOrderBook.hints.FobOstatus.tooltip}" id="ot14"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobFund.name}" filterable="true" sortable="true"
+                           headerText="#{bindings.FWMSOrderBook.hints.FobFund.label}" id="c15" rendered="false">
+                    <af:outputText value="#{row.FobFund}" shortDesc="#{bindings.FWMSOrderBook.hints.FobFund.tooltip}"
+                                   id="ot15">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSOrderBook.hints.FobFund.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobBroker.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobBroker.label}" id="c16"
+                           rendered="false">
+                    <af:outputText value="#{row.FobBroker}"
+                                   shortDesc="#{bindings.FWMSOrderBook.hints.FobBroker.tooltip}" id="ot16">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSOrderBook.hints.FobBroker.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobClient.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobClient.label}" id="c17"
+                           rendered="false">
+                    <af:outputText value="#{row.FobClient}"
+                                   shortDesc="#{bindings.FWMSOrderBook.hints.FobClient.tooltip}" id="ot17">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSOrderBook.hints.FobClient.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobStock.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobStock.label}" id="c18"
+                           rendered="false">
+                    <af:outputText value="#{row.FobStock}" shortDesc="#{bindings.FWMSOrderBook.hints.FobStock.tooltip}"
+                                   id="ot18">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.FWMSOrderBook.hints.FobStock.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column id="c57">
+                    <af:button text="Edit" id="b6" actionListener="#{pageFlowScope.TradeBookBean.onEditOrder}"
+                               icon="/images/edit16.png"/>
+                </af:column>
+            </af:table>
+        </af:panelCollection>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                  binding="#{pageFlowScope.TradeBookBean.addUpdateOrderPopupBinding}">
+            <af:dialog id="d1" type="none"
+                       title="#{pageFlowScope.TradeBookBean.mode eq 'EDIT' ? UIBundle.EDIT_ORDER  : UIBundle.CREATE_ORDER} #{pageFlowScope.TradeBookBean.mode eq 'EDIT' ? bindings.WmsProductName.inputValue : ''}"
+                       closeIconVisible="false">
+                <af:panelGroupLayout id="pgl1" layout="vertical">
+                    <af:panelGroupLayout id="pgl3" layout="horizontal" valign="top" styleClass="AFStretchWidth">
+                        <af:panelBox text="#{UIBundle.ORDER_ENTRY}" id="pb1" showDisclosure="false">
+                            <af:panelFormLayout id="pfl1">
+                                <af:panelLabelAndMessage label="#{bindings.FobStock.hints.label}" id="plam1">
+                                    <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                        <af:inputText value="#{bindings.FobStock.inputValue}"
+                                                      label="#{bindings.FobStock.hints.label}"
+                                                      required="#{bindings.FobStock.hints.mandatory}"
+                                                      columns="#{bindings.FobStock.hints.displayWidth}"
+                                                      maximumLength="#{bindings.FobStock.hints.precision}"
+                                                      shortDesc="#{bindings.FobStock.hints.tooltip}" id="it1"
+                                                      simple="true">
+                                            <f:validator binding="#{bindings.FobStock.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.FobStock.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.FobStockName.inputValue}" simple="true"
+                                                      required="#{bindings.FobStockName.hints.mandatory}"
+                                                      columns="#{bindings.FobStockName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.FobStockName.hints.precision}"
+                                                      shortDesc="#{bindings.FobStockName.hints.tooltip}" id="it2">
+                                            <f:validator binding="#{bindings.FobStockName.validator}"/>
+                                        </af:inputText>
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="10" id="s1"/>
+                                        </f:facet>
+                                    </af:panelGroupLayout>
+                                </af:panelLabelAndMessage>
+                                <af:panelLabelAndMessage label="#{bindings.FobBroker.hints.label}" id="plam2">
+                                    <af:panelGroupLayout id="pgl2" layout="horizontal">
+                                        <af:inputText value="#{bindings.FobBroker.inputValue}"
+                                                      label="#{bindings.FobBroker.hints.label}"
+                                                      required="#{bindings.FobBroker.hints.mandatory}"
+                                                      columns="#{bindings.FobBroker.hints.displayWidth}"
+                                                      maximumLength="#{bindings.FobBroker.hints.precision}"
+                                                      shortDesc="#{bindings.FobBroker.hints.tooltip}" id="it4"
+                                                      simple="true">
+                                            <f:validator binding="#{bindings.FobBroker.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.FobBroker.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.BrokerName.inputValue}" simple="true"
+                                                      required="#{bindings.BrokerName.hints.mandatory}"
+                                                      columns="#{bindings.BrokerName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.BrokerName.hints.precision}"
+                                                      shortDesc="#{bindings.BrokerName.hints.tooltip}" id="it3">
+                                            <f:validator binding="#{bindings.BrokerName.validator}"/>
+                                        </af:inputText>
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="10" id="s2"/>
+                                        </f:facet>
+                                    </af:panelGroupLayout>
+                                </af:panelLabelAndMessage>
+                                <af:panelLabelAndMessage label="#{bindings.FobFund.hints.label}" id="plam3">
+                                    <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                        <af:inputText value="#{bindings.FobFund.inputValue}"
+                                                      label="#{bindings.FobFund.hints.label}"
+                                                      required="#{bindings.FobFund.hints.mandatory}"
+                                                      columns="#{bindings.FobFund.hints.displayWidth}"
+                                                      maximumLength="#{bindings.FobFund.hints.precision}"
+                                                      shortDesc="#{bindings.FobFund.hints.tooltip}" id="it5"
+                                                      simple="true">
+                                            <f:validator binding="#{bindings.FobFund.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.FobFund.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.FundName.inputValue}" simple="true"
+                                                      required="#{bindings.FundName.hints.mandatory}"
+                                                      columns="#{bindings.FundName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.FundName.hints.precision}"
+                                                      shortDesc="#{bindings.FundName.hints.tooltip}" id="it6">
+                                            <f:validator binding="#{bindings.FundName.validator}"/>
+                                        </af:inputText>
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="10" id="s3"/>
+                                        </f:facet>
+                                    </af:panelGroupLayout>
+                                </af:panelLabelAndMessage>
+                                <af:panelLabelAndMessage label="#{bindings.FobClient.hints.label}" id="plam4">
+                                    <af:panelGroupLayout id="pgl5" layout="horizontal">
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="10" id="s4"/>
+                                        </f:facet>
+                                        <af:inputText value="#{bindings.FobClient.inputValue}"
+                                                      label="#{bindings.FobClient.hints.label}"
+                                                      required="#{bindings.FobClient.hints.mandatory}"
+                                                      columns="#{bindings.FobClient.hints.displayWidth}"
+                                                      maximumLength="#{bindings.FobClient.hints.precision}"
+                                                      shortDesc="#{bindings.FobClient.hints.tooltip}" id="it8"
+                                                      simple="true">
+                                            <f:validator binding="#{bindings.FobClient.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.FobClient.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.ClientName.inputValue}" simple="true"
+                                                      required="#{bindings.ClientName.hints.mandatory}"
+                                                      columns="#{bindings.ClientName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ClientName.hints.precision}"
+                                                      shortDesc="#{bindings.ClientName.hints.tooltip}" id="it7">
+                                            <f:validator binding="#{bindings.ClientName.validator}"/>
+                                        </af:inputText>
+                                    </af:panelGroupLayout>
+                                </af:panelLabelAndMessage>
+                            </af:panelFormLayout>
+                            <af:panelFormLayout id="pfl2" maxColumns="2" rows="1" fieldWidth="80%" labelWidth="20%">
+                                <af:panelLabelAndMessage label="#{bindings.FobBS.hints.label}" id="plam5">
+                                    <af:inputText value="#{bindings.FobBS.inputValue}"
+                                                  label="#{bindings.FobBS.hints.label}"
+                                                  required="#{bindings.FobBS.hints.mandatory}"
+                                                  columns="#{bindings.FobBS.hints.displayWidth}"
+                                                  maximumLength="#{bindings.FobBS.hints.precision}"
+                                                  shortDesc="#{bindings.FobBS.hints.tooltip}" id="it9" simple="true">
+                                        <f:validator binding="#{bindings.FobBS.validator}"/>
+                                    </af:inputText>
+                                </af:panelLabelAndMessage>
+                                <af:panelLabelAndMessage label="#{bindings.FobLM.hints.label}" id="plam6">
+                                    <af:inputText value="#{bindings.FobLM.inputValue}"
+                                                  label="#{bindings.FobLM.hints.label}"
+                                                  required="#{bindings.FobLM.hints.mandatory}"
+                                                  columns="#{bindings.FobLM.hints.displayWidth}"
+                                                  maximumLength="#{bindings.FobLM.hints.precision}"
+                                                  shortDesc="#{bindings.FobLM.hints.tooltip}" id="it10" simple="true">
+                                        <f:validator binding="#{bindings.FobLM.validator}"/>
+                                    </af:inputText>
+                                </af:panelLabelAndMessage>
+                            </af:panelFormLayout>
+                            <af:panelFormLayout id="pfl3">
+                                <af:inputText value="#{bindings.FobQty.inputValue}"
+                                              label="#{bindings.FobQty.hints.label}"
+                                              required="#{bindings.FobQty.hints.mandatory}"
+                                              columns="#{bindings.FobQty.hints.displayWidth}"
+                                              maximumLength="#{bindings.FobQty.hints.precision}"
+                                              shortDesc="#{bindings.FobQty.hints.tooltip}" id="it11">
+                                    <f:validator binding="#{bindings.FobQty.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.FobQty.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.FobPrice.inputValue}"
+                                              label="#{bindings.FobPrice.hints.label}"
+                                              required="#{bindings.FobPrice.hints.mandatory}"
+                                              columns="#{bindings.FobPrice.hints.displayWidth}"
+                                              maximumLength="#{bindings.FobPrice.hints.precision}"
+                                              shortDesc="#{bindings.FobPrice.hints.tooltip}" id="it12">
+                                    <f:validator binding="#{bindings.FobPrice.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.FobPrice.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.FobValue.inputValue}"
+                                              label="#{bindings.FobValue.hints.label}"
+                                              required="#{bindings.FobValue.hints.mandatory}"
+                                              columns="#{bindings.FobValue.hints.displayWidth}"
+                                              maximumLength="#{bindings.FobValue.hints.precision}"
+                                              shortDesc="#{bindings.FobValue.hints.tooltip}" id="it13">
+                                    <f:validator binding="#{bindings.FobValue.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.FobValue.format}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                            <af:panelFormLayout id="pfl4" maxColumns="2" rows="3" labelWidth="20%" fieldWidth="80%">
+                                <af:inputText value="#{bindings.WmsEnterUid.inputValue}"
+                                              label="#{bindings.WmsEnterUid.hints.label}"
+                                              required="#{bindings.WmsEnterUid.hints.mandatory}"
+                                              columns="#{bindings.WmsEnterUid.hints.displayWidth}"
+                                              maximumLength="#{bindings.WmsEnterUid.hints.precision}"
+                                              shortDesc="#{bindings.WmsEnterUid.hints.tooltip}" id="it14">
+                                    <f:validator binding="#{bindings.WmsEnterUid.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.WmsLastUpdateUid.inputValue}"
+                                              label="#{bindings.WmsLastUpdateUid.hints.label}"
+                                              required="#{bindings.WmsLastUpdateUid.hints.mandatory}"
+                                              columns="#{bindings.WmsLastUpdateUid.hints.displayWidth}"
+                                              maximumLength="#{bindings.WmsLastUpdateUid.hints.precision}"
+                                              shortDesc="#{bindings.WmsLastUpdateUid.hints.tooltip}" id="it15">
+                                    <f:validator binding="#{bindings.WmsLastUpdateUid.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.WmsApproveUid.inputValue}"
+                                              label="#{bindings.WmsApproveUid.hints.label}"
+                                              required="#{bindings.WmsApproveUid.hints.mandatory}"
+                                              columns="#{bindings.WmsApproveUid.hints.displayWidth}"
+                                              maximumLength="#{bindings.WmsApproveUid.hints.precision}"
+                                              shortDesc="#{bindings.WmsApproveUid.hints.tooltip}" id="it16">
+                                    <f:validator binding="#{bindings.WmsApproveUid.validator}"/>
+                                </af:inputText>
+                                <af:inputDate value="#{bindings.WmsEnterDate.inputValue}"
+                                              label="#{bindings.WmsEnterDate.hints.label}"
+                                              required="#{bindings.WmsEnterDate.hints.mandatory}"
+                                              columns="#{bindings.WmsEnterDate.hints.displayWidth}"
+                                              shortDesc="#{bindings.WmsEnterDate.hints.tooltip}" id="id2">
+                                    <f:validator binding="#{bindings.WmsEnterDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.WmsEnterDate.format}"/>
+                                </af:inputDate>
+                                <af:inputDate value="#{bindings.WmsLastUpdateDate.inputValue}"
+                                              label="#{bindings.WmsLastUpdateDate.hints.label}"
+                                              required="#{bindings.WmsLastUpdateDate.hints.mandatory}"
+                                              columns="#{bindings.WmsLastUpdateDate.hints.displayWidth}"
+                                              shortDesc="#{bindings.WmsLastUpdateDate.hints.tooltip}" id="id3">
+                                    <f:validator binding="#{bindings.WmsLastUpdateDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.WmsLastUpdateDate.format}"/>
+                                </af:inputDate>
+                                <af:inputDate value="#{bindings.WmsApproveDate.inputValue}"
+                                              label="#{bindings.WmsApproveDate.hints.label}"
+                                              required="#{bindings.WmsApproveDate.hints.mandatory}"
+                                              columns="#{bindings.WmsApproveDate.hints.displayWidth}"
+                                              shortDesc="#{bindings.WmsApproveDate.hints.tooltip}" id="id4">
+                                    <f:validator binding="#{bindings.WmsApproveDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.WmsApproveDate.format}"/>
+                                </af:inputDate>
+                            </af:panelFormLayout>
+                        </af:panelBox>
+                        <af:panelBox text="#{UIBundle.BROKER_POSITION}" id="pb2" showDisclosure="false">
+                            <af:panelFormLayout id="pfl5">
+                                <af:inputText value="#{bindings.FobBrokerQty.inputValue}"
+                                              label="#{bindings.FobBrokerQty.hints.label}"
+                                              required="#{bindings.FobBrokerQty.hints.mandatory}"
+                                              columns="#{bindings.FobBrokerQty.hints.displayWidth}"
+                                              maximumLength="#{bindings.FobBrokerQty.hints.precision}"
+                                              shortDesc="#{bindings.FobBrokerQty.hints.tooltip}" id="it17">
+                                    <f:validator binding="#{bindings.FobBrokerQty.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.FobBrokerQty.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.FobBrokerCash.inputValue}"
+                                              label="#{bindings.FobBrokerCash.hints.label}"
+                                              required="#{bindings.FobBrokerCash.hints.mandatory}"
+                                              columns="#{bindings.FobBrokerCash.hints.displayWidth}"
+                                              maximumLength="#{bindings.FobBrokerCash.hints.precision}"
+                                              shortDesc="#{bindings.FobBrokerCash.hints.tooltip}" id="it18">
+                                    <f:validator binding="#{bindings.FobBrokerCash.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.FobBrokerCash.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.FobMarginAmt.inputValue}"
+                                              label="#{bindings.FobMarginAmt.hints.label}"
+                                              required="#{bindings.FobMarginAmt.hints.mandatory}"
+                                              columns="#{bindings.FobMarginAmt.hints.displayWidth}"
+                                              maximumLength="#{bindings.FobMarginAmt.hints.precision}"
+                                              shortDesc="#{bindings.FobMarginAmt.hints.tooltip}" id="it19">
+                                    <f:validator binding="#{bindings.FobMarginAmt.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.FobMarginAmt.format}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                            <af:spacer height="50" id="s7"/>
+                            <af:panelBox text="#{UIBundle.ORDER_STATUS}" id="pb3" showDisclosure="false">
+                                <af:panelFormLayout id="pfl6">
+                                    <af:inputText value="#{bindings.FobEqty.inputValue}"
+                                                  label="#{bindings.FobEqty.hints.label}"
+                                                  required="#{bindings.FobEqty.hints.mandatory}"
+                                                  columns="#{bindings.FobEqty.hints.displayWidth}"
+                                                  maximumLength="#{bindings.FobEqty.hints.precision}"
+                                                  shortDesc="#{bindings.FobEqty.hints.tooltip}" id="it20">
+                                        <f:validator binding="#{bindings.FobEqty.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.FobEqty.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.FobEprice.inputValue}"
+                                                  label="#{bindings.FobEprice.hints.label}"
+                                                  required="#{bindings.FobEprice.hints.mandatory}"
+                                                  columns="#{bindings.FobEprice.hints.displayWidth}"
+                                                  maximumLength="#{bindings.FobEprice.hints.precision}"
+                                                  shortDesc="#{bindings.FobEprice.hints.tooltip}" id="it21">
+                                        <f:validator binding="#{bindings.FobEprice.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.FobEprice.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.FobOstatus.inputValue}"
+                                                  label="#{bindings.FobOstatus.hints.label}"
+                                                  required="#{bindings.FobOstatus.hints.mandatory}"
+                                                  columns="#{bindings.FobOstatus.hints.displayWidth}"
+                                                  maximumLength="#{bindings.FobOstatus.hints.precision}"
+                                                  shortDesc="#{bindings.FobOstatus.hints.tooltip}" id="it22" rows="1">
+                                        <f:validator binding="#{bindings.FobOstatus.validator}"/>
+                                    </af:inputText>
+                                </af:panelFormLayout>
+                            </af:panelBox>
+                        </af:panelBox>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="pgl10" layout="horizontal">
+                        <af:button text="#{UIBundle.DELETE}" id="b7"
+                                   disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
+                                   actionListener="#{pageFlowScope.TradeBookBean.onDeleteOrder}"
+                                   inlineStyle="width:100px; text-align:center;"/>
+                        <af:button text="#{UIBundle.SAVE}" id="b8"
+                                   disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
+                                   actionListener="#{pageFlowScope.TradeBookBean.onSave}"
+                                   inlineStyle="width:100px; text-align:center;"/>
+                        <af:button text="#{UIBundle.EXIT}" id="b9"
+                                   actionListener="#{pageFlowScope.TradeBookBean.onExit}"
+                                   inlineStyle="width:100px; text-align:center;"/>
+                        <af:button text="#{UIBundle.APPROVE}" id="b10"
+                                   disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
+                                   actionListener="#{pageFlowScope.TradeBookBean.onApproveOrder}"
+                                   inlineStyle="width:100px; text-align:center;"/>
+                        <f:facet name="separator">
+                            <af:spacer width="35" id="s5"/>
+                        </f:facet>
+                    </af:panelGroupLayout>
+                    <f:facet name="separator">
+                        <af:spacer width="10" height="10" id="s6"/>
+                    </f:facet>
+                </af:panelGroupLayout>
+            </af:dialog>
+        </af:popup>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p4" contentDelivery="lazyUncached"
+                  binding="#{pageFlowScope.TradeBookBean.errorMessagePopupBinding}">
+            <af:dialog id="d5" title="#{UIBundle.ERROR_MESSAGE}" type="ok" closeIconVisible="false"
+                       titleIconSource="/images/error.png"
+                       dialogListener="#{pageFlowScope.TradeBookBean.errorMessageDialogListener}">
+                <af:outputFormatted value="#{pageFlowScope.TradeBookBean.errorMessage}" id="of7"/>
+            </af:dialog>
+        </af:popup>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p3" contentDelivery="lazyUncached"
+                  binding="#{pageFlowScope.TradeBookBean.confirmMessagePopupBinding}">
+            <af:dialog id="d4" title="#{UIBundle.CONFIRMATION}" type="ok" closeIconVisible="false"
+                       titleIconSource="/images/confirmation.png"
+                       dialogListener="#{pageFlowScope.TradeBookBean.confirmMessageDialogListener}">
+                <af:outputFormatted value="#{pageFlowScope.TradeBookBean.confirmationMessage}" id="of6"/>
+            </af:dialog>
+        </af:popup>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p5" contentDelivery="lazyUncached"
+                  binding="#{pageFlowScope.TradeBookBean.confirmationPopupBinding}">
+            <af:dialog id="d6" title="#{UIBundle.CONFIRMATION}" type="yesNo" closeIconVisible="false"
+                       titleIconSource="/images/confirmation.png"
+                       dialogListener="#{pageFlowScope.TradeBookBean.deleteConfirmationDialogListener}">
+                <af:outputFormatted value="#{pageFlowScope.TradeBookBean.confirmationMessage}" id="of8"/>
+            </af:dialog>
+        </af:popup>
+    </af:group>
+</jsp:root>

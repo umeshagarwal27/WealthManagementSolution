@@ -1,0 +1,43 @@
+//Groovy Scripts for com.ciobera.fwms.trading.model.vo.FWMSOrderBookVO
+
+package com.ciobera.fwms.trading.model.vo
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="BrokerName")
+def BrokerName_ExpressionScript_Expression()
+{
+if(FWMSBrokerVA != null && FWMSBrokerVA.getCurrentRow() != null)
+return FWMSBrokerVA.getCurrentRow().getAttribute("WmsBrokerName");
+else
+return null;
+}
+
+@TransientValueExpression(attributeName="ClientName")
+def ClientName_ExpressionScript_Expression()
+{
+if(FWMSClientSubVA!= null && FWMSClientSubVA.getCurrentRow()!= null)
+return FWMSClientSubVA.getCurrentRow().getAttribute("WmsSubClientName");
+return null;
+}
+
+
+@TransientValueExpression(attributeName="FundName")
+def FundName_ExpressionScript_Expression()
+{
+if(FWMSMutualFundsVA!= null && FWMSMutualFundsVA.getCurrentRow()!= null)
+return FWMSMutualFundsVA.getCurrentRow().getAttribute("WmsMfundName");
+else
+return null;
+}
+
+
+@TransientValueExpression(attributeName="FobStockName")
+def FobStockName_ExpressionScript_Expression()
+{
+if(FWMSProductVA!= null && FWMSProductVA.getCurrentRow()!= null)
+return FWMSProductVA.getCurrentRow().getAttribute("WmsProductName");
+else
+return null;
+}
+

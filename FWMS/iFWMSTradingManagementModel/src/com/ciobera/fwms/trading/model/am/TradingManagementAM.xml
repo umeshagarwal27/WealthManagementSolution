@@ -45,6 +45,12 @@
   <ViewUsage
     Name="FWMSDHoldingAllExchangeS"
     ViewObjectName="com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllExchangeSVO"/>
+  <ViewUsage
+    Name="FWMSOrderBook"
+    ViewObjectName="com.ciobera.fwms.trading.model.vo.FWMSOrderBookVO"/>
+  <ViewUsage
+    Name="OrderBookNumberSeq"
+    ViewObjectName="com.ciobera.fwms.trading.model.vo.readonly.OrderBookNumberSeq"/>
   <ViewLinkUsage
     Name="FWMSDHoldingAllAssetVOToFWMSDHoldingAllAssetDVO"
     ViewLinkObjectName="com.ciobera.fwms.trading.model.vo.viewlink.FWMSDHoldingAllAssetVOToFWMSDHoldingAllAssetDVO"
@@ -111,6 +117,19 @@
       <Parameter
         Name="asOfDate"
         Type="oracle.jbo.domain.Date"/>
+    </Method>
+    <Method
+      Name="updateOrderRecord"
+      MethodName="updateOrderRecord">
+      <Return
+        Name="_return_type_"
+        Type="java.util.Map"/>
+      <Parameter
+        Name="mode"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="updatedBy"
+        Type="java.lang.String"/>
     </Method>
   </ClientInterface>
 </AppModule>

@@ -10,8 +10,8 @@
     <taskFlow id="ordermanagementtaskflowdefinition1"
               taskFlowId="/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/order-management-task-flow-definition.xml#order-management-task-flow-definition"
               activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-    <taskFlow id="dashboardtaskflowdefinition2"
-              taskFlowId="/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/dashboard-task-flow-definition.xml#dashboard-task-flow-definition"
+    <taskFlow id="tradebooktaskflowdefinition1"
+              taskFlowId="/WEB-INF/com/ciobera/fwms/trading/ui/taskflows/trade-book-task-flow-definition.xml#trade-book-task-flow-definition"
               activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>

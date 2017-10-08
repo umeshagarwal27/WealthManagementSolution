@@ -3,12 +3,15 @@ package com.ciobera.fwms.trading.model.am;
 
 import com.ciobera.fwms.trading.model.am.common.TradingManagementAM;
 import com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingAllVOImpl;
-
 import com.ciobera.fwms.trading.model.vo.readonly.FWMSDHoldingSelectedVOImpl;
 
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import oracle.jbo.Row;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.DBTransactionImpl;
@@ -27,6 +30,13 @@ public class TradingManagementAMImpl extends ApplicationModuleImpl implements Tr
     public TradingManagementAMImpl() {
     }
 
+    private oracle.jbo.domain.Date getCurrentDate() {
+        return new oracle.jbo.domain.Date(oracle.jbo
+                                                .domain
+                                                .Date
+                                                .getCurrentDate());
+    }
+
     /**
      * This method is called to populate the Trading Management data for the input date using the stored procedure .
      * @param userId
@@ -35,28 +45,27 @@ public class TradingManagementAMImpl extends ApplicationModuleImpl implements Tr
     public void processAsOfDateRecord(String userId, Date asOfDate) {
         //TODO call Stored Procedure to fill the data in the table forthe selected user and asof date
         DBTransactionImpl dbTransaction = (DBTransactionImpl) getDBTransaction();
-                CallableStatement custCtxStmt = null;
-                String procedure =
-                    "begin  FWMSD_HOLDING_G(?,?); end;";
-                if (userId != null && asOfDate != null) {
-                    custCtxStmt = dbTransaction.createCallableStatement(procedure, 0);
+        CallableStatement custCtxStmt = null;
+        String procedure = "begin  FWMSD_HOLDING_G(?,?); end;";
+        if (userId != null && asOfDate != null) {
+            custCtxStmt = dbTransaction.createCallableStatement(procedure, 0);
+            try {
+                custCtxStmt.setString(1, userId);
+                custCtxStmt.setDate(2, asOfDate.dateValue());
+                custCtxStmt.execute();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                if (custCtxStmt != null) {
                     try {
-                        custCtxStmt.setString(1, userId);
-                                custCtxStmt.setDate(2, asOfDate.dateValue());
-                        custCtxStmt.execute();
-                       
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    } finally {
-                        if (custCtxStmt != null) {
-                            try {
-                                custCtxStmt.close();
-                            } catch (SQLException sqle) {
-                                sqle.printStackTrace();
-                            }
-                        }
+                        custCtxStmt.close();
+                    } catch (SQLException sqle) {
+                        sqle.printStackTrace();
                     }
                 }
+            }
+        }
 
     }
 
@@ -104,6 +113,50 @@ public class TradingManagementAMImpl extends ApplicationModuleImpl implements Tr
             //                holdingAllAssetDVOImpl.executeQuery();
             //            }
         }
+    }
+
+    /**
+     * This method is called to update logged in user and date for various scenarios.
+     * In Create Mode, WMSENTERUID, WMSENTERDATE is updated.
+     * In Edit Mode, WMSLASTUPDATEID, WMSLASTUPDATEDATE is updated.
+     * In case of Approve, WMSAPPROVEUID, WMSAPPROVEDATE is updated.
+     * @param mode
+     * @param updatedBy
+     */
+    public Map updateOrderRecord(String mode, String updatedBy) {
+        Map resultMap = new HashMap();
+        ViewObjectImpl orderVO = getFWMSOrderBook();
+        if (orderVO != null) {
+            Row orderRow = orderVO.getCurrentRow();
+            if (orderRow != null) {
+                if ("EDIT".equalsIgnoreCase(mode)) {
+                    orderRow.setAttribute("WmsLastUpdateUid", updatedBy);
+                    orderRow.setAttribute("WmsLastUpdateDate", getCurrentDate());
+                }
+                if ("CREATE".equalsIgnoreCase(mode)) {
+                    ViewObjectImpl seqImpl = getOrderBookNumberSeq();
+                    if (seqImpl != null) {
+                        seqImpl.executeQuery();
+                        Row orderSeqRow = seqImpl.first();
+                        if (orderSeqRow != null) {
+                            orderRow.setAttribute("FobNo", orderSeqRow.getAttribute("MaxFobNo"));
+                            orderRow.setAttribute("WmsEnterUid", updatedBy);
+                            orderRow.setAttribute("WmsEnterDate", getCurrentDate());
+                            orderRow.setAttribute("WmsLastUpdateUid", updatedBy);
+                            orderRow.setAttribute("WmsLastUpdateDate", getCurrentDate());
+                        }
+                    }
+                }
+                if ("APPROVE".equalsIgnoreCase(mode)) {
+                    orderRow.setAttribute("WmsApproveUid", updatedBy);
+                    orderRow.setAttribute("WmsApproveDate", getCurrentDate());
+                    orderRow.setAttribute("FobOstatus", "APPROVED");
+                }
+                this.getDBTransaction().commit();
+                resultMap.put("RESP_CODE", "SUCCESS");
+            }
+        }
+        return resultMap;
     }
 
     /**
@@ -248,6 +301,22 @@ public class TradingManagementAMImpl extends ApplicationModuleImpl implements Tr
      */
     public ViewLinkImpl getFWMSDHoldingAllVOToFWMSDHoldingAllExchangeSVO() {
         return (ViewLinkImpl) findViewLink("FWMSDHoldingAllVOToFWMSDHoldingAllExchangeSVO");
+    }
+
+    /**
+     * Container's getter for FWMSOrderBookVO1.
+     * @return FWMSOrderBookVO1
+     */
+    public ViewObjectImpl getFWMSOrderBook() {
+        return (ViewObjectImpl) findViewObject("FWMSOrderBook");
+    }
+
+    /**
+     * Container's getter for OrderBookNumberSeq1.
+     * @return OrderBookNumberSeq1
+     */
+    public ViewObjectImpl getOrderBookNumberSeq() {
+        return (ViewObjectImpl) findViewObject("OrderBookNumberSeq");
     }
 }
 

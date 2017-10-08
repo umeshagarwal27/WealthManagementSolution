@@ -18,7 +18,7 @@
             <f:facet name="statusbar"/>
             <af:table value="#{bindings.FWMSProduct.collectionModel}" var="row" rows="#{bindings.FWMSProduct.rangeSize}"
                       emptyText="#{bindings.FWMSProduct.viewable ? 'No data to display.' : 'Access Denied.'}"
-                      rowBandingInterval="0" fetchSize="#{bindings.FWMSProduct.rangeSize}" summary="#{null}"
+                      rowBandingInterval="1" fetchSize="#{bindings.FWMSProduct.rangeSize}" summary="#{null}"
                       filterModel="#{bindings.FWMSProductQuery.queryDescriptor}" filterVisible="true"
                       queryListener="#{bindings.FWMSProductQuery.processQuery}" varStatus="vs" id="t1"
                       autoHeightRows="0" columnStretching="column:c3" styleClass="AFStretchWidth" rowSelection="single"

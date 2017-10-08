@@ -4,6 +4,160 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="FWMSOrderBook" RangeSize="25" DataControl="TradingManagementAMDataControl"
+              id="FWMSOrderBookIterator"/>
+    <searchRegion Binds="FWMSOrderBookIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="FWMSOrderBookQuery"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <tree IterBinding="FWMSOrderBookIterator" id="FWMSOrderBook">
+      <nodeDefinition DefName="com.ciobera.fwms.trading.model.vo.FWMSOrderBookVO" Name="FWMSOrderBook0">
+        <AttrNames>
+          <Item Value="FobDate"/>
+          <Item Value="FobTime"/>
+          <Item Value="FobNo"/>
+          <Item Value="FundName"/>
+          <Item Value="BrokerName"/>
+          <Item Value="FobTicker"/>
+          <Item Value="ClientName"/>
+          <Item Value="FobStockName"/>
+          <Item Value="FobBS"/>
+          <Item Value="FobQty"/>
+          <Item Value="FobPrice"/>
+          <Item Value="FobEqty"/>
+          <Item Value="FobEprice"/>
+          <Item Value="FobOstatus"/>
+          <Item Value="FobFund"/>
+          <Item Value="FobBroker"/>
+          <Item Value="FobClient"/>
+          <Item Value="FobStock"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobStock">
+      <AttrNames>
+        <Item Value="FobStock"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobStockName">
+      <AttrNames>
+        <Item Value="FobStockName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="BrokerName">
+      <AttrNames>
+        <Item Value="BrokerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobBroker">
+      <AttrNames>
+        <Item Value="FobBroker"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobFund">
+      <AttrNames>
+        <Item Value="FobFund"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FundName">
+      <AttrNames>
+        <Item Value="FundName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="ClientName">
+      <AttrNames>
+        <Item Value="ClientName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobClient">
+      <AttrNames>
+        <Item Value="FobClient"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobBS">
+      <AttrNames>
+        <Item Value="FobBS"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobLM">
+      <AttrNames>
+        <Item Value="FobLM"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobQty">
+      <AttrNames>
+        <Item Value="FobQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobPrice">
+      <AttrNames>
+        <Item Value="FobPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobValue">
+      <AttrNames>
+        <Item Value="FobValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="WmsEnterUid">
+      <AttrNames>
+        <Item Value="WmsEnterUid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="WmsLastUpdateUid">
+      <AttrNames>
+        <Item Value="WmsLastUpdateUid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="WmsApproveUid">
+      <AttrNames>
+        <Item Value="WmsApproveUid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="WmsEnterDate">
+      <AttrNames>
+        <Item Value="WmsEnterDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="WmsLastUpdateDate">
+      <AttrNames>
+        <Item Value="WmsLastUpdateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="WmsApproveDate">
+      <AttrNames>
+        <Item Value="WmsApproveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobBrokerQty">
+      <AttrNames>
+        <Item Value="FobBrokerQty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobBrokerCash">
+      <AttrNames>
+        <Item Value="FobBrokerCash"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobMarginAmt">
+      <AttrNames>
+        <Item Value="FobMarginAmt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobEqty">
+      <AttrNames>
+        <Item Value="FobEqty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobEprice">
+      <AttrNames>
+        <Item Value="FobEprice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FWMSOrderBookIterator" id="FobOstatus">
+      <AttrNames>
+        <Item Value="FobOstatus"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>

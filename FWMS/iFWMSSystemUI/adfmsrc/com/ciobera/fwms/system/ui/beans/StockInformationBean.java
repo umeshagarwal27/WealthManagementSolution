@@ -41,7 +41,7 @@ public class StockInformationBean implements Serializable {
     private String confirmationMessage;
     private String userId =
         ((GlobalBean) ADFUtil.evaluateEL("#{GlobalBean}")) != null ?
-        ((GlobalBean) ADFUtil.evaluateEL("#{GlobalBean}")).getUserId() : "VASU";
+        ((GlobalBean) ADFUtil.evaluateEL("#{GlobalBean}")).getUserId() : "SRINI";
     private String fileName;
     private ComponentReference confirmationPopupBinding;
     private ComponentReference addUpdateStockPopupBinding;
@@ -94,7 +94,7 @@ public class StockInformationBean implements Serializable {
             }
         } catch (Exception e) {
             LoggingUtil.logDebugMessages(LOGGER,
-                                         "Exception inside LoginBean.executeMethod() : " + methodName + e.toString());
+                                         "Exception inside StockInformationBean.executeMethod() : " + methodName + e.toString());
         }
         return resultMap;
     }
