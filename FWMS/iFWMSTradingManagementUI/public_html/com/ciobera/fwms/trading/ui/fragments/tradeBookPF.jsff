@@ -69,29 +69,32 @@
                                    shortDesc="#{bindings.FWMSOrderBook.hints.FobTicker.tooltip}" id="ot6"/>
                 </af:column>
                 <af:column sortProperty="#{bindings.FWMSOrderBook.hints.ClientName.name}" filterable="true"
-                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.ClientName.label}" id="c7">
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.ClientName.label}" id="c7"
+                           rendered="false">
                     <af:outputText value="#{row.ClientName}"
                                    shortDesc="#{bindings.FWMSOrderBook.hints.ClientName.tooltip}" id="ot7"/>
                 </af:column>
                 <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobStockName.name}" filterable="true"
-                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobStockName.label}" id="c8">
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobStockName.label}" id="c8"
+                           rendered="false">
                     <af:outputText value="#{row.FobStockName}"
                                    shortDesc="#{bindings.FWMSOrderBook.hints.FobStockName.tooltip}" id="ot8"/>
                 </af:column>
                 <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobBS.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.FWMSOrderBook.hints.FobBS.label}" id="c9">
+                           headerText="#{UIBundle.BUY_SELL}" id="c9">
                     <af:outputText value="#{row.FobBS}" shortDesc="#{bindings.FWMSOrderBook.hints.FobBS.tooltip}"
                                    id="ot9"/>
                 </af:column>
                 <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobQty.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.FWMSOrderBook.hints.FobQty.label}" id="c10">
+                           headerText="#{bindings.FWMSOrderBook.hints.FobQty.label}" id="c10" align="right">
                     <af:outputText value="#{row.FobQty}" shortDesc="#{bindings.FWMSOrderBook.hints.FobQty.tooltip}"
                                    id="ot10">
                         <af:convertNumber groupingUsed="false" pattern="#{bindings.FWMSOrderBook.hints.FobQty.format}"/>
                     </af:outputText>
                 </af:column>
                 <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobPrice.name}" filterable="true"
-                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobPrice.label}" id="c11">
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobPrice.label}" id="c11"
+                           align="right">
                     <af:outputText value="#{row.FobPrice}" shortDesc="#{bindings.FWMSOrderBook.hints.FobPrice.tooltip}"
                                    id="ot11">
                         <af:convertNumber groupingUsed="false"
@@ -99,7 +102,7 @@
                     </af:outputText>
                 </af:column>
                 <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobEqty.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.FWMSOrderBook.hints.FobEqty.label}" id="c12">
+                           headerText="#{bindings.FWMSOrderBook.hints.FobEqty.label}" id="c12" align="right">
                     <af:outputText value="#{row.FobEqty}" shortDesc="#{bindings.FWMSOrderBook.hints.FobEqty.tooltip}"
                                    id="ot12">
                         <af:convertNumber groupingUsed="false"
@@ -107,7 +110,8 @@
                     </af:outputText>
                 </af:column>
                 <af:column sortProperty="#{bindings.FWMSOrderBook.hints.FobEprice.name}" filterable="true"
-                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobEprice.label}" id="c13">
+                           sortable="true" headerText="#{bindings.FWMSOrderBook.hints.FobEprice.label}" id="c13"
+                           align="right">
                     <af:outputText value="#{row.FobEprice}"
                                    shortDesc="#{bindings.FWMSOrderBook.hints.FobEprice.tooltip}" id="ot13">
                         <af:convertNumber groupingUsed="false"
@@ -174,11 +178,11 @@
                                         <af:inputText value="#{bindings.FobStock.inputValue}"
                                                       label="#{bindings.FobStock.hints.label}"
                                                       required="#{bindings.FobStock.hints.mandatory}"
-                                                      columns="#{bindings.FobStock.hints.displayWidth}"
+                                                      columns="5"
                                                       maximumLength="#{bindings.FobStock.hints.precision}"
                                                       disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                                       shortDesc="#{bindings.FobStock.hints.tooltip}" id="it1"
-                                                      simple="true">
+                                                      simple="true" rows="1">
                                             <f:validator binding="#{bindings.FobStock.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.FobStock.format}"/>
@@ -201,11 +205,11 @@
                                         <af:inputText value="#{bindings.FobBroker.inputValue}"
                                                       label="#{bindings.FobBroker.hints.label}"
                                                       required="#{bindings.FobBroker.hints.mandatory}"
-                                                      columns="#{bindings.FobBroker.hints.displayWidth}"
+                                                      columns="5"
                                                       disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                                       maximumLength="#{bindings.FobBroker.hints.precision}"
                                                       shortDesc="#{bindings.FobBroker.hints.tooltip}" id="it4"
-                                                      simple="true">
+                                                      simple="true" rows="1">
                                             <f:validator binding="#{bindings.FobBroker.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.FobBroker.format}"/>
@@ -228,11 +232,11 @@
                                         <af:inputText value="#{bindings.FobFund.inputValue}"
                                                       label="#{bindings.FobFund.hints.label}"
                                                       required="#{bindings.FobFund.hints.mandatory}"
-                                                      columns="#{bindings.FobFund.hints.displayWidth}"
+                                                      columns="5"
                                                       disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
                                                       maximumLength="#{bindings.FobFund.hints.precision}"
                                                       shortDesc="#{bindings.FobFund.hints.tooltip}" id="it5"
-                                                      simple="true">
+                                                      simple="true" rows="1">
                                             <f:validator binding="#{bindings.FobFund.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.FobFund.format}"/>
@@ -259,10 +263,10 @@
                                                       label="#{bindings.FobClient.hints.label}"
                                                       required="#{bindings.FobClient.hints.mandatory}"
                                                       disabled="#{bindings.FobOstatus.inputValue eq 'APPROVED'}"
-                                                      columns="#{bindings.FobClient.hints.displayWidth}"
+                                                      columns="5"
                                                       maximumLength="#{bindings.FobClient.hints.precision}"
                                                       shortDesc="#{bindings.FobClient.hints.tooltip}" id="it8"
-                                                      simple="true">
+                                                      simple="true" rows="1">
                                             <f:validator binding="#{bindings.FobClient.validator}"/>
                                             <af:convertNumber groupingUsed="false"
                                                               pattern="#{bindings.FobClient.format}"/>
@@ -347,7 +351,7 @@
                                         </af:inputText>
                                         <af:inputDate value="#{bindings.WmsEnterDate.inputValue}"
                                                       label="#{bindings.WmsEnterDate.hints.label}"
-                                                      required="#{bindings.WmsEnterDate.hints.mandatory}" columns="5"
+                                                      required="#{bindings.WmsEnterDate.hints.mandatory}" columns="8"
                                                       shortDesc="#{bindings.WmsEnterDate.hints.tooltip}" id="id2"
                                                       disabled="true">
                                             <f:validator binding="#{bindings.WmsEnterDate.validator}"/>
@@ -372,7 +376,7 @@
                                         <af:inputDate value="#{bindings.WmsLastUpdateDate.inputValue}"
                                                       label="#{bindings.WmsLastUpdateDate.hints.label}"
                                                       required="#{bindings.WmsLastUpdateDate.hints.mandatory}"
-                                                      columns="5"
+                                                      columns="8"
                                                       shortDesc="#{bindings.WmsLastUpdateDate.hints.tooltip}" id="id3"
                                                       disabled="true">
                                             <f:validator binding="#{bindings.WmsLastUpdateDate.validator}"/>
@@ -396,7 +400,7 @@
                                         </af:inputText>
                                         <af:inputDate value="#{bindings.WmsApproveDate.inputValue}"
                                                       label="#{bindings.WmsApproveDate.hints.label}"
-                                                      required="#{bindings.WmsApproveDate.hints.mandatory}" columns="5"
+                                                      required="#{bindings.WmsApproveDate.hints.mandatory}" columns="8"
                                                       shortDesc="#{bindings.WmsApproveDate.hints.tooltip}" id="id4"
                                                       disabled="true">
                                             <f:validator binding="#{bindings.WmsApproveDate.validator}"/>
@@ -465,6 +469,7 @@
                                         <f:validator binding="#{bindings.FobEprice.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.FobEprice.format}"/>
                                     </af:inputText>
+                                    <af:inputText label="#{UIBundle.BAL_QTY}" id="it9"/>
                                     <af:inputText value="#{bindings.FobOstatus.inputValue}"
                                                   label="#{bindings.FobOstatus.hints.label}"
                                                   required="#{bindings.FobOstatus.hints.mandatory}"
